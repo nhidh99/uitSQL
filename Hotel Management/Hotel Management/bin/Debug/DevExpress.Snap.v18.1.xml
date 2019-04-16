@@ -1,0 +1,1007 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevExpress.Snap.v18.1</name>
+    </assembly>
+    <members>
+        <member name="T:DevExpress.Snap.Options.DataSourceWizardOptions">
+
+            <summary>
+                <para>Contains options used to customize the Data Source Wizard in Snap.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Snap.Options.DataSourceWizardOptions.#ctor">
+            <summary>
+                <para>This member supports the internal infrastructure and is not intended to be used directly from your code.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.Options.DataSourceWizardOptions.DataSourceTypes">
+            <summary>
+                <para>Gets or sets the data source types available for data binding from the Data Source Wizard.
+</para>
+            </summary>
+            <value>One of the <see cref="T:DevExpress.Office.Options.DataSourceTypes"/> enumeration members.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.Options.DataSourceWizardOptions.Equals(System.Object)">
+            <summary>
+                <para>Determines whether the specified object is equal to the current DataSourceWizardOptions instance.
+</para>
+            </summary>
+            <param name="obj">
+		The object to compare with the current object.
+
+            </param>
+            <returns><b>true</b>, if the specified object is equal to the current DataSourceWizardOptions instance; otherwise <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.Options.DataSourceWizardOptions.GetHashCode">
+            <summary>
+                <para>Gets the hash code (a number) that corresponds to the value of the current DataSourceWizardOptions object.
+</para>
+            </summary>
+            <returns>An integer value that is the hash code for the current object.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.Options.DataSourceWizardOptions.Reset">
+            <summary>
+                <para>Resets all options to their default values.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Snap.Services.IDataSourceWizardCustomizationService">
+
+            <summary>
+                <para>Defines a service for customization of the Data Source Wizard.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Snap.Services.IDataSourceWizardCustomizationService.CustomizeDataSourceWizard(DevExpress.DataAccess.UI.Wizard.IWizardCustomization`1)">
+            <summary>
+                <para>Allows you to customize the Data Source Wizard for a Snap application.
+</para>
+            </summary>
+            <param name="tool">
+		An object exposing the IWizardCustomization&lt;DataSourceModel&gt; interface.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Snap.Services.SnapProgressIndicationService">
+
+            <summary>
+                <para>Enables a Snap application to indicate the current progress of long-lasting tasks.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Snap.Services.SnapProgressIndicationService.#ctor(DevExpress.Snap.SnapControl)">
+            <summary>
+                <para>Initializes a new instance of the SnapProgressIndicationService class with the specified Snap control.
+</para>
+            </summary>
+            <param name="snapControl">
+		A <see cref="T:DevExpress.Snap.SnapControl"/> object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.Services.SnapProgressIndicationService.Begin(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+                <para>Initializes and displays a progress indicator.
+</para>
+            </summary>
+            <param name="displayName">
+		A <see cref="T:System.String"/> value, indicating the action that is currently being performed.
+
+            </param>
+            <param name="minProgress">
+		An integer value, specifying the minimum indicator value.
+
+            </param>
+            <param name="maxProgress">
+		An integer value, specifying the maximum indicator value. 
+
+            </param>
+            <param name="currentProgress">
+		An integer value, specifying the current indicator value. 
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.Services.SnapProgressIndicationService.CancellationToken">
+            <summary>
+                <para>Allows tracing the requests to cancel an operation.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Threading.CancellationToken"/> structure.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.Services.SnapProgressIndicationService.Dispose">
+            <summary>
+                <para>Releases all resources used by SnapProgressIndicationService.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.Services.SnapProgressIndicationService.End">
+            <summary>
+                <para>Finalizes progress indication.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.Services.SnapProgressIndicationService.Reset">
+            <summary>
+                <para>Resets the progress indicator to the default value.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.Services.SnapProgressIndicationService.SetProgress(System.Int32)">
+            <summary>
+                <para>Modifies the indicator value to track progress.
+</para>
+            </summary>
+            <param name="currentProgress">
+		An integer value, specifying the current progress. 
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Snap.SnapControl">
+
+            <summary>
+                <para>The Rich Text Editor-based report designer that allows end-users to create, modify and preview reports using a familiar Microsoft Word-inspired interface. Supports a variety of document formats for importing or exporting, including an original native document format that stores the layout without actual data. 
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.#ctor">
+            <summary>
+                <para>Initializes a new instance of the <see cref="T:DevExpress.Snap.SnapControl"/> class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.About">
+            <summary>
+                <para>For internal use. Invokes the <b>About</b> dialog window.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.ActiveRecordChanged">
+            <summary>
+                <para>Obsolete. Use the <see cref="E:DevExpress.Snap.SnapControl.SnapMailMergeActiveRecordChanged"/> event instead.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.ActiveRecordChanging">
+            <summary>
+                <para>Obsolete. Use the <see cref="E:DevExpress.Snap.SnapControl.SnapMailMergeActiveRecordChanging"/> event instead.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.AfterDataSourceImport">
+            <summary>
+                <para>Occurs after importing a data source.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.AsynchronousOperationFinished">
+            <summary>
+                <para>Occurs after finishing an asynchronous operation in a separate thread.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.AsynchronousOperationStarted">
+            <summary>
+                <para>Occurs after starting an asynchronous operation in a separate thread.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.BeforeConversion">
+            <summary>
+                <para>Occurs before a snap document is exported to format other than the native .SNX.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.BeforeDataSourceExport">
+            <summary>
+                <para>Occurs before exporting a data source.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.BeforeLoadCustomAssembly">
+            <summary>
+                <para>Occurs when the control loads a report template (.snx file) containing the Entity Framework data source originated from a compiled assembly.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.CreateBars(DevExpress.XtraRichEdit.RichEditToolbarType)">
+            <summary>
+                <para>Overrides the corresponding property of the base class to hide it.
+</para>
+            </summary>
+            <param name="toolbarType">
+		 
+
+            </param>
+            <returns>
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.CreateBars">
+            <summary>
+                <para>Overrides the corresponding property of the base class to hide it. 
+</para>
+            </summary>
+            <returns> 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.CreateDocumentServer">
+            <summary>
+                <para>Provides access to the rich text engine behind the SnapControl.
+
+</para>
+            </summary>
+            <returns>An object implementing the <see cref="T:DevExpress.XtraRichEdit.IRichEditDocumentServer"/> interface.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.CreateMailMergeOptions">
+            <summary>
+                <para>Obsolete. Use the <see cref="M:DevExpress.Snap.SnapControl.CreateSnapMailMergeExportOptions"/> property instead.
+</para>
+            </summary>
+            <returns>An object implementing the <see cref="T:DevExpress.XtraRichEdit.API.Native.MailMergeOptions"/> interface.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.CreateRibbon(DevExpress.XtraRichEdit.RichEditToolbarType)">
+            <summary>
+                <para>Overrides the corresponding property of the base class to hide it.
+</para>
+            </summary>
+            <param name="toolbarType">
+		 
+
+            </param>
+            <returns> 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.CreateRibbon">
+            <summary>
+                <para>Overrides the corresponding property of the base class to hide it.
+</para>
+            </summary>
+            <returns>
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.CreateSnapMailMergeExportOptions">
+            <summary>
+                <para>Creates the options that determine how a document is rendered when finishing a mail-merge report. 
+</para>
+            </summary>
+            <returns>A <see cref="T:DevExpress.Snap.Core.Options.SnapMailMergeExportOptions"/> object.
+</returns>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.CustomAssemblyLoading">
+            <summary>
+                <para>For internal use.</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.CustomizeMergeFields">
+            <summary>
+                <para>Occurs when obtaining the dynamic content of merge fields from a data source.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControl.DataSource">
+            <summary>
+                <para>Specifies the SnapControl data source.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Object"/> value, specifying the document data source.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.DataSourceChanged">
+            <summary>
+                <para>Occurs when any of the SnapControl's data sources has been changed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControl.DataSources">
+            <summary>
+                <para>Provides access to the collection of SnapControl data sources.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Snap.Core.API.DataSourceInfoCollection"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControl.Document">
+            <summary>
+                <para>Provides access to the specified document.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Snap.Core.API.SnapDocument"/> object.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.DocumentClosing">
+            <summary>
+                <para>Occurs before closing a <see cref="T:DevExpress.Snap.Core.API.SnapDocument"/>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.DocumentLoaded">
+            <summary>
+                <para>Occurs before loading a <see cref="T:DevExpress.Snap.Core.API.SnapDocument"/> into a <see cref="T:DevExpress.Snap.SnapControl"/>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.EmptyDocumentCreated">
+            <summary>
+                <para>Occurs before creating a new <see cref="T:DevExpress.Snap.Core.API.SnapDocument"/>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.ExportDocument(System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Exports the document to a stream in the specified format.
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object to output the document to.
+
+            </param>
+            <param name="documentFormat">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> structure that specifies the format of the exported document.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.ExportDocument(System.String,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Exports the document to a file in the specified format.
+</para>
+            </summary>
+            <param name="fileName">
+		A string value containing the full path (including the file name) specifying where the document will be saved. 
+
+            </param>
+            <param name="documentFormat">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> structure that specifies the format of the exported document.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControl.IsDesignMode">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+            <value>A Boolean value.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.MailMerge(System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Obsolete. Use the <see cref="M:DevExpress.Snap.SnapControl.SnapMailMerge"/> method instead.
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object.
+
+            </param>
+            <param name="format">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> structure.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.MailMerge(DevExpress.XtraRichEdit.API.Native.Document)">
+            <summary>
+                <para>Obsolete. Use the <see cref="M:DevExpress.Snap.SnapControl.SnapMailMerge"/> method instead.
+</para>
+            </summary>
+            <param name="document">
+		An object implementing the <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.MailMerge(DevExpress.XtraRichEdit.API.Native.MailMergeOptions,DevExpress.XtraRichEdit.API.Native.Document)">
+            <summary>
+                <para>Obsolete. Use the <see cref="M:DevExpress.Snap.SnapControl.SnapMailMerge"/> method instead.
+</para>
+            </summary>
+            <param name="options">
+		An object implementing the <see cref="T:DevExpress.XtraRichEdit.API.Native.MailMergeOptions"/> interface.
+
+            </param>
+            <param name="targetDocument">
+		An object implementing the <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.MailMerge(DevExpress.XtraRichEdit.IRichEditDocumentServer)">
+            <summary>
+                <para>Obsolete. Use the <see cref="M:DevExpress.Snap.SnapControl.SnapMailMerge"/> method instead.
+</para>
+            </summary>
+            <param name="documentServer">
+		An object implementing the <see cref="T:DevExpress.XtraRichEdit.IRichEditDocumentServer"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.MailMerge(System.String,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Obsolete. Use the <see cref="M:DevExpress.Snap.SnapControl.SnapMailMerge"/> method instead.
+</para>
+            </summary>
+            <param name="fileName">
+		A <see cref="T:System.String"/> value.
+
+            </param>
+            <param name="format">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> structure.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.MailMerge(DevExpress.XtraRichEdit.API.Native.MailMergeOptions,DevExpress.XtraRichEdit.IRichEditDocumentServer)">
+            <summary>
+                <para>Obsolete. Use the <see cref="M:DevExpress.Snap.SnapControl.SnapMailMerge"/> method instead.
+</para>
+            </summary>
+            <param name="options">
+		An object implementing the <see cref="T:DevExpress.XtraRichEdit.API.Native.MailMergeOptions"/> interface.
+
+            </param>
+            <param name="targetDocumentServer">
+		An object implementing the <see cref="T:DevExpress.XtraRichEdit.IRichEditDocumentServer"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.MailMerge(DevExpress.XtraRichEdit.API.Native.MailMergeOptions,System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Obsolete. Use the <see cref="M:DevExpress.Snap.SnapControl.SnapMailMerge"/> method instead.
+</para>
+            </summary>
+            <param name="options">
+		An object implementing the <see cref="T:DevExpress.XtraRichEdit.API.Native.MailMergeOptions"/> interface.
+
+            </param>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object.
+
+            </param>
+            <param name="format">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> structure.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.MailMerge(DevExpress.XtraRichEdit.API.Native.MailMergeOptions,System.String,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Obsolete. Use the <see cref="M:DevExpress.Snap.SnapControl.SnapMailMerge"/> method instead.
+</para>
+            </summary>
+            <param name="options">
+		An object implementing the <see cref="T:DevExpress.XtraRichEdit.API.Native.MailMergeOptions"/> interface.
+
+            </param>
+            <param name="fileName">
+		A <see cref="T:System.String"/> value.
+
+            </param>
+            <param name="format">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> structure.
+
+            </param>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.MailMergeExportFormShowing">
+            <summary>
+                <para>Fires before showing the <b>Export Range</b> form.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.MailMergeFinished">
+            <summary>
+                <para>Obsolete. Use the <see cref="E:DevExpress.Snap.SnapControl.SnapMailMergeFinished"/> event instead.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.MailMergeRecordFinished">
+            <summary>
+                <para>Obsolete. Use the <see cref="E:DevExpress.Snap.SnapControl.SnapMailMergeRecordFinished"/> event instead.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.MailMergeRecordStarted">
+            <summary>
+                <para>Obsolete. Use the <see cref="E:DevExpress.Snap.SnapControl.SnapMailMergeRecordStarted"/> event instead.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.MailMergeStarted">
+            <summary>
+                <para>Obsolete. Use the <see cref="E:DevExpress.Snap.SnapControl.SnapMailMergeStarted"/> event instead.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControl.Options">
+            <summary>
+                <para>Provides access to the options of a <see cref="T:DevExpress.Snap.SnapControl"/>.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Snap.SnapControlOptions"/> object.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.ReportStructureEditorFormShowing">
+            <summary>
+                <para>Fires before showing the <b>Report Structure</b> editor.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.SaveDocument(System.String,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Saves the document to a file in the specified format.
+</para>
+            </summary>
+            <param name="fileName">
+		A <see cref="T:System.String"/> value specifying the file name.
+
+            </param>
+            <param name="documentFormat">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> structure.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.SaveDocument(System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Saves the document to a stream in the specified format.
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object.
+
+            </param>
+            <param name="documentFormat">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> structure.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.SaveDocument(System.String)">
+            <summary>
+                <para>Saves the document to a file in the Snap native document format (.SNX)
+</para>
+            </summary>
+            <param name="fileName">
+		A string value specifying the path to a file in which to save the document.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.SaveDocument(System.IO.Stream)">
+            <summary>
+                <para>Saves the document to a stream in the Snap native document format (.SNX)
+</para>
+            </summary>
+            <param name="stream">
+		The <see cref="T:System.IO.Stream"/> object to output the document to.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.SnapMailMerge(System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Starts rendering a mail-merge document and saving it to a stream in the specified format.
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/>, containing the document bytes.
+
+            </param>
+            <param name="format">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> structure, specifying the document format.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.SnapMailMerge(DevExpress.Snap.Core.Options.SnapMailMergeExportOptions,System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Starts rendering a mail-merge document based on the applied export options and saving it to a stream in the specified format.
+</para>
+            </summary>
+            <param name="options">
+		An object implementing the <see cref="T:DevExpress.Snap.Core.Options.SnapMailMergeExportOptions"/> interface.
+
+            </param>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/>, containing the document bytes.
+
+            </param>
+            <param name="format">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> structure, specifying the document format.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.SnapMailMerge(DevExpress.Snap.Core.Options.SnapMailMergeExportOptions,System.String,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Starts rendering a mail-merge document based on the applied export options and saving it to a file in the specified format.
+</para>
+            </summary>
+            <param name="options">
+		An object implementing the <see cref="T:DevExpress.Snap.Core.Options.SnapMailMergeExportOptions"/> interface.
+
+            </param>
+            <param name="fileName">
+		A <see cref="T:System.String"/> value, specifying the file name.
+
+            </param>
+            <param name="format">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> structure, specifying the document format.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.SnapMailMerge(System.String,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Starts rendering a mail-merge document and saving it to a file in the specified format.
+</para>
+            </summary>
+            <param name="fileName">
+		A <see cref="T:System.String"/> value, specifying the file name.
+
+            </param>
+            <param name="format">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> structure, specifying the document format.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.SnapMailMerge(DevExpress.Snap.Core.Options.SnapMailMergeExportOptions,DevExpress.Snap.Core.Native.ISnapDocumentServer)">
+            <summary>
+                <para>Obsolete. Starts rendering a mail-merge document based on the applied export options and saving it to the specified <see cref="T:DevExpress.Snap.SnapDocumentServer"/>.
+</para>
+            </summary>
+            <param name="options">
+		An object implementing the <see cref="T:DevExpress.Snap.Core.Options.SnapMailMergeExportOptions"/> interface.
+
+            </param>
+            <param name="targetDocumentServer">
+		A <see cref="T:DevExpress.Snap.SnapDocumentServer"/> object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.SnapMailMerge(DevExpress.Snap.Core.Native.ISnapDocumentServer)">
+            <summary>
+                <para>Obsolete. Starts rendering a mail-merge document and saving it to the specified <see cref="T:DevExpress.Snap.SnapDocumentServer"/>.
+</para>
+            </summary>
+            <param name="documentServer">
+		A <see cref="T:DevExpress.Snap.SnapDocumentServer"/> object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.SnapMailMerge(DevExpress.Snap.Core.Options.SnapMailMergeExportOptions,DevExpress.Snap.Core.API.SnapDocument)">
+            <summary>
+                <para>Starts rendering a mail-merge document based on the applied export options and saving it to the specified target document.
+</para>
+            </summary>
+            <param name="options">
+		An object implementing the <see cref="T:DevExpress.Snap.Core.Options.SnapMailMergeExportOptions"/> interface.
+
+            </param>
+            <param name="targetDocument">
+		An object implementing the <see cref="T:DevExpress.Snap.Core.API.SnapDocument"/> interface, storing the resulting document.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControl.SnapMailMerge(DevExpress.Snap.Core.API.SnapDocument)">
+            <summary>
+                <para>Starts rendering the specified mail-merge document.
+</para>
+            </summary>
+            <param name="document">
+		An object implementing the <see cref="T:DevExpress.Snap.Core.API.SnapDocument"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.SnapMailMergeActiveRecordChanged">
+            <summary>
+                <para>Occurs after traversing to the next data record in a mail merge data source.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.SnapMailMergeActiveRecordChanging">
+            <summary>
+                <para>Occurs before traversing to the next data record in a mail merge data source.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.SnapMailMergeFinished">
+            <summary>
+                <para>Occurs after document merging has finished.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.SnapMailMergeRecordFinished">
+            <summary>
+                <para>Occurs after data field merging has finished.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.SnapMailMergeRecordStarted">
+            <summary>
+                <para>Occurs before the data field merging starts.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.SnapMailMergeStarted">
+            <summary>
+                <para>Occurs after document merging has started.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControl.SnxBytes">
+            <summary>
+                <para>Specifies the report content as an array of bytes in <b>.snx</b> format. 
+
+</para>
+            </summary>
+            <value>An array of <see cref="T:System.Byte"/> values, containing data in <b>.snx</b> format.
+
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.TableCellStyleFormShowing">
+            <summary>
+                <para>Fires before showing the <b>Table Cell Style</b> form.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Snap.SnapControl.ValidateCustomSql">
+            <summary>
+                <para>Allows validation of the custom SQL query created using the Data Source Wizard or the Query Builder.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Snap.SnapControlOptions">
+
+            <summary>
+                <para>Stores settings specific for the <see cref="T:DevExpress.Snap.SnapControl"/>. 
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Snap.SnapControlOptions.#ctor(DevExpress.XtraRichEdit.Internal.InnerRichEditDocumentServer)">
+            <summary>
+                <para>For internal use. Initializes a new instance of the SnapControlOptions class with the specified settings.
+</para>
+            </summary>
+            <param name="documentServer">
+		A DevExpress.XtraRichEdit.Internal.InnerRichEditDocumentServer object.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControlOptions.DataSourceLoadingOptions">
+            <summary>
+                <para>For internal use.</para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControlOptions.DataSourceOptions">
+            <summary>
+                <para>Allows you to specify whether to prohibit the ObjectDataSource data retrieval, prompt the user or silently load the data.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControlOptions.DataSourceWizardOptions">
+            <summary>
+                <para>Provides access to options that enable customization of the Data Source Wizard.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Snap.Options.DataSourceWizardOptions"/> object that specifies customization options for the <b>Data Source Wizard</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControlOptions.DocumentSaveOptions">
+            <summary>
+                <para>Provides access to the control's document saving options.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Snap.Core.Options.SnxDocumentSaveOptions"/> object that contains document saving related settings.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControlOptions.Fields">
+            <summary>
+                <para>Provides access to the options of Snap fields. 
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Snap.Core.Options.SnapFieldOptions"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControlOptions.FileExportOptions">
+            <summary>
+                <para>Provides access to the options for exporting the document in various formats.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.DocumentSaveOptions"/> object that contains export related settings.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControlOptions.MailMerge">
+            <summary>
+                <para>For internal use. Use the <see cref="P:DevExpress.Snap.SnapControlOptions.SnapMailMergeVisualOptions"/> property instead.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.RichEditMailMergeOptions"/> object, related to the mail merge options of a <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Snap.SnapControlOptions.SnapMailMergeVisualOptions">
+            <summary>
+                <para>Provides access to the options that determine how a mail-merge document is displayed in a Snap application. 
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Snap.Core.Options.SnapMailMergeVisualOptions"/> object.
+</value>
+
+
+        </member>
+    </members>
+</doc>
