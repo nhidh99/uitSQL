@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
@@ -48,7 +46,6 @@
             this.lbRoomType = new DevExpress.XtraEditors.LabelControl();
             this.gcRoomTypeList = new DevExpress.XtraEditors.GroupControl();
             this.dgvRoomType = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +66,6 @@
             this.btnRoomLocked = new DevExpress.XtraEditors.SimpleButton();
             this.gcCustomerList = new DevExpress.XtraEditors.GroupControl();
             this.dgvNote_2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,7 +98,6 @@
             this.cbRoomType_3 = new System.Windows.Forms.ComboBox();
             this.gcRoomList_3 = new DevExpress.XtraEditors.GroupControl();
             this.dgvRoom_3 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,11 +118,21 @@
             this.lbCustomerName_4 = new DevExpress.XtraEditors.LabelControl();
             this.gcProductList_4 = new DevExpress.XtraEditors.GroupControl();
             this.dgvProductList_4 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gcBillPay = new DevExpress.XtraEditors.GroupControl();
+            this.nudBillPay_4 = new System.Windows.Forms.NumericUpDown();
+            this.tbBillLeft_4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbBillPrice_4 = new System.Windows.Forms.TextBox();
+            this.btnBillCancel_4 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBillPay_4 = new DevExpress.XtraEditors.SimpleButton();
+            this.lbBillLeft_4 = new DevExpress.XtraEditors.LabelControl();
+            this.lbBillPay_4 = new DevExpress.XtraEditors.LabelControl();
+            this.lbBillID_4 = new DevExpress.XtraEditors.LabelControl();
+            this.lbBillPrice_4 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.gcRevenueSelect_5 = new DevExpress.XtraEditors.GroupControl();
@@ -154,23 +159,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbMaxCustomersPerRoom_6 = new DevExpress.XtraEditors.LabelControl();
             this.lbMaxCustomers_6 = new DevExpress.XtraEditors.LabelControl();
-            this.lbAdditionalPrice_6 = new DevExpress.XtraEditors.LabelControl();
+            this.lbForeignTaxRatio_6 = new DevExpress.XtraEditors.LabelControl();
+            this.lbCustomerTaxRatio_6 = new DevExpress.XtraEditors.LabelControl();
             this.btnEditMaxCustomers_6 = new DevExpress.XtraEditors.SimpleButton();
-            this.btnEditAdditionPrice_6 = new DevExpress.XtraEditors.SimpleButton();
-            this.lbAdditionPricePerRoom_6 = new DevExpress.XtraEditors.LabelControl();
+            this.btnEditForeignTax_6 = new DevExpress.XtraEditors.SimpleButton();
+            this.lbForeignCustomerTax_6 = new DevExpress.XtraEditors.LabelControl();
+            this.btnEditCustomersTax_6 = new DevExpress.XtraEditors.SimpleButton();
+            this.lbCustomersTax_6 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
-            this.gcBillPay = new DevExpress.XtraEditors.GroupControl();
-            this.nudBillPay_4 = new System.Windows.Forms.NumericUpDown();
-            this.tbBillLeft_4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.tbBillPrice_4 = new System.Windows.Forms.TextBox();
-            this.btnBillCancel_4 = new DevExpress.XtraEditors.SimpleButton();
-            this.btnBillPay_4 = new DevExpress.XtraEditors.SimpleButton();
-            this.lbBillLeft_4 = new DevExpress.XtraEditors.LabelControl();
-            this.lbBillPay_4 = new DevExpress.XtraEditors.LabelControl();
-            this.lbBillID_4 = new DevExpress.XtraEditors.LabelControl();
-            this.lbBillPrice_4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -207,6 +204,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcProductList_4)).BeginInit();
             this.gcProductList_4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcBillPay)).BeginInit();
+            this.gcBillPay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBillPay_4)).BeginInit();
             this.xtraTabPage6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcRevenueSelect_5)).BeginInit();
@@ -226,9 +226,6 @@
             this.groupControl12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomType_6)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcBillPay)).BeginInit();
-            this.gcBillPay.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBillPay_4)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -423,7 +420,6 @@
             this.dgvRoomType.BackgroundColor = System.Drawing.Color.White;
             this.dgvRoomType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRoomType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
@@ -436,14 +432,6 @@
             this.dgvRoomType.Size = new System.Drawing.Size(1104, 503);
             this.dgvRoomType.TabIndex = 2;
             this.dgvRoomType.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column1.HeaderText = "SỐ PHÒNG";
-            this.Column1.Name = "Column1";
             // 
             // Column2
             // 
@@ -649,7 +637,6 @@
             this.dgvNote_2.BackgroundColor = System.Drawing.Color.White;
             this.dgvNote_2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNote_2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
@@ -662,14 +649,6 @@
             this.dgvNote_2.Size = new System.Drawing.Size(1104, 504);
             this.dgvNote_2.TabIndex = 3;
             this.dgvNote_2.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewTextBoxColumn1.HeaderText = "MÃ KHÁCH ";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -1011,7 +990,6 @@
             this.dgvRoom_3.BackgroundColor = System.Drawing.Color.White;
             this.dgvRoom_3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRoom_3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
             this.Column8,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn9,
@@ -1023,12 +1001,6 @@
             this.dgvRoom_3.Size = new System.Drawing.Size(1104, 504);
             this.dgvRoom_3.TabIndex = 15;
             this.dgvRoom_3.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.HeaderText = "SỐ PHÒNG";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // Column8
             // 
@@ -1239,7 +1211,6 @@
             this.dgvProductList_4.BackgroundColor = System.Drawing.Color.White;
             this.dgvProductList_4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductList_4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
@@ -1251,12 +1222,6 @@
             this.dgvProductList_4.Size = new System.Drawing.Size(1104, 505);
             this.dgvProductList_4.TabIndex = 2;
             this.dgvProductList_4.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn11.HeaderText = "SỐ PHÒNG";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -1281,6 +1246,135 @@
             this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn15.HeaderText = "THÀNH TIỀN (VND)";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // gcBillPay
+            // 
+            this.gcBillPay.Controls.Add(this.nudBillPay_4);
+            this.gcBillPay.Controls.Add(this.tbBillLeft_4);
+            this.gcBillPay.Controls.Add(this.textBox3);
+            this.gcBillPay.Controls.Add(this.tbBillPrice_4);
+            this.gcBillPay.Controls.Add(this.btnBillCancel_4);
+            this.gcBillPay.Controls.Add(this.btnBillPay_4);
+            this.gcBillPay.Controls.Add(this.lbBillLeft_4);
+            this.gcBillPay.Controls.Add(this.lbBillPay_4);
+            this.gcBillPay.Controls.Add(this.lbBillID_4);
+            this.gcBillPay.Controls.Add(this.lbBillPrice_4);
+            this.gcBillPay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcBillPay.Location = new System.Drawing.Point(687, 3);
+            this.gcBillPay.Name = "gcBillPay";
+            this.gcBillPay.Size = new System.Drawing.Size(424, 259);
+            this.gcBillPay.TabIndex = 2;
+            this.gcBillPay.Text = "THANH TOÁN HÓA ĐƠN";
+            // 
+            // nudBillPay_4
+            // 
+            this.nudBillPay_4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nudBillPay_4.Location = new System.Drawing.Point(162, 116);
+            this.nudBillPay_4.Name = "nudBillPay_4";
+            this.nudBillPay_4.Size = new System.Drawing.Size(200, 23);
+            this.nudBillPay_4.TabIndex = 24;
+            // 
+            // tbBillLeft_4
+            // 
+            this.tbBillLeft_4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbBillLeft_4.Location = new System.Drawing.Point(162, 152);
+            this.tbBillLeft_4.Name = "tbBillLeft_4";
+            this.tbBillLeft_4.Size = new System.Drawing.Size(200, 23);
+            this.tbBillLeft_4.TabIndex = 26;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox3.Location = new System.Drawing.Point(162, 44);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(200, 23);
+            this.textBox3.TabIndex = 21;
+            // 
+            // tbBillPrice_4
+            // 
+            this.tbBillPrice_4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbBillPrice_4.Location = new System.Drawing.Point(162, 80);
+            this.tbBillPrice_4.Name = "tbBillPrice_4";
+            this.tbBillPrice_4.Size = new System.Drawing.Size(200, 23);
+            this.tbBillPrice_4.TabIndex = 22;
+            // 
+            // btnBillCancel_4
+            // 
+            this.btnBillCancel_4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBillCancel_4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBillCancel_4.ImageOptions.Image")));
+            this.btnBillCancel_4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnBillCancel_4.Location = new System.Drawing.Point(222, 194);
+            this.btnBillCancel_4.Name = "btnBillCancel_4";
+            this.btnBillCancel_4.Size = new System.Drawing.Size(140, 50);
+            this.btnBillCancel_4.TabIndex = 28;
+            this.btnBillCancel_4.Text = "HỦY HÓA ĐƠN";
+            // 
+            // btnBillPay_4
+            // 
+            this.btnBillPay_4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBillPay_4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBillPay_4.ImageOptions.Image")));
+            this.btnBillPay_4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnBillPay_4.Location = new System.Drawing.Point(63, 194);
+            this.btnBillPay_4.Name = "btnBillPay_4";
+            this.btnBillPay_4.Size = new System.Drawing.Size(140, 50);
+            this.btnBillPay_4.TabIndex = 27;
+            this.btnBillPay_4.Text = "THANH TOÁN";
+            // 
+            // lbBillLeft_4
+            // 
+            this.lbBillLeft_4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbBillLeft_4.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbBillLeft_4.Appearance.Options.UseFont = true;
+            this.lbBillLeft_4.Appearance.Options.UseTextOptions = true;
+            this.lbBillLeft_4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lbBillLeft_4.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbBillLeft_4.Location = new System.Drawing.Point(77, 155);
+            this.lbBillLeft_4.Name = "lbBillLeft_4";
+            this.lbBillLeft_4.Size = new System.Drawing.Size(73, 17);
+            this.lbBillLeft_4.TabIndex = 25;
+            this.lbBillLeft_4.Text = "TIỀN THỪA:";
+            // 
+            // lbBillPay_4
+            // 
+            this.lbBillPay_4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbBillPay_4.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbBillPay_4.Appearance.Options.UseFont = true;
+            this.lbBillPay_4.Appearance.Options.UseTextOptions = true;
+            this.lbBillPay_4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lbBillPay_4.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbBillPay_4.Location = new System.Drawing.Point(77, 118);
+            this.lbBillPay_4.Name = "lbBillPay_4";
+            this.lbBillPay_4.Size = new System.Drawing.Size(73, 17);
+            this.lbBillPay_4.TabIndex = 23;
+            this.lbBillPay_4.Text = "TIỀN NHẬN:";
+            // 
+            // lbBillID_4
+            // 
+            this.lbBillID_4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbBillID_4.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbBillID_4.Appearance.Options.UseFont = true;
+            this.lbBillID_4.Appearance.Options.UseTextOptions = true;
+            this.lbBillID_4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lbBillID_4.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbBillID_4.Location = new System.Drawing.Point(63, 47);
+            this.lbBillID_4.Name = "lbBillID_4";
+            this.lbBillID_4.Size = new System.Drawing.Size(87, 17);
+            this.lbBillID_4.TabIndex = 19;
+            this.lbBillID_4.Text = "SỐ HÓA ĐƠN:";
+            // 
+            // lbBillPrice_4
+            // 
+            this.lbBillPrice_4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbBillPrice_4.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbBillPrice_4.Appearance.Options.UseFont = true;
+            this.lbBillPrice_4.Appearance.Options.UseTextOptions = true;
+            this.lbBillPrice_4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lbBillPrice_4.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbBillPrice_4.Location = new System.Drawing.Point(76, 83);
+            this.lbBillPrice_4.Name = "lbBillPrice_4";
+            this.lbBillPrice_4.Size = new System.Drawing.Size(74, 17);
+            this.lbBillPrice_4.TabIndex = 20;
+            this.lbBillPrice_4.Text = "TỔNG TIỀN:";
             // 
             // xtraTabPage6
             // 
@@ -1426,8 +1520,8 @@
             this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 25);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 3;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.47779F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.52221F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.65664F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.34337F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(1110, 776);
             this.tableLayoutPanel6.TabIndex = 30;
@@ -1464,9 +1558,9 @@
             // 
             this.groupControl13.Controls.Add(this.dgvCustomerType_6);
             this.groupControl13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl13.Location = new System.Drawing.Point(559, 116);
+            this.groupControl13.Location = new System.Drawing.Point(559, 154);
             this.groupControl13.Name = "groupControl13";
-            this.groupControl13.Size = new System.Drawing.Size(548, 612);
+            this.groupControl13.Size = new System.Drawing.Size(548, 574);
             this.groupControl13.TabIndex = 30;
             this.groupControl13.Text = "DANH MỤC CÁC LOẠI KHÁCH";
             // 
@@ -1480,7 +1574,7 @@
             this.dgvCustomerType_6.Location = new System.Drawing.Point(2, 25);
             this.dgvCustomerType_6.Name = "dgvCustomerType_6";
             this.dgvCustomerType_6.RowTemplate.Height = 24;
-            this.dgvCustomerType_6.Size = new System.Drawing.Size(544, 585);
+            this.dgvCustomerType_6.Size = new System.Drawing.Size(544, 547);
             this.dgvCustomerType_6.TabIndex = 0;
             this.dgvCustomerType_6.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
             // 
@@ -1494,9 +1588,9 @@
             // 
             this.groupControl12.Controls.Add(this.dgvRoomType_6);
             this.groupControl12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl12.Location = new System.Drawing.Point(3, 116);
+            this.groupControl12.Location = new System.Drawing.Point(3, 154);
             this.groupControl12.Name = "groupControl12";
-            this.groupControl12.Size = new System.Drawing.Size(550, 612);
+            this.groupControl12.Size = new System.Drawing.Size(550, 574);
             this.groupControl12.TabIndex = 17;
             this.groupControl12.Text = "ĐƠN GIÁ CÁC LOẠI PHÒNG";
             // 
@@ -1511,7 +1605,7 @@
             this.dgvRoomType_6.Location = new System.Drawing.Point(2, 25);
             this.dgvRoomType_6.Name = "dgvRoomType_6";
             this.dgvRoomType_6.RowTemplate.Height = 24;
-            this.dgvRoomType_6.Size = new System.Drawing.Size(546, 585);
+            this.dgvRoomType_6.Size = new System.Drawing.Size(546, 547);
             this.dgvRoomType_6.TabIndex = 0;
             this.dgvRoomType_6.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
             // 
@@ -1532,14 +1626,17 @@
             this.tableLayoutPanel6.SetColumnSpan(this.panel1, 2);
             this.panel1.Controls.Add(this.lbMaxCustomersPerRoom_6);
             this.panel1.Controls.Add(this.lbMaxCustomers_6);
-            this.panel1.Controls.Add(this.lbAdditionalPrice_6);
+            this.panel1.Controls.Add(this.lbForeignTaxRatio_6);
+            this.panel1.Controls.Add(this.lbCustomerTaxRatio_6);
             this.panel1.Controls.Add(this.btnEditMaxCustomers_6);
-            this.panel1.Controls.Add(this.btnEditAdditionPrice_6);
-            this.panel1.Controls.Add(this.lbAdditionPricePerRoom_6);
+            this.panel1.Controls.Add(this.btnEditForeignTax_6);
+            this.panel1.Controls.Add(this.lbForeignCustomerTax_6);
+            this.panel1.Controls.Add(this.btnEditCustomersTax_6);
+            this.panel1.Controls.Add(this.lbCustomersTax_6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1104, 107);
+            this.panel1.Size = new System.Drawing.Size(1104, 145);
             this.panel1.TabIndex = 0;
             // 
             // lbMaxCustomersPerRoom_6
@@ -1548,7 +1645,7 @@
             this.lbMaxCustomersPerRoom_6.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbMaxCustomersPerRoom_6.Appearance.Options.UseFont = true;
             this.lbMaxCustomersPerRoom_6.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbMaxCustomersPerRoom_6.Location = new System.Drawing.Point(385, 29);
+            this.lbMaxCustomersPerRoom_6.Location = new System.Drawing.Point(385, 28);
             this.lbMaxCustomersPerRoom_6.Name = "lbMaxCustomersPerRoom_6";
             this.lbMaxCustomersPerRoom_6.Size = new System.Drawing.Size(195, 17);
             this.lbMaxCustomersPerRoom_6.TabIndex = 29;
@@ -1560,23 +1657,35 @@
             this.lbMaxCustomers_6.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbMaxCustomers_6.Appearance.Options.UseFont = true;
             this.lbMaxCustomers_6.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbMaxCustomers_6.Location = new System.Drawing.Point(586, 30);
+            this.lbMaxCustomers_6.Location = new System.Drawing.Point(586, 29);
             this.lbMaxCustomers_6.Name = "lbMaxCustomers_6";
             this.lbMaxCustomers_6.Size = new System.Drawing.Size(6, 16);
             this.lbMaxCustomers_6.TabIndex = 30;
             this.lbMaxCustomers_6.Text = "?";
             // 
-            // lbAdditionalPrice_6
+            // lbForeignTaxRatio_6
             // 
-            this.lbAdditionalPrice_6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbAdditionalPrice_6.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbAdditionalPrice_6.Appearance.Options.UseFont = true;
-            this.lbAdditionalPrice_6.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbAdditionalPrice_6.Location = new System.Drawing.Point(484, 69);
-            this.lbAdditionalPrice_6.Name = "lbAdditionalPrice_6";
-            this.lbAdditionalPrice_6.Size = new System.Drawing.Size(6, 16);
-            this.lbAdditionalPrice_6.TabIndex = 32;
-            this.lbAdditionalPrice_6.Text = "?";
+            this.lbForeignTaxRatio_6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbForeignTaxRatio_6.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbForeignTaxRatio_6.Appearance.Options.UseFont = true;
+            this.lbForeignTaxRatio_6.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbForeignTaxRatio_6.Location = new System.Drawing.Point(582, 104);
+            this.lbForeignTaxRatio_6.Name = "lbForeignTaxRatio_6";
+            this.lbForeignTaxRatio_6.Size = new System.Drawing.Size(6, 16);
+            this.lbForeignTaxRatio_6.TabIndex = 32;
+            this.lbForeignTaxRatio_6.Text = "?";
+            // 
+            // lbCustomerTaxRatio_6
+            // 
+            this.lbCustomerTaxRatio_6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbCustomerTaxRatio_6.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbCustomerTaxRatio_6.Appearance.Options.UseFont = true;
+            this.lbCustomerTaxRatio_6.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbCustomerTaxRatio_6.Location = new System.Drawing.Point(542, 69);
+            this.lbCustomerTaxRatio_6.Name = "lbCustomerTaxRatio_6";
+            this.lbCustomerTaxRatio_6.Size = new System.Drawing.Size(6, 16);
+            this.lbCustomerTaxRatio_6.TabIndex = 32;
+            this.lbCustomerTaxRatio_6.Text = "?";
             // 
             // btnEditMaxCustomers_6
             // 
@@ -1585,38 +1694,64 @@
             this.btnEditMaxCustomers_6.Appearance.Options.UseImage = true;
             this.btnEditMaxCustomers_6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditMaxCustomers_6.ImageOptions.Image")));
             this.btnEditMaxCustomers_6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnEditMaxCustomers_6.Location = new System.Drawing.Point(608, 21);
+            this.btnEditMaxCustomers_6.Location = new System.Drawing.Point(608, 20);
             this.btnEditMaxCustomers_6.Name = "btnEditMaxCustomers_6";
             this.btnEditMaxCustomers_6.Size = new System.Drawing.Size(112, 30);
             this.btnEditMaxCustomers_6.TabIndex = 1;
             this.btnEditMaxCustomers_6.Text = "THAY ĐỔI";
             this.btnEditMaxCustomers_6.Click += new System.EventHandler(this.simpleButton16_Click);
             // 
-            // btnEditAdditionPrice_6
+            // btnEditForeignTax_6
             // 
-            this.btnEditAdditionPrice_6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEditAdditionPrice_6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("btnEditAdditionPrice_6.Appearance.Image")));
-            this.btnEditAdditionPrice_6.Appearance.Options.UseImage = true;
-            this.btnEditAdditionPrice_6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditAdditionPrice_6.ImageOptions.Image")));
-            this.btnEditAdditionPrice_6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnEditAdditionPrice_6.Location = new System.Drawing.Point(608, 60);
-            this.btnEditAdditionPrice_6.Name = "btnEditAdditionPrice_6";
-            this.btnEditAdditionPrice_6.Size = new System.Drawing.Size(112, 30);
-            this.btnEditAdditionPrice_6.TabIndex = 2;
-            this.btnEditAdditionPrice_6.Text = "THAY ĐỔI";
-            this.btnEditAdditionPrice_6.Click += new System.EventHandler(this.simpleButton17_Click);
+            this.btnEditForeignTax_6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEditForeignTax_6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("btnEditForeignTax_6.Appearance.Image")));
+            this.btnEditForeignTax_6.Appearance.Options.UseImage = true;
+            this.btnEditForeignTax_6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditForeignTax_6.ImageOptions.Image")));
+            this.btnEditForeignTax_6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnEditForeignTax_6.Location = new System.Drawing.Point(608, 95);
+            this.btnEditForeignTax_6.Name = "btnEditForeignTax_6";
+            this.btnEditForeignTax_6.Size = new System.Drawing.Size(112, 30);
+            this.btnEditForeignTax_6.TabIndex = 2;
+            this.btnEditForeignTax_6.Text = "THAY ĐỔI";
+            this.btnEditForeignTax_6.Click += new System.EventHandler(this.simpleButton17_Click);
             // 
-            // lbAdditionPricePerRoom_6
+            // lbForeignCustomerTax_6
             // 
-            this.lbAdditionPricePerRoom_6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbAdditionPricePerRoom_6.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbAdditionPricePerRoom_6.Appearance.Options.UseFont = true;
-            this.lbAdditionPricePerRoom_6.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbAdditionPricePerRoom_6.Location = new System.Drawing.Point(385, 69);
-            this.lbAdditionPricePerRoom_6.Name = "lbAdditionPricePerRoom_6";
-            this.lbAdditionPricePerRoom_6.Size = new System.Drawing.Size(96, 17);
-            this.lbAdditionPricePerRoom_6.TabIndex = 31;
-            this.lbAdditionPricePerRoom_6.Text = "TỈ LỆ PHỤ THU:";
+            this.lbForeignCustomerTax_6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbForeignCustomerTax_6.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbForeignCustomerTax_6.Appearance.Options.UseFont = true;
+            this.lbForeignCustomerTax_6.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbForeignCustomerTax_6.Location = new System.Drawing.Point(385, 104);
+            this.lbForeignCustomerTax_6.Name = "lbForeignCustomerTax_6";
+            this.lbForeignCustomerTax_6.Size = new System.Drawing.Size(194, 17);
+            this.lbForeignCustomerTax_6.TabIndex = 31;
+            this.lbForeignCustomerTax_6.Text = "PHỤ THU KHÁCH NƯỚC NGOÀI:";
+            // 
+            // btnEditCustomersTax_6
+            // 
+            this.btnEditCustomersTax_6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEditCustomersTax_6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("btnEditCustomersTax_6.Appearance.Image")));
+            this.btnEditCustomersTax_6.Appearance.Options.UseImage = true;
+            this.btnEditCustomersTax_6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditCustomersTax_6.ImageOptions.Image")));
+            this.btnEditCustomersTax_6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnEditCustomersTax_6.Location = new System.Drawing.Point(608, 59);
+            this.btnEditCustomersTax_6.Name = "btnEditCustomersTax_6";
+            this.btnEditCustomersTax_6.Size = new System.Drawing.Size(112, 30);
+            this.btnEditCustomersTax_6.TabIndex = 2;
+            this.btnEditCustomersTax_6.Text = "THAY ĐỔI";
+            this.btnEditCustomersTax_6.Click += new System.EventHandler(this.simpleButton17_Click);
+            // 
+            // lbCustomersTax_6
+            // 
+            this.lbCustomersTax_6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbCustomersTax_6.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbCustomersTax_6.Appearance.Options.UseFont = true;
+            this.lbCustomersTax_6.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbCustomersTax_6.Location = new System.Drawing.Point(385, 68);
+            this.lbCustomersTax_6.Name = "lbCustomersTax_6";
+            this.lbCustomersTax_6.Size = new System.Drawing.Size(155, 17);
+            this.lbCustomersTax_6.TabIndex = 31;
+            this.lbCustomersTax_6.Text = "PHỤ THU KHÁCH THỨ 3: ";
             // 
             // simpleButton19
             // 
@@ -1639,135 +1774,6 @@
             this.simpleButton18.Size = new System.Drawing.Size(586, 35);
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
-            // 
-            // gcBillPay
-            // 
-            this.gcBillPay.Controls.Add(this.nudBillPay_4);
-            this.gcBillPay.Controls.Add(this.tbBillLeft_4);
-            this.gcBillPay.Controls.Add(this.textBox3);
-            this.gcBillPay.Controls.Add(this.tbBillPrice_4);
-            this.gcBillPay.Controls.Add(this.btnBillCancel_4);
-            this.gcBillPay.Controls.Add(this.btnBillPay_4);
-            this.gcBillPay.Controls.Add(this.lbBillLeft_4);
-            this.gcBillPay.Controls.Add(this.lbBillPay_4);
-            this.gcBillPay.Controls.Add(this.lbBillID_4);
-            this.gcBillPay.Controls.Add(this.lbBillPrice_4);
-            this.gcBillPay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcBillPay.Location = new System.Drawing.Point(687, 3);
-            this.gcBillPay.Name = "gcBillPay";
-            this.gcBillPay.Size = new System.Drawing.Size(424, 259);
-            this.gcBillPay.TabIndex = 2;
-            this.gcBillPay.Text = "THANH TOÁN HÓA ĐƠN";
-            // 
-            // nudBillPay_4
-            // 
-            this.nudBillPay_4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nudBillPay_4.Location = new System.Drawing.Point(162, 116);
-            this.nudBillPay_4.Name = "nudBillPay_4";
-            this.nudBillPay_4.Size = new System.Drawing.Size(200, 23);
-            this.nudBillPay_4.TabIndex = 24;
-            // 
-            // tbBillLeft_4
-            // 
-            this.tbBillLeft_4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbBillLeft_4.Location = new System.Drawing.Point(162, 152);
-            this.tbBillLeft_4.Name = "tbBillLeft_4";
-            this.tbBillLeft_4.Size = new System.Drawing.Size(200, 23);
-            this.tbBillLeft_4.TabIndex = 26;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Location = new System.Drawing.Point(162, 44);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 23);
-            this.textBox3.TabIndex = 21;
-            // 
-            // tbBillPrice_4
-            // 
-            this.tbBillPrice_4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbBillPrice_4.Location = new System.Drawing.Point(162, 80);
-            this.tbBillPrice_4.Name = "tbBillPrice_4";
-            this.tbBillPrice_4.Size = new System.Drawing.Size(200, 23);
-            this.tbBillPrice_4.TabIndex = 22;
-            // 
-            // btnBillCancel_4
-            // 
-            this.btnBillCancel_4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnBillCancel_4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBillCancel_4.ImageOptions.Image")));
-            this.btnBillCancel_4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnBillCancel_4.Location = new System.Drawing.Point(222, 194);
-            this.btnBillCancel_4.Name = "btnBillCancel_4";
-            this.btnBillCancel_4.Size = new System.Drawing.Size(140, 50);
-            this.btnBillCancel_4.TabIndex = 28;
-            this.btnBillCancel_4.Text = "HỦY HÓA ĐƠN";
-            // 
-            // btnBillPay_4
-            // 
-            this.btnBillPay_4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnBillPay_4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBillPay_4.ImageOptions.Image")));
-            this.btnBillPay_4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnBillPay_4.Location = new System.Drawing.Point(63, 194);
-            this.btnBillPay_4.Name = "btnBillPay_4";
-            this.btnBillPay_4.Size = new System.Drawing.Size(140, 50);
-            this.btnBillPay_4.TabIndex = 27;
-            this.btnBillPay_4.Text = "THANH TOÁN";
-            // 
-            // lbBillLeft_4
-            // 
-            this.lbBillLeft_4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbBillLeft_4.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbBillLeft_4.Appearance.Options.UseFont = true;
-            this.lbBillLeft_4.Appearance.Options.UseTextOptions = true;
-            this.lbBillLeft_4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lbBillLeft_4.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillLeft_4.Location = new System.Drawing.Point(77, 155);
-            this.lbBillLeft_4.Name = "lbBillLeft_4";
-            this.lbBillLeft_4.Size = new System.Drawing.Size(73, 17);
-            this.lbBillLeft_4.TabIndex = 25;
-            this.lbBillLeft_4.Text = "TIỀN THỪA:";
-            // 
-            // lbBillPay_4
-            // 
-            this.lbBillPay_4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbBillPay_4.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbBillPay_4.Appearance.Options.UseFont = true;
-            this.lbBillPay_4.Appearance.Options.UseTextOptions = true;
-            this.lbBillPay_4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lbBillPay_4.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillPay_4.Location = new System.Drawing.Point(77, 118);
-            this.lbBillPay_4.Name = "lbBillPay_4";
-            this.lbBillPay_4.Size = new System.Drawing.Size(73, 17);
-            this.lbBillPay_4.TabIndex = 23;
-            this.lbBillPay_4.Text = "TIỀN NHẬN:";
-            // 
-            // lbBillID_4
-            // 
-            this.lbBillID_4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbBillID_4.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbBillID_4.Appearance.Options.UseFont = true;
-            this.lbBillID_4.Appearance.Options.UseTextOptions = true;
-            this.lbBillID_4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lbBillID_4.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillID_4.Location = new System.Drawing.Point(63, 47);
-            this.lbBillID_4.Name = "lbBillID_4";
-            this.lbBillID_4.Size = new System.Drawing.Size(87, 17);
-            this.lbBillID_4.TabIndex = 19;
-            this.lbBillID_4.Text = "SỐ HÓA ĐƠN:";
-            // 
-            // lbBillPrice_4
-            // 
-            this.lbBillPrice_4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbBillPrice_4.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbBillPrice_4.Appearance.Options.UseFont = true;
-            this.lbBillPrice_4.Appearance.Options.UseTextOptions = true;
-            this.lbBillPrice_4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lbBillPrice_4.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillPrice_4.Location = new System.Drawing.Point(76, 83);
-            this.lbBillPrice_4.Name = "lbBillPrice_4";
-            this.lbBillPrice_4.Size = new System.Drawing.Size(74, 17);
-            this.lbBillPrice_4.TabIndex = 20;
-            this.lbBillPrice_4.Text = "TỔNG TIỀN:";
             // 
             // MainForm
             // 
@@ -1821,6 +1827,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcProductList_4)).EndInit();
             this.gcProductList_4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcBillPay)).EndInit();
+            this.gcBillPay.ResumeLayout(false);
+            this.gcBillPay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBillPay_4)).EndInit();
             this.xtraTabPage6.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcRevenueSelect_5)).EndInit();
@@ -1842,10 +1852,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomType_6)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcBillPay)).EndInit();
-            this.gcBillPay.ResumeLayout(false);
-            this.gcBillPay.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBillPay_4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1926,25 +1932,10 @@
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.LabelControl lbMaxCustomersPerRoom_6;
         private DevExpress.XtraEditors.LabelControl lbMaxCustomers_6;
-        private DevExpress.XtraEditors.LabelControl lbAdditionalPrice_6;
+        private DevExpress.XtraEditors.LabelControl lbCustomerTaxRatio_6;
         private DevExpress.XtraEditors.SimpleButton btnEditMaxCustomers_6;
-        private DevExpress.XtraEditors.SimpleButton btnEditAdditionPrice_6;
-        private DevExpress.XtraEditors.LabelControl lbAdditionPricePerRoom_6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DevExpress.XtraEditors.SimpleButton btnEditCustomersTax_6;
+        private DevExpress.XtraEditors.LabelControl lbCustomersTax_6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
@@ -1960,11 +1951,6 @@
         private DevExpress.XtraEditors.SimpleButton btnCreateNote;
         private DevExpress.XtraEditors.SimpleButton btnRoomCancel;
         private DevExpress.XtraEditors.SimpleButton btnRoomLocked;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.TextBox tbRoomPrice_2;
         private System.Windows.Forms.TextBox textBox1;
         private DevExpress.XtraEditors.LabelControl lbNoteID_2;
@@ -1992,6 +1978,25 @@
         private DevExpress.XtraEditors.LabelControl lbBillPay_4;
         private DevExpress.XtraEditors.LabelControl lbBillID_4;
         private DevExpress.XtraEditors.LabelControl lbBillPrice_4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DevExpress.XtraEditors.LabelControl lbForeignTaxRatio_6;
+        private DevExpress.XtraEditors.SimpleButton btnEditForeignTax_6;
+        private DevExpress.XtraEditors.LabelControl lbForeignCustomerTax_6;
     }
 }
 
