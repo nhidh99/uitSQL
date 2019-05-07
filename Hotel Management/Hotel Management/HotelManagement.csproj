@@ -83,47 +83,71 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditFormAdditionPrice.cs">
+    <Compile Include="Bill\BillDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditFormAdditionPrice.Designer.cs">
-      <DependentUpon>EditFormAdditionPrice.cs</DependentUpon>
+    <Compile Include="Bill\BillDetailForm.Designer.cs">
+      <DependentUpon>BillDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditFormCustomerTypes.cs">
+    <Compile Include="Bill\BillTaxForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditFormCustomerTypes.Designer.cs">
-      <DependentUpon>EditFormCustomerTypes.cs</DependentUpon>
+    <Compile Include="Bill\BillTaxForm.Designer.cs">
+      <DependentUpon>BillTaxForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditFormListRooms.cs">
+    <Compile Include="CustomerType\CustomerTypeAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditFormListRooms.Designer.cs">
-      <DependentUpon>EditFormListRooms.cs</DependentUpon>
+    <Compile Include="CustomerType\CustomerTypeAddForm.Designer.cs">
+      <DependentUpon>CustomerTypeAddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditFormMaxCustomers.cs">
+    <Compile Include="CustomerType\CustomerTypeEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditFormMaxCustomers.Designer.cs">
-      <DependentUpon>EditFormMaxCustomers.cs</DependentUpon>
+    <Compile Include="CustomerType\CustomerTypeEditForm.Designer.cs">
+      <DependentUpon>CustomerTypeEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditFormCustomer.cs">
+    <Compile Include="RoomType\RoomTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditFormCustomer.Designer.cs">
-      <DependentUpon>EditFormCustomer.cs</DependentUpon>
+    <Compile Include="RoomType\RoomTypeForm.Designer.cs">
+      <DependentUpon>RoomTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditFormRoom.cs">
+    <Compile Include="Room\RoomDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditFormRoom.Designer.cs">
-      <DependentUpon>EditFormRoom.cs</DependentUpon>
+    <Compile Include="Room\RoomDetailForm.Designer.cs">
+      <DependentUpon>RoomDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditFormRoomTypes.cs">
+    <Compile Include="Rule\ForeignCustomerEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditFormRoomTypes.Designer.cs">
-      <DependentUpon>EditFormRoomTypes.cs</DependentUpon>
+    <Compile Include="Rule\ForeignCustomerEditForm.Designer.cs">
+      <DependentUpon>ForeignCustomerEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rule\ThirdCustomerTaxEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rule\ThirdCustomerTaxEditForm.Designer.cs">
+      <DependentUpon>ThirdCustomerTaxEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rule\MaxCustomerEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rule\MaxCustomerEditForm.Designer.cs">
+      <DependentUpon>MaxCustomerEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Room\RoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Room\RoomForm.Designer.cs">
+      <DependentUpon>RoomForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -133,26 +157,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="EditFormAdditionPrice.resx">
-      <DependentUpon>EditFormAdditionPrice.cs</DependentUpon>
+    <EmbeddedResource Include="Bill\BillDetailForm.resx">
+      <DependentUpon>BillDetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditFormCustomerTypes.resx">
-      <DependentUpon>EditFormCustomerTypes.cs</DependentUpon>
+    <EmbeddedResource Include="CustomerType\CustomerTypeAddForm.resx">
+      <DependentUpon>CustomerTypeAddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditFormListRooms.resx">
-      <DependentUpon>EditFormListRooms.cs</DependentUpon>
+    <EmbeddedResource Include="CustomerType\CustomerTypeEditForm.resx">
+      <DependentUpon>CustomerTypeEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditFormMaxCustomers.resx">
-      <DependentUpon>EditFormMaxCustomers.cs</DependentUpon>
+    <EmbeddedResource Include="RoomType\RoomTypeForm.resx">
+      <DependentUpon>RoomTypeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditFormCustomer.resx">
-      <DependentUpon>EditFormCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="Room\RoomDetailForm.resx">
+      <DependentUpon>RoomDetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditFormRoom.resx">
-      <DependentUpon>EditFormRoom.cs</DependentUpon>
+    <EmbeddedResource Include="Rule\ForeignCustomerEditForm.resx">
+      <DependentUpon>ForeignCustomerEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditFormRoomTypes.resx">
-      <DependentUpon>EditFormRoomTypes.cs</DependentUpon>
+    <EmbeddedResource Include="Rule\ThirdCustomerTaxEditForm.resx">
+      <DependentUpon>ThirdCustomerTaxEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rule\MaxCustomerEditForm.resx">
+      <DependentUpon>MaxCustomerEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Room\RoomForm.resx">
+      <DependentUpon>RoomForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
