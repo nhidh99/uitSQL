@@ -21,5 +21,27 @@ namespace Hotel_Management.RoomType
         {
             this.Close();
         }
+
+        private void RoomTypeForm_Load(object sender, EventArgs e)
+        {
+            switch (this.Tag)
+            {
+                case "AddForm":
+                    {
+                        this.Text = this.lbRoomTypeHeader.Text = "THÊM THÔNG TIN LOẠI PHÒNG";
+                        this.lbRoomTypeHeader.Left = (this.ClientSize.Width - lbRoomTypeHeader.Size.Width) / 2 + 32;
+                        this.imgAddRoomType.Left = this.lbRoomTypeHeader.Left - 45;
+                        break;
+                    }
+
+                case "EditForm":
+                    {
+                        this.Text = this.lbRoomTypeHeader.Text = "THAY ĐỔI THÔNG TIN LOẠI PHÒNG";
+                        this.tbRoomType.ReadOnly = true;
+                        this.tbRoomTypePrice.Select();
+                        break;
+                    }
+            }
+        }
     }
 }

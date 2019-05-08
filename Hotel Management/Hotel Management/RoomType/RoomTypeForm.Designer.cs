@@ -35,7 +35,7 @@
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
             this.lbRoomTypePrice = new DevExpress.XtraEditors.LabelControl();
-            this.lbEditRoomType = new DevExpress.XtraEditors.LabelControl();
+            this.lbRoomTypeHeader = new DevExpress.XtraEditors.LabelControl();
             this.imgAddRoomType = new DevExpress.XtraEditors.LabelControl();
             this.lbCurrencyUnit = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -113,18 +113,18 @@
             this.lbRoomTypePrice.TabIndex = 47;
             this.lbRoomTypePrice.Text = "ĐƠN GIÁ:";
             // 
-            // lbEditRoomType
+            // lbRoomTypeHeader
             // 
-            this.lbEditRoomType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbEditRoomType.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
-            this.lbEditRoomType.Appearance.Options.UseFont = true;
-            this.lbEditRoomType.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbEditRoomType.Location = new System.Drawing.Point(67, 32);
-            this.lbEditRoomType.Margin = new System.Windows.Forms.Padding(2);
-            this.lbEditRoomType.Name = "lbEditRoomType";
-            this.lbEditRoomType.Size = new System.Drawing.Size(356, 24);
-            this.lbEditRoomType.TabIndex = 48;
-            this.lbEditRoomType.Text = "THAY ĐỔI THÔNG TIN LOẠI PHÒNG";
+            this.lbRoomTypeHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbRoomTypeHeader.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
+            this.lbRoomTypeHeader.Appearance.Options.UseFont = true;
+            this.lbRoomTypeHeader.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbRoomTypeHeader.Location = new System.Drawing.Point(67, 32);
+            this.lbRoomTypeHeader.Margin = new System.Windows.Forms.Padding(2);
+            this.lbRoomTypeHeader.Name = "lbRoomTypeHeader";
+            this.lbRoomTypeHeader.Size = new System.Drawing.Size(356, 24);
+            this.lbRoomTypeHeader.TabIndex = 48;
+            this.lbRoomTypeHeader.Text = "THAY ĐỔI THÔNG TIN LOẠI PHÒNG";
             // 
             // imgAddRoomType
             // 
@@ -160,7 +160,7 @@
             this.Controls.Add(this.tbRoomTypePrice);
             this.Controls.Add(this.tbRoomType);
             this.Controls.Add(this.lbRoomType);
-            this.Controls.Add(this.lbEditRoomType);
+            this.Controls.Add(this.lbRoomTypeHeader);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.lbRoomTypePrice);
@@ -170,6 +170,7 @@
             this.Name = "RoomTypeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "THÔNG TIN LOẠI PHÒNG";
+            this.Load += new System.EventHandler(this.RoomTypeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,7 +183,7 @@
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnConfirm;
         private DevExpress.XtraEditors.LabelControl lbRoomTypePrice;
-        private DevExpress.XtraEditors.LabelControl lbEditRoomType;
+        private DevExpress.XtraEditors.LabelControl lbRoomTypeHeader;
         private DevExpress.XtraEditors.LabelControl imgAddRoomType;
         private System.Windows.Forms.Label lbCurrencyUnit;
     }

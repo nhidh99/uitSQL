@@ -25,6 +25,8 @@ namespace Hotel_Management
                 case "AddForm":
                     {
                         this.lbCustomerHeader.Text = this.Text = "THÊM THÔNG TIN KHÁCH";
+                        this.lbCustomerHeader.Left = (this.ClientSize.Width - lbCustomerHeader.Size.Width) / 2 + 32;
+                        this.imgCustomer.Left = this.lbCustomerHeader.Left - 45;
                         break;
                     }
 
