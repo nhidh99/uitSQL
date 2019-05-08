@@ -201,6 +201,7 @@
             this.rtbRoomNote.Size = new System.Drawing.Size(339, 67);
             this.rtbRoomNote.TabIndex = 4;
             this.rtbRoomNote.Text = "";
+            this.rtbRoomNote.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Rtb_KeyDown);
             // 
             // lbRoomNote
             // 

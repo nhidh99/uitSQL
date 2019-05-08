@@ -16,6 +16,13 @@ namespace Hotel_Management
         {
             InitializeComponent();
         }
+        private void Rtb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
 
         private void EditFormRoom_Load(object sender, EventArgs e)
         {

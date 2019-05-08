@@ -30,6 +30,11 @@ namespace Hotel_Management
             e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
 
+        private void Rtb_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
         // Tab 01: Room List
 
         private void BtnAddRoom_Click(object sender, EventArgs e)

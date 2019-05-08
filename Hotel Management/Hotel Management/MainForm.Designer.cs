@@ -49,6 +49,7 @@
             this.RoomNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.gcListRoomEdit = new DevExpress.XtraEditors.GroupControl();
+            this.btnAddRoom = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditRoom = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelRoom = new DevExpress.XtraEditors.SimpleButton();
             this.tabNoteRoom = new DevExpress.XtraTab.XtraTabPage();
@@ -198,7 +199,6 @@
             this.btnAddRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAddRoom = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).BeginInit();
             this.tcHotelManagement.SuspendLayout();
             this.tabListRoom.SuspendLayout();
@@ -418,7 +418,7 @@
             this.lbListRoomID.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbListRoomID.Appearance.Options.UseFont = true;
             this.lbListRoomID.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbListRoomID.Location = new System.Drawing.Point(186, 45);
+            this.lbListRoomID.Location = new System.Drawing.Point(186, 46);
             this.lbListRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbListRoomID.Name = "lbListRoomID";
             this.lbListRoomID.Size = new System.Drawing.Size(39, 13);
@@ -522,6 +522,19 @@
             this.gcListRoomEdit.Size = new System.Drawing.Size(174, 214);
             this.gcListRoomEdit.TabIndex = 1;
             this.gcListRoomEdit.Text = "HIỆU CHỈNH PHÒNG";
+            // 
+            // btnAddRoom
+            // 
+            this.btnAddRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddRoom.ImageOptions.Image")));
+            this.btnAddRoom.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnAddRoom.Location = new System.Drawing.Point(27, 42);
+            this.btnAddRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddRoom.Name = "btnAddRoom";
+            this.btnAddRoom.Size = new System.Drawing.Size(120, 41);
+            this.btnAddRoom.TabIndex = 16;
+            this.btnAddRoom.Text = "THÊM";
+            this.btnAddRoom.Click += new System.EventHandler(this.BtnAddRoom_Click);
             // 
             // btnEditRoom
             // 
@@ -1472,6 +1485,7 @@
             this.rtbBillCustomerAddress.Size = new System.Drawing.Size(157, 53);
             this.rtbBillCustomerAddress.TabIndex = 7;
             this.rtbBillCustomerAddress.Text = "";
+            this.rtbBillCustomerAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Rtb_KeyDown);
             // 
             // lbBillCustomerName
             // 
@@ -2403,19 +2417,6 @@
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
             // 
-            // btnAddRoom
-            // 
-            this.btnAddRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAddRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddRoom.ImageOptions.Image")));
-            this.btnAddRoom.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAddRoom.Location = new System.Drawing.Point(27, 42);
-            this.btnAddRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddRoom.Name = "btnAddRoom";
-            this.btnAddRoom.Size = new System.Drawing.Size(120, 41);
-            this.btnAddRoom.TabIndex = 16;
-            this.btnAddRoom.Text = "THÊM";
-            this.btnAddRoom.Click += new System.EventHandler(this.BtnAddRoom_Click);
-            // 
             // MainForm
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -2429,6 +2430,7 @@
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÍ KHÁCH SẠN";
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).EndInit();
             this.tcHotelManagement.ResumeLayout(false);

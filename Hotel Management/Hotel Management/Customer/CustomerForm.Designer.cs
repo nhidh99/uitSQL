@@ -87,6 +87,7 @@
             this.rtbCustomerAddress.Size = new System.Drawing.Size(338, 114);
             this.rtbCustomerAddress.TabIndex = 10;
             this.rtbCustomerAddress.Text = "";
+            this.rtbCustomerAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Rtb_KeyDown);
             // 
             // lbCustomerPassport
             // 

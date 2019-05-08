@@ -892,3 +892,4 @@ C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.MaxCustom
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.CustomerForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.RoomForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.Bill.BillDetailForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.Bill.BillTaxForm.resources

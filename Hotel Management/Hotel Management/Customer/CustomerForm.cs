@@ -40,5 +40,13 @@ namespace Hotel_Management
         {
             this.Close();
         }
+
+        private void Rtb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

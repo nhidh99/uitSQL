@@ -160,6 +160,9 @@
     <EmbeddedResource Include="Bill\BillDetailForm.resx">
       <DependentUpon>BillDetailForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bill\BillTaxForm.resx">
+      <DependentUpon>BillTaxForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerType\CustomerTypeAddForm.resx">
       <DependentUpon>CustomerTypeAddForm.cs</DependentUpon>
     </EmbeddedResource>
