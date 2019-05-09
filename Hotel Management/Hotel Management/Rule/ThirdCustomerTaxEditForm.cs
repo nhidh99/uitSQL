@@ -17,7 +17,7 @@ namespace Hotel_Management
             InitializeComponent();
         }
 
-        private void ThirdCustomerTaxEditForm_Load(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
