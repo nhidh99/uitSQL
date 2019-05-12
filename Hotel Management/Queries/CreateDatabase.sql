@@ -1,3 +1,5 @@
+create database QuanLiKhachSan
+go
 /*==============================================================*/
 /* Table: CTPT                                                  */
 /*==============================================================*/
@@ -5,7 +7,7 @@ create table CTPT
 (
    MAPHIEU              integer                        not null,
    CMND                 varchar(15)                    not null,
-   MALOAIKHACH          varchar(10)                    not null,
+   MALOAIKHACH          int			                   not null,
    TENKHACH             nvarchar(30)                   not null,
    DIACHI               nvarchar(50)                   not null,
    constraint PK_CTPT primary key (MAPHIEU, CMND)
@@ -29,9 +31,9 @@ create table HOADON
 /*==============================================================*/
 create table LOAIKHACH 
 (
-   MALOAIKHACH          varchar(10)                    not null,
+   MALOAIKHACH          int							   not null identity(2000, 1),
    TENLOAIKHACH         nvarchar(30)                   not null,
-   KHADUNG		bit	    		       not null,
+   KHADUNG				bit				  		       not null,
    constraint PK_LOAIKHACH primary key (MALOAIKHACH)
 );
 
@@ -41,7 +43,6 @@ create table LOAIKHACH
 create table LOAIPHONG 
 (
    MALOAIPHONG          varchar(10)                    not null,
-   TENLOAIPHONG         nvarchar(30)                   not null,
    DONGIA               money                          not null,
    constraint PK_LOAIPHONG primary key (MALOAIPHONG)
 );
@@ -51,12 +52,13 @@ create table LOAIPHONG
 /*==============================================================*/
 create table PHIEUTHUE 
 (
-   MAPHIEU              integer                        not null identity(2000,1),
+   MAPHIEU              integer                        not null identity(3000,1),
    MAPHONG              varchar(10)                    not null,
    MAHOADON             integer                        null,
    NGAYTHUE             date                           not null,
+   LOAIPHONG			varchar(10)					   not null,
    DONGIA               money                          not null,
-   PHUTHU		money			       null,
+   PHUTHU				money					       null,
    THANHTIEN            money                          null,
    constraint PK_PHIEUTHUE primary key (MAPHIEU)
 );
@@ -95,7 +97,7 @@ create table TINHTRANG
 );
 
 alter table CTPT
-   add constraint FK_CTPT_PHIEUTHU foreign key (MAPHIEU)
+   add constraint FK_CTPT_PHIEUTHUE foreign key (MAPHIEU)
       references PHIEUTHUE (MAPHIEU)
 alter table CTPT
    add constraint FK_CTPT_LOAIKHACH foreign key (MALOAIKHACH)
