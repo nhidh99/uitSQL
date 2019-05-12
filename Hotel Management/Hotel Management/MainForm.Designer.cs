@@ -43,10 +43,6 @@
             this.lbListRoomType = new DevExpress.XtraEditors.LabelControl();
             this.gcListRoom = new DevExpress.XtraEditors.GroupControl();
             this.dgvListRoom = new System.Windows.Forms.DataGridView();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.gcListRoomEdit = new DevExpress.XtraEditors.GroupControl();
             this.btnAddRoom = new DevExpress.XtraEditors.SimpleButton();
@@ -199,6 +195,11 @@
             this.btnAddRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).BeginInit();
             this.tcHotelManagement.SuspendLayout();
             this.tabListRoom.SuspendLayout();
@@ -457,6 +458,7 @@
             this.dgvListRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomID,
+            this.RoomStatus,
             this.RoomType,
             this.RoomPrice,
             this.RoomNote});
@@ -472,34 +474,6 @@
             this.dgvListRoom.Size = new System.Drawing.Size(945, 400);
             this.dgvListRoom.TabIndex = 2;
             this.dgvListRoom.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
-            // 
-            // RoomID
-            // 
-            this.RoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomID.HeaderText = "PHÒNG";
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            // 
-            // RoomType
-            // 
-            this.RoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomType.HeaderText = "LOẠI PHÒNG";
-            this.RoomType.Name = "RoomType";
-            this.RoomType.ReadOnly = true;
-            // 
-            // RoomPrice
-            // 
-            this.RoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
-            this.RoomPrice.Name = "RoomPrice";
-            this.RoomPrice.ReadOnly = true;
-            // 
-            // RoomNote
-            // 
-            this.RoomNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomNote.HeaderText = "GHI CHÚ";
-            this.RoomNote.Name = "RoomNote";
-            this.RoomNote.ReadOnly = true;
             // 
             // panel8
             // 
@@ -2417,6 +2391,41 @@
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
             // 
+            // RoomID
+            // 
+            this.RoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomID.HeaderText = "PHÒNG";
+            this.RoomID.Name = "RoomID";
+            this.RoomID.ReadOnly = true;
+            // 
+            // RoomStatus
+            // 
+            this.RoomStatus.HeaderText = "TÌNH TRẠNG";
+            this.RoomStatus.Name = "RoomStatus";
+            this.RoomStatus.ReadOnly = true;
+            this.RoomStatus.Visible = false;
+            // 
+            // RoomType
+            // 
+            this.RoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomType.HeaderText = "LOẠI PHÒNG";
+            this.RoomType.Name = "RoomType";
+            this.RoomType.ReadOnly = true;
+            // 
+            // RoomPrice
+            // 
+            this.RoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
+            this.RoomPrice.Name = "RoomPrice";
+            this.RoomPrice.ReadOnly = true;
+            // 
+            // RoomNote
+            // 
+            this.RoomNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomNote.HeaderText = "GHI CHÚ";
+            this.RoomNote.Name = "RoomNote";
+            this.RoomNote.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -2432,6 +2441,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÍ KHÁCH SẠN";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).EndInit();
             this.tcHotelManagement.ResumeLayout(false);
             this.tabListRoom.ResumeLayout(false);
@@ -2571,10 +2581,6 @@
         private System.Windows.Forms.DataGridView dgvRoomType;
         private System.Windows.Forms.TextBox tbListRoomPrice;
         private DevExpress.XtraEditors.LabelControl lbListRoomPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomNote;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoundRoomID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoundRoomType;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoundRoomPrice;
@@ -2696,6 +2702,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerTypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn EditCustomerType;
         private DevExpress.XtraEditors.SimpleButton btnAddRoom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomNote;
     }
 }
 

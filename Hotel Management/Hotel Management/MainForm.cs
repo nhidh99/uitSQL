@@ -217,5 +217,10 @@ namespace Hotel_Management
             var EditForm = new CustomerTypeEditForm();
             EditForm.ShowDialog();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
