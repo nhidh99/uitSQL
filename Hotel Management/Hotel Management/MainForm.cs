@@ -6,14 +6,18 @@ using Hotel_Management.Room;
 using Hotel_Management.Rule;
 using Hotel_Management.CustomerType;
 using Hotel_Management.RoomType;
+using System.Collections.Generic;
 
 namespace Hotel_Management
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
+        SqlExecuter sqlExecuter = new SqlExecuter();
+
         public MainForm()
         {
             InitializeComponent();
+            this.LoadRoomData();
         }
 
         // Auto numbering first columns in DataGrid
@@ -32,33 +36,79 @@ namespace Hotel_Management
 
         private void Rtb_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
 
         // Tab 01: Room List
+
+        void ListRoom_LoadSelectedRow(DataGridViewRow row)
+        {
+            tbListRoomID.Text = row.Cells["RoomID"].Value.ToString();
+            tbListRoomType.Text = row.Cells["RoomType"].Value.ToString();
+            tbListRoomPrice.Text = row.Cells["RoomPrice"].Value.ToString();
+            rtbListRoomNote.Text = row.Cells["RoomNote"].Value.ToString();
+        }
+
+        public Dictionary<string, string> GetSelectedRoomData()
+        {
+            return new Dictionary<string, string>()
+            {
+                {"RoomID",tbListRoomID.Text },
+                {"RoomType",tbListRoomType.Text },
+                {"RoomNote",rtbListRoomNote.Text }
+            };
+        }
+
+        public void LoadRoomData()
+        {
+            dgvListRoom.DataSource = sqlExecuter.GetRoomData();
+        }
 
         private void BtnAddRoom_Click(object sender, EventArgs e)
         {
             var RoomForm = new RoomForm();
             RoomForm.Tag = "AddForm";
-            RoomForm.ShowDialog();
+            RoomForm.ShowDialog(this);
         }
-
 
         private void BtnDelRoom_Click(object sender, EventArgs e)
         {
+            var RoomID = tbListRoomID.Text;
 
+            if (sqlExecuter.IsRentedRoom(RoomID))
+            {
+                MessageBox.Show("Không thể xoá phòng đang thuê!", "XOÁ PHÒNG THẤT BẠI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            else
+            {
+                var dialogResult = MessageBox.Show("Bạn có muốn xoá phòng " + RoomID + "?", "XÁC NHẬN XOÁ PHÒNG",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.Yes && sqlExecuter.DeleteRoom(RoomID))
+                {
+                    MessageBox.Show("Xoá phòng " + RoomID + " thành công!", "XOÁ PHÒNG THÀNH CÔNG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.LoadRoomData();
+                }
+            }
         }
 
         private void BtnEditRoom_Click(object sender, EventArgs e)
         {
             var RoomForm = new RoomForm();
             RoomForm.Tag = "EditForm";
-            RoomForm.ShowDialog();
+            RoomForm.ShowDialog(this);
+        }
+        private void DgvListRoom_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            ListRoom_LoadSelectedRow(dgvListRoom.CurrentRow);
         }
 
         // Tab 02: Room Note
-      
+
         private void BtnLockNoteRoom_Click(object sender, EventArgs e)
         {
             this.btnAddNoteCustomer.Enabled
@@ -73,7 +123,7 @@ namespace Hotel_Management
         {
             var CustomerForm = new CustomerForm();
             CustomerForm.Tag = "AddForm";
-            CustomerForm.ShowDialog();
+            CustomerForm.ShowDialog(this);
         }
 
 
@@ -87,14 +137,14 @@ namespace Hotel_Management
         {
             var CustomerForm = new CustomerForm();
             CustomerForm.FormType = "EditForm";
-            CustomerForm.ShowDialog();
+            CustomerForm.ShowDialog(this);
         }
 
 
         private void BtnCreateNote_Click(object sender, EventArgs e)
         {
             var RoomDetailForm = new RoomDetailForm();
-            RoomDetailForm.ShowDialog();
+            RoomDetailForm.ShowDialog(this);
         }
 
         private void BtnCancelNote_Click(object sender, EventArgs e)
@@ -117,7 +167,7 @@ namespace Hotel_Management
         {
             var RoomForm = new RoomForm();
             RoomForm.Tag = "EditForm";
-            RoomForm.ShowDialog();
+            RoomForm.ShowDialog(this);
         }
 
         // Tab 04: Room Bill
@@ -147,7 +197,7 @@ namespace Hotel_Management
         private void BtnCreateBillRoom_Click(object sender, EventArgs e)
         {
             var DetailForm = new BillDetailForm();
-            DetailForm.ShowDialog();
+            DetailForm.ShowDialog(this);
         }
 
 
@@ -167,26 +217,26 @@ namespace Hotel_Management
         private void BtnEditMaxCustomerRule_Click(object sender, EventArgs e)
         {
             var EditForm = new MaxCustomerEditForm();
-            EditForm.ShowDialog();
+            EditForm.ShowDialog(this);
         }
 
         private void BtnEditThirdCustomerTax_Click(object sender, EventArgs e)
         {
             var EditForm = new ThirdCustomerTaxEditForm();
-            EditForm.ShowDialog();
+            EditForm.ShowDialog(this);
         }
 
         private void BtnEditForeignCustomerTax_Click(object sender, EventArgs e)
         {
             var EditForm = new ForeignCustomerEditForm();
-            EditForm.ShowDialog();
+            EditForm.ShowDialog(this);
         }
 
         private void BtnAddRoomType_Click(object sender, EventArgs e)
         {
             var RoomTypeForm = new RoomTypeForm();
             RoomTypeForm.Tag = "AddForm";
-            RoomTypeForm.ShowDialog();
+            RoomTypeForm.ShowDialog(this);
         }
 
         private void BtnDelRoomType_Click(object sender, EventArgs e)
@@ -198,13 +248,13 @@ namespace Hotel_Management
         {
             var RoomTypeForm = new RoomTypeForm();
             RoomTypeForm.Tag = "EditForm";
-            RoomTypeForm.ShowDialog();
+            RoomTypeForm.ShowDialog(this);
         }
 
         private void BtnAddCustomerType_Click(object sender, EventArgs e)
         {
             var AddForm = new CustomerTypeAddForm();
-            AddForm.ShowDialog();
+            AddForm.ShowDialog(this);
         }
 
         private void BtnDelCustomerType_Click(object sender, EventArgs e)
@@ -215,12 +265,7 @@ namespace Hotel_Management
         private void BtnEditCustomerType_Click(object sender, EventArgs e)
         {
             var EditForm = new CustomerTypeEditForm();
-            EditForm.ShowDialog();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
+            EditForm.ShowDialog(this);
         }
     }
 }
