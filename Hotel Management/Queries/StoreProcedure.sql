@@ -25,7 +25,7 @@ END
 GO
 
 -- TÌM GIÁ PHÒNG TỪ LOẠI PHÒNG (SAU KHI ĐÃ CHỌN LOẠI PHÒNG TRONG COMBOBOX)
-CREATE PROCEDURE TimGiaPhong
+CREATE PROCEDURE TimGiaTheoLoaiPhong
 	@MaLoaiPhong varchar(10)
 AS
 BEGIN
@@ -35,8 +35,20 @@ BEGIN
 END
 GO
 
+-- TÌM GIÁ PHÒNG TỪ MÃ PHÒNG (SAU KHI ĐÃ CHỌN MÃ PHÒNG TRONG COMBOBOX)
+CREATE PROCEDURE TimGiaTheoMaPhong
+	@MaPhong varchar(10)
+AS
+BEGIN
+	SELECT FORMAT(DonGia, 'N0') DonGia
+	FROM Phong JOIN LoaiPhong
+	ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong
+	WHERE MaPhong = @MaPhong
+END
+GO
+
 -- TÌM TRẠNG THÁI PHÒNG TỪ MÃ PHÒNG
-CREATE PROCEDURE TimTrangThaiPhong
+CREATE PROCEDURE TimTinhTrangPhong
 	@MaPhong varchar(10)
 AS
 BEGIN
@@ -65,7 +77,7 @@ CREATE PROCEDURE ThemPhong
 	@MaPhong varchar(10), 
 	@MaLoaiPhong varchar(10),
 	@TenTinhTrang nvarchar(30),
-	@GhiChu nvarchar(50)
+	@GhiChu nvarchar(50) = null
 AS
 BEGIN
 	DECLARE @MaTinhTrang varchar(10)
@@ -92,7 +104,7 @@ CREATE PROCEDURE SuaPhong
 	@MaPhong varchar(10),
 	@MaLoaiPhong varchar(10),
 	@TenTinhTrang nvarchar(30),
-	@GhiChu nvarchar(50)
+	@GhiChu nvarchar(50) = null
 AS
 BEGIN
 	DECLARE @MaTinhTrang varchar(10)
@@ -105,4 +117,89 @@ BEGIN
 END
 GO
 
--- ĐỌC TÁC DỤNG CỦA HÀM EXECUTE [COUNT] TRONG C# KHI THỰC THI CÂU LỆNH SQL
+-- LIỆT KÊ CÁC PHÒNG TRỐNG (CÓ THỂ THUÊ)
+CREATE PROCEDURE LietKePhongTrong
+AS
+BEGIN
+	SELECT MaPhong FROM Phong
+	WHERE MaTinhTrang = 'PHTR'
+	AND MaLoaiPhong IS NOT NULL
+END
+GO
+
+-- LIỆT KÊ CÁC LOẠI KHÁCH HIỆN CÓ
+CREATE PROCEDURE LietKeLoaiKhach
+AS
+BEGIN
+	SELECT TenLoaiKhach
+	FROM LoaiKhach
+	WHERE KhaDung = 1
+END
+GO
+
+-- LIỆT KÊ CHI TIẾT PHÒNG THEO MÃ
+CREATE PROCEDURE TimMaLoaiPhong
+	@MaPhong varchar(10)
+AS
+BEGIN
+	SELECT MaLoaiPhong
+	FROM Phong
+	WHERE MaPhong = @MaPhong
+END
+GO
+
+-- TÌM SỐ KHÁCH TỐI ĐA
+CREATE PROCEDURE TimSoKhachToiDa
+AS
+BEGIN
+	SELECT GiaTri AS SoKhachToiDa 
+	FROM ThamSo
+	WHERE MaThamSo = 'KHTD'
+END
+GO
+
+-- LẬP PHIẾU THUÊ PHÒNG
+CREATE PROCEDURE ThemPhieuThuePhong
+	@MaPhong varchar(10),
+	@NgayThue date,
+	@LoaiPhong varchar(10),
+	@DonGia money
+AS
+BEGIN
+	INSERT INTO PhieuThue (MaPhong, NgayThue, LoaiPhong, DonGia)
+	VALUES (@MaPhong, @NgayThue, @LoaiPhong, @DonGia)
+
+	UPDATE Phong
+	SET MaTinhTrang = 'PHTH'
+	WHERE MaPhong = @MaPhong
+END
+GO
+
+-- TÌM MÃ PHIẾU THUÊ PHÒNG GẦN NHẤT THEO MÃ PHÒNG
+CREATE PROCEDURE TimMaPhieuGanNhat
+	@MaPhong varchar(10)
+AS
+BEGIN
+	SELECT TOP 1 MaPhieu
+	FROM PhieuThue
+	WHERE MaPhong = @MaPhong
+	ORDER BY MaPhieu DESC
+END
+GO
+
+-- THÊM CHI TIẾT PHIẾU THUÊ PHÒNG
+CREATE PROCEDURE ThemChiTietPhieuThue
+	@MaPhieu int,
+	@CMND varchar(15),
+	@TenKhach nvarchar(30),
+	@TenLoaiKhach nvarchar(30),
+	@DiaChi nvarchar(50)
+AS
+BEGIN
+	DECLARE @MaLoaiKhach int
+	SET @MaLoaiKhach = (SELECT MaLoaiKhach FROM LoaiKhach WHERE TenLoaiKhach = @TenLoaiKhach)
+	
+	INSERT INTO CTPT (MaPhieu, CMND, MaLoaiKhach, TenKhach, DiaChi)
+	VALUES (@MaPhieu, @CMND, @MaLoaiKhach, @TenKhach, @DiaChi)
+END
+GO

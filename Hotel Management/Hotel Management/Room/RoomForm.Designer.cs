@@ -55,12 +55,14 @@
             this.tbRoomPrice.ReadOnly = true;
             this.tbRoomPrice.Size = new System.Drawing.Size(111, 20);
             this.tbRoomPrice.TabIndex = 10;
+            this.tbRoomPrice.TabStop = false;
             // 
             // tbRoomID
             // 
             this.tbRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbRoomID.Location = new System.Drawing.Point(97, 72);
             this.tbRoomID.Margin = new System.Windows.Forms.Padding(2);
+            this.tbRoomID.MaxLength = 10;
             this.tbRoomID.Name = "tbRoomID";
             this.tbRoomID.Size = new System.Drawing.Size(134, 20);
             this.tbRoomID.TabIndex = 1;
@@ -199,6 +201,7 @@
             this.rtbRoomNote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtbRoomNote.Location = new System.Drawing.Point(96, 138);
             this.rtbRoomNote.Margin = new System.Windows.Forms.Padding(2);
+            this.rtbRoomNote.MaxLength = 50;
             this.rtbRoomNote.Name = "rtbRoomNote";
             this.rtbRoomNote.Size = new System.Drawing.Size(339, 67);
             this.rtbRoomNote.TabIndex = 4;

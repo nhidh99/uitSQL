@@ -33,6 +33,7 @@
             this.tabListRoom = new DevExpress.XtraTab.XtraTabPage();
             this.tlpListRoom = new System.Windows.Forms.TableLayoutPanel();
             this.gcRoomData = new DevExpress.XtraEditors.GroupControl();
+            this.lbCurrency = new DevExpress.XtraEditors.LabelControl();
             this.tbListRoomType = new System.Windows.Forms.TextBox();
             this.tbListRoomPrice = new System.Windows.Forms.TextBox();
             this.lbListRoomPrice = new DevExpress.XtraEditors.LabelControl();
@@ -43,6 +44,10 @@
             this.lbListRoomType = new DevExpress.XtraEditors.LabelControl();
             this.gcListRoom = new DevExpress.XtraEditors.GroupControl();
             this.dgvListRoom = new System.Windows.Forms.DataGridView();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.gcListRoomEdit = new DevExpress.XtraEditors.GroupControl();
             this.btnAddRoom = new DevExpress.XtraEditors.SimpleButton();
@@ -54,7 +59,7 @@
             this.btnCancelNote = new DevExpress.XtraEditors.SimpleButton();
             this.gcNoteRoom = new DevExpress.XtraEditors.GroupControl();
             this.tbNoteRoomPrice = new System.Windows.Forms.TextBox();
-            this.tbNoteRoomID = new System.Windows.Forms.ComboBox();
+            this.cbNoteRoomID = new System.Windows.Forms.ComboBox();
             this.lbNoteRoomID = new DevExpress.XtraEditors.LabelControl();
             this.deNoteRoomDate = new DevExpress.XtraEditors.DateEdit();
             this.lbNoteRoomPrice = new DevExpress.XtraEditors.LabelControl();
@@ -195,11 +200,6 @@
             this.btnAddRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbCurrency = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).BeginInit();
             this.tcHotelManagement.SuspendLayout();
             this.tabListRoom.SuspendLayout();
@@ -296,6 +296,7 @@
             this.tabBillRoom,
             this.xtraTabPage6,
             this.xtraTabPage2});
+            this.tcHotelManagement.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // tabListRoom
             // 
@@ -345,6 +346,19 @@
             this.gcRoomData.TabIndex = 0;
             this.gcRoomData.Text = "THÔNG TIN PHÒNG";
             // 
+            // lbCurrency
+            // 
+            this.lbCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbCurrency.Appearance.Options.UseFont = true;
+            this.lbCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbCurrency.Location = new System.Drawing.Point(595, 45);
+            this.lbCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbCurrency.Name = "lbCurrency";
+            this.lbCurrency.Size = new System.Drawing.Size(28, 13);
+            this.lbCurrency.TabIndex = 14;
+            this.lbCurrency.Text = "(VND)";
+            // 
             // tbListRoomType
             // 
             this.tbListRoomType.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -354,6 +368,7 @@
             this.tbListRoomType.ReadOnly = true;
             this.tbListRoomType.Size = new System.Drawing.Size(52, 21);
             this.tbListRoomType.TabIndex = 13;
+            this.tbListRoomType.TabStop = false;
             // 
             // tbListRoomPrice
             // 
@@ -364,6 +379,7 @@
             this.tbListRoomPrice.ReadOnly = true;
             this.tbListRoomPrice.Size = new System.Drawing.Size(89, 21);
             this.tbListRoomPrice.TabIndex = 7;
+            this.tbListRoomPrice.TabStop = false;
             // 
             // lbListRoomPrice
             // 
@@ -387,6 +403,7 @@
             this.tbListRoomID.ReadOnly = true;
             this.tbListRoomID.Size = new System.Drawing.Size(67, 21);
             this.tbListRoomID.TabIndex = 1;
+            this.tbListRoomID.TabStop = false;
             // 
             // rtbListRoomNote
             // 
@@ -399,6 +416,7 @@
             this.rtbListRoomNote.ReadOnly = true;
             this.rtbListRoomNote.Size = new System.Drawing.Size(360, 116);
             this.rtbListRoomNote.TabIndex = 9;
+            this.rtbListRoomNote.TabStop = false;
             this.rtbListRoomNote.Text = "";
             // 
             // lbListRoomNote
@@ -476,6 +494,38 @@
             this.dgvListRoom.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListRoom_CellEnter);
             this.dgvListRoom.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
             // 
+            // RoomID
+            // 
+            this.RoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomID.DataPropertyName = "MaPhong";
+            this.RoomID.HeaderText = "PHÒNG";
+            this.RoomID.Name = "RoomID";
+            this.RoomID.ReadOnly = true;
+            // 
+            // RoomType
+            // 
+            this.RoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomType.DataPropertyName = "MaLoaiPhong";
+            this.RoomType.HeaderText = "LOẠI PHÒNG";
+            this.RoomType.Name = "RoomType";
+            this.RoomType.ReadOnly = true;
+            // 
+            // RoomPrice
+            // 
+            this.RoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomPrice.DataPropertyName = "DonGia";
+            this.RoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
+            this.RoomPrice.Name = "RoomPrice";
+            this.RoomPrice.ReadOnly = true;
+            // 
+            // RoomNote
+            // 
+            this.RoomNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomNote.DataPropertyName = "GhiChu";
+            this.RoomNote.HeaderText = "GHI CHÚ";
+            this.RoomNote.Name = "RoomNote";
+            this.RoomNote.ReadOnly = true;
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.gcListRoomEdit);
@@ -545,6 +595,7 @@
             this.tabNoteRoom.Name = "tabNoteRoom";
             this.tabNoteRoom.Size = new System.Drawing.Size(955, 646);
             this.tabNoteRoom.Text = "LẬP PHIẾU THUÊ PHÒNG";
+            this.tabNoteRoom.VisibleChanged += new System.EventHandler(this.TabNoteRoom_VisibleChanged);
             // 
             // tlpNoteRoom
             // 
@@ -597,7 +648,7 @@
             // gcNoteRoom
             // 
             this.gcNoteRoom.Controls.Add(this.tbNoteRoomPrice);
-            this.gcNoteRoom.Controls.Add(this.tbNoteRoomID);
+            this.gcNoteRoom.Controls.Add(this.cbNoteRoomID);
             this.gcNoteRoom.Controls.Add(this.lbNoteRoomID);
             this.gcNoteRoom.Controls.Add(this.deNoteRoomDate);
             this.gcNoteRoom.Controls.Add(this.lbNoteRoomPrice);
@@ -620,16 +671,19 @@
             this.tbNoteRoomPrice.ReadOnly = true;
             this.tbNoteRoomPrice.Size = new System.Drawing.Size(94, 21);
             this.tbNoteRoomPrice.TabIndex = 17;
+            this.tbNoteRoomPrice.TabStop = false;
             // 
-            // tbNoteRoomID
+            // cbNoteRoomID
             // 
-            this.tbNoteRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNoteRoomID.FormattingEnabled = true;
-            this.tbNoteRoomID.Location = new System.Drawing.Point(92, 55);
-            this.tbNoteRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbNoteRoomID.Name = "tbNoteRoomID";
-            this.tbNoteRoomID.Size = new System.Drawing.Size(94, 21);
-            this.tbNoteRoomID.TabIndex = 9;
+            this.cbNoteRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbNoteRoomID.FormattingEnabled = true;
+            this.cbNoteRoomID.Location = new System.Drawing.Point(92, 55);
+            this.cbNoteRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbNoteRoomID.Name = "cbNoteRoomID";
+            this.cbNoteRoomID.Size = new System.Drawing.Size(94, 21);
+            this.cbNoteRoomID.TabIndex = 9;
+            this.cbNoteRoomID.SelectedIndexChanged += new System.EventHandler(this.CbNoteRoomID_SelectedIndexChanged);
+            this.cbNoteRoomID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // lbNoteRoomID
             // 
@@ -655,8 +709,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNoteRoomDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deNoteRoomDate.Properties.Mask.EditMask = "d/M/yyyy";
+            this.deNoteRoomDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.deNoteRoomDate.Size = new System.Drawing.Size(93, 20);
             this.deNoteRoomDate.TabIndex = 7;
+            this.deNoteRoomDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // lbNoteRoomPrice
             // 
@@ -707,7 +764,7 @@
             this.gcNoteCustomer.Name = "gcNoteCustomer";
             this.gcNoteCustomer.Size = new System.Drawing.Size(949, 372);
             this.gcNoteCustomer.TabIndex = 1;
-            this.gcNoteCustomer.Text = "DANH MỤC KHÁCH THUÊ PHÒNG";
+            this.gcNoteCustomer.Text = "DANH SÁCH KHÁCH";
             // 
             // dgvNoteCustomer
             // 
@@ -731,7 +788,11 @@
             this.dgvNoteCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNoteCustomer.Size = new System.Drawing.Size(945, 350);
             this.dgvNoteCustomer.TabIndex = 3;
+            this.dgvNoteCustomer.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvNoteCustomer_CellEnter);
+            this.dgvNoteCustomer.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvNoteCustomer_CellValueChanged);
             this.dgvNoteCustomer.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
+            this.dgvNoteCustomer.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.DgvNoteCustomer_RowsAdded);
+            this.dgvNoteCustomer.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvNoteCustomer_RowsRemoved);
             // 
             // CustomerName
             // 
@@ -789,6 +850,7 @@
             this.tbNoteCustomerType.ReadOnly = true;
             this.tbNoteCustomerType.Size = new System.Drawing.Size(106, 21);
             this.tbNoteCustomerType.TabIndex = 30;
+            this.tbNoteCustomerType.TabStop = false;
             // 
             // tbNoteCustomerPassport
             // 
@@ -799,6 +861,7 @@
             this.tbNoteCustomerPassport.ReadOnly = true;
             this.tbNoteCustomerPassport.Size = new System.Drawing.Size(136, 21);
             this.tbNoteCustomerPassport.TabIndex = 22;
+            this.tbNoteCustomerPassport.TabStop = false;
             // 
             // lbNoteCustomerAddress
             // 
@@ -822,6 +885,7 @@
             this.tbNoteCustomerName.ReadOnly = true;
             this.tbNoteCustomerName.Size = new System.Drawing.Size(321, 21);
             this.tbNoteCustomerName.TabIndex = 18;
+            this.tbNoteCustomerName.TabStop = false;
             // 
             // rtbNoteCustomerAddress
             // 
@@ -834,6 +898,7 @@
             this.rtbNoteCustomerAddress.ReadOnly = true;
             this.rtbNoteCustomerAddress.Size = new System.Drawing.Size(321, 82);
             this.rtbNoteCustomerAddress.TabIndex = 24;
+            this.rtbNoteCustomerAddress.TabStop = false;
             this.rtbNoteCustomerAddress.Text = "";
             // 
             // lbNoteCustomerPassport
@@ -1020,6 +1085,7 @@
             this.tbFindRoomStatus.ReadOnly = true;
             this.tbFindRoomStatus.Size = new System.Drawing.Size(117, 21);
             this.tbFindRoomStatus.TabIndex = 14;
+            this.tbFindRoomStatus.TabStop = false;
             // 
             // tbFindRoomPrice
             // 
@@ -1029,6 +1095,7 @@
             this.tbFindRoomPrice.ReadOnly = true;
             this.tbFindRoomPrice.Size = new System.Drawing.Size(117, 21);
             this.tbFindRoomPrice.TabIndex = 14;
+            this.tbFindRoomPrice.TabStop = false;
             // 
             // tbFindRoomType
             // 
@@ -1038,6 +1105,7 @@
             this.tbFindRoomType.ReadOnly = true;
             this.tbFindRoomType.Size = new System.Drawing.Size(117, 21);
             this.tbFindRoomType.TabIndex = 14;
+            this.tbFindRoomType.TabStop = false;
             // 
             // tbFindRoomID
             // 
@@ -1047,6 +1115,7 @@
             this.tbFindRoomID.ReadOnly = true;
             this.tbFindRoomID.Size = new System.Drawing.Size(117, 21);
             this.tbFindRoomID.TabIndex = 14;
+            this.tbFindRoomID.TabStop = false;
             // 
             // lbFindRoomID2
             // 
@@ -1131,6 +1200,7 @@
             this.cbFindRoomPrice.Name = "cbFindRoomPrice";
             this.cbFindRoomPrice.Size = new System.Drawing.Size(117, 21);
             this.cbFindRoomPrice.TabIndex = 7;
+            this.cbFindRoomPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // cbFindRoomStatus
             // 
@@ -1141,6 +1211,7 @@
             this.cbFindRoomStatus.Name = "cbFindRoomStatus";
             this.cbFindRoomStatus.Size = new System.Drawing.Size(116, 21);
             this.cbFindRoomStatus.TabIndex = 9;
+            this.cbFindRoomStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // cbFindRoomID
             // 
@@ -1151,6 +1222,7 @@
             this.cbFindRoomID.Name = "cbFindRoomID";
             this.cbFindRoomID.Size = new System.Drawing.Size(117, 21);
             this.cbFindRoomID.TabIndex = 1;
+            this.cbFindRoomID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // lbFindRoomID
             // 
@@ -1226,6 +1298,7 @@
             this.cbFindRoomType.Name = "cbFindRoomType";
             this.cbFindRoomType.Size = new System.Drawing.Size(116, 21);
             this.cbFindRoomType.TabIndex = 5;
+            this.cbFindRoomType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // gcRoomList
             // 
@@ -1413,6 +1486,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deBillDate.Size = new System.Drawing.Size(158, 20);
             this.deBillDate.TabIndex = 5;
+            this.deBillDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // lbBillDate
             // 
@@ -1614,6 +1688,7 @@
             this.tbBillRoomCost.ReadOnly = true;
             this.tbBillRoomCost.Size = new System.Drawing.Size(117, 21);
             this.tbBillRoomCost.TabIndex = 19;
+            this.tbBillRoomCost.TabStop = false;
             // 
             // tbBillRoomPrice
             // 
@@ -1623,6 +1698,7 @@
             this.tbBillRoomPrice.ReadOnly = true;
             this.tbBillRoomPrice.Size = new System.Drawing.Size(117, 21);
             this.tbBillRoomPrice.TabIndex = 20;
+            this.tbBillRoomPrice.TabStop = false;
             // 
             // tbBillRoomDay
             // 
@@ -1632,6 +1708,7 @@
             this.tbBillRoomDay.ReadOnly = true;
             this.tbBillRoomDay.Size = new System.Drawing.Size(117, 21);
             this.tbBillRoomDay.TabIndex = 21;
+            this.tbBillRoomDay.TabStop = false;
             // 
             // tbBillRoomID
             // 
@@ -1641,6 +1718,7 @@
             this.tbBillRoomID.ReadOnly = true;
             this.tbBillRoomID.Size = new System.Drawing.Size(117, 21);
             this.tbBillRoomID.TabIndex = 22;
+            this.tbBillRoomID.TabStop = false;
             // 
             // lbBillRoomID
             // 
@@ -1742,6 +1820,7 @@
             this.cbAddBillRoomID.Name = "cbAddBillRoomID";
             this.cbAddBillRoomID.Size = new System.Drawing.Size(120, 21);
             this.cbAddBillRoomID.TabIndex = 20;
+            this.cbAddBillRoomID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // btnAddBillRoom
             // 
@@ -2392,51 +2471,6 @@
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
             // 
-            // RoomID
-            // 
-            this.RoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomID.DataPropertyName = "MaPhong";
-            this.RoomID.HeaderText = "PHÒNG";
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            // 
-            // RoomType
-            // 
-            this.RoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomType.DataPropertyName = "MaLoaiPhong";
-            this.RoomType.HeaderText = "LOẠI PHÒNG";
-            this.RoomType.Name = "RoomType";
-            this.RoomType.ReadOnly = true;
-            // 
-            // RoomPrice
-            // 
-            this.RoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomPrice.DataPropertyName = "DonGia";
-            this.RoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
-            this.RoomPrice.Name = "RoomPrice";
-            this.RoomPrice.ReadOnly = true;
-            // 
-            // RoomNote
-            // 
-            this.RoomNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomNote.DataPropertyName = "GhiChu";
-            this.RoomNote.HeaderText = "GHI CHÚ";
-            this.RoomNote.Name = "RoomNote";
-            this.RoomNote.ReadOnly = true;
-            // 
-            // lbCurrency
-            // 
-            this.lbCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbCurrency.Appearance.Options.UseFont = true;
-            this.lbCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbCurrency.Location = new System.Drawing.Point(595, 45);
-            this.lbCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbCurrency.Name = "lbCurrency";
-            this.lbCurrency.Size = new System.Drawing.Size(28, 13);
-            this.lbCurrency.TabIndex = 14;
-            this.lbCurrency.Text = "(VND)";
-            // 
             // MainForm
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -2452,6 +2486,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÍ KHÁCH SẠN";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).EndInit();
             this.tcHotelManagement.ResumeLayout(false);
             this.tabListRoom.ResumeLayout(false);
@@ -2663,7 +2698,7 @@
         private DevExpress.XtraEditors.SimpleButton btnCancelNote;
         private DevExpress.XtraEditors.GroupControl gcNoteRoom;
         private System.Windows.Forms.TextBox tbNoteRoomPrice;
-        private System.Windows.Forms.ComboBox tbNoteRoomID;
+        private System.Windows.Forms.ComboBox cbNoteRoomID;
         private DevExpress.XtraEditors.LabelControl lbNoteRoomID;
         private DevExpress.XtraEditors.DateEdit deNoteRoomDate;
         private DevExpress.XtraEditors.LabelControl lbNoteRoomPrice;

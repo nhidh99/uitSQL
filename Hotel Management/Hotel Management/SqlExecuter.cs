@@ -28,7 +28,6 @@ namespace Hotel_Management
             return dt;
         }
 
-
         public DataTable GetRoomTypeData()
         {
             var connection = new SqlConnection();
@@ -67,15 +66,81 @@ namespace Hotel_Management
             return dt;
         }
 
-        public object GetRoomPrice(string RoomType)
+        public DataTable GetAvailableRoomData()
         {
             var connection = new SqlConnection();
             connection.ConnectionString = connString;
             connection.Open();
 
-            var command = new SqlCommand("TimGiaPhong", connection);
+            var command = new SqlCommand("LietKePhongTrong", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+            connection.Close();
+
+            var adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+
+            var dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+
+        public DataTable GetAvailableCustomerType()
+        {
+            var connection = new SqlConnection();
+            connection.ConnectionString = connString;
+            connection.Open();
+
+            var command = new SqlCommand("LietKeLoaiKhach", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+            connection.Close();
+
+            var adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+
+            var dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+
+        public object GetMaxCustomersInRoom()
+        {
+            var connection = new SqlConnection();
+            connection.ConnectionString = connString;
+            connection.Open();
+
+            var command = new SqlCommand("TimSoKhachToiDa", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            var result = command.ExecuteScalar();
+            connection.Close();
+            return result;
+        }
+
+        public object GetRoomPriceByType(string RoomType)
+        {
+            var connection = new SqlConnection();
+            connection.ConnectionString = connString;
+            connection.Open();
+
+            var command = new SqlCommand("TimGiaTheoLoaiPhong", connection);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add(new SqlParameter("@MaLoaiPhong", RoomType));
+
+            var price = command.ExecuteScalar();
+            connection.Close();
+            return price;
+        }
+
+        public object GetRoomPriceByRoomID(string RoomID)
+        {
+            var connection = new SqlConnection();
+            connection.ConnectionString = connString;
+            connection.Open();
+
+            var command = new SqlCommand("TimGiaTheoMaPhong", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add(new SqlParameter("@MaPhong", RoomID));
 
             var price = command.ExecuteScalar();
             connection.Close();
@@ -97,7 +162,22 @@ namespace Hotel_Management
             return status;
         }
 
-        public bool IsRentedRoom(string RoomID)
+        public object GetRoomType(string RoomID)
+        {
+            var connection = new SqlConnection();
+            connection.ConnectionString = connString;
+            connection.Open();
+
+            var command = new SqlCommand("TimMaLoaiPhong", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add(new SqlParameter("@MaPhong", RoomID));
+
+            var status = command.ExecuteScalar();
+            connection.Close();
+            return status;
+        }
+
+        public bool CheckRentedRoom(string RoomID)
         {
             var connection = new SqlConnection();
             connection.ConnectionString = connString;
@@ -109,6 +189,20 @@ namespace Hotel_Management
             bool isRented = ((int)command.ExecuteScalar() == 1);
             connection.Close();
             return isRented;
+        }
+
+        public object GetLastNoteIDByRoomID(string RoomID)
+        {
+            var connection = new SqlConnection();
+            connection.ConnectionString = connString;
+            connection.Open();
+
+            var command = new SqlCommand("TimMaPhieuGanNhat", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add(new SqlParameter("@MaPhong", RoomID));
+            var result = command.ExecuteScalar();
+            connection.Close();
+            return result;
         }
 
         public bool DeleteRoom(string RoomID)
@@ -132,7 +226,7 @@ namespace Hotel_Management
             }
         }
 
-        public bool AddRoom(Dictionary<string, string> RoomData)
+        public bool AddRoom(Dictionary<string, string> room)
         {
             var connection = new SqlConnection();
             try
@@ -142,13 +236,13 @@ namespace Hotel_Management
 
                 var command = new SqlCommand("ThemPhong", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@MaPhong", RoomData["RoomID"]));
-                command.Parameters.Add(new SqlParameter("@MaLoaiPhong", RoomData["RoomType"]));
-                command.Parameters.Add(new SqlParameter("@TenTinhTrang", RoomData["RoomStatus"]));
+                command.Parameters.Add(new SqlParameter("@MaPhong", room["ID"]));
+                command.Parameters.Add(new SqlParameter("@MaLoaiPhong", room["Type"]));
+                command.Parameters.Add(new SqlParameter("@TenTinhTrang", room["Status"]));
 
-                if (!string.IsNullOrWhiteSpace(RoomData["RoomNote"]))
+                if (!string.IsNullOrWhiteSpace(room["Note"]))
                 {
-                    command.Parameters.Add(new SqlParameter("@GhiChu", RoomData["RoomNote"]));
+                    command.Parameters.Add(new SqlParameter("@GhiChu", room["Note"]));
                 }
                 command.ExecuteNonQuery();
                 connection.Close();
@@ -161,7 +255,7 @@ namespace Hotel_Management
             }
         }
 
-        public bool EditRoom(Dictionary<string, string> RoomData)
+        public bool EditRoom(Dictionary<string, string> room)
         {
             var connection = new SqlConnection();
             try
@@ -171,14 +265,65 @@ namespace Hotel_Management
 
                 var command = new SqlCommand("SuaPhong", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@MaPhong", RoomData["RoomID"]));
-                command.Parameters.Add(new SqlParameter("@MaLoaiPhong", RoomData["RoomType"]));
-                command.Parameters.Add(new SqlParameter("@TenTinhTrang", RoomData["RoomStatus"]));
+                command.Parameters.Add(new SqlParameter("@MaPhong", room["ID"]));
+                command.Parameters.Add(new SqlParameter("@MaLoaiPhong", room["Type"]));
+                command.Parameters.Add(new SqlParameter("@TenTinhTrang", room["Status"]));
 
-                if (!string.IsNullOrWhiteSpace(RoomData["RoomNote"]))
+                if (!string.IsNullOrWhiteSpace(room["Note"]))
                 {
-                    command.Parameters.Add(new SqlParameter("@GhiChu", RoomData["RoomNote"]));
+                    command.Parameters.Add(new SqlParameter("@GhiChu", room["Note"]));
                 }
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (SqlException)
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
+        public bool AddNoteRoom(Dictionary<string, string> room)
+        {
+            var connection = new SqlConnection();
+            try
+            {
+                connection.ConnectionString = connString;
+                connection.Open();
+
+                var command = new SqlCommand("ThemPhieuThuePhong", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@MaPhong", room["ID"]));
+                command.Parameters.Add(new SqlParameter("@NgayThue", room["Date"]));
+                command.Parameters.Add(new SqlParameter("@LoaiPhong", room["Type"]));
+                command.Parameters.Add(new SqlParameter("@DonGia", room["Price"]));
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (SqlException)
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
+        public bool AddCustomerInNoteRoom(int NoteID, Dictionary<string,string> customer)
+        {
+            var connection = new SqlConnection();
+            try
+            {
+                connection.ConnectionString = connString;
+                connection.Open();
+
+                var command = new SqlCommand("ThemChiTietPhieuThue", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@MaPhieu", NoteID));
+                command.Parameters.Add(new SqlParameter("@CMND", customer["PassportID"]));
+                command.Parameters.Add(new SqlParameter("@TenKhach", customer["Name"]));
+                command.Parameters.Add(new SqlParameter("@TenLoaiKhach", customer["Type"]));
+                command.Parameters.Add(new SqlParameter("@DiaChi", customer["Address"]));
                 command.ExecuteNonQuery();
                 connection.Close();
                 return true;

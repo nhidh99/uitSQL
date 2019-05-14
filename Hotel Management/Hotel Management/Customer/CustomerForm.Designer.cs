@@ -61,20 +61,24 @@
             // tbCustomerPassport
             // 
             this.tbCustomerPassport.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbCustomerPassport.Location = new System.Drawing.Point(321, 101);
+            this.tbCustomerPassport.Location = new System.Drawing.Point(280, 101);
             this.tbCustomerPassport.Margin = new System.Windows.Forms.Padding(2);
+            this.tbCustomerPassport.MaxLength = 20;
             this.tbCustomerPassport.Name = "tbCustomerPassport";
-            this.tbCustomerPassport.Size = new System.Drawing.Size(127, 20);
+            this.tbCustomerPassport.Size = new System.Drawing.Size(168, 20);
             this.tbCustomerPassport.TabIndex = 6;
+            this.tbCustomerPassport.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbCustomerPassport_KeyPress);
             // 
             // tbCustomerName
             // 
             this.tbCustomerName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbCustomerName.Location = new System.Drawing.Point(109, 69);
             this.tbCustomerName.Margin = new System.Windows.Forms.Padding(2);
+            this.tbCustomerName.MaxLength = 30;
             this.tbCustomerName.Name = "tbCustomerName";
             this.tbCustomerName.Size = new System.Drawing.Size(339, 20);
             this.tbCustomerName.TabIndex = 4;
+            this.tbCustomerName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbCustomerName_KeyPress);
             // 
             // rtbCustomerAddress
             // 
@@ -83,6 +87,7 @@
             this.rtbCustomerAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtbCustomerAddress.Location = new System.Drawing.Point(109, 135);
             this.rtbCustomerAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.rtbCustomerAddress.MaxLength = 50;
             this.rtbCustomerAddress.Name = "rtbCustomerAddress";
             this.rtbCustomerAddress.Size = new System.Drawing.Size(338, 114);
             this.rtbCustomerAddress.TabIndex = 10;
@@ -97,7 +102,7 @@
             this.lbCustomerPassport.Appearance.Options.UseTextOptions = true;
             this.lbCustomerPassport.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lbCustomerPassport.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbCustomerPassport.Location = new System.Drawing.Point(258, 104);
+            this.lbCustomerPassport.Location = new System.Drawing.Point(226, 104);
             this.lbCustomerPassport.Margin = new System.Windows.Forms.Padding(2);
             this.lbCustomerPassport.Name = "lbCustomerPassport";
             this.lbCustomerPassport.Size = new System.Drawing.Size(50, 13);
@@ -111,8 +116,9 @@
             this.cbCustomerType.Location = new System.Drawing.Point(109, 100);
             this.cbCustomerType.Margin = new System.Windows.Forms.Padding(2);
             this.cbCustomerType.Name = "cbCustomerType";
-            this.cbCustomerType.Size = new System.Drawing.Size(126, 21);
+            this.cbCustomerType.Size = new System.Drawing.Size(104, 21);
             this.cbCustomerType.TabIndex = 5;
+            this.cbCustomerType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbCustomerType_KeyPress);
             // 
             // lbCustomerName
             // 
@@ -183,17 +189,18 @@
             this.btnConfirm.Size = new System.Drawing.Size(105, 41);
             this.btnConfirm.TabIndex = 11;
             this.btnConfirm.Text = "XÁC NHẬN";
+            this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // imgCustomer
             // 
             this.imgCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.imgCustomer.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.imgCustomer.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("imgAddRoomType.Appearance.Image")));
+            this.imgCustomer.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("imgCustomer.Appearance.Image")));
             this.imgCustomer.Appearance.Options.UseFont = true;
             this.imgCustomer.Appearance.Options.UseImage = true;
             this.imgCustomer.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.imgCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("imgAddRoomType.ImageOptions.Image")));
+            this.imgCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("imgCustomer.ImageOptions.Image")));
             this.imgCustomer.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.imgCustomer.Location = new System.Drawing.Point(68, 22);
             this.imgCustomer.Margin = new System.Windows.Forms.Padding(2);
