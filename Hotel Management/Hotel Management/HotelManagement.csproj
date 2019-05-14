@@ -157,8 +157,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlExecuter.cs" />
     <EmbeddedResource Include="Bill\BillDetailForm.resx">
       <DependentUpon>BillDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bill\BillTaxForm.resx">
+      <DependentUpon>BillTaxForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerType\CustomerTypeAddForm.resx">
       <DependentUpon>CustomerTypeAddForm.cs</DependentUpon>

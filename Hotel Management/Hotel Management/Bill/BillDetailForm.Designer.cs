@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillDetailForm));
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnTaxDetail = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbBillDate = new System.Windows.Forms.TextBox();
             this.tbBillAddress = new System.Windows.Forms.TextBox();
@@ -41,43 +42,42 @@
             this.imgRoomBill = new DevExpress.XtraEditors.LabelControl();
             this.lbBillHeader = new DevExpress.XtraEditors.LabelControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gcBillData = new DevExpress.XtraEditors.GroupControl();
             this.dgvBillData = new System.Windows.Forms.DataGridView();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.tbBillCost = new System.Windows.Forms.TextBox();
-            this.lbBillCost = new DevExpress.XtraEditors.LabelControl();
-            this.lbBillCostCurrency = new DevExpress.XtraEditors.LabelControl();
             this.PaidRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaidRoomRentDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaidRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaidRoomTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbReceivedMoneyCurrency = new DevExpress.XtraEditors.LabelControl();
-            this.tbReceivedMoney = new System.Windows.Forms.TextBox();
-            this.lbReceivedMoney = new DevExpress.XtraEditors.LabelControl();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.lbTaxCurrency = new DevExpress.XtraEditors.LabelControl();
+            this.tbBillTax = new System.Windows.Forms.TextBox();
+            this.lbBillTax = new DevExpress.XtraEditors.LabelControl();
+            this.tbBillID = new System.Windows.Forms.TextBox();
+            this.lbBillID = new DevExpress.XtraEditors.LabelControl();
             this.lbChangeCurrency = new DevExpress.XtraEditors.LabelControl();
             this.tbChange = new System.Windows.Forms.TextBox();
             this.lbChange = new DevExpress.XtraEditors.LabelControl();
-            this.tbBillID = new System.Windows.Forms.TextBox();
-            this.lbBillID = new DevExpress.XtraEditors.LabelControl();
+            this.lbReceivedMoneyCurrency = new DevExpress.XtraEditors.LabelControl();
+            this.tbReceivedMoney = new System.Windows.Forms.TextBox();
+            this.lbReceivedMoney = new DevExpress.XtraEditors.LabelControl();
+            this.lbBillCostCurrency = new DevExpress.XtraEditors.LabelControl();
+            this.tbBillCost = new System.Windows.Forms.TextBox();
+            this.lbBillCost = new DevExpress.XtraEditors.LabelControl();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnCreate = new DevExpress.XtraEditors.SimpleButton();
-            this.btnTaxDetail = new DevExpress.XtraEditors.SimpleButton();
-            this.tbBillTax = new System.Windows.Forms.TextBox();
-            this.lbBillTax = new DevExpress.XtraEditors.LabelControl();
-            this.lbTaxCurrency = new DevExpress.XtraEditors.LabelControl();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcBillData)).BeginInit();
             this.gcBillData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillData)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -101,6 +101,19 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(255, 45);
             this.panel5.TabIndex = 6;
+            // 
+            // btnTaxDetail
+            // 
+            this.btnTaxDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTaxDetail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTaxDetail.ImageOptions.Image")));
+            this.btnTaxDetail.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnTaxDetail.Location = new System.Drawing.Point(0, 0);
+            this.btnTaxDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTaxDetail.Name = "btnTaxDetail";
+            this.btnTaxDetail.Size = new System.Drawing.Size(255, 45);
+            this.btnTaxDetail.TabIndex = 27;
+            this.btnTaxDetail.Text = "CHI TIẾT PHỤ THU";
+            this.btnTaxDetail.Click += new System.EventHandler(this.BtnTaxDetail_Click);
             // 
             // panel2
             // 
@@ -189,10 +202,10 @@
             // 
             this.imgRoomBill.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imgRoomBill.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.imgRoomBill.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("imgEditRoom.Appearance.Image")));
+            this.imgRoomBill.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("imgRoomBill.Appearance.Image")));
             this.imgRoomBill.Appearance.Options.UseFont = true;
             this.imgRoomBill.Appearance.Options.UseImage = true;
-            this.imgRoomBill.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("imgEditRoom.ImageOptions.Image")));
+            this.imgRoomBill.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("imgRoomBill.ImageOptions.Image")));
             this.imgRoomBill.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.imgRoomBill.Location = new System.Drawing.Point(201, 16);
             this.imgRoomBill.Margin = new System.Windows.Forms.Padding(2);
@@ -222,6 +235,67 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(516, 210);
             this.panel1.TabIndex = 0;
+            // 
+            // gcBillData
+            // 
+            this.gcBillData.Controls.Add(this.dgvBillData);
+            this.gcBillData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcBillData.Location = new System.Drawing.Point(0, 0);
+            this.gcBillData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gcBillData.Name = "gcBillData";
+            this.gcBillData.Size = new System.Drawing.Size(516, 210);
+            this.gcBillData.TabIndex = 2;
+            this.gcBillData.Text = "DANH MỤC THANH TOÁN";
+            // 
+            // dgvBillData
+            // 
+            this.dgvBillData.AllowUserToAddRows = false;
+            this.dgvBillData.BackgroundColor = System.Drawing.Color.White;
+            this.dgvBillData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBillData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PaidRoomID,
+            this.PaidRoomRentDays,
+            this.PaidRoomPrice,
+            this.PaidRoomTotalPrice});
+            this.dgvBillData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBillData.Location = new System.Drawing.Point(2, 20);
+            this.dgvBillData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvBillData.MultiSelect = false;
+            this.dgvBillData.Name = "dgvBillData";
+            this.dgvBillData.ReadOnly = true;
+            this.dgvBillData.RowTemplate.Height = 24;
+            this.dgvBillData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBillData.Size = new System.Drawing.Size(512, 188);
+            this.dgvBillData.TabIndex = 2;
+            // 
+            // PaidRoomID
+            // 
+            this.PaidRoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.PaidRoomID.HeaderText = "PHÒNG";
+            this.PaidRoomID.Name = "PaidRoomID";
+            this.PaidRoomID.ReadOnly = true;
+            this.PaidRoomID.Width = 67;
+            // 
+            // PaidRoomRentDays
+            // 
+            this.PaidRoomRentDays.HeaderText = "SỐ NGÀY THUÊ";
+            this.PaidRoomRentDays.Name = "PaidRoomRentDays";
+            this.PaidRoomRentDays.ReadOnly = true;
+            this.PaidRoomRentDays.Width = 110;
+            // 
+            // PaidRoomPrice
+            // 
+            this.PaidRoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
+            this.PaidRoomPrice.Name = "PaidRoomPrice";
+            this.PaidRoomPrice.ReadOnly = true;
+            // 
+            // PaidRoomTotalPrice
+            // 
+            this.PaidRoomTotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomTotalPrice.HeaderText = "THÀNH TIỀN (VND)";
+            this.PaidRoomTotalPrice.Name = "PaidRoomTotalPrice";
+            this.PaidRoomTotalPrice.ReadOnly = true;
             // 
             // btnCancel
             // 
@@ -267,38 +341,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 441);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // gcBillData
-            // 
-            this.gcBillData.Controls.Add(this.dgvBillData);
-            this.gcBillData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcBillData.Location = new System.Drawing.Point(0, 0);
-            this.gcBillData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gcBillData.Name = "gcBillData";
-            this.gcBillData.Size = new System.Drawing.Size(516, 210);
-            this.gcBillData.TabIndex = 2;
-            this.gcBillData.Text = "DANH MỤC THANH TOÁN";
-            // 
-            // dgvBillData
-            // 
-            this.dgvBillData.AllowUserToAddRows = false;
-            this.dgvBillData.BackgroundColor = System.Drawing.Color.White;
-            this.dgvBillData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBillData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PaidRoomID,
-            this.PaidRoomRentDays,
-            this.PaidRoomPrice,
-            this.PaidRoomTotalPrice});
-            this.dgvBillData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvBillData.Location = new System.Drawing.Point(2, 20);
-            this.dgvBillData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvBillData.MultiSelect = false;
-            this.dgvBillData.Name = "dgvBillData";
-            this.dgvBillData.ReadOnly = true;
-            this.dgvBillData.RowTemplate.Height = 24;
-            this.dgvBillData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBillData.Size = new System.Drawing.Size(512, 188);
-            this.dgvBillData.TabIndex = 2;
-            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.groupControl1);
@@ -332,103 +374,62 @@
             this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "THANH TOÁN HOÁ ĐƠN";
             // 
-            // tbBillCost
+            // lbTaxCurrency
             // 
-            this.tbBillCost.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbBillCost.Location = new System.Drawing.Point(93, 104);
-            this.tbBillCost.Name = "tbBillCost";
-            this.tbBillCost.ReadOnly = true;
-            this.tbBillCost.Size = new System.Drawing.Size(113, 21);
-            this.tbBillCost.TabIndex = 46;
+            this.lbTaxCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbTaxCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbTaxCurrency.Appearance.Options.UseFont = true;
+            this.lbTaxCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbTaxCurrency.Location = new System.Drawing.Point(212, 74);
+            this.lbTaxCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbTaxCurrency.Name = "lbTaxCurrency";
+            this.lbTaxCurrency.Size = new System.Drawing.Size(28, 13);
+            this.lbTaxCurrency.TabIndex = 56;
+            this.lbTaxCurrency.Text = "(VND)";
             // 
-            // lbBillCost
+            // tbBillTax
             // 
-            this.lbBillCost.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbBillCost.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbBillCost.Appearance.Options.UseFont = true;
-            this.lbBillCost.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillCost.Location = new System.Drawing.Point(45, 106);
-            this.lbBillCost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbBillCost.Name = "lbBillCost";
-            this.lbBillCost.Size = new System.Drawing.Size(42, 13);
-            this.lbBillCost.TabIndex = 45;
-            this.lbBillCost.Text = "GIÁ TRỊ:";
+            this.tbBillTax.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbBillTax.Location = new System.Drawing.Point(93, 71);
+            this.tbBillTax.Name = "tbBillTax";
+            this.tbBillTax.ReadOnly = true;
+            this.tbBillTax.Size = new System.Drawing.Size(113, 21);
+            this.tbBillTax.TabIndex = 55;
             // 
-            // lbBillCostCurrency
+            // lbBillTax
             // 
-            this.lbBillCostCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbBillCostCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbBillCostCurrency.Appearance.Options.UseFont = true;
-            this.lbBillCostCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillCostCurrency.Location = new System.Drawing.Point(212, 107);
-            this.lbBillCostCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbBillCostCurrency.Name = "lbBillCostCurrency";
-            this.lbBillCostCurrency.Size = new System.Drawing.Size(28, 13);
-            this.lbBillCostCurrency.TabIndex = 47;
-            this.lbBillCostCurrency.Text = "(VND)";
+            this.lbBillTax.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbBillTax.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbBillTax.Appearance.Options.UseFont = true;
+            this.lbBillTax.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbBillTax.Location = new System.Drawing.Point(40, 74);
+            this.lbBillTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbBillTax.Name = "lbBillTax";
+            this.lbBillTax.Size = new System.Drawing.Size(47, 13);
+            this.lbBillTax.TabIndex = 54;
+            this.lbBillTax.Text = "PHỤ THU:";
             // 
-            // PaidRoomID
+            // tbBillID
             // 
-            this.PaidRoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.PaidRoomID.HeaderText = "PHÒNG";
-            this.PaidRoomID.Name = "PaidRoomID";
-            this.PaidRoomID.ReadOnly = true;
-            this.PaidRoomID.Width = 67;
+            this.tbBillID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbBillID.Location = new System.Drawing.Point(93, 38);
+            this.tbBillID.Name = "tbBillID";
+            this.tbBillID.ReadOnly = true;
+            this.tbBillID.Size = new System.Drawing.Size(113, 21);
+            this.tbBillID.TabIndex = 46;
             // 
-            // PaidRoomRentDays
+            // lbBillID
             // 
-            this.PaidRoomRentDays.HeaderText = "SỐ NGÀY THUÊ";
-            this.PaidRoomRentDays.Name = "PaidRoomRentDays";
-            this.PaidRoomRentDays.ReadOnly = true;
-            this.PaidRoomRentDays.Width = 110;
-            // 
-            // PaidRoomPrice
-            // 
-            this.PaidRoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
-            this.PaidRoomPrice.Name = "PaidRoomPrice";
-            this.PaidRoomPrice.ReadOnly = true;
-            // 
-            // PaidRoomTotalPrice
-            // 
-            this.PaidRoomTotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomTotalPrice.HeaderText = "THÀNH TIỀN (VND)";
-            this.PaidRoomTotalPrice.Name = "PaidRoomTotalPrice";
-            this.PaidRoomTotalPrice.ReadOnly = true;
-            // 
-            // lbReceivedMoneyCurrency
-            // 
-            this.lbReceivedMoneyCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbReceivedMoneyCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbReceivedMoneyCurrency.Appearance.Options.UseFont = true;
-            this.lbReceivedMoneyCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbReceivedMoneyCurrency.Location = new System.Drawing.Point(212, 140);
-            this.lbReceivedMoneyCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbReceivedMoneyCurrency.Name = "lbReceivedMoneyCurrency";
-            this.lbReceivedMoneyCurrency.Size = new System.Drawing.Size(28, 13);
-            this.lbReceivedMoneyCurrency.TabIndex = 50;
-            this.lbReceivedMoneyCurrency.Text = "(VND)";
-            // 
-            // tbReceivedMoney
-            // 
-            this.tbReceivedMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbReceivedMoney.Location = new System.Drawing.Point(93, 137);
-            this.tbReceivedMoney.Name = "tbReceivedMoney";
-            this.tbReceivedMoney.Size = new System.Drawing.Size(113, 21);
-            this.tbReceivedMoney.TabIndex = 49;
-            // 
-            // lbReceivedMoney
-            // 
-            this.lbReceivedMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbReceivedMoney.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbReceivedMoney.Appearance.Options.UseFont = true;
-            this.lbReceivedMoney.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbReceivedMoney.Location = new System.Drawing.Point(29, 140);
-            this.lbReceivedMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbReceivedMoney.Name = "lbReceivedMoney";
-            this.lbReceivedMoney.Size = new System.Drawing.Size(58, 13);
-            this.lbReceivedMoney.TabIndex = 48;
-            this.lbReceivedMoney.Text = "TIỀN NHẬN:";
+            this.lbBillID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbBillID.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbBillID.Appearance.Options.UseFont = true;
+            this.lbBillID.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbBillID.Location = new System.Drawing.Point(17, 41);
+            this.lbBillID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbBillID.Name = "lbBillID";
+            this.lbBillID.Size = new System.Drawing.Size(70, 13);
+            this.lbBillID.TabIndex = 45;
+            this.lbBillID.Text = "MÃ HOÁ ĐƠN:";
             // 
             // lbChangeCurrency
             // 
@@ -465,27 +466,74 @@
             this.lbChange.TabIndex = 51;
             this.lbChange.Text = "TIỀN THỪA:";
             // 
-            // tbBillID
+            // lbReceivedMoneyCurrency
             // 
-            this.tbBillID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbBillID.Location = new System.Drawing.Point(93, 38);
-            this.tbBillID.Name = "tbBillID";
-            this.tbBillID.ReadOnly = true;
-            this.tbBillID.Size = new System.Drawing.Size(113, 21);
-            this.tbBillID.TabIndex = 46;
+            this.lbReceivedMoneyCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbReceivedMoneyCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbReceivedMoneyCurrency.Appearance.Options.UseFont = true;
+            this.lbReceivedMoneyCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbReceivedMoneyCurrency.Location = new System.Drawing.Point(212, 140);
+            this.lbReceivedMoneyCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbReceivedMoneyCurrency.Name = "lbReceivedMoneyCurrency";
+            this.lbReceivedMoneyCurrency.Size = new System.Drawing.Size(28, 13);
+            this.lbReceivedMoneyCurrency.TabIndex = 50;
+            this.lbReceivedMoneyCurrency.Text = "(VND)";
             // 
-            // lbBillID
+            // tbReceivedMoney
             // 
-            this.lbBillID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbBillID.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbBillID.Appearance.Options.UseFont = true;
-            this.lbBillID.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillID.Location = new System.Drawing.Point(17, 41);
-            this.lbBillID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbBillID.Name = "lbBillID";
-            this.lbBillID.Size = new System.Drawing.Size(70, 13);
-            this.lbBillID.TabIndex = 45;
-            this.lbBillID.Text = "MÃ HOÁ ĐƠN:";
+            this.tbReceivedMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbReceivedMoney.Location = new System.Drawing.Point(93, 137);
+            this.tbReceivedMoney.Name = "tbReceivedMoney";
+            this.tbReceivedMoney.Size = new System.Drawing.Size(113, 21);
+            this.tbReceivedMoney.TabIndex = 49;
+            // 
+            // lbReceivedMoney
+            // 
+            this.lbReceivedMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbReceivedMoney.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbReceivedMoney.Appearance.Options.UseFont = true;
+            this.lbReceivedMoney.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbReceivedMoney.Location = new System.Drawing.Point(29, 140);
+            this.lbReceivedMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbReceivedMoney.Name = "lbReceivedMoney";
+            this.lbReceivedMoney.Size = new System.Drawing.Size(58, 13);
+            this.lbReceivedMoney.TabIndex = 48;
+            this.lbReceivedMoney.Text = "TIỀN NHẬN:";
+            // 
+            // lbBillCostCurrency
+            // 
+            this.lbBillCostCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbBillCostCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbBillCostCurrency.Appearance.Options.UseFont = true;
+            this.lbBillCostCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbBillCostCurrency.Location = new System.Drawing.Point(212, 107);
+            this.lbBillCostCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbBillCostCurrency.Name = "lbBillCostCurrency";
+            this.lbBillCostCurrency.Size = new System.Drawing.Size(28, 13);
+            this.lbBillCostCurrency.TabIndex = 47;
+            this.lbBillCostCurrency.Text = "(VND)";
+            // 
+            // tbBillCost
+            // 
+            this.tbBillCost.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbBillCost.Location = new System.Drawing.Point(93, 104);
+            this.tbBillCost.Name = "tbBillCost";
+            this.tbBillCost.ReadOnly = true;
+            this.tbBillCost.Size = new System.Drawing.Size(113, 21);
+            this.tbBillCost.TabIndex = 46;
+            // 
+            // lbBillCost
+            // 
+            this.lbBillCost.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbBillCost.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbBillCost.Appearance.Options.UseFont = true;
+            this.lbBillCost.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbBillCost.Location = new System.Drawing.Point(45, 106);
+            this.lbBillCost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbBillCost.Name = "lbBillCost";
+            this.lbBillCost.Size = new System.Drawing.Size(42, 13);
+            this.lbBillCost.TabIndex = 45;
+            this.lbBillCost.Text = "GIÁ TRỊ:";
             // 
             // panel7
             // 
@@ -508,53 +556,6 @@
             this.btnCreate.TabIndex = 27;
             this.btnCreate.Text = "THANH TOÁN HOÁ ĐƠN";
             // 
-            // btnTaxDetail
-            // 
-            this.btnTaxDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTaxDetail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnTaxDetail.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnTaxDetail.Location = new System.Drawing.Point(0, 0);
-            this.btnTaxDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnTaxDetail.Name = "btnTaxDetail";
-            this.btnTaxDetail.Size = new System.Drawing.Size(255, 45);
-            this.btnTaxDetail.TabIndex = 27;
-            this.btnTaxDetail.Text = "CHI TIẾT PHỤ THU";
-            // 
-            // tbBillTax
-            // 
-            this.tbBillTax.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbBillTax.Location = new System.Drawing.Point(93, 71);
-            this.tbBillTax.Name = "tbBillTax";
-            this.tbBillTax.ReadOnly = true;
-            this.tbBillTax.Size = new System.Drawing.Size(113, 21);
-            this.tbBillTax.TabIndex = 55;
-            // 
-            // lbBillTax
-            // 
-            this.lbBillTax.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbBillTax.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbBillTax.Appearance.Options.UseFont = true;
-            this.lbBillTax.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillTax.Location = new System.Drawing.Point(40, 74);
-            this.lbBillTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbBillTax.Name = "lbBillTax";
-            this.lbBillTax.Size = new System.Drawing.Size(47, 13);
-            this.lbBillTax.TabIndex = 54;
-            this.lbBillTax.Text = "PHỤ THU:";
-            // 
-            // lbTaxCurrency
-            // 
-            this.lbTaxCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbTaxCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbTaxCurrency.Appearance.Options.UseFont = true;
-            this.lbTaxCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbTaxCurrency.Location = new System.Drawing.Point(212, 74);
-            this.lbTaxCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbTaxCurrency.Name = "lbTaxCurrency";
-            this.lbTaxCurrency.Size = new System.Drawing.Size(28, 13);
-            this.lbTaxCurrency.TabIndex = 56;
-            this.lbTaxCurrency.Text = "(VND)";
-            // 
             // BillDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -572,11 +573,11 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcBillData)).EndInit();
             this.gcBillData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillData)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);

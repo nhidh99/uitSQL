@@ -62,6 +62,7 @@
             this.btnCancel.Size = new System.Drawing.Size(88, 40);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "HỦY BỎ";
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnConfirm
             // 
@@ -110,7 +111,6 @@
             this.Name = "ThirdCustomerTaxEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PHỤ THU KHÁCH THỨ 3";
-            this.Load += new System.EventHandler(this.ThirdCustomerTaxEditForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

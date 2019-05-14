@@ -40,7 +40,7 @@
             this.lbCustomerHeader = new DevExpress.XtraEditors.LabelControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
-            this.imgAddRoomType = new DevExpress.XtraEditors.LabelControl();
+            this.imgCustomer = new DevExpress.XtraEditors.LabelControl();
             this.SuspendLayout();
             // 
             // lbCustomerAddress
@@ -87,6 +87,7 @@
             this.rtbCustomerAddress.Size = new System.Drawing.Size(338, 114);
             this.rtbCustomerAddress.TabIndex = 10;
             this.rtbCustomerAddress.Text = "";
+            this.rtbCustomerAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Rtb_KeyDown);
             // 
             // lbCustomerPassport
             // 
@@ -183,29 +184,29 @@
             this.btnConfirm.TabIndex = 11;
             this.btnConfirm.Text = "XÁC NHẬN";
             // 
-            // imgAddRoomType
+            // imgCustomer
             // 
-            this.imgAddRoomType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.imgCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgAddRoomType.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.imgAddRoomType.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("imgAddRoomType.Appearance.Image")));
-            this.imgAddRoomType.Appearance.Options.UseFont = true;
-            this.imgAddRoomType.Appearance.Options.UseImage = true;
-            this.imgAddRoomType.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.imgAddRoomType.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("imgAddRoomType.ImageOptions.Image")));
-            this.imgAddRoomType.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.imgAddRoomType.Location = new System.Drawing.Point(68, 22);
-            this.imgAddRoomType.Margin = new System.Windows.Forms.Padding(2);
-            this.imgAddRoomType.Name = "imgAddRoomType";
-            this.imgAddRoomType.Size = new System.Drawing.Size(32, 32);
-            this.imgAddRoomType.TabIndex = 70;
+            this.imgCustomer.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.imgCustomer.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("imgAddRoomType.Appearance.Image")));
+            this.imgCustomer.Appearance.Options.UseFont = true;
+            this.imgCustomer.Appearance.Options.UseImage = true;
+            this.imgCustomer.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.imgCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("imgAddRoomType.ImageOptions.Image")));
+            this.imgCustomer.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.imgCustomer.Location = new System.Drawing.Point(68, 22);
+            this.imgCustomer.Margin = new System.Windows.Forms.Padding(2);
+            this.imgCustomer.Name = "imgCustomer";
+            this.imgCustomer.Size = new System.Drawing.Size(32, 32);
+            this.imgCustomer.TabIndex = 70;
             // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 321);
-            this.Controls.Add(this.imgAddRoomType);
+            this.Controls.Add(this.imgCustomer);
             this.Controls.Add(this.lbCustomerAddress);
             this.Controls.Add(this.tbCustomerPassport);
             this.Controls.Add(this.tbCustomerName);
@@ -242,6 +243,6 @@
         private DevExpress.XtraEditors.LabelControl lbCustomerHeader;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnConfirm;
-        private DevExpress.XtraEditors.LabelControl imgAddRoomType;
+        private DevExpress.XtraEditors.LabelControl imgCustomer;
     }
 }

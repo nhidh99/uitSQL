@@ -43,12 +43,9 @@
             this.lbListRoomType = new DevExpress.XtraEditors.LabelControl();
             this.gcListRoom = new DevExpress.XtraEditors.GroupControl();
             this.dgvListRoom = new System.Windows.Forms.DataGridView();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.gcListRoomEdit = new DevExpress.XtraEditors.GroupControl();
+            this.btnAddRoom = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditRoom = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelRoom = new DevExpress.XtraEditors.SimpleButton();
             this.tabNoteRoom = new DevExpress.XtraTab.XtraTabPage();
@@ -198,7 +195,11 @@
             this.btnAddRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAddRoom = new DevExpress.XtraEditors.SimpleButton();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbCurrency = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).BeginInit();
             this.tcHotelManagement.SuspendLayout();
             this.tabListRoom.SuspendLayout();
@@ -327,6 +328,7 @@
             // 
             // gcRoomData
             // 
+            this.gcRoomData.Controls.Add(this.lbCurrency);
             this.gcRoomData.Controls.Add(this.tbListRoomType);
             this.gcRoomData.Controls.Add(this.tbListRoomPrice);
             this.gcRoomData.Controls.Add(this.lbListRoomPrice);
@@ -418,7 +420,7 @@
             this.lbListRoomID.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbListRoomID.Appearance.Options.UseFont = true;
             this.lbListRoomID.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbListRoomID.Location = new System.Drawing.Point(186, 45);
+            this.lbListRoomID.Location = new System.Drawing.Point(186, 46);
             this.lbListRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbListRoomID.Name = "lbListRoomID";
             this.lbListRoomID.Size = new System.Drawing.Size(39, 13);
@@ -471,35 +473,8 @@
             this.dgvListRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListRoom.Size = new System.Drawing.Size(945, 400);
             this.dgvListRoom.TabIndex = 2;
+            this.dgvListRoom.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListRoom_CellEnter);
             this.dgvListRoom.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
-            // 
-            // RoomID
-            // 
-            this.RoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomID.HeaderText = "PHÒNG";
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            // 
-            // RoomType
-            // 
-            this.RoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomType.HeaderText = "LOẠI PHÒNG";
-            this.RoomType.Name = "RoomType";
-            this.RoomType.ReadOnly = true;
-            // 
-            // RoomPrice
-            // 
-            this.RoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
-            this.RoomPrice.Name = "RoomPrice";
-            this.RoomPrice.ReadOnly = true;
-            // 
-            // RoomNote
-            // 
-            this.RoomNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomNote.HeaderText = "GHI CHÚ";
-            this.RoomNote.Name = "RoomNote";
-            this.RoomNote.ReadOnly = true;
             // 
             // panel8
             // 
@@ -522,6 +497,19 @@
             this.gcListRoomEdit.Size = new System.Drawing.Size(174, 214);
             this.gcListRoomEdit.TabIndex = 1;
             this.gcListRoomEdit.Text = "HIỆU CHỈNH PHÒNG";
+            // 
+            // btnAddRoom
+            // 
+            this.btnAddRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddRoom.ImageOptions.Image")));
+            this.btnAddRoom.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnAddRoom.Location = new System.Drawing.Point(27, 42);
+            this.btnAddRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddRoom.Name = "btnAddRoom";
+            this.btnAddRoom.Size = new System.Drawing.Size(120, 41);
+            this.btnAddRoom.TabIndex = 16;
+            this.btnAddRoom.Text = "THÊM";
+            this.btnAddRoom.Click += new System.EventHandler(this.BtnAddRoom_Click);
             // 
             // btnEditRoom
             // 
@@ -1472,6 +1460,7 @@
             this.rtbBillCustomerAddress.Size = new System.Drawing.Size(157, 53);
             this.rtbBillCustomerAddress.TabIndex = 7;
             this.rtbBillCustomerAddress.Text = "";
+            this.rtbBillCustomerAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Rtb_KeyDown);
             // 
             // lbBillCustomerName
             // 
@@ -2403,18 +2392,50 @@
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
             // 
-            // btnAddRoom
+            // RoomID
             // 
-            this.btnAddRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAddRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddRoom.ImageOptions.Image")));
-            this.btnAddRoom.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAddRoom.Location = new System.Drawing.Point(27, 42);
-            this.btnAddRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddRoom.Name = "btnAddRoom";
-            this.btnAddRoom.Size = new System.Drawing.Size(120, 41);
-            this.btnAddRoom.TabIndex = 16;
-            this.btnAddRoom.Text = "THÊM";
-            this.btnAddRoom.Click += new System.EventHandler(this.BtnAddRoom_Click);
+            this.RoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomID.DataPropertyName = "MaPhong";
+            this.RoomID.HeaderText = "PHÒNG";
+            this.RoomID.Name = "RoomID";
+            this.RoomID.ReadOnly = true;
+            // 
+            // RoomType
+            // 
+            this.RoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomType.DataPropertyName = "MaLoaiPhong";
+            this.RoomType.HeaderText = "LOẠI PHÒNG";
+            this.RoomType.Name = "RoomType";
+            this.RoomType.ReadOnly = true;
+            // 
+            // RoomPrice
+            // 
+            this.RoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomPrice.DataPropertyName = "DonGia";
+            this.RoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
+            this.RoomPrice.Name = "RoomPrice";
+            this.RoomPrice.ReadOnly = true;
+            // 
+            // RoomNote
+            // 
+            this.RoomNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomNote.DataPropertyName = "GhiChu";
+            this.RoomNote.HeaderText = "GHI CHÚ";
+            this.RoomNote.Name = "RoomNote";
+            this.RoomNote.ReadOnly = true;
+            // 
+            // lbCurrency
+            // 
+            this.lbCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbCurrency.Appearance.Options.UseFont = true;
+            this.lbCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbCurrency.Location = new System.Drawing.Point(595, 45);
+            this.lbCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbCurrency.Name = "lbCurrency";
+            this.lbCurrency.Size = new System.Drawing.Size(28, 13);
+            this.lbCurrency.TabIndex = 14;
+            this.lbCurrency.Text = "(VND)";
             // 
             // MainForm
             // 
@@ -2429,6 +2450,7 @@
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÍ KHÁCH SẠN";
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).EndInit();
             this.tcHotelManagement.ResumeLayout(false);
@@ -2569,10 +2591,6 @@
         private System.Windows.Forms.DataGridView dgvRoomType;
         private System.Windows.Forms.TextBox tbListRoomPrice;
         private DevExpress.XtraEditors.LabelControl lbListRoomPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomNote;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoundRoomID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoundRoomType;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoundRoomPrice;
@@ -2694,6 +2712,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerTypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn EditCustomerType;
         private DevExpress.XtraEditors.SimpleButton btnAddRoom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomNote;
+        private DevExpress.XtraEditors.LabelControl lbCurrency;
     }
 }
 

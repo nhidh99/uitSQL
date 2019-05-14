@@ -21,5 +21,11 @@ namespace Hotel_Management.Bill
         {
             this.Close();
         }
+
+        private void BtnTaxDetail_Click(object sender, EventArgs e)
+        {
+            var TaxForm = new BillTaxForm();
+            TaxForm.ShowDialog();
+        }
     }
 }
