@@ -137,6 +137,7 @@
             this.CustomerPassportID,
             this.CustomerAddress});
             this.dgvCustomerData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCustomerData.Enabled = false;
             this.dgvCustomerData.Location = new System.Drawing.Point(2, 20);
             this.dgvCustomerData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCustomerData.MultiSelect = false;

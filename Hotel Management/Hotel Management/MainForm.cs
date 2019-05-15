@@ -7,6 +7,7 @@ using Hotel_Management.Rule;
 using Hotel_Management.CustomerType;
 using Hotel_Management.RoomType;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Hotel_Management
 {
@@ -22,6 +23,7 @@ namespace Hotel_Management
         {
             this.LoadRoomData();
             this.LoadAvailableRoom();
+            this.LoadAvailableFindRoom();
         }
 
 
@@ -58,7 +60,8 @@ namespace Hotel_Management
         {
             tbListRoomID.Text = row.Cells["RoomID"].Value.ToString();
             tbListRoomType.Text = row.Cells["RoomType"].Value.ToString();
-            tbListRoomPrice.Text = row.Cells["RoomPrice"].Value.ToString();
+            tbListRoomPrice.Text = row.Cells["RoomPrice"].Value.ToString() + " VND";
+            tbListRoomStatus.Text = row.Cells["RoomStatus"].Value.ToString();
             rtbListRoomNote.Text = row.Cells["RoomNote"].Value.ToString();
         }
 
@@ -180,12 +183,6 @@ namespace Hotel_Management
         {
             this.tbNoteRoomPrice.Text = sqlExecuter.GetRoomPriceByRoomID(cbNoteRoomID.Text).ToString() + " VND";
         }
-
-        private void TabNoteRoom_VisibleChanged(object sender, EventArgs e)
-        {
-            this.tbNoteRoomPrice.Text = sqlExecuter.GetRoomPriceByRoomID(cbNoteRoomID.Text).ToString() + " VND";
-        }
-
         private void BtnLockNoteRoom_Click(object sender, EventArgs e)
         {
             this.btnLockNoteRoom.Enabled = false;
@@ -293,9 +290,82 @@ namespace Hotel_Management
         }
 
         // Tab 03: Room Search
+        void LoadAvailableFindRoom()
+        {
+            DataTable dt = sqlExecuter.GetRoomData();
+            DataRow dr = dt.NewRow();
+            dr["MaPhong"] = "Tất cả phòng";
+            dt.Rows.InsertAt(dr, 0);
+            this.cbFindRoomID.DataSource = dt;
+            this.cbFindRoomID.DisplayMember = "MaPhong";
+
+            dt = sqlExecuter.GetRoomTypeData();
+            dr = dt.NewRow();
+            dr["MaLoaiPhong"] = "Tất cả loại phòng";
+            dt.Rows.InsertAt(dr, 0);
+            this.cbFindRoomType.DataSource = dt;
+            this.cbFindRoomType.DisplayMember = "MaLoaiPhong";
+
+            dt = sqlExecuter.GetRoomPriceData();
+            dr = dt.NewRow();
+            dr["DonGia"] = "Tất cả đơn giá";
+            dt.Rows.InsertAt(dr, 0);
+            this.cbFindRoomPrice.DataSource = dt;
+            this.cbFindRoomPrice.DisplayMember = "DonGia";
+
+            dt = sqlExecuter.GetRoomStatusData();
+            dr = dt.NewRow();
+            dr["TenTinhTrang"] = "Tất cả tình trạng";
+            dt.Rows.InsertAt(dr, 0);
+            this.cbFindRoomStatus.DataSource = dt;
+            this.cbFindRoomStatus.DisplayMember = "TenTinhTrang";
+        }
+
+        private void CbFindRoomType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var RoomType = cbFindRoomType.Text;
+                if (RoomType != "Tất cả loại phòng")
+                {
+                    this.cbFindRoomPrice.Text = sqlExecuter.GetRoomPriceByType(RoomType).ToString() + " VND";
+                }
+                else this.cbFindRoomPrice.Text = "Tất cả đơn giá";
+            }
+            catch (Exception) { }
+        }
+
         private void BtnFindRoom_Click(object sender, EventArgs e)
         {
+            string RoomPrice = null;
 
+            if (cbFindRoomPrice.Text != "Tất cả đơn giá")
+            {
+                RoomPrice = cbFindRoomPrice.Text.Split()[0].Replace(",", "");
+            }
+            else RoomPrice = "Tất cả đơn giá";
+
+            var room = new Dictionary<string, string>()
+            {
+                {"ID", cbFindRoomID.Text },
+                {"Type", cbFindRoomType.Text },
+                {"Price", RoomPrice},
+                {"Status", cbFindRoomStatus.Text }
+            };
+
+            this.dgvFindRoom.DataSource = sqlExecuter.GetFoundRoom(room);
+
+            if (this.dgvFindRoom.Rows.Count == 0)
+            {
+                this.tbFindRoomID.Text
+                = this.tbFindRoomType.Text
+                = this.tbFindRoomPrice.Text
+                = this.tbFindRoomStatus.Text
+                = this.rtbFindRoomNote.Text = null;
+
+                MessageBox.Show("Không tìm thấy phòng phù hợp!", "KHÔNG TÌM THẤY KẾT QUẢ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void BtnDelFindRoom_Click(object sender, EventArgs e)
@@ -308,6 +378,19 @@ namespace Hotel_Management
             var RoomForm = new RoomForm();
             RoomForm.Tag = "EditForm";
             RoomForm.ShowDialog(this);
+        }
+
+        private void DgvFoundRoom_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var curRow = this.dgvFindRoom.CurrentRow;
+                this.tbFindRoomID.Text = curRow.Cells["FindRoomID"].Value.ToString();
+                this.tbFindRoomType.Text = curRow.Cells["FindRoomType"].Value.ToString();
+                this.tbFindRoomPrice.Text = curRow.Cells["FindRoomPrice"].Value.ToString();
+                this.tbFindRoomStatus.Text = curRow.Cells["FindRoomStatus"].Value.ToString();
+                this.rtbFindRoomNote.Text = curRow.Cells["FindRoomNote"].Value.ToString();
+            }
         }
 
         // Tab 04: Room Bill
@@ -406,6 +489,24 @@ namespace Hotel_Management
         {
             var EditForm = new CustomerTypeEditForm();
             EditForm.ShowDialog(this);
+        }
+
+        private void TcHotelManagement_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        {
+            if (this.tcHotelManagement.SelectedTabPage.Name == "tabNoteRoom")
+            {
+                if (this.cbNoteRoomID.Items.Count == 0)
+                {
+                    MessageBox.Show("Không còn phòng trống", "KHÔNG CÒN PHÒNG TRỐNG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.cbNoteRoomID.Text = this.tbNoteRoomPrice.Text = null;
+                    this.btnLockNoteRoom.Enabled = false;
+                }
+                else
+                {
+                    this.tbNoteRoomPrice.Text = sqlExecuter.GetRoomPriceByRoomID(cbNoteRoomID.Text).ToString() + " VND";
+                    this.btnLockNoteRoom.Enabled = true;
+                }
+            }
         }
     }
 }

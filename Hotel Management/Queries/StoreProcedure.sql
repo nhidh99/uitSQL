@@ -2,9 +2,10 @@
 CREATE PROCEDURE LietKeDanhMucPhong
 AS
 BEGIN
-	SELECT MaPhong, Phong.MaLoaiPhong, FORMAT(DonGia, 'N0') DonGia, GhiChu
-	FROM Phong JOIN LoaiPhong
-	ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong
+	SELECT MaPhong, Phong.MaLoaiPhong, FORMAT(DonGia, 'N0') DonGia, TenTinhTrang, GhiChu
+	FROM Phong 
+		JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong
+		JOIN TinhTrang ON Phong.MaTinhTrang = TinhTrang.MaTinhTrang
 END
 GO
 
@@ -20,7 +21,7 @@ GO
 CREATE PROCEDURE LietKeLoaiPhong
 AS
 BEGIN
-	SELECT MaLoaiPhong FROM LoaiPhong
+		SELECT MaLoaiPhong, FORMAT(DonGia, 'N0') DonGia FROM LoaiPhong
 END
 GO
 
@@ -203,3 +204,51 @@ BEGIN
 	VALUES (@MaPhieu, @CMND, @MaLoaiKhach, @TenKhach, @DiaChi)
 END
 GO
+
+-- TÌM KIẾM PHÒNG THEO ĐIỀU KIỆN
+CREATE PROCEDURE TraCuuPhong
+	@MaPhong       varchar(10) = null,
+	@MaLoaiPhong   varchar(10) = null,
+	@DonGia        money = null,
+	@TenTinhTrang  nvarchar(30) = null 
+AS 
+BEGIN
+
+	DECLARE @query NVARCHAR(MAX);
+
+	SET @query = N'	SELECT MaPhong, Phong.MaLoaiPhong, FORMAT(DonGia, ''N0'') DonGia, TenTinhTrang, GhiChu
+				FROM Phong 
+					JOIN TinhTrang ON Phong.MaTinhTrang = TinhTrang.MaTinhTrang
+					JOIN LoaiPhong ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong'
+
+       + CASE WHEN @MaPhong IS NOT NULL 
+              THEN ' AND MaPhong = @MaPhong' ELSE N' ' END 
+
+       + CASE WHEN @MaLoaiPhong IS NOT NULL 
+              THEN ' AND MaLoaiPhong = @MaLoaiPhong' ELSE N' ' END 
+
+       + CASE WHEN @DonGia IS NOT NULL 
+	          THEN ' AND DonGia = @DonGia' ELSE N' ' END 
+
+       + CASE WHEN @TenTinhTrang IS NOT NULL 
+              THEN N' AND TenTinhTrang = @TenTinhTrang' ELSE N' ' END 
+
+	EXECUTE SP_EXECUTESQL @query,
+                    N'	@MaPhong varchar(10),
+						@MaLoaiPhong varchar(10),
+						@DonGia money,
+						@TenTinhTrang nvarchar(30) '
+                    ,@MaPhong
+                    ,@MaLoaiPhong
+                    ,@DonGia
+                    ,@TenTinhTrang
+END
+
+-- LIỆT KÊ ĐƠN GIÁ PHÒNG
+CREATE PROCEDURE LietKeDonGiaPhong
+AS
+BEGIN
+	SELECT DISTINCT(FORMAT(DonGia, 'N0')) + ' VND' DonGia
+	FROM LoaiPhong
+	ORDER BY DonGia ASC
+END

@@ -71,7 +71,7 @@ namespace Hotel_Management
                         this.LoadSelectedRoomData(room);
                         this.lbRoomHeader.Text = this.Text = "THAY ĐỔI THÔNG TIN PHÒNG";
                         this.tbRoomID.ReadOnly = true;
-                        this.tbRoomID.TabStop = false;
+                        this.tbRoomID.TabStop = false; 
                         this.cbRoomStatus.Enabled = this.cbRoomStatus.TabStop = !sqlExecuter.CheckRentedRoom(room["ID"]);
                         this.cbRoomStatus.Text = sqlExecuter.GetRoomStatus(room["ID"]).ToString();
                         break;
@@ -116,6 +116,7 @@ namespace Hotel_Management
                         }
                         break;
                     }
+
                 case "EditForm":
                     {
                         if (sqlExecuter.EditRoom(room))

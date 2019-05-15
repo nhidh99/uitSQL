@@ -66,6 +66,25 @@ namespace Hotel_Management
             return dt;
         }
 
+        public DataTable GetRoomPriceData()
+        {
+            var connection = new SqlConnection();
+            connection.ConnectionString = connString;
+            connection.Open();
+
+            var command = new SqlCommand("LietKeDonGiaPhong", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+            connection.Close();
+
+            var adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+
+            var dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+
         public DataTable GetAvailableRoomData()
         {
             var connection = new SqlConnection();
@@ -93,6 +112,46 @@ namespace Hotel_Management
 
             var command = new SqlCommand("LietKeLoaiKhach", connection);
             command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+            connection.Close();
+
+            var adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+
+            var dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+
+        public DataTable GetFoundRoom(Dictionary<string,string> room)
+        {
+            var connection = new SqlConnection();
+            connection.ConnectionString = connString;
+            connection.Open();
+
+            var command = new SqlCommand("TraCuuPhong", connection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            if (room["ID"] != "Tất cả phòng")
+            {
+                command.Parameters.Add(new SqlParameter("@MaPhong", room["ID"]));
+            }
+
+            if (room["Type"] != "Tất cả loại phòng")
+            {
+                command.Parameters.Add(new SqlParameter("@MaLoaiPhong", room["Type"]));
+            }
+
+            if (room["Price"] != "Tất cả đơn giá")
+            {
+                command.Parameters.Add(new SqlParameter("DonGia", room["Price"]));
+            }
+
+            if (room["Status"] != "Tất cả tình trạng")
+            {
+                command.Parameters.Add(new SqlParameter("@TenTinhTrang", room["Status"]));
+            }
+
             command.ExecuteNonQuery();
             connection.Close();
 
