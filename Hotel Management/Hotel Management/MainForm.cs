@@ -185,12 +185,19 @@ namespace Hotel_Management
         }
         private void BtnLockNoteRoom_Click(object sender, EventArgs e)
         {
-            this.btnLockNoteRoom.Enabled = false;
-            this.btnAddNoteCustomer.Enabled = true;
-            this.cbNoteRoomID.Enabled = false;
-            this.deNoteRoomDate.Enabled = false;
-            this.btnCancelNote.Enabled = true;
-            this.gcNoteCustomer.Text += " [PHÒNG: " + cbNoteRoomID.Text + " - NGÀY THUÊ: " + deNoteRoomDate.Text + "]";
+            if (!string.IsNullOrEmpty(this.cbNoteRoomID.Text))
+            {
+                this.btnLockNoteRoom.Enabled = false;
+                this.btnAddNoteCustomer.Enabled = true;
+                this.cbNoteRoomID.Enabled = false;
+                this.deNoteRoomDate.Enabled = false;
+                this.btnCancelNote.Enabled = true;
+                this.gcNoteCustomer.Text += " [PHÒNG: " + cbNoteRoomID.Text + " - NGÀY THUÊ: " + deNoteRoomDate.Text + "]";
+            }
+            else if (this.cbNoteRoomID.Items.Count == 0)
+            {
+                MessageBox.Show("Không còn phòng trống", "KHÔNG CÒN PHÒNG TRỐNG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
 
@@ -387,7 +394,7 @@ namespace Hotel_Management
                 var curRow = this.dgvFindRoom.CurrentRow;
                 this.tbFindRoomID.Text = curRow.Cells["FindRoomID"].Value.ToString();
                 this.tbFindRoomType.Text = curRow.Cells["FindRoomType"].Value.ToString();
-                this.tbFindRoomPrice.Text = curRow.Cells["FindRoomPrice"].Value.ToString();
+                this.tbFindRoomPrice.Text = curRow.Cells["FindRoomPrice"].Value.ToString() + " VND";
                 this.tbFindRoomStatus.Text = curRow.Cells["FindRoomStatus"].Value.ToString();
                 this.rtbFindRoomNote.Text = curRow.Cells["FindRoomNote"].Value.ToString();
             }
@@ -499,12 +506,10 @@ namespace Hotel_Management
                 {
                     MessageBox.Show("Không còn phòng trống", "KHÔNG CÒN PHÒNG TRỐNG", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.cbNoteRoomID.Text = this.tbNoteRoomPrice.Text = null;
-                    this.btnLockNoteRoom.Enabled = false;
                 }
                 else
                 {
                     this.tbNoteRoomPrice.Text = sqlExecuter.GetRoomPriceByRoomID(cbNoteRoomID.Text).ToString() + " VND";
-                    this.btnLockNoteRoom.Enabled = true;
                 }
             }
         }

@@ -1216,35 +1216,35 @@
             // cbFindRoomPrice
             // 
             this.cbFindRoomPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbFindRoomPrice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFindRoomPrice.FormattingEnabled = true;
             this.cbFindRoomPrice.Location = new System.Drawing.Point(161, 127);
             this.cbFindRoomPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbFindRoomPrice.Name = "cbFindRoomPrice";
             this.cbFindRoomPrice.Size = new System.Drawing.Size(117, 21);
             this.cbFindRoomPrice.TabIndex = 7;
-            this.cbFindRoomPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // cbFindRoomStatus
             // 
             this.cbFindRoomStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbFindRoomStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFindRoomStatus.FormattingEnabled = true;
             this.cbFindRoomStatus.Location = new System.Drawing.Point(162, 167);
             this.cbFindRoomStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbFindRoomStatus.Name = "cbFindRoomStatus";
             this.cbFindRoomStatus.Size = new System.Drawing.Size(116, 21);
             this.cbFindRoomStatus.TabIndex = 9;
-            this.cbFindRoomStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // cbFindRoomID
             // 
             this.cbFindRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbFindRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFindRoomID.FormattingEnabled = true;
             this.cbFindRoomID.Location = new System.Drawing.Point(161, 45);
             this.cbFindRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbFindRoomID.Name = "cbFindRoomID";
             this.cbFindRoomID.Size = new System.Drawing.Size(117, 21);
             this.cbFindRoomID.TabIndex = 1;
-            this.cbFindRoomID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // lbFindRoomID
             // 
@@ -1314,6 +1314,7 @@
             // cbFindRoomType
             // 
             this.cbFindRoomType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbFindRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFindRoomType.FormattingEnabled = true;
             this.cbFindRoomType.Location = new System.Drawing.Point(162, 85);
             this.cbFindRoomType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1321,7 +1322,6 @@
             this.cbFindRoomType.Size = new System.Drawing.Size(116, 21);
             this.cbFindRoomType.TabIndex = 5;
             this.cbFindRoomType.SelectedIndexChanged += new System.EventHandler(this.CbFindRoomType_SelectedIndexChanged);
-            this.cbFindRoomType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // gcRoomList
             // 
