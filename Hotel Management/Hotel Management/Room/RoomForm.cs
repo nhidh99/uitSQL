@@ -49,8 +49,18 @@ namespace Hotel_Management
         {
             this.cbRoomType.SelectedIndexChanged -= new EventHandler(CbRoomType_SelectedIndexChanged);
             this.cbRoomType.DataSource = sqlExecuter.GetRoomTypeData();
-            this.cbRoomStatus.DataSource = sqlExecuter.GetRoomStatusData();
             this.cbRoomType.DisplayMember = "MaLoaiPhong";
+
+            DataTable dt = sqlExecuter.GetRoomStatusData();
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dr["TenTinhTrang"].ToString() == "Thuê")
+                {
+                    dt.Rows.Remove(dr);
+                    break;
+                }
+            }
+            this.cbRoomStatus.DataSource = dt;
             this.cbRoomStatus.DisplayMember = "TenTinhTrang";
 
             switch (this.Tag)
@@ -71,7 +81,7 @@ namespace Hotel_Management
                         this.LoadSelectedRoomData(room);
                         this.lbRoomHeader.Text = this.Text = "THAY ĐỔI THÔNG TIN PHÒNG";
                         this.tbRoomID.ReadOnly = true;
-                        this.tbRoomID.TabStop = false; 
+                        this.tbRoomID.TabStop = false;
                         this.cbRoomStatus.Enabled = this.cbRoomStatus.TabStop = !sqlExecuter.CheckRentedRoom(room["ID"]);
                         this.cbRoomStatus.Text = sqlExecuter.GetRoomStatus(room["ID"]).ToString();
                         break;
