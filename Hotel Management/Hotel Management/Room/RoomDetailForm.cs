@@ -77,7 +77,6 @@ namespace Hotel_Management.Room
                 MainForm mainForm = (MainForm)Owner;
                 mainForm.LoadAvailableRoom();
                 mainForm.LoadRoomData();
-                mainForm.RecreateNoteRoom();
 
                 MessageBox.Show("Lập phiếu thuê phòng " + room["ID"] + " thành công!", "LẬP PHIẾU THUÊ PHÒNG THÀNH CÔNG",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);

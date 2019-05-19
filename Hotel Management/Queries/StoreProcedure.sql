@@ -252,3 +252,105 @@ BEGIN
 	FROM LoaiPhong
 	ORDER BY DonGia ASC
 END
+
+-- LIỆT KÊ CÁC PHÒNG ĐANG THUÊ SAU NGÀY CỤ THỂ
+CREATE PROCEDURE LietKePhongThue
+	@NgayThanhToan date
+AS
+BEGIN
+	SELECT Phong.MaPhong
+	FROM PhieuThue JOIN Phong
+	ON PhieuThue.MaPhong = Phong.MaPhong
+	WHERE MaTinhTrang = 'PHTH'
+	AND NgayThue <= @NgayThanhToan
+	ORDER BY MaPhong ASC
+END
+GO
+
+-- LIỆT KÊ PHỤ THU PHÒNG
+CREATE PROCEDURE TimChiTietThanhToan
+	@MaPhong varchar(10),
+	@NgayThanhToan date
+AS
+BEGIN
+	DECLARE @DonGia money, @ThanhTien money, @PhuThuKhachThem money, @PhuThuKhachNuocNgoai money
+	DECLARE @SoNgayThue int
+	DECLARE @SoKhach int
+
+	SET @DonGia = (SELECT DonGia FROM PhieuThue WHERE MaPhong = @MaPhong)
+	SET @SoNgayThue = (SELECT DATEDIFF(DAY, NgayThue, @NgayThanhToan) FROM PhieuThue WHERE MaPhong = @MaPhong)
+	SET @ThanhTien = @SoNgayThue * (SELECT TOP 1 DonGia FROM PhieuThue WHERE MaPhong = @MaPhong ORDER BY MaPhieu DESC) 
+	
+	SET @SoKhach = 
+	(SELECT COUNT(*) 
+	FROM 
+		(SELECT CTPT.MaPhieu, CMND
+		FROM PhieuThue 
+			JOIN CTPT ON PhieuThue.MaPhieu = CTPT.MaPhieu
+			JOIN Phong ON PhieuThue.MaPhong = Phong.MaPhong
+		WHERE PhieuThue.MaPhong = @MaPhong
+		AND MaTinhTrang = 'PHTH'
+		) AS A
+	)
+
+	IF (@SoKhach >= 3)
+	BEGIN
+		SET @PhuThuKhachThem = @ThanhTien * (SELECT GiaTri FROM ThamSo WHERE MaThamSo = 'PTK3') * (@SoKhach - 2)
+	END
+	ELSE
+	BEGIN
+		SET @PhuThuKhachThem = 0
+	END
+
+	IF EXISTS (SELECT * FROM PhieuThue 
+		JOIN CTPT ON PhieuThue.MaPhieu = CTPT.MaPhieu
+		JOIN Phong ON PhieuThue.MaPhong = Phong.MaPhong
+		JOIN LoaiKhach ON CTPT.MaLoaiKhach = LoaiKhach.MaLoaiKhach
+		WHERE PhieuThue.MaPhong = @MaPhong
+		AND MaTinhTrang = 'PHTH'
+		AND TenLoaiKhach = N'Nước ngoài')
+	BEGIN
+		SET @PhuThuKhachNuocNgoai = @ThanhTien * (SELECT GiaTri FROM ThamSo WHERE MaThamSo = 'PTNN')
+	END
+	ELSE
+	BEGIN
+		SET @PhuThuKhachNuocNgoai = 0
+	END
+
+	SET @ThanhTien = @ThanhTien + @PhuThuKhachNuocNgoai + @PhuThuKhachThem
+	
+	SELECT	@MaPhong AS MaPhong, FORMAT(@DonGia, 'N0') AS DonGia, @SoNgayThue AS SoNgayThue, FORMAT(@PhuThuKhachThem, 'N0') AS PhuThuKhachThuBa, 
+			FORMAT(@PhuThuKhachNuocNgoai, 'N0') AS PhuThuKhachNuocNgoai, FORMAT(@ThanhTien, 'N0') AS ThanhTien
+END
+
+-- TẠO HOÁ ĐƠN THANH TOÁN PHÒNG
+CREATE PROCEDURE ThemHoaDonThanhToan
+	@TenKhach nvarchar(30),
+	@DiaChi nvarchar(30),
+	@NgayHoaDon date,
+	@TriGia money
+AS
+BEGIN
+	INSERT INTO HoaDon(TenKhach, DiaChi, NgayHoaDon, TriGia)
+	VALUES (@TenKhach, @DiaChi, @NgayHoaDon, @TriGia)
+END
+GO
+
+-- THANH TOÁN PHÒNG (SAU KHI TẠO HOÁ ĐƠN VÀ CÓ THÔNG TIN THANH TOÁN)
+CREATE PROCEDURE ThemThongTinThanhToan
+	@MaPhong varchar(10),
+	@ThanhTien money
+AS
+BEGIN
+	DECLARE @MaHoaDon varchar(10)	
+	SET @MaHoaDon = (SELECT TOP 1 MaHoaDon FROM HoaDon ORDER BY MaHoaDon DESC)
+	
+	UPDATE PhieuThue
+	SET MaHoaDon = @MaHoaDon, ThanhTien = @ThanhTien
+	WHERE MaPhong = @MaPhong
+	
+	UPDATE Phong
+	SET MaTinhTrang = 'PHTR'
+	WHERE MaPhong = @MaPhong
+END
+GO

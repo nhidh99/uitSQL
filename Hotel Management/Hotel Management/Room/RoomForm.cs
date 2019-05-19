@@ -60,13 +60,13 @@ namespace Hotel_Management
                     break;
                 }
             }
-            this.cbRoomStatus.DataSource = dt;
-            this.cbRoomStatus.DisplayMember = "TenTinhTrang";
 
             switch (this.Tag)
             {
                 case "AddForm":
                     {
+                        this.cbRoomStatus.DataSource = dt;
+                        this.cbRoomStatus.DisplayMember = "TenTinhTrang";
                         this.lbRoomHeader.Text = this.Text = "THÊM THÔNG TIN PHÒNG";
                         this.cbRoomType.SelectedIndex = 0;
                         this.cbRoomStatus.SelectedIndex = 0;
@@ -82,8 +82,19 @@ namespace Hotel_Management
                         this.lbRoomHeader.Text = this.Text = "THAY ĐỔI THÔNG TIN PHÒNG";
                         this.tbRoomID.ReadOnly = true;
                         this.tbRoomID.TabStop = false;
-                        this.cbRoomStatus.Enabled = this.cbRoomStatus.TabStop = !sqlExecuter.CheckRentedRoom(room["ID"]);
-                        this.cbRoomStatus.Text = sqlExecuter.GetRoomStatus(room["ID"]).ToString();
+
+                        if (sqlExecuter.CheckRentedRoom(room["ID"]))
+                        {
+                            this.cbRoomStatus.Items.Add("Thuê");
+                            this.cbRoomStatus.SelectedIndex = 0;
+                            this.cbRoomStatus.Enabled = false;
+                        }
+                        else
+                        {
+                            this.cbRoomStatus.DataSource = dt;
+                            this.cbRoomStatus.DisplayMember = "TenTinhTrang";
+                            this.cbRoomStatus.Text = sqlExecuter.GetRoomStatus(room["ID"]).ToString();
+                        }
                         break;
                     }
             }
@@ -143,19 +154,11 @@ namespace Hotel_Management
                         break;
                     }
             }
-        }
-        private void Combobox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
-        }
 
-        private void RoomForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
             MainForm mainForm = (MainForm)Owner;
             mainForm.LoadRoomData();
             mainForm.LoadAvailableRoom();
         }
-
         private void CbRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.tbRoomPrice.Text = sqlExecuter.GetRoomPriceByType(cbRoomType.Text).ToString() + " VND";

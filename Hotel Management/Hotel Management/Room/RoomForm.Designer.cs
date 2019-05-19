@@ -70,13 +70,13 @@
             // cbRoomType
             // 
             this.cbRoomType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRoomType.FormattingEnabled = true;
             this.cbRoomType.Location = new System.Drawing.Point(324, 72);
             this.cbRoomType.Margin = new System.Windows.Forms.Padding(2);
             this.cbRoomType.Name = "cbRoomType";
             this.cbRoomType.Size = new System.Drawing.Size(111, 21);
             this.cbRoomType.TabIndex = 2;
-            this.cbRoomType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // lbRoomID
             // 
@@ -226,13 +226,13 @@
             // cbRoomStatus
             // 
             this.cbRoomStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbRoomStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRoomStatus.FormattingEnabled = true;
             this.cbRoomStatus.Location = new System.Drawing.Point(97, 102);
             this.cbRoomStatus.Margin = new System.Windows.Forms.Padding(2);
             this.cbRoomStatus.Name = "cbRoomStatus";
             this.cbRoomStatus.Size = new System.Drawing.Size(134, 21);
             this.cbRoomStatus.TabIndex = 3;
-            this.cbRoomStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // RoomForm
             // 
@@ -260,7 +260,6 @@
             this.Name = "RoomForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "THAY ĐỔI THÔNG TIN PHÒNG";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RoomForm_FormClosing);
             this.Load += new System.EventHandler(this.EditFormRoom_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

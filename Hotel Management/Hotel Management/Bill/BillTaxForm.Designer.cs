@@ -36,7 +36,7 @@
             this.lbEditRoomType = new DevExpress.XtraEditors.LabelControl();
             this.dgvTaxDetail = new System.Windows.Forms.DataGridView();
             this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThirdCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OverCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ForeignCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
@@ -57,8 +57,8 @@
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.30612F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.69388F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 361);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(684, 311);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnClose
@@ -66,10 +66,10 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.ImageOptions.Image")));
             this.btnClose.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnClose.Location = new System.Drawing.Point(2, 321);
+            this.btnClose.Location = new System.Drawing.Point(2, 262);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(780, 38);
+            this.btnClose.Size = new System.Drawing.Size(680, 47);
             this.btnClose.TabIndex = 14;
             this.btnClose.Text = "ĐÓNG";
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
@@ -81,7 +81,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(778, 74);
+            this.panel1.Size = new System.Drawing.Size(678, 60);
             this.panel1.TabIndex = 0;
             // 
             // imgAddRoomType
@@ -93,7 +93,7 @@
             this.imgAddRoomType.Appearance.Options.UseImage = true;
             this.imgAddRoomType.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("imgAddRoomType.ImageOptions.Image")));
             this.imgAddRoomType.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.imgAddRoomType.Location = new System.Drawing.Point(273, 21);
+            this.imgAddRoomType.Location = new System.Drawing.Point(223, 14);
             this.imgAddRoomType.Margin = new System.Windows.Forms.Padding(2);
             this.imgAddRoomType.Name = "imgAddRoomType";
             this.imgAddRoomType.Size = new System.Drawing.Size(32, 32);
@@ -105,7 +105,7 @@
             this.lbEditRoomType.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
             this.lbEditRoomType.Appearance.Options.UseFont = true;
             this.lbEditRoomType.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbEditRoomType.Location = new System.Drawing.Point(319, 29);
+            this.lbEditRoomType.Location = new System.Drawing.Point(269, 22);
             this.lbEditRoomType.Margin = new System.Windows.Forms.Padding(2);
             this.lbEditRoomType.Name = "lbEditRoomType";
             this.lbEditRoomType.Size = new System.Drawing.Size(187, 24);
@@ -119,30 +119,31 @@
             this.dgvTaxDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTaxDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomID,
-            this.ThirdCustomerTax,
+            this.OverCustomerTax,
             this.ForeignCustomerTax,
             this.TotalTax});
             this.dgvTaxDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTaxDetail.Location = new System.Drawing.Point(3, 83);
+            this.dgvTaxDetail.Location = new System.Drawing.Point(3, 69);
             this.dgvTaxDetail.Name = "dgvTaxDetail";
-            this.dgvTaxDetail.Size = new System.Drawing.Size(778, 233);
+            this.dgvTaxDetail.Size = new System.Drawing.Size(678, 188);
             this.dgvTaxDetail.TabIndex = 1;
             this.dgvTaxDetail.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DgvTaxDetail_RowPostPaint);
             this.dgvTaxDetail.SelectionChanged += new System.EventHandler(this.DgvTaxDetail_SelectionChanged);
             // 
             // RoomID
             // 
-            this.RoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.RoomID.DataPropertyName = "MaPhong";
             this.RoomID.HeaderText = "PHÒNG";
             this.RoomID.Name = "RoomID";
+            this.RoomID.Width = 71;
             // 
-            // ThirdCustomerTax
+            // OverCustomerTax
             // 
-            this.ThirdCustomerTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ThirdCustomerTax.DataPropertyName = "PhuThuKhachThu3";
-            this.ThirdCustomerTax.HeaderText = "KHÁCH THỨ 3 (VND)";
-            this.ThirdCustomerTax.Name = "ThirdCustomerTax";
+            this.OverCustomerTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.OverCustomerTax.DataPropertyName = "PhuThuKhachThem";
+            this.OverCustomerTax.HeaderText = "PHỤ THU KHÁCH THÊM (VND)";
+            this.OverCustomerTax.Name = "OverCustomerTax";
             // 
             // ForeignCustomerTax
             // 
@@ -162,14 +163,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 361);
+            this.ClientSize = new System.Drawing.Size(684, 311);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(800, 400);
-            this.MinimumSize = new System.Drawing.Size(800, 400);
+            this.MaximumSize = new System.Drawing.Size(700, 350);
+            this.MinimumSize = new System.Drawing.Size(700, 350);
             this.Name = "BillTaxForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CHI TIẾT PHỤ THU";
+            this.Load += new System.EventHandler(this.BillTaxForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -185,10 +187,10 @@
         private DevExpress.XtraEditors.LabelControl imgAddRoomType;
         private DevExpress.XtraEditors.LabelControl lbEditRoomType;
         private System.Windows.Forms.DataGridView dgvTaxDetail;
+        private DevExpress.XtraEditors.SimpleButton btnClose;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ThirdCustomerTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OverCustomerTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn ForeignCustomerTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalTax;
-        private DevExpress.XtraEditors.SimpleButton btnClose;
     }
 }

@@ -92,6 +92,8 @@
             this.tabFindRoom = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.gcFindRoomData = new DevExpress.XtraEditors.GroupControl();
+            this.rtbFindRoomNote = new System.Windows.Forms.RichTextBox();
+            this.lbFindRoomNote = new DevExpress.XtraEditors.LabelControl();
             this.tbFindRoomStatus = new System.Windows.Forms.TextBox();
             this.tbFindRoomPrice = new System.Windows.Forms.TextBox();
             this.tbFindRoomType = new System.Windows.Forms.TextBox();
@@ -112,6 +114,11 @@
             this.cbFindRoomType = new System.Windows.Forms.ComboBox();
             this.gcRoomList = new DevExpress.XtraEditors.GroupControl();
             this.dgvFindRoom = new System.Windows.Forms.DataGridView();
+            this.FindRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FindRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FindRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FindRoomStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FindRoomNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabBillRoom = new DevExpress.XtraTab.XtraTabPage();
             this.gcBillCreate_4 = new System.Windows.Forms.TableLayoutPanel();
             this.gcBill = new DevExpress.XtraEditors.GroupControl();
@@ -124,10 +131,6 @@
             this.lbBillCustomerName = new DevExpress.XtraEditors.LabelControl();
             this.gcBillRoom = new DevExpress.XtraEditors.GroupControl();
             this.dgvBillRoom = new System.Windows.Forms.DataGridView();
-            this.PaidRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidRoomRentDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidRoomTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancelBillRoom = new DevExpress.XtraEditors.SimpleButton();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -194,13 +197,12 @@
             this.btnAddRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
-            this.rtbFindRoomNote = new System.Windows.Forms.RichTextBox();
-            this.lbFindRoomNote = new DevExpress.XtraEditors.LabelControl();
-            this.FindRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FindRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FindRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FindRoomStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FindRoomNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomRentDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OverCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ForeignCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).BeginInit();
             this.tcHotelManagement.SuspendLayout();
             this.tabListRoom.SuspendLayout();
@@ -294,7 +296,7 @@
             this.tabBillRoom,
             this.tabRevenueRoom,
             this.tabRules});
-            this.tcHotelManagement.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.TcHotelManagement_SelectedPageChanged);
+            this.tcHotelManagement.SelectedPageChanging += new DevExpress.XtraTab.TabPageChangingEventHandler(this.TcHotelManagement_SelectedPageChanging);
             this.tcHotelManagement.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // tabListRoom
@@ -484,6 +486,7 @@
             // dgvListRoom
             // 
             this.dgvListRoom.AllowUserToAddRows = false;
+            this.dgvListRoom.AllowUserToDeleteRows = false;
             this.dgvListRoom.BackgroundColor = System.Drawing.Color.White;
             this.dgvListRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -698,14 +701,15 @@
             // cbNoteRoomID
             // 
             this.cbNoteRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbNoteRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNoteRoomID.FormattingEnabled = true;
             this.cbNoteRoomID.Location = new System.Drawing.Point(92, 55);
             this.cbNoteRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbNoteRoomID.Name = "cbNoteRoomID";
             this.cbNoteRoomID.Size = new System.Drawing.Size(94, 21);
+            this.cbNoteRoomID.Sorted = true;
             this.cbNoteRoomID.TabIndex = 9;
             this.cbNoteRoomID.SelectedIndexChanged += new System.EventHandler(this.CbNoteRoomID_SelectedIndexChanged);
-            this.cbNoteRoomID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // lbNoteRoomID
             // 
@@ -774,6 +778,7 @@
             this.btnLockNoteRoom.Size = new System.Drawing.Size(94, 110);
             this.btnLockNoteRoom.TabIndex = 14;
             this.btnLockNoteRoom.Text = "\r\nCHỌN PHÒNG";
+            this.btnLockNoteRoom.EnabledChanged += new System.EventHandler(this.BtnLockNoteRoom_EnabledChanged);
             this.btnLockNoteRoom.Click += new System.EventHandler(this.BtnLockNoteRoom_Click);
             // 
             // gcNoteCustomer
@@ -791,6 +796,7 @@
             // dgvNoteCustomer
             // 
             this.dgvNoteCustomer.AllowUserToAddRows = false;
+            this.dgvNoteCustomer.AllowUserToDeleteRows = false;
             this.dgvNoteCustomer.BackgroundColor = System.Drawing.Color.White;
             this.dgvNoteCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNoteCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1092,17 +1098,44 @@
             this.gcFindRoomData.Controls.Add(this.lbFindRoomPrice2);
             this.gcFindRoomData.Controls.Add(this.lbFindRoomType2);
             this.gcFindRoomData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcFindRoomData.Location = new System.Drawing.Point(506, 2);
+            this.gcFindRoomData.Location = new System.Drawing.Point(507, 2);
             this.gcFindRoomData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcFindRoomData.Name = "gcFindRoomData";
-            this.gcFindRoomData.Size = new System.Drawing.Size(446, 216);
+            this.gcFindRoomData.Size = new System.Drawing.Size(445, 216);
             this.gcFindRoomData.TabIndex = 15;
             this.gcFindRoomData.Text = "THÔNG TIN PHÒNG";
+            // 
+            // rtbFindRoomNote
+            // 
+            this.rtbFindRoomNote.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rtbFindRoomNote.BackColor = System.Drawing.SystemColors.Control;
+            this.rtbFindRoomNote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtbFindRoomNote.Location = new System.Drawing.Point(71, 127);
+            this.rtbFindRoomNote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rtbFindRoomNote.Name = "rtbFindRoomNote";
+            this.rtbFindRoomNote.ReadOnly = true;
+            this.rtbFindRoomNote.Size = new System.Drawing.Size(323, 61);
+            this.rtbFindRoomNote.TabIndex = 16;
+            this.rtbFindRoomNote.TabStop = false;
+            this.rtbFindRoomNote.Text = "";
+            // 
+            // lbFindRoomNote
+            // 
+            this.lbFindRoomNote.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbFindRoomNote.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbFindRoomNote.Appearance.Options.UseFont = true;
+            this.lbFindRoomNote.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbFindRoomNote.Location = new System.Drawing.Point(19, 130);
+            this.lbFindRoomNote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbFindRoomNote.Name = "lbFindRoomNote";
+            this.lbFindRoomNote.Size = new System.Drawing.Size(46, 13);
+            this.lbFindRoomNote.TabIndex = 15;
+            this.lbFindRoomNote.Text = "GHI CHÚ:";
             // 
             // tbFindRoomStatus
             // 
             this.tbFindRoomStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbFindRoomStatus.Location = new System.Drawing.Point(278, 85);
+            this.tbFindRoomStatus.Location = new System.Drawing.Point(277, 85);
             this.tbFindRoomStatus.Name = "tbFindRoomStatus";
             this.tbFindRoomStatus.ReadOnly = true;
             this.tbFindRoomStatus.Size = new System.Drawing.Size(117, 21);
@@ -1112,7 +1145,7 @@
             // tbFindRoomPrice
             // 
             this.tbFindRoomPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbFindRoomPrice.Location = new System.Drawing.Point(72, 85);
+            this.tbFindRoomPrice.Location = new System.Drawing.Point(71, 85);
             this.tbFindRoomPrice.Name = "tbFindRoomPrice";
             this.tbFindRoomPrice.ReadOnly = true;
             this.tbFindRoomPrice.Size = new System.Drawing.Size(117, 21);
@@ -1122,7 +1155,7 @@
             // tbFindRoomType
             // 
             this.tbFindRoomType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbFindRoomType.Location = new System.Drawing.Point(278, 50);
+            this.tbFindRoomType.Location = new System.Drawing.Point(277, 50);
             this.tbFindRoomType.Name = "tbFindRoomType";
             this.tbFindRoomType.ReadOnly = true;
             this.tbFindRoomType.Size = new System.Drawing.Size(117, 21);
@@ -1132,7 +1165,7 @@
             // tbFindRoomID
             // 
             this.tbFindRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbFindRoomID.Location = new System.Drawing.Point(72, 45);
+            this.tbFindRoomID.Location = new System.Drawing.Point(71, 45);
             this.tbFindRoomID.Name = "tbFindRoomID";
             this.tbFindRoomID.ReadOnly = true;
             this.tbFindRoomID.Size = new System.Drawing.Size(117, 21);
@@ -1145,7 +1178,7 @@
             this.lbFindRoomID2.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbFindRoomID2.Appearance.Options.UseFont = true;
             this.lbFindRoomID2.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbFindRoomID2.Location = new System.Drawing.Point(27, 48);
+            this.lbFindRoomID2.Location = new System.Drawing.Point(26, 48);
             this.lbFindRoomID2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbFindRoomID2.Name = "lbFindRoomID2";
             this.lbFindRoomID2.Size = new System.Drawing.Size(39, 13);
@@ -1158,7 +1191,7 @@
             this.lbFindRoomStatus2.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbFindRoomStatus2.Appearance.Options.UseFont = true;
             this.lbFindRoomStatus2.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbFindRoomStatus2.Location = new System.Drawing.Point(207, 88);
+            this.lbFindRoomStatus2.Location = new System.Drawing.Point(206, 88);
             this.lbFindRoomStatus2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbFindRoomStatus2.Name = "lbFindRoomStatus2";
             this.lbFindRoomStatus2.Size = new System.Drawing.Size(65, 13);
@@ -1171,7 +1204,7 @@
             this.lbFindRoomPrice2.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbFindRoomPrice2.Appearance.Options.UseFont = true;
             this.lbFindRoomPrice2.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbFindRoomPrice2.Location = new System.Drawing.Point(18, 88);
+            this.lbFindRoomPrice2.Location = new System.Drawing.Point(17, 88);
             this.lbFindRoomPrice2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbFindRoomPrice2.Name = "lbFindRoomPrice2";
             this.lbFindRoomPrice2.Size = new System.Drawing.Size(48, 13);
@@ -1184,7 +1217,7 @@
             this.lbFindRoomType2.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbFindRoomType2.Appearance.Options.UseFont = true;
             this.lbFindRoomType2.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbFindRoomType2.Location = new System.Drawing.Point(206, 53);
+            this.lbFindRoomType2.Location = new System.Drawing.Point(205, 53);
             this.lbFindRoomType2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbFindRoomType2.Name = "lbFindRoomType2";
             this.lbFindRoomType2.Size = new System.Drawing.Size(66, 13);
@@ -1209,7 +1242,7 @@
             this.gcFindRoom.Location = new System.Drawing.Point(3, 2);
             this.gcFindRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcFindRoom.Name = "gcFindRoom";
-            this.gcFindRoom.Size = new System.Drawing.Size(497, 216);
+            this.gcFindRoom.Size = new System.Drawing.Size(498, 216);
             this.gcFindRoom.TabIndex = 2;
             this.gcFindRoom.Text = "TÌM KIẾM PHÒNG";
             // 
@@ -1218,7 +1251,7 @@
             this.cbFindRoomPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbFindRoomPrice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFindRoomPrice.FormattingEnabled = true;
-            this.cbFindRoomPrice.Location = new System.Drawing.Point(161, 127);
+            this.cbFindRoomPrice.Location = new System.Drawing.Point(162, 127);
             this.cbFindRoomPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbFindRoomPrice.Name = "cbFindRoomPrice";
             this.cbFindRoomPrice.Size = new System.Drawing.Size(117, 21);
@@ -1229,7 +1262,7 @@
             this.cbFindRoomStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbFindRoomStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFindRoomStatus.FormattingEnabled = true;
-            this.cbFindRoomStatus.Location = new System.Drawing.Point(162, 167);
+            this.cbFindRoomStatus.Location = new System.Drawing.Point(163, 167);
             this.cbFindRoomStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbFindRoomStatus.Name = "cbFindRoomStatus";
             this.cbFindRoomStatus.Size = new System.Drawing.Size(116, 21);
@@ -1240,7 +1273,7 @@
             this.cbFindRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbFindRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFindRoomID.FormattingEnabled = true;
-            this.cbFindRoomID.Location = new System.Drawing.Point(161, 45);
+            this.cbFindRoomID.Location = new System.Drawing.Point(162, 45);
             this.cbFindRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbFindRoomID.Name = "cbFindRoomID";
             this.cbFindRoomID.Size = new System.Drawing.Size(117, 21);
@@ -1252,7 +1285,7 @@
             this.lbFindRoomID.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbFindRoomID.Appearance.Options.UseFont = true;
             this.lbFindRoomID.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbFindRoomID.Location = new System.Drawing.Point(112, 48);
+            this.lbFindRoomID.Location = new System.Drawing.Point(113, 48);
             this.lbFindRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbFindRoomID.Name = "lbFindRoomID";
             this.lbFindRoomID.Size = new System.Drawing.Size(39, 13);
@@ -1265,7 +1298,7 @@
             this.lbFindRoomStatus.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbFindRoomStatus.Appearance.Options.UseFont = true;
             this.lbFindRoomStatus.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbFindRoomStatus.Location = new System.Drawing.Point(86, 170);
+            this.lbFindRoomStatus.Location = new System.Drawing.Point(87, 170);
             this.lbFindRoomStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbFindRoomStatus.Name = "lbFindRoomStatus";
             this.lbFindRoomStatus.Size = new System.Drawing.Size(65, 13);
@@ -1278,7 +1311,7 @@
             this.lbFindRoomPrice.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbFindRoomPrice.Appearance.Options.UseFont = true;
             this.lbFindRoomPrice.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbFindRoomPrice.Location = new System.Drawing.Point(103, 130);
+            this.lbFindRoomPrice.Location = new System.Drawing.Point(104, 130);
             this.lbFindRoomPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbFindRoomPrice.Name = "lbFindRoomPrice";
             this.lbFindRoomPrice.Size = new System.Drawing.Size(48, 13);
@@ -1290,7 +1323,7 @@
             this.btnFindRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnFindRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFindRoom.ImageOptions.Image")));
             this.btnFindRoom.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopLeft;
-            this.btnFindRoom.Location = new System.Drawing.Point(306, 45);
+            this.btnFindRoom.Location = new System.Drawing.Point(307, 45);
             this.btnFindRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFindRoom.Name = "btnFindRoom";
             this.btnFindRoom.Size = new System.Drawing.Size(106, 143);
@@ -1304,7 +1337,7 @@
             this.lbFindRoomType.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbFindRoomType.Appearance.Options.UseFont = true;
             this.lbFindRoomType.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbFindRoomType.Location = new System.Drawing.Point(85, 88);
+            this.lbFindRoomType.Location = new System.Drawing.Point(86, 88);
             this.lbFindRoomType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbFindRoomType.Name = "lbFindRoomType";
             this.lbFindRoomType.Size = new System.Drawing.Size(66, 13);
@@ -1316,7 +1349,7 @@
             this.cbFindRoomType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbFindRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFindRoomType.FormattingEnabled = true;
-            this.cbFindRoomType.Location = new System.Drawing.Point(162, 85);
+            this.cbFindRoomType.Location = new System.Drawing.Point(163, 85);
             this.cbFindRoomType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbFindRoomType.Name = "cbFindRoomType";
             this.cbFindRoomType.Size = new System.Drawing.Size(116, 21);
@@ -1338,6 +1371,7 @@
             // dgvFindRoom
             // 
             this.dgvFindRoom.AllowUserToAddRows = false;
+            this.dgvFindRoom.AllowUserToDeleteRows = false;
             this.dgvFindRoom.BackgroundColor = System.Drawing.Color.White;
             this.dgvFindRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFindRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1358,6 +1392,46 @@
             this.dgvFindRoom.TabIndex = 15;
             this.dgvFindRoom.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvFoundRoom_CellEnter);
             this.dgvFindRoom.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
+            // 
+            // FindRoomID
+            // 
+            this.FindRoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FindRoomID.DataPropertyName = "MaPhong";
+            this.FindRoomID.HeaderText = "PHÒNG";
+            this.FindRoomID.Name = "FindRoomID";
+            this.FindRoomID.ReadOnly = true;
+            // 
+            // FindRoomType
+            // 
+            this.FindRoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FindRoomType.DataPropertyName = "MaLoaiPhong";
+            this.FindRoomType.HeaderText = "LOẠI PHÒNG";
+            this.FindRoomType.Name = "FindRoomType";
+            this.FindRoomType.ReadOnly = true;
+            // 
+            // FindRoomPrice
+            // 
+            this.FindRoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FindRoomPrice.DataPropertyName = "DonGia";
+            this.FindRoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
+            this.FindRoomPrice.Name = "FindRoomPrice";
+            this.FindRoomPrice.ReadOnly = true;
+            // 
+            // FindRoomStatus
+            // 
+            this.FindRoomStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FindRoomStatus.DataPropertyName = "TenTinhTrang";
+            this.FindRoomStatus.HeaderText = "TÌNH TRẠNG";
+            this.FindRoomStatus.Name = "FindRoomStatus";
+            this.FindRoomStatus.ReadOnly = true;
+            // 
+            // FindRoomNote
+            // 
+            this.FindRoomNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FindRoomNote.DataPropertyName = "GhiChu";
+            this.FindRoomNote.HeaderText = "GHI CHÚ";
+            this.FindRoomNote.Name = "FindRoomNote";
+            this.FindRoomNote.ReadOnly = true;
             // 
             // tabBillRoom
             // 
@@ -1421,6 +1495,7 @@
             this.btnLockBill.Size = new System.Drawing.Size(106, 143);
             this.btnLockBill.TabIndex = 17;
             this.btnLockBill.Text = "\r\nXÁC NHẬN";
+            this.btnLockBill.EnabledChanged += new System.EventHandler(this.BtnLockBill_EnabledChanged);
             this.btnLockBill.Click += new System.EventHandler(this.BtnLockBill_Click);
             // 
             // deBillDate
@@ -1434,6 +1509,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deBillDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deBillDate.Properties.Mask.EditMask = "d/M/yyyy";
+            this.deBillDate.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.deBillDate.Size = new System.Drawing.Size(158, 20);
             this.deBillDate.TabIndex = 5;
             this.deBillDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
@@ -1472,6 +1549,7 @@
             this.tbBillCustomerName.Name = "tbBillCustomerName";
             this.tbBillCustomerName.Size = new System.Drawing.Size(157, 21);
             this.tbBillCustomerName.TabIndex = 1;
+            this.tbBillCustomerName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbName_KeyPress);
             // 
             // rtbBillCustomerAddress
             // 
@@ -1516,12 +1594,15 @@
             // dgvBillRoom
             // 
             this.dgvBillRoom.AllowUserToAddRows = false;
+            this.dgvBillRoom.AllowUserToDeleteRows = false;
             this.dgvBillRoom.BackgroundColor = System.Drawing.Color.White;
             this.dgvBillRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBillRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PaidRoomID,
             this.PaidRoomRentDays,
             this.PaidRoomPrice,
+            this.OverCustomerTax,
+            this.ForeignCustomerTax,
             this.PaidRoomTotalPrice});
             this.dgvBillRoom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBillRoom.Location = new System.Drawing.Point(2, 20);
@@ -1533,35 +1614,10 @@
             this.dgvBillRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBillRoom.Size = new System.Drawing.Size(945, 350);
             this.dgvBillRoom.TabIndex = 2;
+            this.dgvBillRoom.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBillRoom_CellEnter);
             this.dgvBillRoom.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
-            // 
-            // PaidRoomID
-            // 
-            this.PaidRoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomID.HeaderText = "PHÒNG";
-            this.PaidRoomID.Name = "PaidRoomID";
-            this.PaidRoomID.ReadOnly = true;
-            // 
-            // PaidRoomRentDays
-            // 
-            this.PaidRoomRentDays.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomRentDays.HeaderText = "SỐ NGÀY THUÊ";
-            this.PaidRoomRentDays.Name = "PaidRoomRentDays";
-            this.PaidRoomRentDays.ReadOnly = true;
-            // 
-            // PaidRoomPrice
-            // 
-            this.PaidRoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
-            this.PaidRoomPrice.Name = "PaidRoomPrice";
-            this.PaidRoomPrice.ReadOnly = true;
-            // 
-            // PaidRoomTotalPrice
-            // 
-            this.PaidRoomTotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomTotalPrice.HeaderText = "THÀNH TIỀN (VND)";
-            this.PaidRoomTotalPrice.Name = "PaidRoomTotalPrice";
-            this.PaidRoomTotalPrice.ReadOnly = true;
+            this.dgvBillRoom.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.DgvBillRoom_RowsAdded);
+            this.dgvBillRoom.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvBillRoom_RowsRemoved);
             // 
             // panel2
             // 
@@ -1764,13 +1820,14 @@
             // cbAddBillRoomID
             // 
             this.cbAddBillRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbAddBillRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAddBillRoomID.Enabled = false;
             this.cbAddBillRoomID.FormattingEnabled = true;
             this.cbAddBillRoomID.Location = new System.Drawing.Point(27, 84);
             this.cbAddBillRoomID.Name = "cbAddBillRoomID";
             this.cbAddBillRoomID.Size = new System.Drawing.Size(120, 21);
+            this.cbAddBillRoomID.Sorted = true;
             this.cbAddBillRoomID.TabIndex = 20;
-            this.cbAddBillRoomID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // btnAddBillRoom
             // 
@@ -2421,72 +2478,51 @@
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
             // 
-            // rtbFindRoomNote
+            // PaidRoomID
             // 
-            this.rtbFindRoomNote.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rtbFindRoomNote.BackColor = System.Drawing.SystemColors.Control;
-            this.rtbFindRoomNote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtbFindRoomNote.Location = new System.Drawing.Point(72, 127);
-            this.rtbFindRoomNote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rtbFindRoomNote.Name = "rtbFindRoomNote";
-            this.rtbFindRoomNote.ReadOnly = true;
-            this.rtbFindRoomNote.Size = new System.Drawing.Size(323, 61);
-            this.rtbFindRoomNote.TabIndex = 16;
-            this.rtbFindRoomNote.TabStop = false;
-            this.rtbFindRoomNote.Text = "";
+            this.PaidRoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomID.DataPropertyName = "MaPhong";
+            this.PaidRoomID.HeaderText = "PHÒNG";
+            this.PaidRoomID.Name = "PaidRoomID";
+            this.PaidRoomID.ReadOnly = true;
             // 
-            // lbFindRoomNote
+            // PaidRoomRentDays
             // 
-            this.lbFindRoomNote.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbFindRoomNote.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbFindRoomNote.Appearance.Options.UseFont = true;
-            this.lbFindRoomNote.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbFindRoomNote.Location = new System.Drawing.Point(20, 130);
-            this.lbFindRoomNote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbFindRoomNote.Name = "lbFindRoomNote";
-            this.lbFindRoomNote.Size = new System.Drawing.Size(46, 13);
-            this.lbFindRoomNote.TabIndex = 15;
-            this.lbFindRoomNote.Text = "GHI CHÚ:";
+            this.PaidRoomRentDays.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomRentDays.DataPropertyName = "SoNgayThue";
+            this.PaidRoomRentDays.HeaderText = "SỐ NGÀY THUÊ";
+            this.PaidRoomRentDays.Name = "PaidRoomRentDays";
+            this.PaidRoomRentDays.ReadOnly = true;
             // 
-            // FindRoomID
+            // PaidRoomPrice
             // 
-            this.FindRoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FindRoomID.DataPropertyName = "MaPhong";
-            this.FindRoomID.HeaderText = "PHÒNG";
-            this.FindRoomID.Name = "FindRoomID";
-            this.FindRoomID.ReadOnly = true;
+            this.PaidRoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomPrice.DataPropertyName = "DonGia";
+            this.PaidRoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
+            this.PaidRoomPrice.Name = "PaidRoomPrice";
+            this.PaidRoomPrice.ReadOnly = true;
             // 
-            // FindRoomType
+            // OverCustomerTax
             // 
-            this.FindRoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FindRoomType.DataPropertyName = "MaLoaiPhong";
-            this.FindRoomType.HeaderText = "LOẠI PHÒNG";
-            this.FindRoomType.Name = "FindRoomType";
-            this.FindRoomType.ReadOnly = true;
+            this.OverCustomerTax.HeaderText = "PHỤ THU KHÁCH THÊM (VND)";
+            this.OverCustomerTax.Name = "OverCustomerTax";
+            this.OverCustomerTax.ReadOnly = true;
+            this.OverCustomerTax.Visible = false;
             // 
-            // FindRoomPrice
+            // ForeignCustomerTax
             // 
-            this.FindRoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FindRoomPrice.DataPropertyName = "DonGia";
-            this.FindRoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
-            this.FindRoomPrice.Name = "FindRoomPrice";
-            this.FindRoomPrice.ReadOnly = true;
+            this.ForeignCustomerTax.HeaderText = "PHỤ THU KHÁCH NƯỚC NGOÀI (VND)";
+            this.ForeignCustomerTax.Name = "ForeignCustomerTax";
+            this.ForeignCustomerTax.ReadOnly = true;
+            this.ForeignCustomerTax.Visible = false;
             // 
-            // FindRoomStatus
+            // PaidRoomTotalPrice
             // 
-            this.FindRoomStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FindRoomStatus.DataPropertyName = "TenTinhTrang";
-            this.FindRoomStatus.HeaderText = "TÌNH TRẠNG";
-            this.FindRoomStatus.Name = "FindRoomStatus";
-            this.FindRoomStatus.ReadOnly = true;
-            // 
-            // FindRoomNote
-            // 
-            this.FindRoomNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FindRoomNote.DataPropertyName = "GhiChu";
-            this.FindRoomNote.HeaderText = "GHI CHÚ";
-            this.FindRoomNote.Name = "FindRoomNote";
-            this.FindRoomNote.ReadOnly = true;
+            this.PaidRoomTotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomTotalPrice.DataPropertyName = "ThanhTien";
+            this.PaidRoomTotalPrice.HeaderText = "THÀNH TIỀN (VND)";
+            this.PaidRoomTotalPrice.Name = "PaidRoomTotalPrice";
+            this.PaidRoomTotalPrice.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -2640,10 +2676,6 @@
         private System.Windows.Forms.DataGridView dgvRoomType;
         private System.Windows.Forms.TextBox tbListRoomPrice;
         private DevExpress.XtraEditors.LabelControl lbListRoomPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomRentDays;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomTotalPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReportedRoomType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReportedRoomRevenue;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReportedRoomPercentage;
@@ -2767,6 +2799,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FindRoomPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn FindRoomStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn FindRoomNote;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomRentDays;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OverCustomerTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ForeignCustomerTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomTotalPrice;
     }
 }
 

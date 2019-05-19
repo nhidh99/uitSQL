@@ -33,5 +33,23 @@ namespace Hotel_Management.Bill
         {
             this.dgvTaxDetail.ClearSelection();
         }
+
+        private void BillTaxForm_Load(object sender, EventArgs e)
+        {
+            BillDetailForm billForm = (BillDetailForm)Owner;
+            var rows = billForm.GetAllPaidRoomInBill();
+
+            foreach (DataGridViewRow row in rows)
+            {
+                object[] rowData = new object[4];
+                rowData[0] = row.Cells["PaidRoomID"].Value;
+                rowData[1] = row.Cells["OverCustomerTax"].Value;
+                rowData[2] = row.Cells["ForeignCustomerTax"].Value;
+                rowData[3] = (Int64.Parse(rowData[1].ToString().Replace(",","")) + 
+                    Int64.Parse(rowData[2].ToString().Replace(",",""))).ToString("N0");
+
+                this.dgvTaxDetail.Rows.Add(rowData);
+            }
+        }
     }
 }

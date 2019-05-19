@@ -44,10 +44,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.gcBillData = new DevExpress.XtraEditors.GroupControl();
             this.dgvBillData = new System.Windows.Forms.DataGridView();
-            this.PaidRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidRoomRentDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidRoomTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -56,8 +52,6 @@
             this.lbTaxCurrency = new DevExpress.XtraEditors.LabelControl();
             this.tbBillTax = new System.Windows.Forms.TextBox();
             this.lbBillTax = new DevExpress.XtraEditors.LabelControl();
-            this.tbBillID = new System.Windows.Forms.TextBox();
-            this.lbBillID = new DevExpress.XtraEditors.LabelControl();
             this.lbChangeCurrency = new DevExpress.XtraEditors.LabelControl();
             this.tbChange = new System.Windows.Forms.TextBox();
             this.lbChange = new DevExpress.XtraEditors.LabelControl();
@@ -65,10 +59,16 @@
             this.tbReceivedMoney = new System.Windows.Forms.TextBox();
             this.lbReceivedMoney = new DevExpress.XtraEditors.LabelControl();
             this.lbBillCostCurrency = new DevExpress.XtraEditors.LabelControl();
-            this.tbBillCost = new System.Windows.Forms.TextBox();
+            this.tbBillPrice = new System.Windows.Forms.TextBox();
             this.lbBillCost = new DevExpress.XtraEditors.LabelControl();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnCreate = new DevExpress.XtraEditors.SimpleButton();
+            this.PaidRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomRentDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OverCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ForeignCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -135,28 +135,28 @@
             // tbBillDate
             // 
             this.tbBillDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbBillDate.Location = new System.Drawing.Point(261, 61);
+            this.tbBillDate.Location = new System.Drawing.Point(335, 59);
             this.tbBillDate.Name = "tbBillDate";
             this.tbBillDate.ReadOnly = true;
-            this.tbBillDate.Size = new System.Drawing.Size(117, 20);
+            this.tbBillDate.Size = new System.Drawing.Size(221, 20);
             this.tbBillDate.TabIndex = 41;
             // 
             // tbBillAddress
             // 
             this.tbBillAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbBillAddress.Location = new System.Drawing.Point(261, 127);
+            this.tbBillAddress.Location = new System.Drawing.Point(335, 125);
             this.tbBillAddress.Name = "tbBillAddress";
             this.tbBillAddress.ReadOnly = true;
-            this.tbBillAddress.Size = new System.Drawing.Size(360, 20);
+            this.tbBillAddress.Size = new System.Drawing.Size(221, 20);
             this.tbBillAddress.TabIndex = 42;
             // 
             // tbBillCustomer
             // 
             this.tbBillCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbBillCustomer.Location = new System.Drawing.Point(261, 92);
+            this.tbBillCustomer.Location = new System.Drawing.Point(335, 92);
             this.tbBillCustomer.Name = "tbBillCustomer";
             this.tbBillCustomer.ReadOnly = true;
-            this.tbBillCustomer.Size = new System.Drawing.Size(360, 20);
+            this.tbBillCustomer.Size = new System.Drawing.Size(221, 20);
             this.tbBillCustomer.TabIndex = 43;
             // 
             // lbBillDate
@@ -165,7 +165,7 @@
             this.lbBillDate.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbBillDate.Appearance.Options.UseFont = true;
             this.lbBillDate.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillDate.Location = new System.Drawing.Point(148, 64);
+            this.lbBillDate.Location = new System.Drawing.Point(222, 62);
             this.lbBillDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbBillDate.Name = "lbBillDate";
             this.lbBillDate.Size = new System.Drawing.Size(99, 13);
@@ -178,7 +178,7 @@
             this.lbBillAddress.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbBillAddress.Appearance.Options.UseFont = true;
             this.lbBillAddress.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillAddress.Location = new System.Drawing.Point(199, 130);
+            this.lbBillAddress.Location = new System.Drawing.Point(273, 128);
             this.lbBillAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbBillAddress.Name = "lbBillAddress";
             this.lbBillAddress.Size = new System.Drawing.Size(44, 13);
@@ -191,7 +191,7 @@
             this.lbBillCustomer.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbBillCustomer.Appearance.Options.UseFont = true;
             this.lbBillCustomer.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillCustomer.Location = new System.Drawing.Point(158, 95);
+            this.lbBillCustomer.Location = new System.Drawing.Point(232, 95);
             this.lbBillCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbBillCustomer.Name = "lbBillCustomer";
             this.lbBillCustomer.Size = new System.Drawing.Size(89, 13);
@@ -256,6 +256,8 @@
             this.PaidRoomID,
             this.PaidRoomRentDays,
             this.PaidRoomPrice,
+            this.OverCustomerTax,
+            this.ForeignCustomerTax,
             this.PaidRoomTotalPrice});
             this.dgvBillData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBillData.Location = new System.Drawing.Point(2, 20);
@@ -267,35 +269,7 @@
             this.dgvBillData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBillData.Size = new System.Drawing.Size(512, 188);
             this.dgvBillData.TabIndex = 2;
-            // 
-            // PaidRoomID
-            // 
-            this.PaidRoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.PaidRoomID.HeaderText = "PHÒNG";
-            this.PaidRoomID.Name = "PaidRoomID";
-            this.PaidRoomID.ReadOnly = true;
-            this.PaidRoomID.Width = 67;
-            // 
-            // PaidRoomRentDays
-            // 
-            this.PaidRoomRentDays.HeaderText = "SỐ NGÀY THUÊ";
-            this.PaidRoomRentDays.Name = "PaidRoomRentDays";
-            this.PaidRoomRentDays.ReadOnly = true;
-            this.PaidRoomRentDays.Width = 110;
-            // 
-            // PaidRoomPrice
-            // 
-            this.PaidRoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
-            this.PaidRoomPrice.Name = "PaidRoomPrice";
-            this.PaidRoomPrice.ReadOnly = true;
-            // 
-            // PaidRoomTotalPrice
-            // 
-            this.PaidRoomTotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomTotalPrice.HeaderText = "THÀNH TIỀN (VND)";
-            this.PaidRoomTotalPrice.Name = "PaidRoomTotalPrice";
-            this.PaidRoomTotalPrice.ReadOnly = true;
+            this.dgvBillData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DgvBillData_RowPostPaint);
             // 
             // btnCancel
             // 
@@ -355,8 +329,6 @@
             this.groupControl1.Controls.Add(this.lbTaxCurrency);
             this.groupControl1.Controls.Add(this.tbBillTax);
             this.groupControl1.Controls.Add(this.lbBillTax);
-            this.groupControl1.Controls.Add(this.tbBillID);
-            this.groupControl1.Controls.Add(this.lbBillID);
             this.groupControl1.Controls.Add(this.lbChangeCurrency);
             this.groupControl1.Controls.Add(this.tbChange);
             this.groupControl1.Controls.Add(this.lbChange);
@@ -364,7 +336,7 @@
             this.groupControl1.Controls.Add(this.tbReceivedMoney);
             this.groupControl1.Controls.Add(this.lbReceivedMoney);
             this.groupControl1.Controls.Add(this.lbBillCostCurrency);
-            this.groupControl1.Controls.Add(this.tbBillCost);
+            this.groupControl1.Controls.Add(this.tbBillPrice);
             this.groupControl1.Controls.Add(this.lbBillCost);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
@@ -380,7 +352,7 @@
             this.lbTaxCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbTaxCurrency.Appearance.Options.UseFont = true;
             this.lbTaxCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbTaxCurrency.Location = new System.Drawing.Point(212, 74);
+            this.lbTaxCurrency.Location = new System.Drawing.Point(211, 48);
             this.lbTaxCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTaxCurrency.Name = "lbTaxCurrency";
             this.lbTaxCurrency.Size = new System.Drawing.Size(28, 13);
@@ -390,7 +362,7 @@
             // tbBillTax
             // 
             this.tbBillTax.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbBillTax.Location = new System.Drawing.Point(93, 71);
+            this.tbBillTax.Location = new System.Drawing.Point(92, 45);
             this.tbBillTax.Name = "tbBillTax";
             this.tbBillTax.ReadOnly = true;
             this.tbBillTax.Size = new System.Drawing.Size(113, 21);
@@ -402,34 +374,12 @@
             this.lbBillTax.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbBillTax.Appearance.Options.UseFont = true;
             this.lbBillTax.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillTax.Location = new System.Drawing.Point(40, 74);
+            this.lbBillTax.Location = new System.Drawing.Point(39, 48);
             this.lbBillTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbBillTax.Name = "lbBillTax";
             this.lbBillTax.Size = new System.Drawing.Size(47, 13);
             this.lbBillTax.TabIndex = 54;
             this.lbBillTax.Text = "PHỤ THU:";
-            // 
-            // tbBillID
-            // 
-            this.tbBillID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbBillID.Location = new System.Drawing.Point(93, 38);
-            this.tbBillID.Name = "tbBillID";
-            this.tbBillID.ReadOnly = true;
-            this.tbBillID.Size = new System.Drawing.Size(113, 21);
-            this.tbBillID.TabIndex = 46;
-            // 
-            // lbBillID
-            // 
-            this.lbBillID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbBillID.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbBillID.Appearance.Options.UseFont = true;
-            this.lbBillID.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillID.Location = new System.Drawing.Point(17, 41);
-            this.lbBillID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbBillID.Name = "lbBillID";
-            this.lbBillID.Size = new System.Drawing.Size(70, 13);
-            this.lbBillID.TabIndex = 45;
-            this.lbBillID.Text = "MÃ HOÁ ĐƠN:";
             // 
             // lbChangeCurrency
             // 
@@ -437,7 +387,7 @@
             this.lbChangeCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbChangeCurrency.Appearance.Options.UseFont = true;
             this.lbChangeCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbChangeCurrency.Location = new System.Drawing.Point(212, 176);
+            this.lbChangeCurrency.Location = new System.Drawing.Point(211, 168);
             this.lbChangeCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbChangeCurrency.Name = "lbChangeCurrency";
             this.lbChangeCurrency.Size = new System.Drawing.Size(28, 13);
@@ -447,7 +397,7 @@
             // tbChange
             // 
             this.tbChange.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbChange.Location = new System.Drawing.Point(93, 170);
+            this.tbChange.Location = new System.Drawing.Point(92, 165);
             this.tbChange.Name = "tbChange";
             this.tbChange.ReadOnly = true;
             this.tbChange.Size = new System.Drawing.Size(113, 21);
@@ -459,7 +409,7 @@
             this.lbChange.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbChange.Appearance.Options.UseFont = true;
             this.lbChange.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbChange.Location = new System.Drawing.Point(29, 176);
+            this.lbChange.Location = new System.Drawing.Point(28, 171);
             this.lbChange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbChange.Name = "lbChange";
             this.lbChange.Size = new System.Drawing.Size(58, 13);
@@ -472,7 +422,7 @@
             this.lbReceivedMoneyCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbReceivedMoneyCurrency.Appearance.Options.UseFont = true;
             this.lbReceivedMoneyCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbReceivedMoneyCurrency.Location = new System.Drawing.Point(212, 140);
+            this.lbReceivedMoneyCurrency.Location = new System.Drawing.Point(211, 128);
             this.lbReceivedMoneyCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbReceivedMoneyCurrency.Name = "lbReceivedMoneyCurrency";
             this.lbReceivedMoneyCurrency.Size = new System.Drawing.Size(28, 13);
@@ -482,10 +432,14 @@
             // tbReceivedMoney
             // 
             this.tbReceivedMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbReceivedMoney.Location = new System.Drawing.Point(93, 137);
+            this.tbReceivedMoney.Location = new System.Drawing.Point(92, 125);
+            this.tbReceivedMoney.MaxLength = 15;
             this.tbReceivedMoney.Name = "tbReceivedMoney";
             this.tbReceivedMoney.Size = new System.Drawing.Size(113, 21);
             this.tbReceivedMoney.TabIndex = 49;
+            this.tbReceivedMoney.Text = "0";
+            this.tbReceivedMoney.TextChanged += new System.EventHandler(this.TbReceivedMoney_TextChanged);
+            this.tbReceivedMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbReceivedMoney_KeyPress);
             // 
             // lbReceivedMoney
             // 
@@ -493,7 +447,7 @@
             this.lbReceivedMoney.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbReceivedMoney.Appearance.Options.UseFont = true;
             this.lbReceivedMoney.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbReceivedMoney.Location = new System.Drawing.Point(29, 140);
+            this.lbReceivedMoney.Location = new System.Drawing.Point(28, 128);
             this.lbReceivedMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbReceivedMoney.Name = "lbReceivedMoney";
             this.lbReceivedMoney.Size = new System.Drawing.Size(58, 13);
@@ -506,21 +460,21 @@
             this.lbBillCostCurrency.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbBillCostCurrency.Appearance.Options.UseFont = true;
             this.lbBillCostCurrency.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillCostCurrency.Location = new System.Drawing.Point(212, 107);
+            this.lbBillCostCurrency.Location = new System.Drawing.Point(211, 88);
             this.lbBillCostCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbBillCostCurrency.Name = "lbBillCostCurrency";
             this.lbBillCostCurrency.Size = new System.Drawing.Size(28, 13);
             this.lbBillCostCurrency.TabIndex = 47;
             this.lbBillCostCurrency.Text = "(VND)";
             // 
-            // tbBillCost
+            // tbBillPrice
             // 
-            this.tbBillCost.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbBillCost.Location = new System.Drawing.Point(93, 104);
-            this.tbBillCost.Name = "tbBillCost";
-            this.tbBillCost.ReadOnly = true;
-            this.tbBillCost.Size = new System.Drawing.Size(113, 21);
-            this.tbBillCost.TabIndex = 46;
+            this.tbBillPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbBillPrice.Location = new System.Drawing.Point(92, 85);
+            this.tbBillPrice.Name = "tbBillPrice";
+            this.tbBillPrice.ReadOnly = true;
+            this.tbBillPrice.Size = new System.Drawing.Size(113, 21);
+            this.tbBillPrice.TabIndex = 46;
             // 
             // lbBillCost
             // 
@@ -528,7 +482,7 @@
             this.lbBillCost.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbBillCost.Appearance.Options.UseFont = true;
             this.lbBillCost.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbBillCost.Location = new System.Drawing.Point(45, 106);
+            this.lbBillCost.Location = new System.Drawing.Point(44, 88);
             this.lbBillCost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbBillCost.Name = "lbBillCost";
             this.lbBillCost.Size = new System.Drawing.Size(42, 13);
@@ -555,6 +509,50 @@
             this.btnCreate.Size = new System.Drawing.Size(256, 45);
             this.btnCreate.TabIndex = 27;
             this.btnCreate.Text = "THANH TOÁN HOÁ ĐƠN";
+            this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
+            // 
+            // PaidRoomID
+            // 
+            this.PaidRoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.PaidRoomID.HeaderText = "PHÒNG";
+            this.PaidRoomID.Name = "PaidRoomID";
+            this.PaidRoomID.ReadOnly = true;
+            this.PaidRoomID.Width = 67;
+            // 
+            // PaidRoomRentDays
+            // 
+            this.PaidRoomRentDays.HeaderText = "SỐ NGÀY THUÊ";
+            this.PaidRoomRentDays.Name = "PaidRoomRentDays";
+            this.PaidRoomRentDays.ReadOnly = true;
+            this.PaidRoomRentDays.Width = 110;
+            // 
+            // PaidRoomPrice
+            // 
+            this.PaidRoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
+            this.PaidRoomPrice.Name = "PaidRoomPrice";
+            this.PaidRoomPrice.ReadOnly = true;
+            // 
+            // OverCustomerTax
+            // 
+            this.OverCustomerTax.HeaderText = "PHỤ THU KHÁCH THÊM (VND)";
+            this.OverCustomerTax.Name = "OverCustomerTax";
+            this.OverCustomerTax.ReadOnly = true;
+            this.OverCustomerTax.Visible = false;
+            // 
+            // ForeignCustomerTax
+            // 
+            this.ForeignCustomerTax.HeaderText = "PHỤ THU KHÁCH NƯỚC NGOÀI (VND)";
+            this.ForeignCustomerTax.Name = "ForeignCustomerTax";
+            this.ForeignCustomerTax.ReadOnly = true;
+            this.ForeignCustomerTax.Visible = false;
+            // 
+            // PaidRoomTotalPrice
+            // 
+            this.PaidRoomTotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomTotalPrice.HeaderText = "THÀNH TIỀN (VND)";
+            this.PaidRoomTotalPrice.Name = "PaidRoomTotalPrice";
+            this.PaidRoomTotalPrice.ReadOnly = true;
             // 
             // BillDetailForm
             // 
@@ -568,6 +566,7 @@
             this.Name = "BillDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CHI TIẾT HOÁ ĐƠN THANH TOÁN";
+            this.Load += new System.EventHandler(this.BillDetailForm_Load);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -606,17 +605,11 @@
         private DevExpress.XtraEditors.GroupControl gcBillData;
         private System.Windows.Forms.DataGridView dgvBillData;
         private DevExpress.XtraEditors.SimpleButton btnTaxDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomRentDays;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomTotalPrice;
         private System.Windows.Forms.Panel panel6;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl lbTaxCurrency;
         private System.Windows.Forms.TextBox tbBillTax;
         private DevExpress.XtraEditors.LabelControl lbBillTax;
-        private System.Windows.Forms.TextBox tbBillID;
-        private DevExpress.XtraEditors.LabelControl lbBillID;
         private DevExpress.XtraEditors.LabelControl lbChangeCurrency;
         private System.Windows.Forms.TextBox tbChange;
         private DevExpress.XtraEditors.LabelControl lbChange;
@@ -624,9 +617,15 @@
         private System.Windows.Forms.TextBox tbReceivedMoney;
         private DevExpress.XtraEditors.LabelControl lbReceivedMoney;
         private DevExpress.XtraEditors.LabelControl lbBillCostCurrency;
-        private System.Windows.Forms.TextBox tbBillCost;
+        private System.Windows.Forms.TextBox tbBillPrice;
         private DevExpress.XtraEditors.LabelControl lbBillCost;
         private System.Windows.Forms.Panel panel7;
         private DevExpress.XtraEditors.SimpleButton btnCreate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomRentDays;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OverCustomerTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ForeignCustomerTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomTotalPrice;
     }
 }

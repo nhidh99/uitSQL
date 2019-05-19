@@ -8,6 +8,9 @@ using Hotel_Management.CustomerType;
 using Hotel_Management.RoomType;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
+using System.ComponentModel;
+using DevExpress.XtraTab;
 
 namespace Hotel_Management
 {
@@ -24,6 +27,7 @@ namespace Hotel_Management
             this.LoadRoomData();
             this.LoadAvailableRoom();
             this.LoadAvailableFindRoom();
+            this.LoadBillRoom();
         }
 
 
@@ -56,15 +60,6 @@ namespace Hotel_Management
 
         // Tab 01: Room List
 
-        void LoadSelectedRoom(DataGridViewRow row)
-        {
-            tbListRoomID.Text = row.Cells["RoomID"].Value.ToString();
-            tbListRoomType.Text = row.Cells["RoomType"].Value.ToString();
-            tbListRoomPrice.Text = row.Cells["RoomPrice"].Value.ToString() + " VND";
-            tbListRoomStatus.Text = row.Cells["RoomStatus"].Value.ToString();
-            rtbListRoomNote.Text = row.Cells["RoomNote"].Value.ToString();
-        }
-
         public Dictionary<string, string> GetSelectedRoom() => new Dictionary<string, string>()
         {
             {"ID", tbListRoomID.Text },
@@ -87,17 +82,29 @@ namespace Hotel_Management
 
             if (sqlExecuter.CheckRentedRoom(RoomID))
             {
-                MessageBox.Show("Không thể xoá phòng đang thuê!", "XOÁ PHÒNG THẤT BẠI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Không thể xoá phòng đang thuê!",
+                    "XOÁ PHÒNG THẤT BẠI",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
 
             else
             {
-                var dialogResult = MessageBox.Show("Bạn có muốn xoá phòng " + RoomID + "?", "XÁC NHẬN XOÁ PHÒNG",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var dialogResult = MessageBox.Show(
+                    "Bạn có muốn xoá phòng " + RoomID + "?",
+                    "XÁC NHẬN XOÁ PHÒNG",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
 
                 if (dialogResult == DialogResult.Yes && sqlExecuter.DeleteRoom(RoomID))
                 {
-                    MessageBox.Show("Xoá phòng " + RoomID + " thành công!", "XOÁ PHÒNG THÀNH CÔNG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(
+                        "Xoá phòng " + RoomID + " thành công!",
+                        "XOÁ PHÒNG THÀNH CÔNG",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
                     this.LoadRoomData();
                     this.LoadAvailableRoom();
                 }
@@ -112,27 +119,49 @@ namespace Hotel_Management
         }
         private void DgvListRoom_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            this.LoadSelectedRoom(dgvListRoom.CurrentRow);
+            if (e.RowIndex >= 0)
+            {
+                var row = this.dgvListRoom.CurrentRow;
+                tbListRoomID.Text = row.Cells["RoomID"].Value.ToString();
+                tbListRoomType.Text = row.Cells["RoomType"].Value.ToString();
+                tbListRoomPrice.Text = row.Cells["RoomPrice"].Value.ToString() + " VND";
+                tbListRoomStatus.Text = row.Cells["RoomStatus"].Value.ToString();
+                rtbListRoomNote.Text = row.Cells["RoomNote"].Value.ToString();
+            }
         }
 
         // Tab 02: Room Note
         public void LoadAvailableRoom()
         {
-            this.cbNoteRoomID.SelectedIndexChanged -= new EventHandler(CbNoteRoomID_SelectedIndexChanged);
-            this.cbNoteRoomID.DataSource = sqlExecuter.GetAvailableRoomData();
-            this.cbNoteRoomID.DisplayMember = "MaPhong";
-            this.cbNoteRoomID.SelectedIndexChanged += new EventHandler(CbNoteRoomID_SelectedIndexChanged);
             this.deNoteRoomDate.Text = DateTime.Now.ToString();
+            this.cbNoteRoomID.Items.Clear();
+
+            var rows = sqlExecuter.GetAvailableRoomData().Rows;
+            foreach (DataRow row in rows)
+            {
+                this.cbNoteRoomID.Items.Add(row["MaPhong"]);
+            }
+
+            this.cbNoteRoomID.SelectedIndex = (rows.Count != 0) ? 0 : -1;
+            this.btnLockNoteRoom.Enabled = true;
         }
 
         public void AddCustomer(Dictionary<string, string> customer)
         {
-            this.dgvNoteCustomer.Rows.Add(customer["Name"], customer["Type"], customer["PassportID"], customer["Address"]);
+            this.dgvNoteCustomer.Rows.Add(
+                customer["Name"],
+                customer["Type"],
+                customer["PassportID"],
+                customer["Address"]);
         }
 
         public void EditCustomer(Dictionary<string, string> customer)
         {
-            this.dgvNoteCustomer.CurrentRow.SetValues(customer["Name"], customer["Type"], customer["PassportID"], customer["Address"]);
+            this.dgvNoteCustomer.CurrentRow.SetValues(
+                customer["Name"],
+                customer["Type"],
+                customer["PassportID"],
+                customer["Address"]);
         }
 
         public Dictionary<string, string> GetSelectedCustomer() => new Dictionary<string, string>()
@@ -158,48 +187,56 @@ namespace Hotel_Management
 
         public DataGridViewRowCollection GetAllRowsCustomerInNote() => this.dgvNoteCustomer.Rows;
 
-        public void RecreateNoteRoom()
-        {
-            this.btnLockNoteRoom.Enabled = true;
-            this.btnCancelNote.Enabled = false;
-            this.btnAddNoteCustomer.Enabled = false;
-            this.btnDelNoteCustomer.Enabled = false;
-            this.btnEditNoteCustomer.Enabled = false;
-            this.cbNoteRoomID.Enabled = true;
-            this.deNoteRoomDate.Enabled = true;
-            this.gcNoteCustomer.Text = "DANH SÁCH KHÁCH";
-            this.dgvNoteCustomer.Rows.Clear();
-        }
-
         private void LoadSelectedCustomer(DataGridViewRow row)
         {
-            this.tbNoteCustomerName.Text = row.Cells["CustomerName"].Value.ToString();
-            this.tbNoteCustomerPassport.Text = row.Cells["CustomerPassportID"].Value.ToString();
-            this.tbNoteCustomerType.Text = row.Cells["CustomerType"].Value.ToString();
-            this.rtbNoteCustomerAddress.Text = row.Cells["CustomerAddress"].Value.ToString();
         }
 
         private void CbNoteRoomID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.tbNoteRoomPrice.Text = sqlExecuter.GetRoomPriceByRoomID(cbNoteRoomID.Text).ToString() + " VND";
+            var RoomPrice = sqlExecuter.GetRoomPriceByRoomID(cbNoteRoomID.Text);
+            if (RoomPrice != null)
+            {
+                this.tbNoteRoomPrice.Text = RoomPrice.ToString() + " VND";
+            }
         }
         private void BtnLockNoteRoom_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(this.cbNoteRoomID.Text))
             {
                 this.btnLockNoteRoom.Enabled = false;
+            }
+            else if (this.cbNoteRoomID.Items.Count == 0)
+            {
+                MessageBox.Show(
+                    "Không còn phòng trống",
+                    "KHÔNG CÒN PHÒNG TRỐNG",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+        }
+
+        private void BtnLockNoteRoom_EnabledChanged(object sender, EventArgs e)
+        {
+            if (this.btnLockNoteRoom.Enabled == true)
+            {
+                this.btnCancelNote.Enabled = false;
+                this.btnAddNoteCustomer.Enabled = false;
+                this.btnDelNoteCustomer.Enabled = false;
+                this.btnEditNoteCustomer.Enabled = false;
+                this.cbNoteRoomID.Enabled = true;
+                this.deNoteRoomDate.Enabled = true;
+                this.gcNoteCustomer.Text = "DANH SÁCH KHÁCH";
+                this.dgvNoteCustomer.Rows.Clear();
+            }
+            else
+            {
                 this.btnAddNoteCustomer.Enabled = true;
                 this.cbNoteRoomID.Enabled = false;
                 this.deNoteRoomDate.Enabled = false;
                 this.btnCancelNote.Enabled = true;
                 this.gcNoteCustomer.Text += " [PHÒNG: " + cbNoteRoomID.Text + " - NGÀY THUÊ: " + deNoteRoomDate.Text + "]";
             }
-            else if (this.cbNoteRoomID.Items.Count == 0)
-            {
-                MessageBox.Show("Không còn phòng trống", "KHÔNG CÒN PHÒNG TRỐNG", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
-
 
         private void BtnAddNoteCustomer_Click(object sender, EventArgs e)
         {
@@ -207,8 +244,11 @@ namespace Hotel_Management
 
             if (this.dgvNoteCustomer.Rows.Count == MaxCustomers)
             {
-                MessageBox.Show("Số khách trong phòng đã đạt mức tối đa!", "THÊM KHÁCH THẤT BẠI",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Số khách trong phòng đã đạt mức tối đa!",
+                    "THÊM KHÁCH THẤT BẠI",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
             else
             {
@@ -221,13 +261,20 @@ namespace Hotel_Management
         private void BtnDelNoteCustomer_Click(object sender, EventArgs e)
         {
             var customerName = dgvNoteCustomer.CurrentRow.Cells["CustomerName"].Value.ToString();
-            var dialogResult = MessageBox.Show("Bạn có muốn xoá khách \"" + customerName + "\"?", "XÁC NHẬN XOÁ KHÁCH",
-                       MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var dialogResult = MessageBox.Show(
+                "Bạn có muốn xoá khách \"" + customerName + "\"?",
+                "XÁC NHẬN XOÁ KHÁCH",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("Xoá khách \"" + customerName + "\" thành công!", "XOÁ KHÁCH THÀNH CÔNG",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    "Xoá khách \"" + customerName + "\" thành công!",
+                    "XOÁ KHÁCH THÀNH CÔNG",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
                 this.dgvNoteCustomer.Rows.Remove(this.dgvNoteCustomer.CurrentRow);
             }
         }
@@ -249,15 +296,21 @@ namespace Hotel_Management
 
         private void BtnCancelNote_Click(object sender, EventArgs e)
         {
-            var dialogResult = MessageBox.Show("Bạn có muốn huỷ lập phiếu thuê phòng " + cbNoteRoomID.Text + "?", "XÁC NHẬN HUỶ LẬP PHIẾU",
-                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var dialogResult = MessageBox.Show(
+                "Bạn có muốn huỷ lập phiếu thuê phòng " + cbNoteRoomID.Text + "?",
+                "XÁC NHẬN HUỶ LẬP PHIẾU",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("Huỷ lập phiếu thuê phòng " + cbNoteRoomID.Text + " thành công", "HUỶ PHIẾU THUÊ THÀNH CÔNG",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    "Huỷ lập phiếu thuê phòng " + cbNoteRoomID.Text + " thành công",
+                    "HUỶ PHIẾU THUÊ THÀNH CÔNG",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
 
-                this.RecreateNoteRoom();
+                this.btnLockNoteRoom.Enabled = true;
             }
         }
 
@@ -285,7 +338,14 @@ namespace Hotel_Management
 
         private void DgvNoteCustomer_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            this.LoadSelectedCustomer(dgvNoteCustomer.CurrentRow);
+            if (e.RowIndex >= 0)
+            {
+                var row = this.dgvNoteCustomer.CurrentRow;
+                this.tbNoteCustomerName.Text = row.Cells["CustomerName"].Value.ToString();
+                this.tbNoteCustomerPassport.Text = row.Cells["CustomerPassportID"].Value.ToString();
+                this.tbNoteCustomerType.Text = row.Cells["CustomerType"].Value.ToString();
+                this.rtbNoteCustomerAddress.Text = row.Cells["CustomerAddress"].Value.ToString();
+            }
         }
 
         private void DgvNoteCustomer_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -370,8 +430,10 @@ namespace Hotel_Management
                 = this.tbFindRoomStatus.Text
                 = this.rtbFindRoomNote.Text = null;
 
-                MessageBox.Show("Không tìm thấy phòng phù hợp!", "KHÔNG TÌM THẤY KẾT QUẢ",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Không tìm thấy phòng phù hợp!",
+                    "KHÔNG TÌM THẤY KẾT QUẢ",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
         }
 
@@ -401,26 +463,175 @@ namespace Hotel_Management
         }
 
         // Tab 04: Room Bill
-
-        private void BtnLockBill_Click(object sender, EventArgs e)
+        void LoadBillRoom()
         {
-            this.btnDelBillRoom.Enabled
-                = this.btnAddBillRoom.Enabled
-                = this.btnCreateBillRoom.Enabled
-                = this.btnCancelBillRoom.Enabled
-                = this.cbAddBillRoomID.Enabled = true;
+            this.deBillDate.Text = DateTime.Now.ToString();
+        }
+
+        void LoadRentRoom()
+        {
+            var BillDate = DateTime.ParseExact(deBillDate.Text, "d/M/yyyy", CultureInfo.InvariantCulture);
+            var dt = sqlExecuter.GetRentRoom(BillDate.ToString("d"));
+
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show(
+                    "Không có phòng nào được thuê trước ngày " + deBillDate.Text,
+                    "KHÔNG CÓ PHÒNG ĐANG THUÊ",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    this.cbAddBillRoomID.Items.Add(row["MaPhong"]);
+                }
+                this.cbAddBillRoomID.SelectedIndex = 0;
+                this.btnLockBill.Enabled = false;
+            }
+        }
+
+        public void ReCreateBill()
+        {
+            this.btnLockBill.Enabled = true;
+        }
+
+        public Dictionary<string, string> GetPayerDetail()
+        {
+            return new Dictionary<string, string>()
+            {
+                {"Name", tbBillCustomerName.Text },
+                {"BillDate", deBillDate.Text },
+                {"Address", rtbBillCustomerAddress.Text }
+            };
+        }
+
+        public DataGridViewRowCollection GetAllPaidRoomInBill() => this.dgvBillRoom.Rows;
+
+        private void TbName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
 
+
+        private void DgvBillRoom_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            // Xoá phòng vừa chọn trong danh sách phòng cần thanh toán
+            this.cbAddBillRoomID.Items.Remove(cbAddBillRoomID.SelectedItem);
+            this.dgvBillRoom.Sort(this.dgvBillRoom.Columns["PaidRoomID"], ListSortDirection.Ascending);
+            this.btnCreateBillRoom.Enabled = true;
+            this.btnDelBillRoom.Enabled = true;
+
+            if (this.cbAddBillRoomID.Items.Count == 0)
+            {
+                this.btnAddBillRoom.Enabled = false;
+                MessageBox.Show(
+                    "Không còn phòng thanh toán",
+                    "KHÔNG CÒN PHÒNG THANH TOÁN",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                this.cbAddBillRoomID.SelectedIndex = 0;
+            }
+        }
+
+        private void DgvBillRoom_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            this.btnAddBillRoom.Enabled = true;
+
+            if (this.dgvBillRoom.Rows.Count == 0)
+            {
+                this.tbBillRoomID.Text
+                = this.tbBillRoomPrice.Text
+                = this.tbBillRoomDay.Text
+                = this.tbBillRoomCost.Text = null;
+
+                this.btnCreateBillRoom.Enabled = false;
+                this.btnDelBillRoom.Enabled = false;
+            }
+        }
+
+        private void BtnLockBill_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.tbBillCustomerName.Text) && !string.IsNullOrEmpty(this.rtbBillCustomerAddress.Text))
+            {
+                this.LoadRentRoom();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Thông tin khách thanh toán không được để trống",
+                    "LẬP HOÁ ĐƠN THẤT BẠI",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+        }
+
+        private void BtnLockBill_EnabledChanged(object sender, EventArgs e)
+        {
+            if (this.btnLockBill.Enabled == true)
+            {
+                this.tbBillCustomerName.Text = null;
+                this.rtbBillCustomerAddress.Text = null;
+                this.cbAddBillRoomID.Text = null;
+                this.dgvBillRoom.Rows.Clear();
+            }
+
+            this.tbBillCustomerName.Enabled
+            = this.deBillDate.Enabled
+            = this.rtbBillCustomerAddress.Enabled
+            = this.btnLockBill.Enabled;
+
+            this.btnAddBillRoom.Enabled
+            = this.btnCancelBillRoom.Enabled
+            = this.cbAddBillRoomID.Enabled = !this.btnLockBill.Enabled;
+        }
+
+        private void DgvBillRoom_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var row = this.dgvBillRoom.CurrentRow;
+                this.tbBillRoomID.Text = row.Cells["PaidRoomID"].Value.ToString();
+                this.tbBillRoomDay.Text = row.Cells["PaidRoomRentDays"].Value.ToString();
+                this.tbBillRoomPrice.Text = row.Cells["PaidRoomPrice"].Value.ToString() + " VND";
+                this.tbBillRoomCost.Text = row.Cells["PaidRoomTotalPrice"].Value.ToString() + " VND";
+            }
+        }
+
         private void BtnDelBillRoom_Click(object sender, EventArgs e)
         {
+            var RoomID = this.tbBillRoomID.Text;
 
+            var dialogResult = MessageBox.Show(
+                "Bạn có muốn xoá thanh toán phòng " + RoomID + "?",
+                "XÁC NHẬN HUỶ THANH TOÁN PHÒNG",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.dgvBillRoom.Rows.Remove(this.dgvBillRoom.CurrentRow);
+                this.cbAddBillRoomID.Items.Add(RoomID);
+                this.cbAddBillRoomID.SelectedIndex = 0;
+            }
         }
 
 
         private void BtnAddBillRoom_Click(object sender, EventArgs e)
         {
-
+            // Thêm chi tiết thanh toán của phòng đã chọn vào DataGrid
+            var BillDate = DateTime.ParseExact(deBillDate.Text, "d/M/yyyy", CultureInfo.InvariantCulture);
+            var dr = sqlExecuter.GetPayInformation(this.cbAddBillRoomID.Text, BillDate.ToString("d")).Rows[0];
+            this.dgvBillRoom.Rows.Add(dr["MaPhong"], dr["SoNgayThue"], dr["DonGia"],
+                dr["PhuThuKhachThuBa"], dr["PhuThuKhachNuocNgoai"], dr["ThanhTien"]);
         }
 
 
@@ -433,7 +644,16 @@ namespace Hotel_Management
 
         private void BtnCancelBillRoom_Click(object sender, EventArgs e)
         {
+            var dialogResult = MessageBox.Show(
+                "Bạn có muốn huỷ hoá đơn thanh toán?",
+                "XÁC NHẬN HUỶ HOÁ ĐƠN",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.btnLockBill.Enabled = true;
+            }
         }
 
         //Tab 05: Room-Revenue Report
@@ -498,19 +718,84 @@ namespace Hotel_Management
             EditForm.ShowDialog(this);
         }
 
-        private void TcHotelManagement_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        // Các quy định khi chuyển tab
+        private void TcHotelManagement_SelectedPageChanging(object sender, TabPageChangingEventArgs e)
         {
-            if (this.tcHotelManagement.SelectedTabPage.Name == "tabNoteRoom")
+            switch (this.tcHotelManagement.SelectedTabPage.Name)
             {
-                if (this.cbNoteRoomID.Items.Count == 0)
-                {
-                    MessageBox.Show("Không còn phòng trống", "KHÔNG CÒN PHÒNG TRỐNG", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.cbNoteRoomID.Text = this.tbNoteRoomPrice.Text = null;
-                }
-                else
-                {
-                    this.tbNoteRoomPrice.Text = sqlExecuter.GetRoomPriceByRoomID(cbNoteRoomID.Text).ToString() + " VND";
-                }
+                // Khi đang lập phiếu thuê phòng
+                case "tabNoteRoom":
+                    {
+                        if (this.btnLockNoteRoom.Enabled == false)
+                        {
+                            var dialogResult = MessageBox.Show(
+                                "Bạn có muốn dừng lập phiếu thuê phòng?\n" +
+                                "Các thông tin lập phiếu hiện tại sẽ bị xoá!",
+                                "NGƯNG LẬP PHIẾU THUÊ PHÒNG",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
+
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                this.btnLockNoteRoom.Enabled = true;
+                            }
+                            else
+                            {
+                                e.Cancel = true;
+                            }
+                        }
+                        break;
+                    }
+
+                // Khi đang tìm kiếm phòng
+                case "tabFindRoom":
+                    {
+                        if (this.dgvFindRoom.Rows.Count > 0)
+                        {
+                            var dialogResult = MessageBox.Show(
+                                "Bạn có muốn dừng tìm kiếm phòng?\n" +
+                                "Các thông tin tìm kiếm hiện tại sẽ bị xoá!",
+                                "NGƯNG TÌM KIẾM PHÒNG",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
+
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                var dt = this.dgvFindRoom.DataSource as DataTable;
+                                dt.Rows.Clear();
+                                this.dgvFindRoom.DataSource = dt;
+                                this.cbFindRoomID.SelectedIndex
+                                    = this.cbFindRoomPrice.SelectedIndex
+                                    = this.cbFindRoomStatus.SelectedIndex
+                                    = this.cbFindRoomType.SelectedIndex = 0;
+                            }
+                        }
+                        break;
+                    }
+
+                // Khi đang tìm lập hoá đơn thanh toán
+                case "tabBillRoom":
+                    {
+                        if (this.btnLockBill.Enabled == false)
+                        {
+                            var dialogResult = MessageBox.Show(
+                                "Bạn có muốn dừng lập hoá đơn thanh toán?\n" +
+                                "Các thông tin hoá đơn hiện tại sẽ bị xoá!",
+                                "NGƯNG LẬP HOÁ ĐƠN",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
+
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                this.btnLockBill.Enabled = true;
+                            }
+                            else
+                            {
+                                e.Cancel = true;
+                            }
+                        }
+                        break;
+                    }
             }
         }
     }
