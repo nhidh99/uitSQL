@@ -267,31 +267,20 @@ BEGIN
 END
 GO
 
--- LIỆT KÊ PHỤ THU PHÒNG
+-- TÌM CHI TIẾT THANH TOÁN (TỪ PHÒNG TRONG DANH SÁCH PHÒNG ĐANG ĐƯỢC THUÊ)
 CREATE PROCEDURE TimChiTietThanhToan
 	@MaPhong varchar(10),
 	@NgayThanhToan date
 AS
 BEGIN
 	DECLARE @DonGia money, @ThanhTien money, @PhuThuKhachThem money, @PhuThuKhachNuocNgoai money
-	DECLARE @SoNgayThue int
-	DECLARE @SoKhach int
+	DECLARE @MaPhieu int, @SoNgayThue int, @SoKhach int
 
-	SET @DonGia = (SELECT DonGia FROM PhieuThue WHERE MaPhong = @MaPhong)
-	SET @SoNgayThue = (SELECT DATEDIFF(DAY, NgayThue, @NgayThanhToan) FROM PhieuThue WHERE MaPhong = @MaPhong)
-	SET @ThanhTien = @SoNgayThue * (SELECT TOP 1 DonGia FROM PhieuThue WHERE MaPhong = @MaPhong ORDER BY MaPhieu DESC) 
-	
-	SET @SoKhach = 
-	(SELECT COUNT(*) 
-	FROM 
-		(SELECT CTPT.MaPhieu, CMND
-		FROM PhieuThue 
-			JOIN CTPT ON PhieuThue.MaPhieu = CTPT.MaPhieu
-			JOIN Phong ON PhieuThue.MaPhong = Phong.MaPhong
-		WHERE PhieuThue.MaPhong = @MaPhong
-		AND MaTinhTrang = 'PHTH'
-		) AS A
-	)
+	SET @MaPhieu = (SELECT TOP 1 MaPhieu FROM PhieuThue WHERE MaPhong = @MaPhong ORDER BY MaPhieu DESC)
+	SET @DonGia = (SELECT DonGia FROM PhieuThue WHERE MaPhieu = @MaPhieu)
+	SET @SoNgayThue = (SELECT DATEDIFF(DAY, NgayThue, @NgayThanhToan) FROM PhieuThue WHERE MaPhieu = @MaPhieu)
+	SET @ThanhTien = @SoNgayThue * (SELECT DonGia FROM PhieuThue WHERE MaPhieu = @MaPhieu) 
+	SET @SoKhach = (SELECT COUNT(*) FROM CTPT WHERE MaPhieu = @MaPhieu)
 
 	IF (@SoKhach >= 3)
 	BEGIN
@@ -302,12 +291,9 @@ BEGIN
 		SET @PhuThuKhachThem = 0
 	END
 
-	IF EXISTS (SELECT * FROM PhieuThue 
-		JOIN CTPT ON PhieuThue.MaPhieu = CTPT.MaPhieu
-		JOIN Phong ON PhieuThue.MaPhong = Phong.MaPhong
+	IF EXISTS (SELECT * FROM CTPT 
 		JOIN LoaiKhach ON CTPT.MaLoaiKhach = LoaiKhach.MaLoaiKhach
-		WHERE PhieuThue.MaPhong = @MaPhong
-		AND MaTinhTrang = 'PHTH'
+		WHERE MaPhieu = @MaPhieu
 		AND TenLoaiKhach = N'Nước ngoài')
 	BEGIN
 		SET @PhuThuKhachNuocNgoai = @ThanhTien * (SELECT GiaTri FROM ThamSo WHERE MaThamSo = 'PTNN')
@@ -343,11 +329,14 @@ CREATE PROCEDURE ThemThongTinThanhToan
 AS
 BEGIN
 	DECLARE @MaHoaDon varchar(10)	
+	DECLARE @MaPhieu int
+
 	SET @MaHoaDon = (SELECT TOP 1 MaHoaDon FROM HoaDon ORDER BY MaHoaDon DESC)
+	SET @MaPhieu = (SELECT TOP 1 MaPhieu FROM PhieuThue WHERE MaPhong = @MaPhong ORDER BY MaPhieu DESC)
 	
 	UPDATE PhieuThue
 	SET MaHoaDon = @MaHoaDon, ThanhTien = @ThanhTien
-	WHERE MaPhong = @MaPhong
+	WHERE MaPhieu = @MaPhieu
 	
 	UPDATE Phong
 	SET MaTinhTrang = 'PHTR'
