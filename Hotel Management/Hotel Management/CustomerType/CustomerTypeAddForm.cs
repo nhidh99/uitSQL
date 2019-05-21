@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Management.CustomerType
+namespace GUI.CustomerType
 {
     public partial class CustomerTypeAddForm : Form
     {

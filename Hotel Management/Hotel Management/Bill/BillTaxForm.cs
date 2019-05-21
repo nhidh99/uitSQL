@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Hotel_Management.Bill
+namespace GUI.Bill
 {
     public partial class BillTaxForm : Form
     {

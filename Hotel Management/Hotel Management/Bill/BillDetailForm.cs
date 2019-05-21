@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace Hotel_Management.Bill
+namespace GUI.Bill
 {
     public partial class BillDetailForm : Form
     {

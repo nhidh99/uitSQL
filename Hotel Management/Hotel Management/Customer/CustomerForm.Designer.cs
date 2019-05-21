@@ -1,4 +1,4 @@
-﻿namespace Hotel_Management
+﻿namespace GUI
 {
     partial class CustomerForm
     {

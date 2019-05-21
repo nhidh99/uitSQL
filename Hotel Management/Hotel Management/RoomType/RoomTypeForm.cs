@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Management.RoomType
+namespace GUI.RoomType
 {
     public partial class RoomTypeForm : Form
     {

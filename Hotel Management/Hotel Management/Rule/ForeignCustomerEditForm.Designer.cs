@@ -1,4 +1,4 @@
-﻿namespace Hotel_Management.Rule
+﻿namespace GUI.Rule
 {
     partial class ForeignCustomerEditForm
     {

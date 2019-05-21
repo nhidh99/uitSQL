@@ -1,15 +1,11 @@
-﻿using System;
+﻿using BUS;
+using DTO;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Management
+namespace GUI
 {
     public partial class RoomForm : Form
     {
@@ -52,21 +48,24 @@ namespace Hotel_Management
             this.cbRoomType.DisplayMember = "MaLoaiPhong";
 
             DataTable dt = sqlExecuter.GetRoomStatusData();
+            Dictionary<string, string> status = new Dictionary<string, string>();
+
             foreach (DataRow dr in dt.Rows)
             {
-                if (dr["TenTinhTrang"].ToString() == "Thuê")
+                if (dr["TenTinhTrang"].ToString() != "Thuê")
                 {
-                    dt.Rows.Remove(dr);
-                    break;
+                    status.Add(dr["MaTinhTrang"].ToString(), dr["TenTinhTrang"].ToString());
                 }
             }
+
+            this.cbRoomStatus.DataSource = new BindingSource(status, null);
+            this.cbRoomStatus.DisplayMember = "Value";
+            this.cbRoomStatus.ValueMember = "Key";
 
             switch (this.Tag)
             {
                 case "AddForm":
                     {
-                        this.cbRoomStatus.DataSource = dt;
-                        this.cbRoomStatus.DisplayMember = "TenTinhTrang";
                         this.lbRoomHeader.Text = this.Text = "THÊM THÔNG TIN PHÒNG";
                         this.cbRoomType.SelectedIndex = 0;
                         this.cbRoomStatus.SelectedIndex = 0;
@@ -82,19 +81,7 @@ namespace Hotel_Management
                         this.lbRoomHeader.Text = this.Text = "THAY ĐỔI THÔNG TIN PHÒNG";
                         this.tbRoomID.ReadOnly = true;
                         this.tbRoomID.TabStop = false;
-
-                        if (sqlExecuter.CheckRentedRoom(room["ID"]))
-                        {
-                            this.cbRoomStatus.Items.Add("Thuê");
-                            this.cbRoomStatus.SelectedIndex = 0;
-                            this.cbRoomStatus.Enabled = false;
-                        }
-                        else
-                        {
-                            this.cbRoomStatus.DataSource = dt;
-                            this.cbRoomStatus.DisplayMember = "TenTinhTrang";
-                            this.cbRoomStatus.Text = sqlExecuter.GetRoomStatus(room["ID"]).ToString();
-                        }
+                        this.cbRoomStatus.Text = sqlExecuter.GetRoomStatus(room["ID"]).ToString();
                         break;
                     }
             }
@@ -112,27 +99,32 @@ namespace Hotel_Management
 
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbRoomID.Text))
-            {
-                MessageBox.Show("Phòng không được để trống!", "THÊM PHÒNG THẤT BẠI", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            var room = GetRoomData();
+            RoomDTO room = new RoomDTO();
+            room.RoomID = this.tbRoomID.Text;
+            room.RoomStatusID = ((KeyValuePair<string, string>)this.cbRoomStatus.SelectedItem).Key;
+            room.RoomTypeID = this.cbRoomType.Text;
+            room.RoomNote = this.rtbRoomNote.Text;
 
             switch (this.Tag)
             {
                 case "AddForm":
                     {
-                        if (sqlExecuter.AddRoom(room))
+                        if (string.IsNullOrWhiteSpace(tbRoomID.Text))
                         {
-                            MessageBox.Show("Thêm phòng " + room["ID"] + " thành công!", "THÊM PHÒNG THÀNH CÔNG",
+                            MessageBox.Show("Phòng không được để trống!", "THÊM PHÒNG THẤT BẠI",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        if (RoomBUS.InsertRoom(room))
+                        {
+                            MessageBox.Show("Thêm phòng " + room.RoomID + " thành công!", "THÊM PHÒNG THÀNH CÔNG",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
                         else
                         {
-                            MessageBox.Show("Phòng " + room["ID"] + " đã tồn tại!", "THÊM PHÒNG THẤT BẠI",
+                            MessageBox.Show("Phòng " + room.RoomID + " đã tồn tại!", "THÊM PHÒNG THẤT BẠI",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         break;
@@ -140,15 +132,15 @@ namespace Hotel_Management
 
                 case "EditForm":
                     {
-                        if (sqlExecuter.EditRoom(room))
+                        if (RoomBUS.UpdateRoom(room))
                         {
-                            MessageBox.Show("Sửa phòng " + room["ID"] + " thành công!", "THÊM PHÒNG THÀNH CÔNG",
+                            MessageBox.Show("Sửa phòng " + room.RoomID + " thành công!", "THÊM PHÒNG THÀNH CÔNG",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
                         else
                         {
-                            MessageBox.Show("Sửa phòng " + room["ID"] + " thất bại!", "THÊM PHÒNG THẤT BẠI",
+                            MessageBox.Show("Không thể sửa phòng đang thuê", "THÊM PHÒNG THẤT BẠI",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         break;

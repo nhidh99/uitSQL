@@ -13,7 +13,7 @@ GO
 CREATE PROCEDURE LietKeTinhTrangPhong
 AS
 BEGIN
-	SELECT TenTinhTrang FROM TinhTrang
+	SELECT * FROM TinhTrang
 END
 GO
 
@@ -60,12 +60,21 @@ BEGIN
 END
 GO
 
+-- KIỂM TRA MÃ PHÒNG CÓ BỊ TRÙNG KHÔNG
+CREATE PROCEDURE KiemTraMaPhong
+	@MaPhong varchar(10)
+AS
+BEGIN
+	SELECT * FROM PHONG WHERE MaPhong = @MaPhong
+END
+GO
+
 -- KIỂM TRA PHÒNG CHỌN CÓ ĐANG ĐƯỢC THUÊ KHÔNG
 CREATE PROCEDURE KiemTraPhongThue
 	@MaPhong varchar(10)
 AS
 BEGIN
-	SELECT COUNT(*)
+	SELECT *
 	FROM Phong JOIN TinhTrang
 	ON Phong.MaTinhTrang = TinhTrang.MaTinhTrang
 	WHERE MaPhong = @MaPhong
@@ -77,14 +86,10 @@ GO
 CREATE PROCEDURE ThemPhong
 	@MaPhong varchar(10), 
 	@MaLoaiPhong varchar(10),
-	@TenTinhTrang nvarchar(30),
+	@MaTinhTrang varchar(10),
 	@GhiChu nvarchar(50) = null
 AS
 BEGIN
-	DECLARE @MaTinhTrang varchar(10)
-	SET @MaTinhTrang =	(SELECT MaTinhTrang
-						FROM TinhTrang
-						WHERE TenTinhTrang = @TenTinhTrang)
 	INSERT INTO Phong (MaPhong, MaLoaiPhong, MaTinhTrang, GhiChu)
 	VALUES (@MaPhong, @MaLoaiPhong, @MaTinhTrang, @GhiChu)
 END
@@ -104,16 +109,12 @@ GO
 CREATE PROCEDURE SuaPhong
 	@MaPhong varchar(10),
 	@MaLoaiPhong varchar(10),
-	@TenTinhTrang nvarchar(30),
+	@TenTinhTrang varchar(10),
 	@GhiChu nvarchar(50) = null
 AS
 BEGIN
-	DECLARE @MaTinhTrang varchar(10)
-	SET @MaTinhTrang =	(SELECT MaTinhTrang
-						FROM TinhTrang
-						WHERE TenTinhTrang = @TenTinhTrang)
 	UPDATE Phong
-	SET MaLoaiPhong = @MaLoaiPhong, MaTinhTrang = @TenTinhTrang, GhiChu = @GhiChu
+	SET MaLoaiPhong = @MaLoaiPhong, MaTinhTrang = @MaTinhTrang, GhiChu = @GhiChu
 	WHERE MaPhong = @MaPhong
 END
 GO

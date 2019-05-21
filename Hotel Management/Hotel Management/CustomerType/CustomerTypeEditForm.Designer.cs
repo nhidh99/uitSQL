@@ -1,4 +1,4 @@
-﻿namespace Hotel_Management.CustomerType
+﻿namespace GUI.CustomerType
 {
     partial class CustomerTypeEditForm
     {

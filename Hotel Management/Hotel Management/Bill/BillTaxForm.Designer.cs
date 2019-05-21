@@ -1,4 +1,4 @@
-﻿namespace Hotel_Management.Bill
+﻿namespace GUI.Bill
 {
     partial class BillTaxForm
     {

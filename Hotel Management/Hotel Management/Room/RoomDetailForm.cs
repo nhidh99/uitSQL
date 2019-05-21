@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace Hotel_Management.Room
+namespace GUI.Room
 {
     public partial class RoomDetailForm : Form
     {

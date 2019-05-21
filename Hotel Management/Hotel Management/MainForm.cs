@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Hotel_Management.Bill;
-using Hotel_Management.Room;
-using Hotel_Management.Rule;
-using Hotel_Management.CustomerType;
-using Hotel_Management.RoomType;
+using GUI.Bill;
+using GUI.Room;
+using GUI.Rule;
+using GUI.CustomerType;
+using GUI.RoomType;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.ComponentModel;
 using DevExpress.XtraTab;
+using BUS;
 
-namespace Hotel_Management
+namespace GUI
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
@@ -67,7 +68,10 @@ namespace Hotel_Management
             {"Note", rtbListRoomNote.Text }
         };
 
-        public void LoadRoomData() => dgvListRoom.DataSource = sqlExecuter.GetRoomData();
+        public void LoadRoomData()
+        {
+            this.dgvListRoom.DataSource = RoomBUS.GetRoomList();
+        }
 
         private void BtnAddRoom_Click(object sender, EventArgs e)
         {
@@ -80,24 +84,15 @@ namespace Hotel_Management
         {
             var RoomID = tbListRoomID.Text;
 
-            if (sqlExecuter.CheckRentedRoom(RoomID))
-            {
-                MessageBox.Show(
-                    "Không thể xoá phòng đang thuê!",
-                    "XOÁ PHÒNG THẤT BẠI",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-            }
+            var dialogResult = MessageBox.Show(
+                   "Bạn có muốn xoá phòng " + RoomID + "?",
+                   "XÁC NHẬN XOÁ PHÒNG",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Question);
 
-            else
+            if (RoomBUS.DeleteRoom(RoomID))
             {
-                var dialogResult = MessageBox.Show(
-                    "Bạn có muốn xoá phòng " + RoomID + "?",
-                    "XÁC NHẬN XOÁ PHÒNG",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (dialogResult == DialogResult.Yes && sqlExecuter.DeleteRoom(RoomID))
+                if (dialogResult == DialogResult.Yes)
                 {
                     MessageBox.Show(
                         "Xoá phòng " + RoomID + " thành công!",
@@ -108,6 +103,14 @@ namespace Hotel_Management
                     this.LoadRoomData();
                     this.LoadAvailableRoom();
                 }
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Không thể xoá phòng đang thuê!",
+                    "XOÁ PHÒNG THẤT BẠI",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
         }
 

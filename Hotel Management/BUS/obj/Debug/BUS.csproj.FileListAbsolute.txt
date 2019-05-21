@@ -1,0 +1,11 @@
+C:\uitSQL\Hotel Management\BUS\bin\Debug\BUS.dll
+C:\uitSQL\Hotel Management\BUS\bin\Debug\BUS.pdb
+C:\uitSQL\Hotel Management\BUS\bin\Debug\DAO.dll
+C:\uitSQL\Hotel Management\BUS\bin\Debug\DTO.dll
+C:\uitSQL\Hotel Management\BUS\bin\Debug\DAO.pdb
+C:\uitSQL\Hotel Management\BUS\bin\Debug\DTO.pdb
+C:\uitSQL\Hotel Management\BUS\obj\Debug\BUS.csprojAssemblyReference.cache
+C:\uitSQL\Hotel Management\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\uitSQL\Hotel Management\BUS\obj\Debug\BUS.csproj.CopyComplete
+C:\uitSQL\Hotel Management\BUS\obj\Debug\BUS.dll
+C:\uitSQL\Hotel Management\BUS\obj\Debug\BUS.pdb

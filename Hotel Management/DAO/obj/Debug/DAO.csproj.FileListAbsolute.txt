@@ -1,0 +1,9 @@
+C:\uitSQL\Hotel Management\DAO\bin\Debug\DAO.dll
+C:\uitSQL\Hotel Management\DAO\bin\Debug\DAO.pdb
+C:\uitSQL\Hotel Management\DAO\bin\Debug\DTO.dll
+C:\uitSQL\Hotel Management\DAO\bin\Debug\DTO.pdb
+C:\uitSQL\Hotel Management\DAO\obj\Debug\DAO.csprojAssemblyReference.cache
+C:\uitSQL\Hotel Management\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\uitSQL\Hotel Management\DAO\obj\Debug\DAO.csproj.CopyComplete
+C:\uitSQL\Hotel Management\DAO\obj\Debug\DAO.dll
+C:\uitSQL\Hotel Management\DAO\obj\Debug\DAO.pdb

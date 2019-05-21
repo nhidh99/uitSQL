@@ -1,0 +1,5 @@
+C:\uitSQL\Hotel Management\DTO\bin\Debug\DTO.dll
+C:\uitSQL\Hotel Management\DTO\bin\Debug\DTO.pdb
+C:\uitSQL\Hotel Management\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\uitSQL\Hotel Management\DTO\obj\Debug\DTO.dll
+C:\uitSQL\Hotel Management\DTO\obj\Debug\DTO.pdb

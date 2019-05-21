@@ -4,7 +4,7 @@ using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 
-namespace Hotel_Management
+namespace GUI
 {
     static class Program
     {

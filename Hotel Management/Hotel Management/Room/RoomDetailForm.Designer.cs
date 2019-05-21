@@ -1,4 +1,4 @@
-﻿namespace Hotel_Management.Room
+﻿namespace GUI.Room
 {
     partial class RoomDetailForm
     {
