@@ -49,7 +49,6 @@
     <Compile Include="RoomLeaseDTO.cs" />
     <Compile Include="RoomStatusDTO.cs" />
     <Compile Include="RoomTypeDTO.cs" />
-    <Compile Include="RuleDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

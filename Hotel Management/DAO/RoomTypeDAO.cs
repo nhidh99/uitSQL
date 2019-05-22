@@ -15,8 +15,36 @@ namespace DAO
                     connection.Open();
                 }
 
-                var command = new SqlCommand("LietKeLoaiPhong", connection);
-                command.CommandType = CommandType.StoredProcedure;
+                var query = "SELECT MaLoaiPhong FROM LoaiPhong";
+                var command = new SqlCommand(query, connection);
+                command.ExecuteNonQuery();
+
+                var dt = new DataTable();
+                var adapter = new SqlDataAdapter(command);
+                adapter.Fill(dt);
+
+                connection.Close();
+                return dt;
+            }
+
+            catch (Exception)
+            {
+                connection.Close();
+                return null;
+            }
+        }
+
+        public static DataTable GetRoomPriceList()
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                var query = "SELECT DISTINCT(DonGia) FROM LoaiPhong ORDER BY DonGia";
+                var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
 
                 var dt = new DataTable();
@@ -42,10 +70,8 @@ namespace DAO
                 {
                     connection.Open();
                 }
-                var command = new SqlCommand("TimMaLoaiPhong", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@MaPhong", roomID));
-
+                var query = $"SELECT MaLoaiPhong FROM Phong WHERE MaPhong = '{roomID}'";
+                var command = new SqlCommand(query, connection);
                 var result = command.ExecuteScalar().ToString();
                 connection.Close();
                 return result;
@@ -65,6 +91,7 @@ namespace DAO
                 {
                     connection.Open();
                 }
+
                 var command = new SqlCommand("TimGiaTheoMaPhong", connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@MaPhong", roomID));
@@ -88,10 +115,8 @@ namespace DAO
                 {
                     connection.Open();
                 }
-                var command = new SqlCommand("TimGiaTheoLoaiPhong", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@MaLoaiPhong", roomType));
-
+                var query = $"SELECT DonGia FROM LoaiPhong WHERE MaLoaiPhong = '{roomType}'";
+                var command = new SqlCommand(query, connection);
                 var result = Convert.ToInt64(command.ExecuteScalar());
                 connection.Close();
                 return result;
@@ -102,6 +127,5 @@ namespace DAO
                 return -1;
             }
         }
-
     }
 }

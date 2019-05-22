@@ -29,5 +29,10 @@ namespace BUS
         {
             return RoomTypeDAO.GetRoomPriceByType(RoomType);
         }
+
+        public static DataTable GetRoomPriceList()
+        {
+            return RoomTypeDAO.GetRoomPriceList();
+        }
     }
 }

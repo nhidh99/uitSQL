@@ -42,9 +42,11 @@ namespace DAO
                     connection.Open();
                 }
 
-                var command = new SqlCommand("TimMaPhieuGanNhat", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@MaPhong", RoomID));
+                var query = "SELECT TOP 1 MaPhieu FROM PhieuThue\n" +
+                    $"WHERE MaPhong = '{RoomID}'\n" +
+                    "ORDER BY MaPhieu DESC";
+
+                var command = new SqlCommand(query, connection);
                 var result = Convert.ToInt32(command.ExecuteScalar());
                 connection.Close();
                 return result;

@@ -44,8 +44,11 @@ namespace DAO
                     connection.Open();
                 }
 
-                var command = new SqlCommand("LietKePhongTrong", connection);
-                command.CommandType = CommandType.StoredProcedure;
+                var query = "SELECT MaPhong FROM Phong\n" +
+                    "WHERE MaTinhTrang = 'PHTR'\n" +
+                    "AND MaLoaiPhong IS NOT NULL";
+
+                var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
 
                 var dt = new DataTable();
@@ -59,6 +62,27 @@ namespace DAO
             {
                 connection.Close();
                 return null;
+            }
+        }
+
+        public static int GetMaxCustomerInRoom()
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                var query = "SELECT GiaTri FROM ThamSo WHERE MaThamSo = 'KHTD'";
+                var command = new SqlCommand(query, connection);
+                var result = Convert.ToInt32(command.ExecuteScalar());
+                connection.Close();
+                return result;
+            }
+            catch
+            {
+                connection.Close();
+                return -1;
             }
         }
 
@@ -162,9 +186,8 @@ namespace DAO
                     connection.Open();
                 }
 
-                var command = new SqlCommand("XoaPhong", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@MaPhong", RoomID));
+                var query = $"DELETE Phong WHERE MaPhong = '{RoomID}'";
+                var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
                 connection.Close();
                 return true;
@@ -218,9 +241,8 @@ namespace DAO
                     connection.Open();
                 }
 
-                var command = new SqlCommand("KiemTraMaPhong", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@MaPhong", RoomID));
+                var query = $"SELECT * FROM Phong WHERE MaPhong = {RoomID}";
+                var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
 
                 var dt = new DataTable();
@@ -252,9 +274,11 @@ namespace DAO
                     connection.Open();
                 }
 
-                var command = new SqlCommand("KiemTraPhongThue", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@MaPhong", RoomID));
+                var query = $"SELECT * FROM Phong " +
+                    $"WHERE MaPhong = {RoomID} " +
+                    $"AND MaTinhTrang = 'PHTH'";
+
+                var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
 
                 var dt = new DataTable();

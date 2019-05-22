@@ -48,5 +48,10 @@ namespace BUS
         {
             return RoomDAO.FindRoom(id, type, price, status);
         }
+
+        public static int GetMaxCustomerInRoom()
+        {
+            return RoomDAO.GetMaxCustomerInRoom();
+        }
     }
 }

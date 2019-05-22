@@ -14,8 +14,8 @@ namespace DAO
                     connection.Open();
                 }
 
-                var command = new SqlCommand("LietKeTinhTrangPhong", connection);
-                command.CommandType = CommandType.StoredProcedure;
+                var query = $"SELECT * FROM TinhTrang";
+                var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
 
                 var adapter = new SqlDataAdapter(command);

@@ -19,14 +19,12 @@ namespace DAO
                     connection.Open();
                 }
 
-                var command = new SqlCommand("LietKeLoaiKhach", connection);
-                command.CommandType = CommandType.StoredProcedure;
+                var query = "SELECT * FROM LoaiKhach WHERE KhaDung = 1";
+                var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
                 connection.Close();
 
-                var adapter = new SqlDataAdapter();
-                adapter.SelectCommand = command;
-
+                var adapter = new SqlDataAdapter(command);
                 var dt = new DataTable();
                 adapter.Fill(dt);
                 return dt;
@@ -47,9 +45,8 @@ namespace DAO
                     connection.Open();
                 }
 
-                var command = new SqlCommand("TimTenLoaiKhachTheoMa", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@MaLoaiKhach", typeID));
+                var query = $"SELECT TenLoaiKhach FROM LoaiKhach WHERE MaLoaiKhach = {typeID}";
+                var command = new SqlCommand(query, connection);
                 var result = command.ExecuteScalar().ToString();
                 connection.Close();
                 return result;

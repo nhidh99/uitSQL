@@ -252,9 +252,7 @@ namespace GUI
 
         private void BtnAddNoteCustomer_Click(object sender, EventArgs e)
         {
-            var MaxCustomers = Convert.ToInt16(sqlExecuter.GetMaxCustomersInRoom());
-
-            if (this.dgvNoteCustomer.Rows.Count == MaxCustomers)
+            if (this.dgvNoteCustomer.Rows.Count == RoomBUS.GetMaxCustomerInRoom())
             {
                 MessageBox.Show(
                     "Số khách trong phòng đã đạt mức tối đa!",
@@ -393,7 +391,7 @@ namespace GUI
             this.cbFindRoomID.DisplayMember = "Key";
             this.cbFindRoomID.ValueMember = "Value";
 
-            dt = sqlExecuter.GetRoomTypeData();
+            dt = RoomTypeBUS.GetRoomTypeList();
             Dictionary<string, string> type = new Dictionary<string, string>()
             {
                 {"Tất cả loại phòng", null}
@@ -410,7 +408,7 @@ namespace GUI
             this.cbFindRoomType.DisplayMember = "Key";
             this.cbFindRoomType.ValueMember = "Value";
 
-            dt = sqlExecuter.GetRoomPriceData();
+            dt = RoomTypeBUS.GetRoomPriceList();
             Dictionary<string, Int64> price = new Dictionary<string, Int64>()
             {
                 {"Tất cả đơn giá", -1}
@@ -418,7 +416,7 @@ namespace GUI
 
             foreach (DataRow dr in dt.Rows)
             {
-                var key = dr["DonGia"].ToString();
+                var key = Convert.ToInt64(dr["DonGia"]).ToString("N0") + " VND";
                 var value = Int64.Parse(key.Split()[0].Replace(",", ""));
                 price.Add(key, value);
             }
@@ -427,7 +425,7 @@ namespace GUI
             this.cbFindRoomPrice.DisplayMember = "Key";
             this.cbFindRoomPrice.ValueMember = "Value";
 
-            dt = sqlExecuter.GetRoomStatusData();
+            dt = RoomStatusBUS.GetRoomStatusList();
             Dictionary<string, string> status = new Dictionary<string, string>()
             {
                 {"Tất cả tình trạng", null}
@@ -452,7 +450,7 @@ namespace GUI
                 var RoomType = cbFindRoomType.Text;
                 if (RoomType != "Tất cả loại phòng")
                 {
-                    this.cbFindRoomPrice.Text = sqlExecuter.GetRoomPriceByType(RoomType).ToString() + " VND";
+                    this.cbFindRoomPrice.Text = RoomTypeBUS.GetRoomPriceByType(RoomType).ToString("N0") + " VND";
                 }
                 else this.cbFindRoomPrice.Text = "Tất cả đơn giá";
             }

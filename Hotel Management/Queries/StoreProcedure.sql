@@ -63,10 +63,8 @@ CREATE PROCEDURE KiemTraPhongThue
 AS
 BEGIN
 	SELECT *
-	FROM Phong JOIN TinhTrang
-	ON Phong.MaTinhTrang = TinhTrang.MaTinhTrang
 	WHERE MaPhong = @MaPhong
-	AND Phong.MaTinhTrang = 'PHTH'
+	AND MaTinhTrang = 'PHTH'
 END
 GO
 

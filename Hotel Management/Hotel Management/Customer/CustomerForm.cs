@@ -2,19 +2,14 @@
 using DTO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
 {
     public partial class CustomerForm : Form
     {
-        SqlExecuter sqlExecuter = new SqlExecuter();
         public CustomerForm()
         {
             InitializeComponent();
@@ -22,7 +17,7 @@ namespace GUI
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
-            var dt = sqlExecuter.GetAvailableCustomerType();
+            var dt = CustomerTypeBUS.GetCustomerTypeList();
 
             Dictionary<string, int> type = new Dictionary<string, int>();
 
