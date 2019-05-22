@@ -35,6 +35,93 @@ namespace DAO
             }
         }
 
+        public static DataTable GetAvailableRoomList()
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                var command = new SqlCommand("LietKePhongTrong", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.ExecuteNonQuery();
+
+                var dt = new DataTable();
+                var adapter = new SqlDataAdapter(command);
+                adapter.Fill(dt);
+                connection.Close();
+                return dt;
+            }
+
+            catch (Exception)
+            {
+                connection.Close();
+                return null;
+            }
+        }
+
+        public static string GetRoomStatusByID(string roomID)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                var command = new SqlCommand("TimTinhTrangPhong", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@MaPhong", roomID));
+
+                var status = command.ExecuteScalar().ToString();
+                connection.Close();
+                return status;
+            }
+            catch
+            {
+                connection.Close();
+                return null;
+            }
+        }
+
+        public static DataTable FindRoom(string id, string type, Int64 price, string status)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                var command = new SqlCommand("TraCuuPhong", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+
+                command.Parameters.Add(new SqlParameter("@MaPhong", id));
+                command.Parameters.Add(new SqlParameter("@MaLoaiPhong", type));
+                command.Parameters.Add(new SqlParameter("@MaTinhTrang", status));
+
+                if (price != -1)
+                {
+                    command.Parameters.Add(new SqlParameter("@DonGia", price));
+                }
+
+                command.ExecuteNonQuery();
+                var adapter = new SqlDataAdapter(command);
+                var dt = new DataTable();
+                adapter.Fill(dt);
+
+                connection.Close();
+                return dt;
+            }
+            catch
+            {
+                connection.Close();
+                return null;
+            }
+        }
+
         public static bool UpdateRoom(RoomDTO room)
         {
             try

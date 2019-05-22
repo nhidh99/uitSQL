@@ -7,3 +7,15 @@ C:\uitSQL\Hotel Management\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
 C:\uitSQL\Hotel Management\DAO\obj\Debug\DAO.csproj.CopyComplete
 C:\uitSQL\Hotel Management\DAO\obj\Debug\DAO.dll
 C:\uitSQL\Hotel Management\DAO\obj\Debug\DAO.pdb
+C:\uitSQL\Hotel Management\DAO\bin\Debug\DevExpress.Data.v18.1.dll
+C:\uitSQL\Hotel Management\DAO\bin\Debug\DevExpress.Xpo.v18.1.dll
+C:\uitSQL\Hotel Management\DAO\bin\Debug\DevExpress.Data.v18.1.xml
+C:\uitSQL\Hotel Management\DAO\bin\Debug\DevExpress.Xpo.v18.1.xml
+C:\uitSQL\Hotel Management\DAO\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+C:\uitSQL\Hotel Management\DAO\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+C:\uitSQL\Hotel Management\DAO\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+C:\uitSQL\Hotel Management\DAO\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+C:\uitSQL\Hotel Management\DAO\bin\Debug\de\DevExpress.Xpo.v18.1.resources.dll
+C:\uitSQL\Hotel Management\DAO\bin\Debug\es\DevExpress.Xpo.v18.1.resources.dll
+C:\uitSQL\Hotel Management\DAO\bin\Debug\ja\DevExpress.Xpo.v18.1.resources.dll
+C:\uitSQL\Hotel Management\DAO\bin\Debug\ru\DevExpress.Xpo.v18.1.resources.dll

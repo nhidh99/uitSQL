@@ -2,7 +2,7 @@
 
 namespace DTO
 {
-    class RoomLeaseDTO
+    public class RoomLeaseDTO
     {
         public int LeaseID { get; set; }
         public string RoomID { get; set; }

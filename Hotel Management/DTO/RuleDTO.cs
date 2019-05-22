@@ -1,6 +1,6 @@
 ﻿namespace DTO
 {
-    class RuleDTO
+    public class RuleDTO
     {
         public string RuleID { get; set; }
         public string RuleName { get; set; }

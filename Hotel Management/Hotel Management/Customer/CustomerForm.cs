@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,8 +22,19 @@ namespace GUI
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
-            this.cbCustomerType.DataSource = sqlExecuter.GetAvailableCustomerType();
-            this.cbCustomerType.DisplayMember = "TenLoaiKhach";
+            var dt = sqlExecuter.GetAvailableCustomerType();
+
+            Dictionary<string, int> type = new Dictionary<string, int>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                type.Add(dr["TenLoaiKhach"].ToString(), Convert.ToInt32(dr["MaLoaiKhach"]));
+            }
+
+            this.cbCustomerType.DataSource = new BindingSource(type, null);
+            this.cbCustomerType.DisplayMember = "Key";
+            this.cbCustomerType.ValueMember = "Value";
+
 
             switch (this.Tag)
             {
@@ -35,11 +48,12 @@ namespace GUI
                     {
                         MainForm mainForm = (MainForm)Owner;
                         var customer = mainForm.GetSelectedCustomer();
+
                         this.lbCustomerHeader.Text = this.Text = "THAY ĐỔI THÔNG TIN KHÁCH";
-                        this.tbCustomerName.Text = customer["Name"];
-                        this.tbCustomerPassport.Text = customer["PassportID"];
-                        this.cbCustomerType.Text = customer["Type"];
-                        this.rtbCustomerAddress.Text = customer["Address"];
+                        this.tbCustomerName.Text = customer.CustomerName;
+                        this.tbCustomerPassport.Text = customer.CustomerPassportID;
+                        this.cbCustomerType.Text = CustomerTypeBUS.GetCustomerTypeByID(customer.CustomerTypeID);
+                        this.rtbCustomerAddress.Text = customer.CustomerAddress;
                         break;
                     }
             }
@@ -77,13 +91,11 @@ namespace GUI
             else
             {
                 MainForm mainForm = (MainForm)Owner;
-                var customer = new Dictionary<string, string>
-                {
-                    {"Name", data[0] },
-                    {"PassportID", data[1] },
-                    {"Type", data[2] },
-                    {"Address", data[3] }
-                };
+                var customer = new RoomLeaseDetailDTO();
+                customer.CustomerName = this.tbCustomerName.Text;
+                customer.CustomerPassportID = this.tbCustomerPassport.Text;
+                customer.CustomerTypeID = ((KeyValuePair<string, int>)this.cbCustomerType.SelectedItem).Value;
+                customer.CustomerAddress = this.rtbCustomerAddress.Text;
 
                 switch (this.Tag)
                 {

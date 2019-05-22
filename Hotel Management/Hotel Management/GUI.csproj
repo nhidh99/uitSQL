@@ -114,11 +114,11 @@
     <Compile Include="RoomType\RoomTypeForm.Designer.cs">
       <DependentUpon>RoomTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Room\RoomDetailForm.cs">
+    <Compile Include="Room\RoomLeaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Room\RoomDetailForm.Designer.cs">
-      <DependentUpon>RoomDetailForm.cs</DependentUpon>
+    <Compile Include="Room\RoomLeaseForm.Designer.cs">
+      <DependentUpon>RoomLeaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Rule\ForeignCustomerEditForm.cs">
       <SubType>Form</SubType>
@@ -174,8 +174,8 @@
     <EmbeddedResource Include="RoomType\RoomTypeForm.resx">
       <DependentUpon>RoomTypeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Room\RoomDetailForm.resx">
-      <DependentUpon>RoomDetailForm.cs</DependentUpon>
+    <EmbeddedResource Include="Room\RoomLeaseForm.resx">
+      <DependentUpon>RoomLeaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rule\ForeignCustomerEditForm.resx">
       <DependentUpon>ForeignCustomerEditForm.cs</DependentUpon>

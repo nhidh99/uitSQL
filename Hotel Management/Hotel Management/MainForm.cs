@@ -12,6 +12,7 @@ using System.Globalization;
 using System.ComponentModel;
 using DevExpress.XtraTab;
 using BUS;
+using DTO;
 
 namespace GUI
 {
@@ -27,7 +28,7 @@ namespace GUI
         {
             this.LoadRoomData();
             this.LoadAvailableRoom();
-            this.LoadAvailableFindRoom();
+            this.LoadFindRoom();
             this.LoadBillRoom();
         }
 
@@ -61,12 +62,14 @@ namespace GUI
 
         // Tab 01: Room List
 
-        public Dictionary<string, string> GetSelectedRoom() => new Dictionary<string, string>()
+        public RoomDTO GetSelectedRoom()
         {
-            {"ID", tbListRoomID.Text },
-            {"Type", tbListRoomType.Text },
-            {"Note", rtbListRoomNote.Text }
-        };
+            RoomDTO room = new RoomDTO();
+            room.RoomID = this.tbListRoomID.Text;
+            room.RoomTypeID = this.tbListRoomType.Text;
+            room.RoomNote = this.rtbListRoomNote.Text;
+            return room;
+        }
 
         public void LoadRoomData()
         {
@@ -136,56 +139,64 @@ namespace GUI
         // Tab 02: Room Note
         public void LoadAvailableRoom()
         {
-            this.deNoteRoomDate.Text = DateTime.Now.ToString();
             this.cbNoteRoomID.Items.Clear();
+            this.deNoteRoomDate.Text = DateTime.Now.ToString();
 
-            var rows = sqlExecuter.GetAvailableRoomData().Rows;
-            foreach (DataRow row in rows)
+            var dt = RoomBUS.GetAvailableRoomList();
+            if (dt.Rows.Count != 0)
             {
-                this.cbNoteRoomID.Items.Add(row["MaPhong"]);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    this.cbNoteRoomID.Items.Add(dr["MaPhong"]);
+                }
+                this.cbNoteRoomID.SelectedIndex = 0;
             }
-
-            this.cbNoteRoomID.SelectedIndex = (rows.Count != 0) ? 0 : -1;
-            this.btnLockNoteRoom.Enabled = true;
         }
 
-        public void AddCustomer(Dictionary<string, string> customer)
+        public void AddCustomer(RoomLeaseDetailDTO customer)
         {
             this.dgvNoteCustomer.Rows.Add(
-                customer["Name"],
-                customer["Type"],
-                customer["PassportID"],
-                customer["Address"]);
+                customer.CustomerName,
+                customer.CustomerTypeID,
+                CustomerTypeBUS.GetCustomerTypeByID(customer.CustomerTypeID),
+                customer.CustomerPassportID,
+                customer.CustomerAddress);
         }
 
-        public void EditCustomer(Dictionary<string, string> customer)
+        public void EditCustomer(RoomLeaseDetailDTO customer)
         {
             this.dgvNoteCustomer.CurrentRow.SetValues(
-                customer["Name"],
-                customer["Type"],
-                customer["PassportID"],
-                customer["Address"]);
+                customer.CustomerName,
+                customer.CustomerTypeID,
+                CustomerTypeBUS.GetCustomerTypeByID(customer.CustomerTypeID),
+                customer.CustomerPassportID,
+                customer.CustomerAddress);
+
+            var row = this.dgvNoteCustomer.CurrentRow;
+            this.tbNoteCustomerName.Text = row.Cells["CustomerName"].Value.ToString();
+            this.tbNoteCustomerPassport.Text = row.Cells["CustomerPassportID"].Value.ToString();
+            this.tbNoteCustomerType.Text = row.Cells["CustomerType"].Value.ToString();
+            this.rtbNoteCustomerAddress.Text = row.Cells["CustomerAddress"].Value.ToString();
         }
 
-        public Dictionary<string, string> GetSelectedCustomer() => new Dictionary<string, string>()
+        public RoomLeaseDetailDTO GetSelectedCustomer()
         {
-            {"Name", tbNoteCustomerName.Text },
-            {"Type", tbNoteCustomerType.Text },
-            {"PassportID", tbNoteCustomerPassport.Text },
-            {"Address", rtbNoteCustomerAddress.Text }
-        };
+            var detail = new RoomLeaseDetailDTO();
+            detail.CustomerName = tbNoteCustomerName.Text;
+            detail.CustomerPassportID = tbNoteCustomerPassport.Text;
+            detail.CustomerAddress = rtbNoteCustomerAddress.Text;
+            detail.CustomerTypeID = Convert.ToInt32(dgvNoteCustomer.CurrentRow.Cells["CustomerTypeID"].Value);
+            return detail;
+        }
 
-        public Dictionary<string, string> GetRoomDetail()
+        public RoomLeaseDTO GetRoomLease()
         {
-            var RoomType = sqlExecuter.GetRoomType(cbNoteRoomID.Text).ToString();
-
-            return new Dictionary<string, string>()
-            {
-                {"ID", cbNoteRoomID.Text },
-                {"Type", RoomType },
-                {"Price", tbNoteRoomPrice.Text },
-                {"RentDate", deNoteRoomDate.Text }
-            };
+            var lease = new RoomLeaseDTO();
+            lease.RoomID = cbNoteRoomID.Text;
+            lease.RoomTypeID = RoomTypeBUS.GetRoomTypeByID(lease.RoomID);
+            lease.LeaseDate = DateTime.ParseExact(deNoteRoomDate.Text, "d/M/yyyy", CultureInfo.InvariantCulture).ToString("d");
+            lease.RoomPrice = Convert.ToInt64(tbNoteRoomPrice.Text.Split()[0].Replace(",", ""));
+            return lease;
         }
 
         public DataGridViewRowCollection GetAllRowsCustomerInNote() => this.dgvNoteCustomer.Rows;
@@ -196,12 +207,10 @@ namespace GUI
 
         private void CbNoteRoomID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var RoomPrice = sqlExecuter.GetRoomPriceByRoomID(cbNoteRoomID.Text);
-            if (RoomPrice != null)
-            {
-                this.tbNoteRoomPrice.Text = RoomPrice.ToString() + " VND";
-            }
+            var price = RoomTypeBUS.GetRoomPriceByID(cbNoteRoomID.Text);
+            this.tbNoteRoomPrice.Text = price.ToString("N0") + " VND";
         }
+
         private void BtnLockNoteRoom_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(this.cbNoteRoomID.Text))
@@ -293,7 +302,7 @@ namespace GUI
 
         private void BtnCreateNote_Click(object sender, EventArgs e)
         {
-            var RoomDetailForm = new RoomDetailForm();
+            var RoomDetailForm = new RoomLeaseForm();
             RoomDetailForm.ShowDialog(this);
         }
 
@@ -315,6 +324,11 @@ namespace GUI
 
                 this.btnLockNoteRoom.Enabled = true;
             }
+        }
+
+        public void ReCreateNote()
+        {
+            this.btnLockNoteRoom.Enabled = true;
         }
 
         private void DgvNoteCustomer_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -360,35 +374,75 @@ namespace GUI
         }
 
         // Tab 03: Room Search
-        void LoadAvailableFindRoom()
+        void LoadFindRoom()
         {
-            DataTable dt = sqlExecuter.GetRoomData();
-            DataRow dr = dt.NewRow();
-            dr["MaPhong"] = "Tất cả phòng";
-            dt.Rows.InsertAt(dr, 0);
-            this.cbFindRoomID.DataSource = dt;
-            this.cbFindRoomID.DisplayMember = "MaPhong";
+            DataTable dt = RoomBUS.GetRoomList();
+            Dictionary<string, string> id = new Dictionary<string, string>()
+            {
+                {"Tất cả phòng", null}
+            };
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                var key = dr["MaPhong"].ToString();
+                var value = key;
+                id.Add(key, value);
+            }
+
+            this.cbFindRoomID.DataSource = new BindingSource(id, null);
+            this.cbFindRoomID.DisplayMember = "Key";
+            this.cbFindRoomID.ValueMember = "Value";
 
             dt = sqlExecuter.GetRoomTypeData();
-            dr = dt.NewRow();
-            dr["MaLoaiPhong"] = "Tất cả loại phòng";
-            dt.Rows.InsertAt(dr, 0);
-            this.cbFindRoomType.DataSource = dt;
-            this.cbFindRoomType.DisplayMember = "MaLoaiPhong";
+            Dictionary<string, string> type = new Dictionary<string, string>()
+            {
+                {"Tất cả loại phòng", null}
+            };
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                var key = dr["MaLoaiPhong"].ToString();
+                var value = key;
+                type.Add(key, value);
+            }
+
+            this.cbFindRoomType.DataSource = new BindingSource(type, null);
+            this.cbFindRoomType.DisplayMember = "Key";
+            this.cbFindRoomType.ValueMember = "Value";
 
             dt = sqlExecuter.GetRoomPriceData();
-            dr = dt.NewRow();
-            dr["DonGia"] = "Tất cả đơn giá";
-            dt.Rows.InsertAt(dr, 0);
-            this.cbFindRoomPrice.DataSource = dt;
-            this.cbFindRoomPrice.DisplayMember = "DonGia";
+            Dictionary<string, Int64> price = new Dictionary<string, Int64>()
+            {
+                {"Tất cả đơn giá", -1}
+            };
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                var key = dr["DonGia"].ToString();
+                var value = Int64.Parse(key.Split()[0].Replace(",", ""));
+                price.Add(key, value);
+            }
+
+            this.cbFindRoomPrice.DataSource = new BindingSource(price, null);
+            this.cbFindRoomPrice.DisplayMember = "Key";
+            this.cbFindRoomPrice.ValueMember = "Value";
 
             dt = sqlExecuter.GetRoomStatusData();
-            dr = dt.NewRow();
-            dr["TenTinhTrang"] = "Tất cả tình trạng";
-            dt.Rows.InsertAt(dr, 0);
-            this.cbFindRoomStatus.DataSource = dt;
-            this.cbFindRoomStatus.DisplayMember = "TenTinhTrang";
+            Dictionary<string, string> status = new Dictionary<string, string>()
+            {
+                {"Tất cả tình trạng", null}
+            };
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                var key = dr["TenTinhTrang"].ToString();
+                var value = dr["MaTinhTrang"].ToString();
+                status.Add(key, value);
+            }
+
+            this.cbFindRoomStatus.DataSource = new BindingSource(status, null);
+            this.cbFindRoomStatus.DisplayMember = "Key";
+            this.cbFindRoomStatus.ValueMember = "Value";
         }
 
         private void CbFindRoomType_SelectedIndexChanged(object sender, EventArgs e)
@@ -407,23 +461,11 @@ namespace GUI
 
         private void BtnFindRoom_Click(object sender, EventArgs e)
         {
-            string RoomPrice = null;
-
-            if (cbFindRoomPrice.Text != "Tất cả đơn giá")
-            {
-                RoomPrice = cbFindRoomPrice.Text.Split()[0].Replace(",", "");
-            }
-            else RoomPrice = "Tất cả đơn giá";
-
-            var room = new Dictionary<string, string>()
-            {
-                {"ID", cbFindRoomID.Text },
-                {"Type", cbFindRoomType.Text },
-                {"Price", RoomPrice},
-                {"Status", cbFindRoomStatus.Text }
-            };
-
-            this.dgvFindRoom.DataSource = sqlExecuter.GetFoundRoom(room);
+            this.dgvFindRoom.DataSource = RoomBUS.FindRoom(
+                ((KeyValuePair<string, string>)cbFindRoomID.SelectedItem).Value,
+                ((KeyValuePair<string, string>)cbFindRoomType.SelectedItem).Value,
+                ((KeyValuePair<string, Int64>)cbFindRoomPrice.SelectedItem).Value,
+                ((KeyValuePair<string, string>)cbFindRoomStatus.SelectedItem).Value);
 
             if (this.dgvFindRoom.Rows.Count == 0)
             {

@@ -1,6 +1,6 @@
 ﻿namespace DTO
 {
-    class RoomStatusDTO
+    public class RoomStatusDTO
     {
         public string RoomStatusID { get; set; }
         public string RoomStatusName { get; set; }

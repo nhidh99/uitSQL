@@ -69,10 +69,6 @@
             this.btnLockNoteRoom = new DevExpress.XtraEditors.SimpleButton();
             this.gcNoteCustomer = new DevExpress.XtraEditors.GroupControl();
             this.dgvNoteCustomer = new System.Windows.Forms.DataGridView();
-            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerPassportID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gcNoteCustomerData = new DevExpress.XtraEditors.GroupControl();
             this.tbNoteCustomerType = new System.Windows.Forms.TextBox();
             this.tbNoteCustomerPassport = new System.Windows.Forms.TextBox();
@@ -131,6 +127,12 @@
             this.lbBillCustomerName = new DevExpress.XtraEditors.LabelControl();
             this.gcBillRoom = new DevExpress.XtraEditors.GroupControl();
             this.dgvBillRoom = new System.Windows.Forms.DataGridView();
+            this.PaidRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomRentDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OverCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ForeignCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancelBillRoom = new DevExpress.XtraEditors.SimpleButton();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -175,8 +177,6 @@
             this.btnAddCustomerType = new DevExpress.XtraEditors.SimpleButton();
             this.gcCustomerTypeList = new DevExpress.XtraEditors.GroupControl();
             this.dgvCustomerType = new System.Windows.Forms.DataGridView();
-            this.CustomerTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EditCustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gcRoomTypeList = new DevExpress.XtraEditors.GroupControl();
             this.dgvRoomType = new System.Windows.Forms.DataGridView();
             this.EditRoomTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -197,12 +197,12 @@
             this.btnAddRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
-            this.PaidRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidRoomRentDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OverCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ForeignCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidRoomTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EditCustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerPassportID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).BeginInit();
             this.tcHotelManagement.SuspendLayout();
             this.tabListRoom.SuspendLayout();
@@ -801,6 +801,7 @@
             this.dgvNoteCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNoteCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CustomerName,
+            this.CustomerTypeID,
             this.CustomerType,
             this.CustomerPassportID,
             this.CustomerAddress});
@@ -821,34 +822,6 @@
             this.dgvNoteCustomer.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
             this.dgvNoteCustomer.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.DgvNoteCustomer_RowsAdded);
             this.dgvNoteCustomer.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvNoteCustomer_RowsRemoved);
-            // 
-            // CustomerName
-            // 
-            this.CustomerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CustomerName.HeaderText = "TÊN KHÁCH";
-            this.CustomerName.Name = "CustomerName";
-            this.CustomerName.ReadOnly = true;
-            // 
-            // CustomerType
-            // 
-            this.CustomerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CustomerType.HeaderText = "LOẠI KHÁCH";
-            this.CustomerType.Name = "CustomerType";
-            this.CustomerType.ReadOnly = true;
-            // 
-            // CustomerPassportID
-            // 
-            this.CustomerPassportID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CustomerPassportID.HeaderText = "SỐ CMND";
-            this.CustomerPassportID.Name = "CustomerPassportID";
-            this.CustomerPassportID.ReadOnly = true;
-            // 
-            // CustomerAddress
-            // 
-            this.CustomerAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CustomerAddress.HeaderText = "ĐỊA CHỈ";
-            this.CustomerAddress.Name = "CustomerAddress";
-            this.CustomerAddress.ReadOnly = true;
             // 
             // gcNoteCustomerData
             // 
@@ -1619,6 +1592,52 @@
             this.dgvBillRoom.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.DgvBillRoom_RowsAdded);
             this.dgvBillRoom.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvBillRoom_RowsRemoved);
             // 
+            // PaidRoomID
+            // 
+            this.PaidRoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomID.DataPropertyName = "MaPhong";
+            this.PaidRoomID.HeaderText = "PHÒNG";
+            this.PaidRoomID.Name = "PaidRoomID";
+            this.PaidRoomID.ReadOnly = true;
+            // 
+            // PaidRoomRentDays
+            // 
+            this.PaidRoomRentDays.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomRentDays.DataPropertyName = "SoNgayThue";
+            this.PaidRoomRentDays.HeaderText = "SỐ NGÀY THUÊ";
+            this.PaidRoomRentDays.Name = "PaidRoomRentDays";
+            this.PaidRoomRentDays.ReadOnly = true;
+            // 
+            // PaidRoomPrice
+            // 
+            this.PaidRoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomPrice.DataPropertyName = "DonGia";
+            this.PaidRoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
+            this.PaidRoomPrice.Name = "PaidRoomPrice";
+            this.PaidRoomPrice.ReadOnly = true;
+            // 
+            // OverCustomerTax
+            // 
+            this.OverCustomerTax.HeaderText = "PHỤ THU KHÁCH THÊM (VND)";
+            this.OverCustomerTax.Name = "OverCustomerTax";
+            this.OverCustomerTax.ReadOnly = true;
+            this.OverCustomerTax.Visible = false;
+            // 
+            // ForeignCustomerTax
+            // 
+            this.ForeignCustomerTax.HeaderText = "PHỤ THU KHÁCH NƯỚC NGOÀI (VND)";
+            this.ForeignCustomerTax.Name = "ForeignCustomerTax";
+            this.ForeignCustomerTax.ReadOnly = true;
+            this.ForeignCustomerTax.Visible = false;
+            // 
+            // PaidRoomTotalPrice
+            // 
+            this.PaidRoomTotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomTotalPrice.DataPropertyName = "ThanhTien";
+            this.PaidRoomTotalPrice.HeaderText = "THÀNH TIỀN (VND)";
+            this.PaidRoomTotalPrice.Name = "PaidRoomTotalPrice";
+            this.PaidRoomTotalPrice.ReadOnly = true;
+            // 
             // panel2
             // 
             this.gcBillCreate_4.SetColumnSpan(this.panel2, 2);
@@ -2181,7 +2200,6 @@
             this.dgvCustomerType.BackgroundColor = System.Drawing.Color.White;
             this.dgvCustomerType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomerType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CustomerTypeID,
             this.EditCustomerType});
             this.dgvCustomerType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomerType.Location = new System.Drawing.Point(2, 20);
@@ -2192,18 +2210,6 @@
             this.dgvCustomerType.Size = new System.Drawing.Size(466, 429);
             this.dgvCustomerType.TabIndex = 0;
             this.dgvCustomerType.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
-            // 
-            // CustomerTypeID
-            // 
-            this.CustomerTypeID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CustomerTypeID.HeaderText = "MÃ LOẠI KHÁCH";
-            this.CustomerTypeID.Name = "CustomerTypeID";
-            // 
-            // EditCustomerType
-            // 
-            this.EditCustomerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.EditCustomerType.HeaderText = "LOẠI KHÁCH";
-            this.EditCustomerType.Name = "EditCustomerType";
             // 
             // gcRoomTypeList
             // 
@@ -2478,51 +2484,46 @@
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
             // 
-            // PaidRoomID
+            // EditCustomerType
             // 
-            this.PaidRoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomID.DataPropertyName = "MaPhong";
-            this.PaidRoomID.HeaderText = "PHÒNG";
-            this.PaidRoomID.Name = "PaidRoomID";
-            this.PaidRoomID.ReadOnly = true;
+            this.EditCustomerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.EditCustomerType.HeaderText = "LOẠI KHÁCH";
+            this.EditCustomerType.Name = "EditCustomerType";
             // 
-            // PaidRoomRentDays
+            // CustomerName
             // 
-            this.PaidRoomRentDays.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomRentDays.DataPropertyName = "SoNgayThue";
-            this.PaidRoomRentDays.HeaderText = "SỐ NGÀY THUÊ";
-            this.PaidRoomRentDays.Name = "PaidRoomRentDays";
-            this.PaidRoomRentDays.ReadOnly = true;
+            this.CustomerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CustomerName.HeaderText = "TÊN KHÁCH";
+            this.CustomerName.Name = "CustomerName";
+            this.CustomerName.ReadOnly = true;
             // 
-            // PaidRoomPrice
+            // CustomerTypeID
             // 
-            this.PaidRoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomPrice.DataPropertyName = "DonGia";
-            this.PaidRoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
-            this.PaidRoomPrice.Name = "PaidRoomPrice";
-            this.PaidRoomPrice.ReadOnly = true;
+            this.CustomerTypeID.HeaderText = "MÃ LOẠI KHÁCH";
+            this.CustomerTypeID.Name = "CustomerTypeID";
+            this.CustomerTypeID.ReadOnly = true;
+            this.CustomerTypeID.Visible = false;
             // 
-            // OverCustomerTax
+            // CustomerType
             // 
-            this.OverCustomerTax.HeaderText = "PHỤ THU KHÁCH THÊM (VND)";
-            this.OverCustomerTax.Name = "OverCustomerTax";
-            this.OverCustomerTax.ReadOnly = true;
-            this.OverCustomerTax.Visible = false;
+            this.CustomerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CustomerType.HeaderText = "LOẠI KHÁCH";
+            this.CustomerType.Name = "CustomerType";
+            this.CustomerType.ReadOnly = true;
             // 
-            // ForeignCustomerTax
+            // CustomerPassportID
             // 
-            this.ForeignCustomerTax.HeaderText = "PHỤ THU KHÁCH NƯỚC NGOÀI (VND)";
-            this.ForeignCustomerTax.Name = "ForeignCustomerTax";
-            this.ForeignCustomerTax.ReadOnly = true;
-            this.ForeignCustomerTax.Visible = false;
+            this.CustomerPassportID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CustomerPassportID.HeaderText = "SỐ CMND";
+            this.CustomerPassportID.Name = "CustomerPassportID";
+            this.CustomerPassportID.ReadOnly = true;
             // 
-            // PaidRoomTotalPrice
+            // CustomerAddress
             // 
-            this.PaidRoomTotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomTotalPrice.DataPropertyName = "ThanhTien";
-            this.PaidRoomTotalPrice.HeaderText = "THÀNH TIỀN (VND)";
-            this.PaidRoomTotalPrice.Name = "PaidRoomTotalPrice";
-            this.PaidRoomTotalPrice.ReadOnly = true;
+            this.CustomerAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CustomerAddress.HeaderText = "ĐỊA CHỈ";
+            this.CustomerAddress.Name = "CustomerAddress";
+            this.CustomerAddress.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -2744,10 +2745,6 @@
         private DevExpress.XtraEditors.SimpleButton btnLockNoteRoom;
         private DevExpress.XtraEditors.GroupControl gcNoteCustomer;
         private System.Windows.Forms.DataGridView dgvNoteCustomer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPassportID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerAddress;
         private DevExpress.XtraEditors.GroupControl gcNoteCustomerData;
         private System.Windows.Forms.TextBox tbNoteCustomerType;
         private System.Windows.Forms.TextBox tbNoteCustomerPassport;
@@ -2782,8 +2779,6 @@
         private DevExpress.XtraEditors.SimpleButton btnEditRoomType;
         private DevExpress.XtraEditors.SimpleButton btnDelRoomType;
         private DevExpress.XtraEditors.SimpleButton btnAddRoomType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerTypeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EditCustomerType;
         private DevExpress.XtraEditors.SimpleButton btnAddRoom;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
@@ -2805,6 +2800,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OverCustomerTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn ForeignCustomerTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomTotalPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerTypeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPassportID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EditCustomerType;
     }
 }
 

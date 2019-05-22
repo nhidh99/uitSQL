@@ -2,7 +2,7 @@
 
 namespace DTO
 {
-    class RoomTypeDTO
+    public class RoomTypeDTO
     {
         public string RoomTypeID { get; set; }
         public Int64 RoomTypePrice { get; set; }

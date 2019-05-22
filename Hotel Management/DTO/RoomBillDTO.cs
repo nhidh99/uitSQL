@@ -1,6 +1,6 @@
 ﻿namespace DTO
 {
-    class RoomBillDTO
+    public class RoomBillDTO
     {
         public int BillID { get; set; }
         public string CustomerName { get; set; }

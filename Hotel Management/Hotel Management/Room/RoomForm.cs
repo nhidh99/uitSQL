@@ -9,7 +9,6 @@ namespace GUI
 {
     public partial class RoomForm : Form
     {
-        SqlExecuter sqlExecuter = new SqlExecuter();
         public RoomForm()
         {
             InitializeComponent();
@@ -22,45 +21,31 @@ namespace GUI
             }
         }
 
-        public void LoadSelectedRoomData(Dictionary<string, string> room)
+        public void LoadSelectedRoomData(RoomDTO room)
         {
-            tbRoomID.Text = room["ID"];
-            cbRoomType.Text = room["Type"];
-            rtbRoomNote.Text = room["Note"];
+            tbRoomID.Text = room.RoomID;
+            cbRoomType.Text = room.RoomTypeID;
+            rtbRoomNote.Text = room.RoomNote;
         }
-
-        Dictionary<string, string> GetRoomData()
-        {
-            return new Dictionary<string, string>()
-            {
-                {"ID", tbRoomID.Text },
-                {"Type", cbRoomType.Text },
-                {"Price", tbRoomPrice.Text },
-                {"Status", cbRoomStatus.Text },
-                {"Note", rtbRoomNote.Text }
-            };
-        }
-
         private void EditFormRoom_Load(object sender, EventArgs e)
         {
             this.cbRoomType.SelectedIndexChanged -= new EventHandler(CbRoomType_SelectedIndexChanged);
-            this.cbRoomType.DataSource = sqlExecuter.GetRoomTypeData();
+            this.cbRoomType.DataSource = RoomTypeBUS.GetRoomTypeList();
             this.cbRoomType.DisplayMember = "MaLoaiPhong";
 
-            DataTable dt = sqlExecuter.GetRoomStatusData();
+            DataTable dt = RoomStatusBUS.GetRoomStatusList();
             Dictionary<string, string> status = new Dictionary<string, string>();
-
             foreach (DataRow dr in dt.Rows)
             {
                 if (dr["TenTinhTrang"].ToString() != "Thuê")
                 {
-                    status.Add(dr["MaTinhTrang"].ToString(), dr["TenTinhTrang"].ToString());
+                    status.Add(dr["TenTinhTrang"].ToString(), dr["MaTinhTrang"].ToString());
                 }
             }
 
             this.cbRoomStatus.DataSource = new BindingSource(status, null);
-            this.cbRoomStatus.DisplayMember = "Value";
-            this.cbRoomStatus.ValueMember = "Key";
+            this.cbRoomStatus.DisplayMember = "Key";
+            this.cbRoomStatus.ValueMember = "Value";
 
             switch (this.Tag)
             {
@@ -81,14 +66,13 @@ namespace GUI
                         this.lbRoomHeader.Text = this.Text = "THAY ĐỔI THÔNG TIN PHÒNG";
                         this.tbRoomID.ReadOnly = true;
                         this.tbRoomID.TabStop = false;
-                        this.cbRoomStatus.Text = sqlExecuter.GetRoomStatus(room["ID"]).ToString();
                         break;
                     }
             }
 
             this.lbRoomHeader.Left = (this.ClientSize.Width - lbRoomHeader.Size.Width) / 2 + 32;
             this.imgEditRoom.Left = this.lbRoomHeader.Left - 45;
-            this.tbRoomPrice.Text = sqlExecuter.GetRoomPriceByType(cbRoomType.Text).ToString() + " VND";
+            this.tbRoomPrice.Text = Convert.ToInt64(RoomTypeBUS.GetRoomPriceByType(cbRoomType.Text)).ToString("N0") + " VND";
             this.cbRoomType.SelectedIndexChanged += new EventHandler(CbRoomType_SelectedIndexChanged);
         }
 
@@ -101,21 +85,14 @@ namespace GUI
         {
             RoomDTO room = new RoomDTO();
             room.RoomID = this.tbRoomID.Text;
-            room.RoomStatusID = ((KeyValuePair<string, string>)this.cbRoomStatus.SelectedItem).Key;
             room.RoomTypeID = this.cbRoomType.Text;
             room.RoomNote = this.rtbRoomNote.Text;
+            room.RoomStatusID = ((KeyValuePair<string, string>)this.cbRoomStatus.SelectedItem).Value;
 
             switch (this.Tag)
             {
                 case "AddForm":
                     {
-                        if (string.IsNullOrWhiteSpace(tbRoomID.Text))
-                        {
-                            MessageBox.Show("Phòng không được để trống!", "THÊM PHÒNG THẤT BẠI",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return;
-                        }
-
                         if (RoomBUS.InsertRoom(room))
                         {
                             MessageBox.Show("Thêm phòng " + room.RoomID + " thành công!", "THÊM PHÒNG THÀNH CÔNG",
@@ -124,7 +101,7 @@ namespace GUI
                         }
                         else
                         {
-                            MessageBox.Show("Phòng " + room.RoomID + " đã tồn tại!", "THÊM PHÒNG THẤT BẠI",
+                            MessageBox.Show("Phòng đã tồn tại hoặc tên phòng không được để trống", "THÊM PHÒNG THẤT BẠI",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         break;
@@ -134,13 +111,13 @@ namespace GUI
                     {
                         if (RoomBUS.UpdateRoom(room))
                         {
-                            MessageBox.Show("Sửa phòng " + room.RoomID + " thành công!", "THÊM PHÒNG THÀNH CÔNG",
+                            MessageBox.Show("Sửa phòng " + room.RoomID + " thành công!", "SỬA PHÒNG THÀNH CÔNG",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
                         else
                         {
-                            MessageBox.Show("Không thể sửa phòng đang thuê", "THÊM PHÒNG THẤT BẠI",
+                            MessageBox.Show("Không thể sửa phòng đang thuê", "SỬA PHÒNG THẤT BẠI",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         break;
@@ -153,7 +130,7 @@ namespace GUI
         }
         private void CbRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.tbRoomPrice.Text = sqlExecuter.GetRoomPriceByType(cbRoomType.Text).ToString() + " VND";
+            this.tbRoomPrice.Text = Convert.ToInt64(RoomTypeBUS.GetRoomPriceByType(cbRoomType.Text)).ToString("N0") + " VND";
         }
     }
 }

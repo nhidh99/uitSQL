@@ -30,7 +30,7 @@ CREATE PROCEDURE TimGiaTheoLoaiPhong
 	@MaLoaiPhong varchar(10)
 AS
 BEGIN
-	SELECT FORMAT(DonGia, 'N0') DonGia
+	SELECT DonGia
 	FROM LoaiPhong
 	WHERE MaLoaiPhong = @MaLoaiPhong
 END
@@ -41,21 +41,9 @@ CREATE PROCEDURE TimGiaTheoMaPhong
 	@MaPhong varchar(10)
 AS
 BEGIN
-	SELECT FORMAT(DonGia, 'N0') DonGia
+	SELECT DonGia
 	FROM Phong JOIN LoaiPhong
 	ON Phong.MaLoaiPhong = LoaiPhong.MaLoaiPhong
-	WHERE MaPhong = @MaPhong
-END
-GO
-
--- TÌM TRẠNG THÁI PHÒNG TỪ MÃ PHÒNG
-CREATE PROCEDURE TimTinhTrangPhong
-	@MaPhong varchar(10)
-AS
-BEGIN
-	SELECT TenTinhTrang
-	FROM TinhTrang JOIN Phong
-	ON TinhTrang.MaTinhTrang = Phong.MaTinhTrang
 	WHERE MaPhong = @MaPhong
 END
 GO
@@ -133,7 +121,7 @@ GO
 CREATE PROCEDURE LietKeLoaiKhach
 AS
 BEGIN
-	SELECT TenLoaiKhach
+	SELECT *
 	FROM LoaiKhach
 	WHERE KhaDung = 1
 END
@@ -194,13 +182,10 @@ CREATE PROCEDURE ThemChiTietPhieuThue
 	@MaPhieu int,
 	@CMND varchar(15),
 	@TenKhach nvarchar(30),
-	@TenLoaiKhach nvarchar(30),
+	@MaLoaiKhach nvarchar(30),
 	@DiaChi nvarchar(50)
 AS
 BEGIN
-	DECLARE @MaLoaiKhach int
-	SET @MaLoaiKhach = (SELECT MaLoaiKhach FROM LoaiKhach WHERE TenLoaiKhach = @TenLoaiKhach)
-	
 	INSERT INTO CTPT (MaPhieu, CMND, MaLoaiKhach, TenKhach, DiaChi)
 	VALUES (@MaPhieu, @CMND, @MaLoaiKhach, @TenKhach, @DiaChi)
 END
@@ -342,5 +327,16 @@ BEGIN
 	UPDATE Phong
 	SET MaTinhTrang = 'PHTR'
 	WHERE MaPhong = @MaPhong
+END
+GO
+
+-- TÌM TÊN LOẠI KHÁCH THEO MÃ
+CREATE PROCEDURE TimTenLoaiKhachTheoMa
+	@MaLoaiKhach int
+AS
+BEGIN
+	SELECT TenLoaiKhach
+	FROM LoaiKhach
+	WHERE MaLoaiKhach = @MaLoaiKhach
 END
 GO

@@ -1,17 +1,4 @@
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.csprojAssemblyReference.cache
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.Bill.BillDetailForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.Bill.BillTaxForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.CustomerType.CustomerTypeAddForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.CustomerType.CustomerTypeEditForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.RoomType.RoomTypeForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.Room.RoomDetailForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.Rule.ForeignCustomerEditForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.ThirdCustomerTaxEditForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.MaxCustomerEditForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.CustomerForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.RoomForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.MainForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel_Management.Properties.Resources.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.csproj.GenerateResource.cache
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel Management.exe.licenses
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.csproj.CoreCompileInputs.cache
@@ -235,3 +222,16 @@ C:\uitSQL\Hotel Management\Hotel Management\bin\Debug\ru\DevExpress.XtraGauges.v
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.csproj.CopyComplete
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel Management.exe
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel Management.pdb
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Bill.BillDetailForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Bill.BillTaxForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.CustomerType.CustomerTypeAddForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.CustomerType.CustomerTypeEditForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.RoomType.RoomTypeForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Rule.ForeignCustomerEditForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.ThirdCustomerTaxEditForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.MaxCustomerEditForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.CustomerForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.RoomForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.MainForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Properties.Resources.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Room.RoomLeaseForm.resources

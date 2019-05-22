@@ -1,5 +1,6 @@
 ﻿using DAO;
 using DTO;
+using System;
 using System.Data;
 
 namespace BUS
@@ -11,9 +12,14 @@ namespace BUS
             return RoomDAO.GetRoomList();
         }
 
+        public static DataTable GetAvailableRoomList()
+        {
+            return RoomDAO.GetAvailableRoomList();
+        }
+
         public static bool InsertRoom(RoomDTO room)
         {
-            if (RoomDAO.CheckRoomByID(room.RoomID))
+            if (RoomDAO.CheckRoomByID(room.RoomID) || string.IsNullOrWhiteSpace(room.RoomID))
             {
                 return false;
             }
@@ -36,6 +42,11 @@ namespace BUS
                 return false;
             }
             return RoomDAO.UpdateRoom(room);
+        }
+
+        public static DataTable FindRoom(string id, string type, Int64 price, string status)
+        {
+            return RoomDAO.FindRoom(id, type, price, status);
         }
     }
 }
