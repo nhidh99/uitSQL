@@ -33,6 +33,57 @@ namespace DAO
             }
         }
 
+        public static bool InsertRoomLeasePayment(string roomID, Int64 price)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                var command = new SqlCommand("ThemThongTinThanhToan", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@MaPhong", roomID));
+                command.Parameters.Add(new SqlParameter("@ThanhTien", price));
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (SqlException)
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
+        public static DataTable GetRentedRoomList(string date)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                var command = new SqlCommand("LietKePhongThue", connection);
+                command.Parameters.Add(new SqlParameter("@NgayThanhToan", date));
+                command.CommandType = CommandType.StoredProcedure;
+                command.ExecuteNonQuery();
+
+                var adapter = new SqlDataAdapter(command);
+                var dt = new DataTable();
+                adapter.Fill(dt);
+                connection.Close();
+                return dt;
+            }
+            catch (SqlException)
+            {
+                connection.Close();
+                return null;
+            }
+        }
+
         public static int GetLastLeaseIDOfRoom(string RoomID)
         {
             try

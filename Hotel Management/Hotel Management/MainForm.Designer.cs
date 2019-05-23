@@ -69,6 +69,11 @@
             this.btnLockNoteRoom = new DevExpress.XtraEditors.SimpleButton();
             this.gcNoteCustomer = new DevExpress.XtraEditors.GroupControl();
             this.dgvNoteCustomer = new System.Windows.Forms.DataGridView();
+            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerPassportID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gcNoteCustomerData = new DevExpress.XtraEditors.GroupControl();
             this.tbNoteCustomerType = new System.Windows.Forms.TextBox();
             this.tbNoteCustomerPassport = new System.Windows.Forms.TextBox();
@@ -177,6 +182,7 @@
             this.btnAddCustomerType = new DevExpress.XtraEditors.SimpleButton();
             this.gcCustomerTypeList = new DevExpress.XtraEditors.GroupControl();
             this.dgvCustomerType = new System.Windows.Forms.DataGridView();
+            this.EditCustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gcRoomTypeList = new DevExpress.XtraEditors.GroupControl();
             this.dgvRoomType = new System.Windows.Forms.DataGridView();
             this.EditRoomTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -197,12 +203,6 @@
             this.btnAddRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
-            this.EditCustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerPassportID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).BeginInit();
             this.tcHotelManagement.SuspendLayout();
             this.tabListRoom.SuspendLayout();
@@ -822,6 +822,41 @@
             this.dgvNoteCustomer.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
             this.dgvNoteCustomer.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.DgvNoteCustomer_RowsAdded);
             this.dgvNoteCustomer.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvNoteCustomer_RowsRemoved);
+            // 
+            // CustomerName
+            // 
+            this.CustomerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CustomerName.HeaderText = "TÊN KHÁCH";
+            this.CustomerName.Name = "CustomerName";
+            this.CustomerName.ReadOnly = true;
+            // 
+            // CustomerTypeID
+            // 
+            this.CustomerTypeID.HeaderText = "MÃ LOẠI KHÁCH";
+            this.CustomerTypeID.Name = "CustomerTypeID";
+            this.CustomerTypeID.ReadOnly = true;
+            this.CustomerTypeID.Visible = false;
+            // 
+            // CustomerType
+            // 
+            this.CustomerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CustomerType.HeaderText = "LOẠI KHÁCH";
+            this.CustomerType.Name = "CustomerType";
+            this.CustomerType.ReadOnly = true;
+            // 
+            // CustomerPassportID
+            // 
+            this.CustomerPassportID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CustomerPassportID.HeaderText = "SỐ CMND";
+            this.CustomerPassportID.Name = "CustomerPassportID";
+            this.CustomerPassportID.ReadOnly = true;
+            // 
+            // CustomerAddress
+            // 
+            this.CustomerAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CustomerAddress.HeaderText = "ĐỊA CHỈ";
+            this.CustomerAddress.Name = "CustomerAddress";
+            this.CustomerAddress.ReadOnly = true;
             // 
             // gcNoteCustomerData
             // 
@@ -2211,6 +2246,12 @@
             this.dgvCustomerType.TabIndex = 0;
             this.dgvCustomerType.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
             // 
+            // EditCustomerType
+            // 
+            this.EditCustomerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.EditCustomerType.HeaderText = "LOẠI KHÁCH";
+            this.EditCustomerType.Name = "EditCustomerType";
+            // 
             // gcRoomTypeList
             // 
             this.gcRoomTypeList.Controls.Add(this.dgvRoomType);
@@ -2483,47 +2524,6 @@
             this.simpleButton18.Size = new System.Drawing.Size(502, 28);
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
-            // 
-            // EditCustomerType
-            // 
-            this.EditCustomerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.EditCustomerType.HeaderText = "LOẠI KHÁCH";
-            this.EditCustomerType.Name = "EditCustomerType";
-            // 
-            // CustomerName
-            // 
-            this.CustomerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CustomerName.HeaderText = "TÊN KHÁCH";
-            this.CustomerName.Name = "CustomerName";
-            this.CustomerName.ReadOnly = true;
-            // 
-            // CustomerTypeID
-            // 
-            this.CustomerTypeID.HeaderText = "MÃ LOẠI KHÁCH";
-            this.CustomerTypeID.Name = "CustomerTypeID";
-            this.CustomerTypeID.ReadOnly = true;
-            this.CustomerTypeID.Visible = false;
-            // 
-            // CustomerType
-            // 
-            this.CustomerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CustomerType.HeaderText = "LOẠI KHÁCH";
-            this.CustomerType.Name = "CustomerType";
-            this.CustomerType.ReadOnly = true;
-            // 
-            // CustomerPassportID
-            // 
-            this.CustomerPassportID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CustomerPassportID.HeaderText = "SỐ CMND";
-            this.CustomerPassportID.Name = "CustomerPassportID";
-            this.CustomerPassportID.ReadOnly = true;
-            // 
-            // CustomerAddress
-            // 
-            this.CustomerAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CustomerAddress.HeaderText = "ĐỊA CHỈ";
-            this.CustomerAddress.Name = "CustomerAddress";
-            this.CustomerAddress.ReadOnly = true;
             // 
             // MainForm
             // 

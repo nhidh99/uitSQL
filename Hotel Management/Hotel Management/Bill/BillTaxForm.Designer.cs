@@ -142,7 +142,7 @@
             // 
             this.OverCustomerTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.OverCustomerTax.DataPropertyName = "PhuThuKhachThem";
-            this.OverCustomerTax.HeaderText = "PHỤ THU KHÁCH THÊM (VND)";
+            this.OverCustomerTax.HeaderText = "KHÁCH THÊM (VND)";
             this.OverCustomerTax.Name = "OverCustomerTax";
             // 
             // ForeignCustomerTax

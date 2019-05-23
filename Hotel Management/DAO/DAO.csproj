@@ -46,6 +46,7 @@
     <Compile Include="CustomerTypeDAO.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomBillDAO.cs" />
     <Compile Include="RoomDAO.cs" />
     <Compile Include="RoomLeaseDAO.cs" />
     <Compile Include="RoomLeaseDetailDAO.cs" />

@@ -18,8 +18,6 @@ namespace GUI
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
-        SqlExecuter sqlExecuter = new SqlExecuter();
-
         public MainForm()
         {
             InitializeComponent();
@@ -514,7 +512,7 @@ namespace GUI
         void LoadRentRoom()
         {
             var BillDate = DateTime.ParseExact(deBillDate.Text, "d/M/yyyy", CultureInfo.InvariantCulture);
-            var dt = sqlExecuter.GetRentRoom(BillDate.ToString("d"));
+            var dt = RoomLeaseBUS.GetRentedRoomList(BillDate.ToString("d"));
 
             if (dt.Rows.Count == 0)
             {
@@ -540,14 +538,13 @@ namespace GUI
             this.btnLockBill.Enabled = true;
         }
 
-        public Dictionary<string, string> GetPayerDetail()
+        public RoomBillDTO GetBillPayer()
         {
-            return new Dictionary<string, string>()
-            {
-                {"Name", tbBillCustomerName.Text },
-                {"BillDate", deBillDate.Text },
-                {"Address", rtbBillCustomerAddress.Text }
-            };
+            var bill = new RoomBillDTO();
+            bill.CustomerName = this.tbBillCustomerName.Text;
+            bill.CustomerAddress = this.rtbBillCustomerAddress.Text;
+            bill.BillDate = DateTime.ParseExact(this.deBillDate.Text, "d/M/yyyy", CultureInfo.InvariantCulture).ToString("M/d/yyyy");
+            return bill;
         }
 
         public DataGridViewRowCollection GetAllPaidRoomInBill() => this.dgvBillRoom.Rows;
@@ -671,10 +668,15 @@ namespace GUI
         private void BtnAddBillRoom_Click(object sender, EventArgs e)
         {
             // Thêm chi tiết thanh toán của phòng đã chọn vào DataGrid
-            var BillDate = DateTime.ParseExact(deBillDate.Text, "d/M/yyyy", CultureInfo.InvariantCulture);
-            var dr = sqlExecuter.GetPayInformation(this.cbAddBillRoomID.Text, BillDate.ToString("d")).Rows[0];
-            this.dgvBillRoom.Rows.Add(dr["MaPhong"], dr["SoNgayThue"], dr["DonGia"],
-                dr["PhuThuKhachThuBa"], dr["PhuThuKhachNuocNgoai"], dr["ThanhTien"]);
+            var BillDate = DateTime.ParseExact(deBillDate.Text, "d/M/yyyy", CultureInfo.InvariantCulture).ToString("d");
+            var dr = RoomBillBUS.GetLeasePayment(this.cbAddBillRoomID.Text, BillDate).Rows[0];
+            this.dgvBillRoom.Rows.Add(
+                dr["MaPhong"],
+                dr["SoNgayThue"],
+                Convert.ToInt64(dr["DonGia"]).ToString("N0"),
+                Convert.ToInt64(dr["PhuThuKhachThem"]).ToString("N0"),
+                Convert.ToInt64(dr["PhuThuKhachNuocNgoai"]).ToString("N0"),
+                Convert.ToInt64(dr["ThanhTien"]).ToString("N0"));
         }
 
 

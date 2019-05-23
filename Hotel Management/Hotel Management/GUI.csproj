@@ -158,7 +158,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlExecuter.cs" />
     <EmbeddedResource Include="Bill\BillDetailForm.resx">
       <DependentUpon>BillDetailForm.cs</DependentUpon>
     </EmbeddedResource>

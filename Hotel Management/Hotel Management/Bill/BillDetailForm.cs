@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
@@ -10,7 +12,6 @@ namespace GUI.Bill
     {
         Int64 TotalTax = 0;
         Int64 TotalPrice = 0;
-        SqlExecuter sqlExecuter = new SqlExecuter();
 
         public BillDetailForm()
         {
@@ -33,13 +34,13 @@ namespace GUI.Bill
         private void BillDetailForm_Load(object sender, EventArgs e)
         {
             MainForm mainForm = (MainForm)Owner;
-            var payer = mainForm.GetPayerDetail();
+            var payer = mainForm.GetBillPayer();
             var rows = mainForm.GetAllPaidRoomInBill();
 
             // Load thông tin khách thanh toán
-            this.tbBillCustomer.Text = payer["Name"];
-            this.tbBillDate.Text = payer["BillDate"];
-            this.tbBillAddress.Text = payer["Address"];
+            this.tbBillCustomer.Text = payer.CustomerName;
+            this.tbBillAddress.Text = payer.CustomerAddress;
+            this.tbBillDate.Text = DateTime.ParseExact(payer.BillDate,"M/d/yyyy",CultureInfo.InvariantCulture).ToString("d/M/yyyy");
 
             // Load thông tin chi tiết thanh toán
             foreach (DataGridViewRow row in rows)
@@ -124,19 +125,18 @@ namespace GUI.Bill
             {
                 var BillDate = DateTime.ParseExact(this.tbBillDate.Text, "d/M/yyyy", CultureInfo.InvariantCulture);
 
-                var payer = new Dictionary<string, string>()
-                {
-                    {"Name", this.tbBillCustomer.Text },
-                    {"BillDate", BillDate.ToString("d") },
-                    {"Address",this.tbBillAddress.Text }
-                };
-
-                sqlExecuter.AddBill(payer, this.tbBillPrice.Text.Replace(",", ""));
+                var bill = new RoomBillDTO();
+                bill.BillDate = DateTime.ParseExact(this.tbBillDate.Text, "d/M/yyyy", CultureInfo.InvariantCulture).ToString("d");
+                bill.CustomerName = this.tbBillCustomer.Text;
+                bill.CustomerAddress = this.tbBillAddress.Text;
+                bill.BillCost = Convert.ToInt64(this.tbBillPrice.Text.Replace(",",""));
+                RoomBillBUS.InsertBill(bill);
 
                 foreach (DataGridViewRow row in this.dgvBillData.Rows)
                 {
-                    sqlExecuter.PayRoom(row.Cells["PaidRoomID"].Value.ToString(), 
-                        row.Cells["PaidRoomTotalPrice"].Value.ToString().Replace(",",""));
+                    var roomID = row.Cells["PaidRoomID"].Value.ToString();
+                    var price = Convert.ToInt64(row.Cells["PaidRoomTotalPrice"].Value.ToString().Replace(",", ""));
+                    RoomLeaseBUS.InsertRoomLeasePayment(roomID, price);
                 }
 
                 MainForm mainForm = (MainForm)Owner;
