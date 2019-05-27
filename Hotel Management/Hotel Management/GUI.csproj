@@ -126,11 +126,11 @@
     <Compile Include="Rule\ForeignCustomerEditForm.Designer.cs">
       <DependentUpon>ForeignCustomerEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rule\ThirdCustomerTaxEditForm.cs">
+    <Compile Include="Rule\OverCustomerTaxEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Rule\ThirdCustomerTaxEditForm.Designer.cs">
-      <DependentUpon>ThirdCustomerTaxEditForm.cs</DependentUpon>
+    <Compile Include="Rule\OverCustomerTaxEditForm.Designer.cs">
+      <DependentUpon>OverCustomerTaxEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Rule\MaxCustomerEditForm.cs">
       <SubType>Form</SubType>
@@ -179,8 +179,8 @@
     <EmbeddedResource Include="Rule\ForeignCustomerEditForm.resx">
       <DependentUpon>ForeignCustomerEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rule\ThirdCustomerTaxEditForm.resx">
-      <DependentUpon>ThirdCustomerTaxEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="Rule\OverCustomerTaxEditForm.resx">
+      <DependentUpon>OverCustomerTaxEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rule\MaxCustomerEditForm.resx">
       <DependentUpon>MaxCustomerEditForm.cs</DependentUpon>

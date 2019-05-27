@@ -28,8 +28,8 @@ namespace GUI
             this.LoadAvailableRoom();
             this.LoadFindRoom();
             this.LoadBillRoom();
+            this.LoadRuleRoom();
         }
-
 
         // Auto numbering first columns in DataGrid
         private void dataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -621,6 +621,7 @@ namespace GUI
                 this.tbBillCustomerName.Text = null;
                 this.rtbBillCustomerAddress.Text = null;
                 this.cbAddBillRoomID.Text = null;
+                this.cbAddBillRoomID.Items.Clear();
                 this.dgvBillRoom.Rows.Clear();
             }
 
@@ -705,10 +706,50 @@ namespace GUI
 
         private void BtnCreateMonthRevenue_Click(object sender, EventArgs e)
         {
+            this.dgvRevenueList.Rows.Clear();
+            var dt = RoomBillBUS.GetMonthRevenueReport(Convert.ToInt16(this.nudRevenue.Value));
 
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    this.dgvRevenueList.Rows.Add
+                        (dr["LoaiPhong"].ToString(),
+                        Convert.ToInt64(dr["DoanhThu"]).ToString("N0"),
+                        String.Format("{0:0.00}", dr["TiLe"]));
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có doanh thu trong tháng " + this.nudRevenue.Value.ToString(),
+                    "KHÔNG CÓ DOANH THU",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
 
         //Tab 06: Room-Rule Edit
+        private void LoadRuleRoom()
+        {
+            this.lbMaxCustomerValue.Text = RoomBUS.GetMaxCustomerInRoom().ToString();
+            this.lbOverCustomerTaxValue.Text = RoomBUS.GetOverCustomerTaxPercent().ToString() + "%";
+            this.lbForeignCustomerTaxValue.Text = RoomBUS.GetForeignCustomerTaxPercent().ToString() + "%";
+            this.dgvCustomerType.DataSource = CustomerTypeBUS.GetCustomerTypeList();
+
+            var dt = RoomTypeBUS.GetRoomTypeList();
+            foreach (DataRow dr in dt.Rows)
+            {
+                this.dgvRoomType.Rows.Add
+                    (dr["MaLoaiPhong"].ToString(),
+                    Convert.ToInt64(dr["DonGia"]).ToString("N0"));
+            }
+        }
+
+        public void ReLoadMaxCustomerInRoom()
+        {
+            this.lbMaxCustomerValue.Text = RoomBUS.GetMaxCustomerInRoom().ToString();
+        }
+
         private void BtnEditMaxCustomerRule_Click(object sender, EventArgs e)
         {
             var EditForm = new MaxCustomerEditForm();

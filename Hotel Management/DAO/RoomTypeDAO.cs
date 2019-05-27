@@ -15,7 +15,7 @@ namespace DAO
                     connection.Open();
                 }
 
-                var query = "SELECT MaLoaiPhong FROM LoaiPhong";
+                var query = "SELECT MaLoaiPhong, DonGia FROM LoaiPhong";
                 var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
 

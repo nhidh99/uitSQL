@@ -15,7 +15,7 @@ namespace DAO
                     connection.Open();
                 }
 
-                var query = "SELECT * FROM LoaiKhach WHERE KhaDung = 1";
+                var query = "SELECT MaLoaiKhach, TenLoaiKhach FROM LoaiKhach WHERE KhaDung = 1";
                 var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
                 connection.Close();

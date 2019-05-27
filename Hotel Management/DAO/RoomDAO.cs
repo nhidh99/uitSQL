@@ -65,6 +65,74 @@ namespace DAO
             }
         }
 
+        public static bool UpdateMaxCustomerInRoom(int num)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                var query = "UPDATE ThamSo\n" +
+                    $"SET GiaTri = {num}\n" +
+                    "WHERE MaThamSo = 'KHTD'";
+
+                var command = new SqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+
+            catch (Exception)
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
+        public static int GetOverCustomerTaxPercent()
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                var query = "SELECT GiaTri * 100 FROM ThamSo WHERE MaThamSo = 'PTK3'";
+                var command = new SqlCommand(query, connection);
+                var result = Convert.ToInt32(command.ExecuteScalar());
+                connection.Close();
+                return result;
+            }
+            catch
+            {
+                connection.Close();
+                return -1;
+            }
+        }
+
+        public static int GetForeignCustomerTaxPercent()
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                var query = "SELECT GiaTri * 100 FROM ThamSo WHERE MaThamSo = 'PTNN'";
+                var command = new SqlCommand(query, connection);
+                var result = Convert.ToInt32(command.ExecuteScalar());
+                connection.Close();
+                return result;
+            }
+            catch
+            {
+                connection.Close();
+                return -1;
+            }
+        }
+
         public static int GetMaxCustomerInRoom()
         {
             try

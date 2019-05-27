@@ -338,3 +338,20 @@ BEGIN
 	WHERE MaLoaiKhach = @MaLoaiKhach
 END
 GO
+
+-- THỐNG KÊ DOANH THU CÁC LOẠI PHÒNG THEO THÁNG
+CREATE PROCEDURE BaoCaoDoanhThuThang
+	@Thang int
+AS
+BEGIN
+	DECLARE @TongDoanhThu MONEY
+	SET @TongDoanhThu = (SELECT SUM(TriGia) FROM HoaDon WHERE MONTH(NgayHoaDon) = @Thang)
+
+	SELECT LoaiPhong, SUM(ThanhTien) AS DoanhThu, (SUM(ThanhTien) / @TongDoanhThu * 100) AS TiLe
+	FROM HoaDon JOIN PhieuThue
+	ON HoaDon.MaHoaDon = PhieuThue.MaHoaDon
+	WHERE MONTH(NgayHoaDon) = @Thang
+	GROUP BY LoaiPhong
+	ORDER BY LoaiPhong
+END
+GO

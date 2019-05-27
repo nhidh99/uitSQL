@@ -170,9 +170,6 @@
             this.lbMonthRevenue = new DevExpress.XtraEditors.LabelControl();
             this.gcRevenueList = new DevExpress.XtraEditors.GroupControl();
             this.dgvRevenueList = new System.Windows.Forms.DataGridView();
-            this.ReportedRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReportedRoomRevenue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReportedRoomPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabRules = new DevExpress.XtraTab.XtraTabPage();
             this.gcEditRule = new DevExpress.XtraEditors.GroupControl();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -182,27 +179,31 @@
             this.btnAddCustomerType = new DevExpress.XtraEditors.SimpleButton();
             this.gcCustomerTypeList = new DevExpress.XtraEditors.GroupControl();
             this.dgvCustomerType = new System.Windows.Forms.DataGridView();
-            this.EditCustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gcRoomTypeList = new DevExpress.XtraEditors.GroupControl();
             this.dgvRoomType = new System.Windows.Forms.DataGridView();
-            this.EditRoomTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EditRoomTypePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEditRules = new System.Windows.Forms.Panel();
             this.lbMaxCustomerRule = new DevExpress.XtraEditors.LabelControl();
             this.lbMaxCustomerValue = new DevExpress.XtraEditors.LabelControl();
             this.lbForeignCustomerTaxValue = new DevExpress.XtraEditors.LabelControl();
-            this.lbThirdCustomerTaxValue = new DevExpress.XtraEditors.LabelControl();
+            this.lbOverCustomerTaxValue = new DevExpress.XtraEditors.LabelControl();
             this.btnEditMaxCustomerRule = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditForeignCustomerTax = new DevExpress.XtraEditors.SimpleButton();
             this.lbForeignCustomerTax = new DevExpress.XtraEditors.LabelControl();
             this.btnEditThirdCustomerTax = new DevExpress.XtraEditors.SimpleButton();
-            this.lbThirdCustumerRuleTax = new DevExpress.XtraEditors.LabelControl();
+            this.lbOverCustumerRuleTax = new DevExpress.XtraEditors.LabelControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnEditRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
+            this.ReportedRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReportedRoomRevenue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReportedRoomPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EditRoomTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EditRoomTypePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EditCustomerTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EditCustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).BeginInit();
             this.tcHotelManagement.SuspendLayout();
             this.tabListRoom.SuspendLayout();
@@ -2092,27 +2093,6 @@
             this.dgvRevenueList.TabIndex = 2;
             this.dgvRevenueList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
             // 
-            // ReportedRoomType
-            // 
-            this.ReportedRoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ReportedRoomType.HeaderText = "LOẠI PHÒNG";
-            this.ReportedRoomType.Name = "ReportedRoomType";
-            this.ReportedRoomType.ReadOnly = true;
-            // 
-            // ReportedRoomRevenue
-            // 
-            this.ReportedRoomRevenue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ReportedRoomRevenue.HeaderText = "DOANH THU (VND)";
-            this.ReportedRoomRevenue.Name = "ReportedRoomRevenue";
-            this.ReportedRoomRevenue.ReadOnly = true;
-            // 
-            // ReportedRoomPercentage
-            // 
-            this.ReportedRoomPercentage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ReportedRoomPercentage.HeaderText = "TỈ LỆ (%)";
-            this.ReportedRoomPercentage.Name = "ReportedRoomPercentage";
-            this.ReportedRoomPercentage.ReadOnly = true;
-            // 
             // tabRules
             // 
             this.tabRules.Controls.Add(this.gcEditRule);
@@ -2235,6 +2215,7 @@
             this.dgvCustomerType.BackgroundColor = System.Drawing.Color.White;
             this.dgvCustomerType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomerType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EditCustomerTypeID,
             this.EditCustomerType});
             this.dgvCustomerType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomerType.Location = new System.Drawing.Point(2, 20);
@@ -2245,12 +2226,6 @@
             this.dgvCustomerType.Size = new System.Drawing.Size(466, 429);
             this.dgvCustomerType.TabIndex = 0;
             this.dgvCustomerType.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
-            // 
-            // EditCustomerType
-            // 
-            this.EditCustomerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.EditCustomerType.HeaderText = "LOẠI KHÁCH";
-            this.EditCustomerType.Name = "EditCustomerType";
             // 
             // gcRoomTypeList
             // 
@@ -2282,32 +2257,18 @@
             this.dgvRoomType.TabIndex = 0;
             this.dgvRoomType.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
             // 
-            // EditRoomTypeID
-            // 
-            this.EditRoomTypeID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.EditRoomTypeID.HeaderText = "LOẠI PHÒNG";
-            this.EditRoomTypeID.Name = "EditRoomTypeID";
-            this.EditRoomTypeID.ReadOnly = true;
-            // 
-            // EditRoomTypePrice
-            // 
-            this.EditRoomTypePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.EditRoomTypePrice.HeaderText = "ĐƠN GIÁ";
-            this.EditRoomTypePrice.Name = "EditRoomTypePrice";
-            this.EditRoomTypePrice.ReadOnly = true;
-            // 
             // panelEditRules
             // 
             this.tableLayoutPanel6.SetColumnSpan(this.panelEditRules, 2);
             this.panelEditRules.Controls.Add(this.lbMaxCustomerRule);
             this.panelEditRules.Controls.Add(this.lbMaxCustomerValue);
             this.panelEditRules.Controls.Add(this.lbForeignCustomerTaxValue);
-            this.panelEditRules.Controls.Add(this.lbThirdCustomerTaxValue);
+            this.panelEditRules.Controls.Add(this.lbOverCustomerTaxValue);
             this.panelEditRules.Controls.Add(this.btnEditMaxCustomerRule);
             this.panelEditRules.Controls.Add(this.btnEditForeignCustomerTax);
             this.panelEditRules.Controls.Add(this.lbForeignCustomerTax);
             this.panelEditRules.Controls.Add(this.btnEditThirdCustomerTax);
-            this.panelEditRules.Controls.Add(this.lbThirdCustumerRuleTax);
+            this.panelEditRules.Controls.Add(this.lbOverCustumerRuleTax);
             this.panelEditRules.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEditRules.Location = new System.Drawing.Point(3, 2);
             this.panelEditRules.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -2321,7 +2282,7 @@
             this.lbMaxCustomerRule.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbMaxCustomerRule.Appearance.Options.UseFont = true;
             this.lbMaxCustomerRule.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbMaxCustomerRule.Location = new System.Drawing.Point(329, 21);
+            this.lbMaxCustomerRule.Location = new System.Drawing.Point(322, 21);
             this.lbMaxCustomerRule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbMaxCustomerRule.Name = "lbMaxCustomerRule";
             this.lbMaxCustomerRule.Size = new System.Drawing.Size(155, 13);
@@ -2334,7 +2295,7 @@
             this.lbMaxCustomerValue.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbMaxCustomerValue.Appearance.Options.UseFont = true;
             this.lbMaxCustomerValue.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbMaxCustomerValue.Location = new System.Drawing.Point(501, 22);
+            this.lbMaxCustomerValue.Location = new System.Drawing.Point(481, 21);
             this.lbMaxCustomerValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbMaxCustomerValue.Name = "lbMaxCustomerValue";
             this.lbMaxCustomerValue.Size = new System.Drawing.Size(5, 13);
@@ -2347,25 +2308,25 @@
             this.lbForeignCustomerTaxValue.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbForeignCustomerTaxValue.Appearance.Options.UseFont = true;
             this.lbForeignCustomerTaxValue.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbForeignCustomerTaxValue.Location = new System.Drawing.Point(498, 82);
+            this.lbForeignCustomerTaxValue.Location = new System.Drawing.Point(481, 81);
             this.lbForeignCustomerTaxValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbForeignCustomerTaxValue.Name = "lbForeignCustomerTaxValue";
             this.lbForeignCustomerTaxValue.Size = new System.Drawing.Size(5, 13);
             this.lbForeignCustomerTaxValue.TabIndex = 32;
             this.lbForeignCustomerTaxValue.Text = "?";
             // 
-            // lbThirdCustomerTaxValue
+            // lbOverCustomerTaxValue
             // 
-            this.lbThirdCustomerTaxValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbThirdCustomerTaxValue.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbThirdCustomerTaxValue.Appearance.Options.UseFont = true;
-            this.lbThirdCustomerTaxValue.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbThirdCustomerTaxValue.Location = new System.Drawing.Point(464, 54);
-            this.lbThirdCustomerTaxValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbThirdCustomerTaxValue.Name = "lbThirdCustomerTaxValue";
-            this.lbThirdCustomerTaxValue.Size = new System.Drawing.Size(5, 13);
-            this.lbThirdCustomerTaxValue.TabIndex = 32;
-            this.lbThirdCustomerTaxValue.Text = "?";
+            this.lbOverCustomerTaxValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbOverCustomerTaxValue.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbOverCustomerTaxValue.Appearance.Options.UseFont = true;
+            this.lbOverCustomerTaxValue.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbOverCustomerTaxValue.Location = new System.Drawing.Point(443, 51);
+            this.lbOverCustomerTaxValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbOverCustomerTaxValue.Name = "lbOverCustomerTaxValue";
+            this.lbOverCustomerTaxValue.Size = new System.Drawing.Size(5, 13);
+            this.lbOverCustomerTaxValue.TabIndex = 32;
+            this.lbOverCustomerTaxValue.Text = "?";
             // 
             // btnEditMaxCustomerRule
             // 
@@ -2374,7 +2335,7 @@
             this.btnEditMaxCustomerRule.Appearance.Options.UseImage = true;
             this.btnEditMaxCustomerRule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditMaxCustomerRule.ImageOptions.Image")));
             this.btnEditMaxCustomerRule.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnEditMaxCustomerRule.Location = new System.Drawing.Point(520, 14);
+            this.btnEditMaxCustomerRule.Location = new System.Drawing.Point(526, 14);
             this.btnEditMaxCustomerRule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditMaxCustomerRule.Name = "btnEditMaxCustomerRule";
             this.btnEditMaxCustomerRule.Size = new System.Drawing.Size(96, 24);
@@ -2389,7 +2350,7 @@
             this.btnEditForeignCustomerTax.Appearance.Options.UseImage = true;
             this.btnEditForeignCustomerTax.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditForeignCustomerTax.ImageOptions.Image")));
             this.btnEditForeignCustomerTax.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnEditForeignCustomerTax.Location = new System.Drawing.Point(520, 75);
+            this.btnEditForeignCustomerTax.Location = new System.Drawing.Point(526, 74);
             this.btnEditForeignCustomerTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditForeignCustomerTax.Name = "btnEditForeignCustomerTax";
             this.btnEditForeignCustomerTax.Size = new System.Drawing.Size(96, 24);
@@ -2403,7 +2364,7 @@
             this.lbForeignCustomerTax.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbForeignCustomerTax.Appearance.Options.UseFont = true;
             this.lbForeignCustomerTax.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbForeignCustomerTax.Location = new System.Drawing.Point(329, 82);
+            this.lbForeignCustomerTax.Location = new System.Drawing.Point(322, 81);
             this.lbForeignCustomerTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbForeignCustomerTax.Name = "lbForeignCustomerTax";
             this.lbForeignCustomerTax.Size = new System.Drawing.Size(153, 13);
@@ -2417,7 +2378,7 @@
             this.btnEditThirdCustomerTax.Appearance.Options.UseImage = true;
             this.btnEditThirdCustomerTax.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditThirdCustomerTax.ImageOptions.Image")));
             this.btnEditThirdCustomerTax.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnEditThirdCustomerTax.Location = new System.Drawing.Point(520, 46);
+            this.btnEditThirdCustomerTax.Location = new System.Drawing.Point(526, 44);
             this.btnEditThirdCustomerTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditThirdCustomerTax.Name = "btnEditThirdCustomerTax";
             this.btnEditThirdCustomerTax.Size = new System.Drawing.Size(96, 24);
@@ -2425,18 +2386,18 @@
             this.btnEditThirdCustomerTax.Text = "THAY ĐỔI";
             this.btnEditThirdCustomerTax.Click += new System.EventHandler(this.BtnEditThirdCustomerTax_Click);
             // 
-            // lbThirdCustumerRuleTax
+            // lbOverCustumerRuleTax
             // 
-            this.lbThirdCustumerRuleTax.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbThirdCustumerRuleTax.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbThirdCustumerRuleTax.Appearance.Options.UseFont = true;
-            this.lbThirdCustumerRuleTax.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbThirdCustumerRuleTax.Location = new System.Drawing.Point(329, 53);
-            this.lbThirdCustumerRuleTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbThirdCustumerRuleTax.Name = "lbThirdCustumerRuleTax";
-            this.lbThirdCustumerRuleTax.Size = new System.Drawing.Size(120, 13);
-            this.lbThirdCustumerRuleTax.TabIndex = 31;
-            this.lbThirdCustumerRuleTax.Text = "PHỤ THU KHÁCH THỨ 3: ";
+            this.lbOverCustumerRuleTax.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbOverCustumerRuleTax.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbOverCustumerRuleTax.Appearance.Options.UseFont = true;
+            this.lbOverCustumerRuleTax.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbOverCustumerRuleTax.Location = new System.Drawing.Point(322, 51);
+            this.lbOverCustumerRuleTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbOverCustumerRuleTax.Name = "lbOverCustumerRuleTax";
+            this.lbOverCustumerRuleTax.Size = new System.Drawing.Size(120, 13);
+            this.lbOverCustumerRuleTax.TabIndex = 31;
+            this.lbOverCustumerRuleTax.Text = "PHỤ THU KHÁCH THỨ 3: ";
             // 
             // tableLayoutPanel1
             // 
@@ -2524,6 +2485,60 @@
             this.simpleButton18.Size = new System.Drawing.Size(502, 28);
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
+            // 
+            // ReportedRoomType
+            // 
+            this.ReportedRoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ReportedRoomType.DataPropertyName = "LoaiPhong";
+            this.ReportedRoomType.HeaderText = "LOẠI PHÒNG";
+            this.ReportedRoomType.Name = "ReportedRoomType";
+            this.ReportedRoomType.ReadOnly = true;
+            // 
+            // ReportedRoomRevenue
+            // 
+            this.ReportedRoomRevenue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ReportedRoomRevenue.DataPropertyName = "DoanhThu";
+            this.ReportedRoomRevenue.HeaderText = "DOANH THU (VND)";
+            this.ReportedRoomRevenue.Name = "ReportedRoomRevenue";
+            this.ReportedRoomRevenue.ReadOnly = true;
+            // 
+            // ReportedRoomPercentage
+            // 
+            this.ReportedRoomPercentage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ReportedRoomPercentage.DataPropertyName = "TiLe";
+            this.ReportedRoomPercentage.HeaderText = "TỈ LỆ (%)";
+            this.ReportedRoomPercentage.Name = "ReportedRoomPercentage";
+            this.ReportedRoomPercentage.ReadOnly = true;
+            // 
+            // EditRoomTypeID
+            // 
+            this.EditRoomTypeID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.EditRoomTypeID.DataPropertyName = "MaLoaiPhong";
+            this.EditRoomTypeID.HeaderText = "LOẠI PHÒNG";
+            this.EditRoomTypeID.Name = "EditRoomTypeID";
+            this.EditRoomTypeID.ReadOnly = true;
+            // 
+            // EditRoomTypePrice
+            // 
+            this.EditRoomTypePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.EditRoomTypePrice.DataPropertyName = "DonGia";
+            this.EditRoomTypePrice.HeaderText = "ĐƠN GIÁ (VND)";
+            this.EditRoomTypePrice.Name = "EditRoomTypePrice";
+            this.EditRoomTypePrice.ReadOnly = true;
+            // 
+            // EditCustomerTypeID
+            // 
+            this.EditCustomerTypeID.DataPropertyName = "MaLoaiKhach";
+            this.EditCustomerTypeID.HeaderText = "MÃ LOẠI KHÁCH";
+            this.EditCustomerTypeID.Name = "EditCustomerTypeID";
+            this.EditCustomerTypeID.Visible = false;
+            // 
+            // EditCustomerType
+            // 
+            this.EditCustomerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.EditCustomerType.DataPropertyName = "TenLoaiKhach";
+            this.EditCustomerType.HeaderText = "LOẠI KHÁCH";
+            this.EditCustomerType.Name = "EditCustomerType";
             // 
             // MainForm
             // 
@@ -2677,11 +2692,6 @@
         private System.Windows.Forms.DataGridView dgvRoomType;
         private System.Windows.Forms.TextBox tbListRoomPrice;
         private DevExpress.XtraEditors.LabelControl lbListRoomPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReportedRoomType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReportedRoomRevenue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReportedRoomPercentage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EditRoomTypeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EditRoomTypePrice;
         private System.Windows.Forms.TextBox tbListRoomType;
         private DevExpress.XtraEditors.GroupControl gcFindRoomData;
         private DevExpress.XtraEditors.LabelControl lbFindRoomID2;
@@ -2765,12 +2775,12 @@
         private DevExpress.XtraEditors.LabelControl lbMaxCustomerRule;
         private DevExpress.XtraEditors.LabelControl lbMaxCustomerValue;
         private DevExpress.XtraEditors.LabelControl lbForeignCustomerTaxValue;
-        private DevExpress.XtraEditors.LabelControl lbThirdCustomerTaxValue;
+        private DevExpress.XtraEditors.LabelControl lbOverCustomerTaxValue;
         private DevExpress.XtraEditors.SimpleButton btnEditMaxCustomerRule;
         private DevExpress.XtraEditors.SimpleButton btnEditForeignCustomerTax;
         private DevExpress.XtraEditors.LabelControl lbForeignCustomerTax;
         private DevExpress.XtraEditors.SimpleButton btnEditThirdCustomerTax;
-        private DevExpress.XtraEditors.LabelControl lbThirdCustumerRuleTax;
+        private DevExpress.XtraEditors.LabelControl lbOverCustumerRuleTax;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private DevExpress.XtraEditors.SimpleButton btnEditCustomerType;
         private DevExpress.XtraEditors.SimpleButton btnDelCustomerType;
@@ -2805,6 +2815,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerType;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPassportID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReportedRoomType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReportedRoomRevenue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReportedRoomPercentage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EditRoomTypeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EditRoomTypePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EditCustomerTypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn EditCustomerType;
     }
 }

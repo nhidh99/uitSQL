@@ -77,6 +77,7 @@
             this.btnConfirm.Size = new System.Drawing.Size(88, 40);
             this.btnConfirm.TabIndex = 1;
             this.btnConfirm.Text = "XÁC NHẬN";
+            this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // lbPercentage
             // 

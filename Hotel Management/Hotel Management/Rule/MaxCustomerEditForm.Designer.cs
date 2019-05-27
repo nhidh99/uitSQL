@@ -54,9 +54,27 @@
             this.nudMaxCustomers.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nudMaxCustomers.Location = new System.Drawing.Point(214, 19);
             this.nudMaxCustomers.Margin = new System.Windows.Forms.Padding(2);
+            this.nudMaxCustomers.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudMaxCustomers.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudMaxCustomers.Name = "nudMaxCustomers";
             this.nudMaxCustomers.Size = new System.Drawing.Size(90, 20);
             this.nudMaxCustomers.TabIndex = 1;
+            this.nudMaxCustomers.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudMaxCustomers.Enter += new System.EventHandler(this.NudMaxCustomers_Enter);
+            this.nudMaxCustomers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NudMaxCustomers_KeyDown);
+            this.nudMaxCustomers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NudMaxCustomers_KeyPress);
             // 
             // btnConfirm
             // 
@@ -71,6 +89,7 @@
             this.btnConfirm.Size = new System.Drawing.Size(88, 39);
             this.btnConfirm.TabIndex = 2;
             this.btnConfirm.Text = "XÁC NHẬN";
+            this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // btnCancel
             // 

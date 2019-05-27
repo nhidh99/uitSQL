@@ -1,4 +1,5 @@
 ﻿using DTO;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -29,6 +30,33 @@ namespace DAO
             {
                 connection.Close();
                 return false;
+            }
+        }
+
+        public static DataTable GetMonthRevenueReport(int month)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                var command = new SqlCommand("BaoCaoDoanhThuThang", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@Thang", month));
+                command.ExecuteNonQuery();
+
+                var adapter = new SqlDataAdapter(command);
+                var dt = new DataTable();
+                adapter.Fill(dt);
+                connection.Close();
+                return dt;
+            }
+            catch (SqlException)
+            {
+                connection.Close();
+                return null;
             }
         }
 

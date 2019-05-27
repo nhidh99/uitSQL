@@ -15,5 +15,10 @@ namespace BUS
         {
             return RoomBillDAO.GetLeasePayment(roomID, date);
         }
+
+        public static DataTable GetMonthRevenueReport(int month)
+        {
+            return RoomBillDAO.GetMonthRevenueReport(month);
+        }
     }
 }
