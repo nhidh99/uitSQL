@@ -33,6 +33,58 @@ namespace DAO
             }
         }
 
+        public static bool UpdateForeignCustomerTaxPercent(int num)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                var query = "UPDATE ThamSo\n" +
+                    $"SET GiaTri = CAST({num} AS FLOAT) / 100\n" +
+                    "WHERE MaThamSo = 'PTNN'";
+
+                var command = new SqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+
+            catch (Exception)
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
+        public static bool UpdateOverCustomerTaxPercent(int num)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                var query = "UPDATE ThamSo\n" +
+                    $"SET GiaTri = CAST({num} AS FLOAT) / 100\n" +
+                    "WHERE MaThamSo = 'PTK3'";
+
+                var command = new SqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+
+            catch (Exception)
+            {
+                connection.Close();
+                return false;
+            }
+        }
+
         public static bool InsertRoomLeasePayment(string roomID, Int64 price)
         {
             try
@@ -109,5 +161,46 @@ namespace DAO
             }
         }
 
+        public static int GetOverCustomerTaxPercent()
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                var query = "SELECT GiaTri * 100 FROM ThamSo WHERE MaThamSo = 'PTK3'";
+                var command = new SqlCommand(query, connection);
+                var result = Convert.ToInt32(command.ExecuteScalar());
+                connection.Close();
+                return result;
+            }
+            catch
+            {
+                connection.Close();
+                return -1;
+            }
+        }
+
+        public static int GetForeignCustomerTaxPercent()
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                var query = "SELECT GiaTri * 100 FROM ThamSo WHERE MaThamSo = 'PTNN'";
+                var command = new SqlCommand(query, connection);
+                var result = Convert.ToInt32(command.ExecuteScalar());
+                connection.Close();
+                return result;
+            }
+            catch
+            {
+                connection.Close();
+                return -1;
+            }
+        }
     }
 }

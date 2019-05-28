@@ -91,48 +91,6 @@ namespace DAO
             }
         }
 
-        public static int GetOverCustomerTaxPercent()
-        {
-            try
-            {
-                if (connection.State != ConnectionState.Open)
-                {
-                    connection.Open();
-                }
-                var query = "SELECT GiaTri * 100 FROM ThamSo WHERE MaThamSo = 'PTK3'";
-                var command = new SqlCommand(query, connection);
-                var result = Convert.ToInt32(command.ExecuteScalar());
-                connection.Close();
-                return result;
-            }
-            catch
-            {
-                connection.Close();
-                return -1;
-            }
-        }
-
-        public static int GetForeignCustomerTaxPercent()
-        {
-            try
-            {
-                if (connection.State != ConnectionState.Open)
-                {
-                    connection.Open();
-                }
-                var query = "SELECT GiaTri * 100 FROM ThamSo WHERE MaThamSo = 'PTNN'";
-                var command = new SqlCommand(query, connection);
-                var result = Convert.ToInt32(command.ExecuteScalar());
-                connection.Close();
-                return result;
-            }
-            catch
-            {
-                connection.Close();
-                return -1;
-            }
-        }
-
         public static int GetMaxCustomerInRoom()
         {
             try

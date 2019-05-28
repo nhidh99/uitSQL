@@ -170,6 +170,9 @@
             this.lbMonthRevenue = new DevExpress.XtraEditors.LabelControl();
             this.gcRevenueList = new DevExpress.XtraEditors.GroupControl();
             this.dgvRevenueList = new System.Windows.Forms.DataGridView();
+            this.ReportedRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReportedRoomRevenue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReportedRoomPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabRules = new DevExpress.XtraTab.XtraTabPage();
             this.gcEditRule = new DevExpress.XtraEditors.GroupControl();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -181,6 +184,8 @@
             this.dgvCustomerType = new System.Windows.Forms.DataGridView();
             this.gcRoomTypeList = new DevExpress.XtraEditors.GroupControl();
             this.dgvRoomType = new System.Windows.Forms.DataGridView();
+            this.EditRoomTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EditRoomTypePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEditRules = new System.Windows.Forms.Panel();
             this.lbMaxCustomerRule = new DevExpress.XtraEditors.LabelControl();
             this.lbMaxCustomerValue = new DevExpress.XtraEditors.LabelControl();
@@ -197,13 +202,8 @@
             this.btnAddRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
-            this.ReportedRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReportedRoomRevenue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReportedRoomPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EditRoomTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EditRoomTypePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EditCustomerTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EditCustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EditCustomerTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).BeginInit();
             this.tcHotelManagement.SuspendLayout();
             this.tabListRoom.SuspendLayout();
@@ -2093,6 +2093,30 @@
             this.dgvRevenueList.TabIndex = 2;
             this.dgvRevenueList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
             // 
+            // ReportedRoomType
+            // 
+            this.ReportedRoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ReportedRoomType.DataPropertyName = "LoaiPhong";
+            this.ReportedRoomType.HeaderText = "LOẠI PHÒNG";
+            this.ReportedRoomType.Name = "ReportedRoomType";
+            this.ReportedRoomType.ReadOnly = true;
+            // 
+            // ReportedRoomRevenue
+            // 
+            this.ReportedRoomRevenue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ReportedRoomRevenue.DataPropertyName = "DoanhThu";
+            this.ReportedRoomRevenue.HeaderText = "DOANH THU (VND)";
+            this.ReportedRoomRevenue.Name = "ReportedRoomRevenue";
+            this.ReportedRoomRevenue.ReadOnly = true;
+            // 
+            // ReportedRoomPercentage
+            // 
+            this.ReportedRoomPercentage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ReportedRoomPercentage.DataPropertyName = "TiLe";
+            this.ReportedRoomPercentage.HeaderText = "TỈ LỆ (%)";
+            this.ReportedRoomPercentage.Name = "ReportedRoomPercentage";
+            this.ReportedRoomPercentage.ReadOnly = true;
+            // 
             // tabRules
             // 
             this.tabRules.Controls.Add(this.gcEditRule);
@@ -2212,15 +2236,17 @@
             // dgvCustomerType
             // 
             this.dgvCustomerType.AllowUserToAddRows = false;
+            this.dgvCustomerType.AllowUserToDeleteRows = false;
             this.dgvCustomerType.BackgroundColor = System.Drawing.Color.White;
             this.dgvCustomerType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomerType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EditCustomerTypeID,
-            this.EditCustomerType});
+            this.EditCustomerTypeName});
             this.dgvCustomerType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomerType.Location = new System.Drawing.Point(2, 20);
             this.dgvCustomerType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCustomerType.Name = "dgvCustomerType";
+            this.dgvCustomerType.ReadOnly = true;
             this.dgvCustomerType.RowTemplate.Height = 24;
             this.dgvCustomerType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCustomerType.Size = new System.Drawing.Size(466, 429);
@@ -2241,6 +2267,7 @@
             // dgvRoomType
             // 
             this.dgvRoomType.AllowUserToAddRows = false;
+            this.dgvRoomType.AllowUserToDeleteRows = false;
             this.dgvRoomType.BackgroundColor = System.Drawing.Color.White;
             this.dgvRoomType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRoomType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2256,6 +2283,22 @@
             this.dgvRoomType.Size = new System.Drawing.Size(465, 429);
             this.dgvRoomType.TabIndex = 0;
             this.dgvRoomType.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
+            // 
+            // EditRoomTypeID
+            // 
+            this.EditRoomTypeID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.EditRoomTypeID.DataPropertyName = "MaLoaiPhong";
+            this.EditRoomTypeID.HeaderText = "LOẠI PHÒNG";
+            this.EditRoomTypeID.Name = "EditRoomTypeID";
+            this.EditRoomTypeID.ReadOnly = true;
+            // 
+            // EditRoomTypePrice
+            // 
+            this.EditRoomTypePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.EditRoomTypePrice.DataPropertyName = "DonGia";
+            this.EditRoomTypePrice.HeaderText = "ĐƠN GIÁ (VND)";
+            this.EditRoomTypePrice.Name = "EditRoomTypePrice";
+            this.EditRoomTypePrice.ReadOnly = true;
             // 
             // panelEditRules
             // 
@@ -2321,7 +2364,7 @@
             this.lbOverCustomerTaxValue.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbOverCustomerTaxValue.Appearance.Options.UseFont = true;
             this.lbOverCustomerTaxValue.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbOverCustomerTaxValue.Location = new System.Drawing.Point(443, 51);
+            this.lbOverCustomerTaxValue.Location = new System.Drawing.Point(448, 51);
             this.lbOverCustomerTaxValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbOverCustomerTaxValue.Name = "lbOverCustomerTaxValue";
             this.lbOverCustomerTaxValue.Size = new System.Drawing.Size(5, 13);
@@ -2486,46 +2529,6 @@
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
             // 
-            // ReportedRoomType
-            // 
-            this.ReportedRoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ReportedRoomType.DataPropertyName = "LoaiPhong";
-            this.ReportedRoomType.HeaderText = "LOẠI PHÒNG";
-            this.ReportedRoomType.Name = "ReportedRoomType";
-            this.ReportedRoomType.ReadOnly = true;
-            // 
-            // ReportedRoomRevenue
-            // 
-            this.ReportedRoomRevenue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ReportedRoomRevenue.DataPropertyName = "DoanhThu";
-            this.ReportedRoomRevenue.HeaderText = "DOANH THU (VND)";
-            this.ReportedRoomRevenue.Name = "ReportedRoomRevenue";
-            this.ReportedRoomRevenue.ReadOnly = true;
-            // 
-            // ReportedRoomPercentage
-            // 
-            this.ReportedRoomPercentage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ReportedRoomPercentage.DataPropertyName = "TiLe";
-            this.ReportedRoomPercentage.HeaderText = "TỈ LỆ (%)";
-            this.ReportedRoomPercentage.Name = "ReportedRoomPercentage";
-            this.ReportedRoomPercentage.ReadOnly = true;
-            // 
-            // EditRoomTypeID
-            // 
-            this.EditRoomTypeID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.EditRoomTypeID.DataPropertyName = "MaLoaiPhong";
-            this.EditRoomTypeID.HeaderText = "LOẠI PHÒNG";
-            this.EditRoomTypeID.Name = "EditRoomTypeID";
-            this.EditRoomTypeID.ReadOnly = true;
-            // 
-            // EditRoomTypePrice
-            // 
-            this.EditRoomTypePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.EditRoomTypePrice.DataPropertyName = "DonGia";
-            this.EditRoomTypePrice.HeaderText = "ĐƠN GIÁ (VND)";
-            this.EditRoomTypePrice.Name = "EditRoomTypePrice";
-            this.EditRoomTypePrice.ReadOnly = true;
-            // 
             // EditCustomerTypeID
             // 
             this.EditCustomerTypeID.DataPropertyName = "MaLoaiKhach";
@@ -2533,12 +2536,12 @@
             this.EditCustomerTypeID.Name = "EditCustomerTypeID";
             this.EditCustomerTypeID.Visible = false;
             // 
-            // EditCustomerType
+            // EditCustomerTypeName
             // 
-            this.EditCustomerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.EditCustomerType.DataPropertyName = "TenLoaiKhach";
-            this.EditCustomerType.HeaderText = "LOẠI KHÁCH";
-            this.EditCustomerType.Name = "EditCustomerType";
+            this.EditCustomerTypeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.EditCustomerTypeName.DataPropertyName = "TenLoaiKhach";
+            this.EditCustomerTypeName.HeaderText = "LOẠI KHÁCH";
+            this.EditCustomerTypeName.Name = "EditCustomerTypeName";
             // 
             // MainForm
             // 
@@ -2821,7 +2824,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EditRoomTypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn EditRoomTypePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn EditCustomerTypeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EditCustomerType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EditCustomerTypeName;
     }
 }
 

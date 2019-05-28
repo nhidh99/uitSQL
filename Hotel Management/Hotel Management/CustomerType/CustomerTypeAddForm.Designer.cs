@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerTypeAddForm));
             this.imgAddRoomType = new DevExpress.XtraEditors.LabelControl();
-            this.tbRoomTypePrice = new System.Windows.Forms.TextBox();
+            this.tbCustomerType = new System.Windows.Forms.TextBox();
             this.lbEditCustomerTypeHeader = new DevExpress.XtraEditors.LabelControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
@@ -52,14 +52,14 @@
             this.imgAddRoomType.Size = new System.Drawing.Size(32, 32);
             this.imgAddRoomType.TabIndex = 77;
             // 
-            // tbRoomTypePrice
+            // tbCustomerType
             // 
-            this.tbRoomTypePrice.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbRoomTypePrice.Location = new System.Drawing.Point(193, 90);
-            this.tbRoomTypePrice.Margin = new System.Windows.Forms.Padding(2);
-            this.tbRoomTypePrice.Name = "tbRoomTypePrice";
-            this.tbRoomTypePrice.Size = new System.Drawing.Size(143, 20);
-            this.tbRoomTypePrice.TabIndex = 71;
+            this.tbCustomerType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbCustomerType.Location = new System.Drawing.Point(193, 90);
+            this.tbCustomerType.Margin = new System.Windows.Forms.Padding(2);
+            this.tbCustomerType.Name = "tbCustomerType";
+            this.tbCustomerType.Size = new System.Drawing.Size(143, 20);
+            this.tbCustomerType.TabIndex = 71;
             // 
             // lbEditCustomerTypeHeader
             // 
@@ -98,6 +98,7 @@
             this.btnConfirm.Size = new System.Drawing.Size(105, 41);
             this.btnConfirm.TabIndex = 72;
             this.btnConfirm.Text = "THÊM";
+            this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // lbRoomTypePrice
             // 
@@ -120,7 +121,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 221);
             this.Controls.Add(this.imgAddRoomType);
-            this.Controls.Add(this.tbRoomTypePrice);
+            this.Controls.Add(this.tbCustomerType);
             this.Controls.Add(this.lbEditCustomerTypeHeader);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
@@ -139,7 +140,7 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl imgAddRoomType;
-        private System.Windows.Forms.TextBox tbRoomTypePrice;
+        private System.Windows.Forms.TextBox tbCustomerType;
         private DevExpress.XtraEditors.LabelControl lbEditCustomerTypeHeader;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnConfirm;

@@ -45,15 +45,19 @@
             this.tbRoomTypePrice.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbRoomTypePrice.Location = new System.Drawing.Point(190, 106);
             this.tbRoomTypePrice.Margin = new System.Windows.Forms.Padding(2);
+            this.tbRoomTypePrice.MaxLength = 18;
             this.tbRoomTypePrice.Name = "tbRoomTypePrice";
             this.tbRoomTypePrice.Size = new System.Drawing.Size(134, 20);
             this.tbRoomTypePrice.TabIndex = 42;
+            this.tbRoomTypePrice.TextChanged += new System.EventHandler(this.TbRoomTypePrice_TextChanged);
+            this.tbRoomTypePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbRoomTypePrice_KeyPress);
             // 
             // tbRoomType
             // 
             this.tbRoomType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbRoomType.Location = new System.Drawing.Point(190, 76);
             this.tbRoomType.Margin = new System.Windows.Forms.Padding(2);
+            this.tbRoomType.MaxLength = 10;
             this.tbRoomType.Name = "tbRoomType";
             this.tbRoomType.Size = new System.Drawing.Size(134, 20);
             this.tbRoomType.TabIndex = 40;
@@ -97,6 +101,7 @@
             this.btnConfirm.Size = new System.Drawing.Size(105, 41);
             this.btnConfirm.TabIndex = 44;
             this.btnConfirm.Text = "XÁC NHẬN";
+            this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // lbRoomTypePrice
             // 

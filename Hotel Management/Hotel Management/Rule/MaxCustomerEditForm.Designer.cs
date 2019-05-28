@@ -73,7 +73,6 @@
             0,
             0});
             this.nudMaxCustomers.Enter += new System.EventHandler(this.NudMaxCustomers_Enter);
-            this.nudMaxCustomers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NudMaxCustomers_KeyDown);
             this.nudMaxCustomers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NudMaxCustomers_KeyPress);
             // 
             // btnConfirm

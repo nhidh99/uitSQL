@@ -17,6 +17,16 @@ namespace BUS
             return RoomLeaseDAO.InsertRoomLeasePayment(roomID, price);
         }
 
+        public static bool UpdateOverCustomerTaxPercent(int num)
+        {
+            return RoomLeaseDAO.UpdateOverCustomerTaxPercent(num);
+        }
+
+        public static bool UpdateForeignCustomerTaxPercent(int num)
+        {
+            return RoomLeaseDAO.UpdateForeignCustomerTaxPercent(num);
+        }
+
         public static int GetLastLeaseIDOfRoom(string RoomID)
         {
             return RoomLeaseDAO.GetLastLeaseIDOfRoom(RoomID);
@@ -25,6 +35,16 @@ namespace BUS
         public static DataTable GetRentedRoomList(string date)
         {
             return RoomLeaseDAO.GetRentedRoomList(date);
+        }
+
+        public static int GetOverCustomerTaxPercent()
+        {
+            return RoomLeaseDAO.GetOverCustomerTaxPercent();
+        }
+
+        public static int GetForeignCustomerTaxPercent()
+        {
+            return RoomLeaseDAO.GetForeignCustomerTaxPercent();
         }
     }
 }

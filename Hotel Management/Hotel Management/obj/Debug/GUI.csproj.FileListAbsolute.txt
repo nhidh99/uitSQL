@@ -228,10 +228,10 @@ C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.CustomerType.CustomerT
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.CustomerType.CustomerTypeEditForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.RoomType.RoomTypeForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Rule.ForeignCustomerEditForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.ThirdCustomerTaxEditForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.MaxCustomerEditForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.CustomerForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.RoomForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.MainForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Properties.Resources.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Room.RoomLeaseForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.OverCustomerTaxEditForm.resources

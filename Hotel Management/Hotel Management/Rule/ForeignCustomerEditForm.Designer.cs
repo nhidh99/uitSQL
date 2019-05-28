@@ -32,8 +32,9 @@
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
             this.lbAddtionPrice = new DevExpress.XtraEditors.LabelControl();
-            this.tbForeignCustomerTax = new System.Windows.Forms.TextBox();
             this.lbPercentage = new System.Windows.Forms.Label();
+            this.nudTaxPercent = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTaxPercent)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -47,7 +48,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 40);
-            this.btnCancel.TabIndex = 38;
+            this.btnCancel.TabIndex = 42;
             this.btnCancel.Text = "HỦY BỎ";
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
@@ -62,8 +63,9 @@
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(88, 40);
-            this.btnConfirm.TabIndex = 37;
+            this.btnConfirm.TabIndex = 41;
             this.btnConfirm.Text = "XÁC NHẬN";
+            this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // lbAddtionPrice
             // 
@@ -78,13 +80,6 @@
             this.lbAddtionPrice.TabIndex = 39;
             this.lbAddtionPrice.Text = "PHỤ THU KHÁCH NƯỚC NGOÀI:";
             // 
-            // tbForeignCustomerTax
-            // 
-            this.tbForeignCustomerTax.Location = new System.Drawing.Point(205, 18);
-            this.tbForeignCustomerTax.Name = "tbForeignCustomerTax";
-            this.tbForeignCustomerTax.Size = new System.Drawing.Size(74, 20);
-            this.tbForeignCustomerTax.TabIndex = 41;
-            // 
             // lbPercentage
             // 
             this.lbPercentage.AutoSize = true;
@@ -94,12 +89,26 @@
             this.lbPercentage.TabIndex = 40;
             this.lbPercentage.Text = "(%)";
             // 
+            // nudTaxPercent
+            // 
+            this.nudTaxPercent.Location = new System.Drawing.Point(205, 19);
+            this.nudTaxPercent.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.nudTaxPercent.Name = "nudTaxPercent";
+            this.nudTaxPercent.Size = new System.Drawing.Size(74, 20);
+            this.nudTaxPercent.TabIndex = 37;
+            this.nudTaxPercent.Enter += new System.EventHandler(this.NudTaxPercent_Enter);
+            this.nudTaxPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NudTaxPercent_KeyPress);
+            // 
             // ForeignCustomerEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 111);
-            this.Controls.Add(this.tbForeignCustomerTax);
+            this.Controls.Add(this.nudTaxPercent);
             this.Controls.Add(this.lbPercentage);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
@@ -110,6 +119,7 @@
             this.Name = "ForeignCustomerEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PHỤ THU KHÁCH NƯỚC NGOÀI";
+            ((System.ComponentModel.ISupportInitialize)(this.nudTaxPercent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,7 +130,7 @@
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnConfirm;
         private DevExpress.XtraEditors.LabelControl lbAddtionPrice;
-        private System.Windows.Forms.TextBox tbForeignCustomerTax;
         private System.Windows.Forms.Label lbPercentage;
+        private System.Windows.Forms.NumericUpDown nudTaxPercent;
     }
 }

@@ -355,3 +355,43 @@ BEGIN
 	ORDER BY LoaiPhong
 END
 GO
+
+-- THÊM LOẠI KHÁCH
+CREATE PROCEDURE ThemLoaiKhach
+	@TenLoaiKhach nvarchar(30)
+AS
+BEGIN
+	IF (EXISTS (SELECT * FROM LoaiKhach WHERE TenLoaiKhach = @TenLoaiKhach))
+	BEGIN
+		UPDATE LoaiKhach
+		SET KhaDung = 1
+		WHERE TenLoaiKhach = @TenLoaiKhach
+	END
+	ELSE
+	BEGIN
+		INSERT INTO LoaiKhach(TenLoaiKhach, KhaDung)
+		VALUES (@TenLoaiKhach, 1)
+	END
+END
+GO
+
+-- XOÁ LOẠI KHÁCH
+CREATE PROCEDURE XoaLoaiKhach
+	@TenLoaiKhach nvarchar(30)
+AS
+BEGIN
+	IF (EXISTS (SELECT * FROM CTPT JOIN LoaiKhach 
+				ON CTPT.MaLoaiKhach = LoaiKhach.MaLoaiKhach
+				WHERE TenLoaiKhach = @TenLoaiKhach))
+	BEGIN
+		UPDATE LoaiKhach
+		SET KhaDung = 0
+		WHERE TenLoaiKhach = @TenLoaiKhach
+	END
+	ELSE
+	BEGIN
+		DELETE LoaiKhach
+		WHERE TenLoaiKhach = @TenLoaiKhach
+	END
+END
+GO

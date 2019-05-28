@@ -58,15 +58,5 @@ namespace BUS
         {
             return RoomDAO.UpdateMaxCustomerInRoom(num);
         }
-
-        public static int GetOverCustomerTaxPercent()
-        {
-            return RoomDAO.GetOverCustomerTaxPercent();
-        }
-
-        public static int GetForeignCustomerTaxPercent()
-        {
-            return RoomDAO.GetForeignCustomerTaxPercent();
-        }
     }
 }

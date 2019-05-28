@@ -70,8 +70,8 @@ namespace GUI.Room
                 }
 
                 MainForm mainForm = (MainForm)Owner;
-                mainForm.LoadAvailableRoom();
-                mainForm.LoadRoomData();
+                mainForm.ReLoadAvailableRoom();
+                mainForm.ReLoadRoomData();
                 mainForm.ReCreateNote();
 
                 MessageBox.Show("Lập phiếu thuê phòng " + lease.RoomID + " thành công!", "LẬP PHIẾU THUÊ PHÒNG THÀNH CÔNG",

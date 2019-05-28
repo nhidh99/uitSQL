@@ -50,11 +50,5 @@ namespace GUI
         {
             this.nudMaxCustomers.Select(0, this.nudMaxCustomers.Text.Length);
         }
-
-        private void NudMaxCustomers_KeyDown(object sender, KeyEventArgs e)
-        {
-          
-
-        }
     }
 }

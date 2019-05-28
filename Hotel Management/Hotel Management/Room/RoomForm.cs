@@ -125,8 +125,8 @@ namespace GUI
             }
 
             MainForm mainForm = (MainForm)Owner;
-            mainForm.LoadRoomData();
-            mainForm.LoadAvailableRoom();
+            mainForm.ReLoadRoomData();
+            mainForm.ReLoadAvailableRoom();
         }
         private void CbRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {

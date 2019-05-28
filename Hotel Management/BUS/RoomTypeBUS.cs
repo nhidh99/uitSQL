@@ -1,4 +1,5 @@
 ﻿using DAO;
+using DTO;
 using System;
 using System.Data;
 
@@ -29,6 +30,30 @@ namespace BUS
         public static DataTable GetRoomPriceList()
         {
             return RoomTypeDAO.GetRoomPriceList();
+        }
+
+        public static int CountRoomWithType(string roomTypeID)
+        {
+            return RoomTypeDAO.CountRoomWithTypeID(roomTypeID);
+        }
+
+        public static bool InsertRoomType(RoomTypeDTO roomType)
+        {
+            if (RoomTypeDAO.CheckRoomTypeID(roomType.RoomTypeID))
+            {
+                return false;
+            }
+            return RoomTypeDAO.InsertRoomType(roomType);
+        }
+
+        public static bool DeleteRoomType(string roomTypeID)
+        {
+            return RoomTypeDAO.DeleteRoomType(roomTypeID);
+        }
+
+        public static bool UpdateRoomType(RoomTypeDTO roomType)
+        {
+            return RoomTypeDAO.UpdateRoomType(roomType);
         }
     }
 }

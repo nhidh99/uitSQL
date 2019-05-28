@@ -24,11 +24,11 @@ namespace GUI
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            this.LoadRoomData();
-            this.LoadAvailableRoom();
-            this.LoadFindRoom();
-            this.LoadBillRoom();
-            this.LoadRuleRoom();
+            this.ReLoadRoomData();
+            this.ReLoadAvailableRoom();
+            this.ReLoadFindRoom();
+            this.ReLoadBillRoom();
+            this.ReLoadRuleRoom();
         }
 
         // Auto numbering first columns in DataGrid
@@ -69,7 +69,7 @@ namespace GUI
             return room;
         }
 
-        public void LoadRoomData()
+        public void ReLoadRoomData()
         {
             this.dgvListRoom.DataSource = RoomBUS.GetRoomList();
         }
@@ -91,9 +91,9 @@ namespace GUI
                    MessageBoxButtons.YesNo,
                    MessageBoxIcon.Question);
 
-            if (RoomBUS.DeleteRoom(RoomID))
+            if (dialogResult == DialogResult.Yes)
             {
-                if (dialogResult == DialogResult.Yes)
+                if (RoomBUS.DeleteRoom(RoomID))
                 {
                     MessageBox.Show(
                         "Xoá phòng " + RoomID + " thành công!",
@@ -101,17 +101,17 @@ namespace GUI
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
 
-                    this.LoadRoomData();
-                    this.LoadAvailableRoom();
+                    this.ReLoadRoomData();
+                    this.ReLoadAvailableRoom();
                 }
-            }
-            else
-            {
-                MessageBox.Show(
-                    "Không thể xoá phòng đang thuê!",
-                    "XOÁ PHÒNG THẤT BẠI",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                else
+                {
+                    MessageBox.Show(
+                        "Không thể xoá phòng đang thuê!",
+                        "XOÁ PHÒNG THẤT BẠI",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -135,7 +135,7 @@ namespace GUI
         }
 
         // Tab 02: Room Note
-        public void LoadAvailableRoom()
+        public void ReLoadAvailableRoom()
         {
             this.cbNoteRoomID.Items.Clear();
             this.deNoteRoomDate.Text = DateTime.Now.ToString();
@@ -236,6 +236,7 @@ namespace GUI
                 this.cbNoteRoomID.Enabled = true;
                 this.deNoteRoomDate.Enabled = true;
                 this.gcNoteCustomer.Text = "DANH SÁCH KHÁCH";
+                this.deNoteRoomDate.Text = DateTime.Now.ToString();
                 this.dgvNoteCustomer.Rows.Clear();
             }
             else
@@ -370,7 +371,7 @@ namespace GUI
         }
 
         // Tab 03: Room Search
-        void LoadFindRoom()
+        public void ReLoadFindRoom()
         {
             DataTable dt = RoomBUS.GetRoomList();
             Dictionary<string, string> id = new Dictionary<string, string>()
@@ -504,7 +505,7 @@ namespace GUI
         }
 
         // Tab 04: Room Bill
-        void LoadBillRoom()
+        void ReLoadBillRoom()
         {
             this.deBillDate.Text = DateTime.Now.ToString();
         }
@@ -623,6 +624,7 @@ namespace GUI
                 this.cbAddBillRoomID.Text = null;
                 this.cbAddBillRoomID.Items.Clear();
                 this.dgvBillRoom.Rows.Clear();
+                this.deBillDate.Text = DateTime.Now.ToString();
             }
 
             this.tbBillCustomerName.Enabled
@@ -729,11 +731,11 @@ namespace GUI
         }
 
         //Tab 06: Room-Rule Edit
-        private void LoadRuleRoom()
+        private void ReLoadRuleRoom()
         {
             this.lbMaxCustomerValue.Text = RoomBUS.GetMaxCustomerInRoom().ToString();
-            this.lbOverCustomerTaxValue.Text = RoomBUS.GetOverCustomerTaxPercent().ToString() + "%";
-            this.lbForeignCustomerTaxValue.Text = RoomBUS.GetForeignCustomerTaxPercent().ToString() + "%";
+            this.lbOverCustomerTaxValue.Text = RoomLeaseBUS.GetOverCustomerTaxPercent().ToString() + "%";
+            this.lbForeignCustomerTaxValue.Text = RoomLeaseBUS.GetForeignCustomerTaxPercent().ToString() + "%";
             this.dgvCustomerType.DataSource = CustomerTypeBUS.GetCustomerTypeList();
 
             var dt = RoomTypeBUS.GetRoomTypeList();
@@ -750,6 +752,28 @@ namespace GUI
             this.lbMaxCustomerValue.Text = RoomBUS.GetMaxCustomerInRoom().ToString();
         }
 
+        public void ReLoadOverCustomerTax()
+        {
+            this.lbOverCustomerTaxValue.Text = RoomLeaseBUS.GetOverCustomerTaxPercent().ToString() + "%";
+        }
+
+        public void ReLoadRoomTypeList()
+        {
+            this.dgvRoomType.Rows.Clear();
+            var dt = RoomTypeBUS.GetRoomTypeList();
+            foreach (DataRow dr in dt.Rows)
+            {
+                this.dgvRoomType.Rows.Add
+                    (dr["MaLoaiPhong"].ToString(),
+                    Convert.ToInt64(dr["DonGia"]).ToString("N0"));
+            }
+        }
+
+        public void ReLoadCustomerTypeList()
+        {
+            this.dgvCustomerType.DataSource = CustomerTypeBUS.GetCustomerTypeList();
+        }
+
         private void BtnEditMaxCustomerRule_Click(object sender, EventArgs e)
         {
             var EditForm = new MaxCustomerEditForm();
@@ -758,7 +782,7 @@ namespace GUI
 
         private void BtnEditThirdCustomerTax_Click(object sender, EventArgs e)
         {
-            var EditForm = new ThirdCustomerTaxEditForm();
+            var EditForm = new OverCustomerTaxEditForm();
             EditForm.ShowDialog(this);
         }
 
@@ -766,6 +790,20 @@ namespace GUI
         {
             var EditForm = new ForeignCustomerEditForm();
             EditForm.ShowDialog(this);
+        }
+
+        public RoomTypeDTO GetSelectedRoomType()
+        {
+            var row = this.dgvRoomType.CurrentRow;
+            var roomType = new RoomTypeDTO();
+            roomType.RoomTypeID = row.Cells["EditRoomTypeID"].Value.ToString();
+            roomType.RoomTypePrice = Convert.ToInt64(row.Cells["EditRoomTypePrice"].Value.ToString().Replace(",", ""));
+            return roomType;
+        }
+
+        public string GetSelectedCustomerType()
+        {
+            return this.dgvCustomerType.CurrentRow.Cells["EditCustomerTypeName"].Value.ToString();
         }
 
         private void BtnAddRoomType_Click(object sender, EventArgs e)
@@ -777,7 +815,45 @@ namespace GUI
 
         private void BtnDelRoomType_Click(object sender, EventArgs e)
         {
+            var RoomTypeID = this.dgvRoomType.CurrentRow.Cells["EditRoomTypeID"].Value.ToString();
 
+            var dialogResult = MessageBox.Show(
+                  "Bạn có muốn xoá phòng loại phòng " + RoomTypeID + "?",
+                  "XÁC NHẬN XOÁ LOẠI PHÒNG",
+                  MessageBoxButtons.YesNo,
+                  MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (RoomTypeBUS.CountRoomWithType(RoomTypeID) > 0)
+                {
+                    MessageBox.Show(
+                       "Vẫn còn phòng loại " + RoomTypeID + "!\n" +
+                       "Xoá loại phòng thất bại!",
+                       "XOÁ LOẠI PHÒNG THẤT BẠI",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (RoomTypeBUS.DeleteRoomType(RoomTypeID))
+                {
+                    MessageBox.Show(
+                        "Xoá loại phòng " + RoomTypeID + " thành công!",
+                        "XOÁ LOẠI PHÒNG THÀNH CÔNG",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    this.ReLoadRoomTypeList();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "XOÁ LOẠI PHÒNG THẤT BẠI!",
+                        "XOÁ LOẠI PHÒNG THẤT BẠI",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+            }
         }
 
         private void BtnEditRoomType_Click(object sender, EventArgs e)
@@ -795,7 +871,36 @@ namespace GUI
 
         private void BtnDelCustomerType_Click(object sender, EventArgs e)
         {
+            var row = this.dgvCustomerType.CurrentRow;
+            var customerType = row.Cells["EditCustomerTypeName"].Value.ToString();
 
+            var dialogResult = MessageBox.Show(
+                  "Bạn có muốn xoá loại khách '" + customerType + "'?",
+                  "XÁC NHẬN XOÁ LOẠI KHÁCH KHÁCH",
+                  MessageBoxButtons.YesNo,
+                  MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (CustomerTypeBUS.DeleteCustomerType(customerType))
+                {
+                    MessageBox.Show(
+                        "Xoá loại khách " + customerType + " thành công!",
+                        "XOÁ LOẠI PHÒNG THÀNH CÔNG",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    this.ReLoadCustomerTypeList();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "XOÁ LOẠI KHÁCH THẤT BẠI!",
+                        "XOÁ LOẠI KHÁCH THẤT BẠI",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+            }
         }
 
         private void BtnEditCustomerType_Click(object sender, EventArgs e)

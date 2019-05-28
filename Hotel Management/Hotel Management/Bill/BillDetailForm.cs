@@ -140,8 +140,8 @@ namespace GUI.Bill
                 }
 
                 MainForm mainForm = (MainForm)Owner;
-                mainForm.LoadRoomData();
-                mainForm.LoadAvailableRoom();
+                mainForm.ReLoadRoomData();
+                mainForm.ReLoadAvailableRoom();
                 mainForm.ReCreateBill();
 
                 MessageBox.Show(

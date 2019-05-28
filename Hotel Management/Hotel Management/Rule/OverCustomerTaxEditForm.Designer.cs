@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class ThirdCustomerTaxEditForm
+    partial class OverCustomerTaxEditForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThirdCustomerTaxEditForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OverCustomerTaxEditForm));
             this.lbThirdCustomerTax = new DevExpress.XtraEditors.LabelControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
             this.lbPercentage = new System.Windows.Forms.Label();
-            this.tbThirdCustomerTax = new System.Windows.Forms.TextBox();
+            this.nudTaxPercent = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTaxPercent)).BeginInit();
             this.SuspendLayout();
             // 
             // lbThirdCustomerTax
@@ -60,7 +61,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 40);
-            this.btnCancel.TabIndex = 2;
+            this.btnCancel.TabIndex = 42;
             this.btnCancel.Text = "HỦY BỎ";
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
@@ -75,7 +76,7 @@
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(88, 40);
-            this.btnConfirm.TabIndex = 1;
+            this.btnConfirm.TabIndex = 41;
             this.btnConfirm.Text = "XÁC NHẬN";
             this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
@@ -88,19 +89,26 @@
             this.lbPercentage.TabIndex = 37;
             this.lbPercentage.Text = "(%)";
             // 
-            // tbThirdCustomerTax
+            // nudTaxPercent
             // 
-            this.tbThirdCustomerTax.Location = new System.Drawing.Point(201, 18);
-            this.tbThirdCustomerTax.Name = "tbThirdCustomerTax";
-            this.tbThirdCustomerTax.Size = new System.Drawing.Size(74, 20);
-            this.tbThirdCustomerTax.TabIndex = 38;
+            this.nudTaxPercent.Location = new System.Drawing.Point(201, 19);
+            this.nudTaxPercent.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.nudTaxPercent.Name = "nudTaxPercent";
+            this.nudTaxPercent.Size = new System.Drawing.Size(74, 20);
+            this.nudTaxPercent.TabIndex = 37;
+            this.nudTaxPercent.Enter += new System.EventHandler(this.NudTaxPercent_Enter);
+            this.nudTaxPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NudTaxPercent_KeyPress);
             // 
-            // ThirdCustomerTaxEditForm
+            // OverCustomerTaxEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 111);
-            this.Controls.Add(this.tbThirdCustomerTax);
+            this.Controls.Add(this.nudTaxPercent);
             this.Controls.Add(this.lbPercentage);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
@@ -109,9 +117,10 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(370, 150);
             this.MinimumSize = new System.Drawing.Size(370, 150);
-            this.Name = "ThirdCustomerTaxEditForm";
+            this.Name = "OverCustomerTaxEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PHỤ THU KHÁCH THỨ 3";
+            ((System.ComponentModel.ISupportInitialize)(this.nudTaxPercent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,6 +131,6 @@
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnConfirm;
         private System.Windows.Forms.Label lbPercentage;
-        private System.Windows.Forms.TextBox tbThirdCustomerTax;
+        private System.Windows.Forms.NumericUpDown nudTaxPercent;
     }
 }
