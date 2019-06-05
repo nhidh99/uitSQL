@@ -90,11 +90,11 @@
     <Compile Include="Bill\BillDetailForm.Designer.cs">
       <DependentUpon>BillDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bill\BillTaxForm.cs">
+    <Compile Include="Bill\BillSurchargeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bill\BillTaxForm.Designer.cs">
-      <DependentUpon>BillTaxForm.cs</DependentUpon>
+    <Compile Include="Bill\BillSurchargeForm.Designer.cs">
+      <DependentUpon>BillSurchargeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerType\CustomerTypeAddForm.cs">
       <SubType>Form</SubType>
@@ -107,6 +107,12 @@
     </Compile>
     <Compile Include="CustomerType\CustomerTypeEditForm.Designer.cs">
       <DependentUpon>CustomerTypeEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="RoomType\RoomTypeForm.cs">
       <SubType>Form</SubType>
@@ -161,14 +167,17 @@
     <EmbeddedResource Include="Bill\BillDetailForm.resx">
       <DependentUpon>BillDetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bill\BillTaxForm.resx">
-      <DependentUpon>BillTaxForm.cs</DependentUpon>
+    <EmbeddedResource Include="Bill\BillSurchargeForm.resx">
+      <DependentUpon>BillSurchargeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerType\CustomerTypeAddForm.resx">
       <DependentUpon>CustomerTypeAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerType\CustomerTypeEditForm.resx">
       <DependentUpon>CustomerTypeEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoomType\RoomTypeForm.resx">
       <DependentUpon>RoomTypeForm.cs</DependentUpon>

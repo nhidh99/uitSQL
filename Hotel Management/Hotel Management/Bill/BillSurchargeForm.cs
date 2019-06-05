@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace GUI.Bill
 {
-    public partial class BillTaxForm : Form
+    public partial class BillSurchargeForm : Form
     {
-        public BillTaxForm()
+        public BillSurchargeForm()
         {
             InitializeComponent();
         }
@@ -16,7 +16,7 @@ namespace GUI.Bill
             this.Close();
         }
 
-        private void DgvTaxDetail_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        private void DgvSurchargeDetail_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             var grid = sender as DataGridView;
             var rowIdx = (e.RowIndex + 1).ToString();
@@ -29,12 +29,12 @@ namespace GUI.Bill
             e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
 
-        private void DgvTaxDetail_SelectionChanged(object sender, EventArgs e)
+        private void DgvSurchargeDetail_SelectionChanged(object sender, EventArgs e)
         {
-            this.dgvTaxDetail.ClearSelection();
+            this.dgvSurchargeDetail.ClearSelection();
         }
 
-        private void BillTaxForm_Load(object sender, EventArgs e)
+        private void BillSurchargeForm_Load(object sender, EventArgs e)
         {
             BillDetailForm billForm = (BillDetailForm)Owner;
             var rows = billForm.GetAllPaidRoomInBill();
@@ -43,12 +43,11 @@ namespace GUI.Bill
             {
                 object[] rowData = new object[4];
                 rowData[0] = row.Cells["PaidRoomID"].Value;
-                rowData[1] = row.Cells["OverCustomerTax"].Value;
-                rowData[2] = row.Cells["ForeignCustomerTax"].Value;
+                rowData[1] = row.Cells["AdditionalCustomerSurcharge"].Value;
+                rowData[2] = row.Cells["ForeignCustomerSurcharge"].Value;
                 rowData[3] = (Int64.Parse(rowData[1].ToString().Replace(",","")) + 
                     Int64.Parse(rowData[2].ToString().Replace(",",""))).ToString("N0");
-
-                this.dgvTaxDetail.Rows.Add(rowData);
+                this.dgvSurchargeDetail.Rows.Add(rowData);
             }
         }
     }

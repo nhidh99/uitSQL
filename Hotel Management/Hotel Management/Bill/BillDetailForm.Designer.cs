@@ -50,7 +50,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.lbTaxCurrency = new DevExpress.XtraEditors.LabelControl();
-            this.tbBillTax = new System.Windows.Forms.TextBox();
+            this.tbBillSurcharge = new System.Windows.Forms.TextBox();
             this.lbBillTax = new DevExpress.XtraEditors.LabelControl();
             this.lbChangeCurrency = new DevExpress.XtraEditors.LabelControl();
             this.tbChange = new System.Windows.Forms.TextBox();
@@ -66,8 +66,8 @@
             this.PaidRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaidRoomRentDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaidRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OverCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ForeignCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalCustomerSurcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ForeignCustomerSurcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaidRoomTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -113,7 +113,7 @@
             this.btnTaxDetail.Size = new System.Drawing.Size(255, 45);
             this.btnTaxDetail.TabIndex = 27;
             this.btnTaxDetail.Text = "CHI TIẾT PHỤ THU";
-            this.btnTaxDetail.Click += new System.EventHandler(this.BtnTaxDetail_Click);
+            this.btnTaxDetail.Click += new System.EventHandler(this.BtnSurchargeDetail_Click);
             // 
             // panel2
             // 
@@ -256,8 +256,8 @@
             this.PaidRoomID,
             this.PaidRoomRentDays,
             this.PaidRoomPrice,
-            this.OverCustomerTax,
-            this.ForeignCustomerTax,
+            this.AdditionalCustomerSurcharge,
+            this.ForeignCustomerSurcharge,
             this.PaidRoomTotalPrice});
             this.dgvBillData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBillData.Location = new System.Drawing.Point(2, 20);
@@ -327,7 +327,7 @@
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.lbTaxCurrency);
-            this.groupControl1.Controls.Add(this.tbBillTax);
+            this.groupControl1.Controls.Add(this.tbBillSurcharge);
             this.groupControl1.Controls.Add(this.lbBillTax);
             this.groupControl1.Controls.Add(this.lbChangeCurrency);
             this.groupControl1.Controls.Add(this.tbChange);
@@ -359,14 +359,14 @@
             this.lbTaxCurrency.TabIndex = 56;
             this.lbTaxCurrency.Text = "(VND)";
             // 
-            // tbBillTax
+            // tbBillSurcharge
             // 
-            this.tbBillTax.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbBillTax.Location = new System.Drawing.Point(92, 45);
-            this.tbBillTax.Name = "tbBillTax";
-            this.tbBillTax.ReadOnly = true;
-            this.tbBillTax.Size = new System.Drawing.Size(113, 21);
-            this.tbBillTax.TabIndex = 55;
+            this.tbBillSurcharge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbBillSurcharge.Location = new System.Drawing.Point(92, 45);
+            this.tbBillSurcharge.Name = "tbBillSurcharge";
+            this.tbBillSurcharge.ReadOnly = true;
+            this.tbBillSurcharge.Size = new System.Drawing.Size(113, 21);
+            this.tbBillSurcharge.TabIndex = 55;
             // 
             // lbBillTax
             // 
@@ -533,19 +533,19 @@
             this.PaidRoomPrice.Name = "PaidRoomPrice";
             this.PaidRoomPrice.ReadOnly = true;
             // 
-            // OverCustomerTax
+            // AdditionalCustomerSurcharge
             // 
-            this.OverCustomerTax.HeaderText = "PHỤ THU KHÁCH THÊM (VND)";
-            this.OverCustomerTax.Name = "OverCustomerTax";
-            this.OverCustomerTax.ReadOnly = true;
-            this.OverCustomerTax.Visible = false;
+            this.AdditionalCustomerSurcharge.HeaderText = "PHỤ THU KHÁCH THÊM (VND)";
+            this.AdditionalCustomerSurcharge.Name = "AdditionalCustomerSurcharge";
+            this.AdditionalCustomerSurcharge.ReadOnly = true;
+            this.AdditionalCustomerSurcharge.Visible = false;
             // 
-            // ForeignCustomerTax
+            // ForeignCustomerSurcharge
             // 
-            this.ForeignCustomerTax.HeaderText = "PHỤ THU KHÁCH NƯỚC NGOÀI (VND)";
-            this.ForeignCustomerTax.Name = "ForeignCustomerTax";
-            this.ForeignCustomerTax.ReadOnly = true;
-            this.ForeignCustomerTax.Visible = false;
+            this.ForeignCustomerSurcharge.HeaderText = "PHỤ THU KHÁCH NƯỚC NGOÀI (VND)";
+            this.ForeignCustomerSurcharge.Name = "ForeignCustomerSurcharge";
+            this.ForeignCustomerSurcharge.ReadOnly = true;
+            this.ForeignCustomerSurcharge.Visible = false;
             // 
             // PaidRoomTotalPrice
             // 
@@ -608,7 +608,7 @@
         private System.Windows.Forms.Panel panel6;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl lbTaxCurrency;
-        private System.Windows.Forms.TextBox tbBillTax;
+        private System.Windows.Forms.TextBox tbBillSurcharge;
         private DevExpress.XtraEditors.LabelControl lbBillTax;
         private DevExpress.XtraEditors.LabelControl lbChangeCurrency;
         private System.Windows.Forms.TextBox tbChange;
@@ -624,8 +624,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomRentDays;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OverCustomerTax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ForeignCustomerTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AdditionalCustomerSurcharge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ForeignCustomerSurcharge;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaidRoomTotalPrice;
     }
 }

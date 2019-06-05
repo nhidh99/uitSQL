@@ -55,42 +55,42 @@
             this.btnAddRoom = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditRoom = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelRoom = new DevExpress.XtraEditors.SimpleButton();
-            this.tabNoteRoom = new DevExpress.XtraTab.XtraTabPage();
+            this.tabRoomLease = new DevExpress.XtraTab.XtraTabPage();
             this.tlpNoteRoom = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnCancelNote = new DevExpress.XtraEditors.SimpleButton();
-            this.gcNoteRoom = new DevExpress.XtraEditors.GroupControl();
-            this.tbNoteRoomPrice = new System.Windows.Forms.TextBox();
-            this.cbNoteRoomID = new System.Windows.Forms.ComboBox();
+            this.gcRoomLease = new DevExpress.XtraEditors.GroupControl();
+            this.tbLeaseRoomPrice = new System.Windows.Forms.TextBox();
+            this.cbLeaseRoomID = new System.Windows.Forms.ComboBox();
             this.lbNoteRoomID = new DevExpress.XtraEditors.LabelControl();
-            this.deNoteRoomDate = new DevExpress.XtraEditors.DateEdit();
+            this.deLeaseRoomDate = new DevExpress.XtraEditors.DateEdit();
             this.lbNoteRoomPrice = new DevExpress.XtraEditors.LabelControl();
             this.lbNoteRoomDate = new DevExpress.XtraEditors.LabelControl();
-            this.btnLockNoteRoom = new DevExpress.XtraEditors.SimpleButton();
-            this.gcNoteCustomer = new DevExpress.XtraEditors.GroupControl();
-            this.dgvNoteCustomer = new System.Windows.Forms.DataGridView();
+            this.btnLockRoom = new DevExpress.XtraEditors.SimpleButton();
+            this.gcLeaseCustomerData = new DevExpress.XtraEditors.GroupControl();
+            this.dgvLeaseCustomer = new System.Windows.Forms.DataGridView();
             this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerPassportID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gcNoteCustomerData = new DevExpress.XtraEditors.GroupControl();
-            this.tbNoteCustomerType = new System.Windows.Forms.TextBox();
-            this.tbNoteCustomerPassport = new System.Windows.Forms.TextBox();
-            this.lbNoteCustomerAddress = new DevExpress.XtraEditors.LabelControl();
-            this.tbNoteCustomerName = new System.Windows.Forms.TextBox();
-            this.rtbNoteCustomerAddress = new System.Windows.Forms.RichTextBox();
-            this.lbNoteCustomerPassport = new DevExpress.XtraEditors.LabelControl();
-            this.lbNoteCustomerName = new DevExpress.XtraEditors.LabelControl();
-            this.lbNoteCustomerType = new DevExpress.XtraEditors.LabelControl();
+            this.gcCustomerLease = new DevExpress.XtraEditors.GroupControl();
+            this.tbCustomerType = new System.Windows.Forms.TextBox();
+            this.tbCustomerPassport = new System.Windows.Forms.TextBox();
+            this.lbCustomerAddress = new DevExpress.XtraEditors.LabelControl();
+            this.tbCustomerName = new System.Windows.Forms.TextBox();
+            this.rtbCustomerAddress = new System.Windows.Forms.RichTextBox();
+            this.lbCustomerPassport = new DevExpress.XtraEditors.LabelControl();
+            this.lbCustomerName = new DevExpress.XtraEditors.LabelControl();
+            this.lbCustomerType = new DevExpress.XtraEditors.LabelControl();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.gcEditNoteCustomer = new DevExpress.XtraEditors.GroupControl();
-            this.btnEditNoteCustomer = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelNoteCustomer = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAddNoteCustomer = new DevExpress.XtraEditors.SimpleButton();
+            this.gcEditCustomer = new DevExpress.XtraEditors.GroupControl();
+            this.btnEditCustomer = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelCustomer = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddCustomer = new DevExpress.XtraEditors.SimpleButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnCreateNote = new DevExpress.XtraEditors.SimpleButton();
-            this.tabFindRoom = new DevExpress.XtraTab.XtraTabPage();
+            this.tabRoomFind = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.gcFindRoomData = new DevExpress.XtraEditors.GroupControl();
             this.rtbFindRoomNote = new System.Windows.Forms.RichTextBox();
@@ -120,7 +120,7 @@
             this.FindRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FindRoomStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FindRoomNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabBillRoom = new DevExpress.XtraTab.XtraTabPage();
+            this.tabRoomBill = new DevExpress.XtraTab.XtraTabPage();
             this.gcBillCreate_4 = new System.Windows.Forms.TableLayoutPanel();
             this.gcBill = new DevExpress.XtraEditors.GroupControl();
             this.btnLockBill = new DevExpress.XtraEditors.SimpleButton();
@@ -162,7 +162,7 @@
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnCreateBillRoom = new DevExpress.XtraEditors.SimpleButton();
-            this.tabRevenueRoom = new DevExpress.XtraTab.XtraTabPage();
+            this.tabMonthRevenue = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.gcRevenueSelect = new DevExpress.XtraEditors.GroupControl();
             this.nudRevenue = new System.Windows.Forms.NumericUpDown();
@@ -173,7 +173,7 @@
             this.ReportedRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReportedRoomRevenue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReportedRoomPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabRules = new DevExpress.XtraTab.XtraTabPage();
+            this.tabRoomRules = new DevExpress.XtraTab.XtraTabPage();
             this.gcEditRule = new DevExpress.XtraEditors.GroupControl();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -182,6 +182,8 @@
             this.btnAddCustomerType = new DevExpress.XtraEditors.SimpleButton();
             this.gcCustomerTypeList = new DevExpress.XtraEditors.GroupControl();
             this.dgvCustomerType = new System.Windows.Forms.DataGridView();
+            this.EditCustomerTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EditCustomerTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gcRoomTypeList = new DevExpress.XtraEditors.GroupControl();
             this.dgvRoomType = new System.Windows.Forms.DataGridView();
             this.EditRoomTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -189,21 +191,19 @@
             this.panelEditRules = new System.Windows.Forms.Panel();
             this.lbMaxCustomerRule = new DevExpress.XtraEditors.LabelControl();
             this.lbMaxCustomerValue = new DevExpress.XtraEditors.LabelControl();
-            this.lbForeignCustomerTaxValue = new DevExpress.XtraEditors.LabelControl();
-            this.lbOverCustomerTaxValue = new DevExpress.XtraEditors.LabelControl();
+            this.lbForeignCustomerSurchargeValue = new DevExpress.XtraEditors.LabelControl();
+            this.lbAdditionalCustomerSurchargeValue = new DevExpress.XtraEditors.LabelControl();
             this.btnEditMaxCustomerRule = new DevExpress.XtraEditors.SimpleButton();
-            this.btnEditForeignCustomerTax = new DevExpress.XtraEditors.SimpleButton();
-            this.lbForeignCustomerTax = new DevExpress.XtraEditors.LabelControl();
-            this.btnEditThirdCustomerTax = new DevExpress.XtraEditors.SimpleButton();
-            this.lbOverCustumerRuleTax = new DevExpress.XtraEditors.LabelControl();
+            this.btnEditForeignCustomerSurcharge = new DevExpress.XtraEditors.SimpleButton();
+            this.lbForeignCustomerSurcharge = new DevExpress.XtraEditors.LabelControl();
+            this.btnAdditionalCustomerSurcharge = new DevExpress.XtraEditors.SimpleButton();
+            this.lbAdditionalCustomerSurcharge = new DevExpress.XtraEditors.LabelControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnEditRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
-            this.EditCustomerTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EditCustomerTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).BeginInit();
             this.tcHotelManagement.SuspendLayout();
             this.tabListRoom.SuspendLayout();
@@ -216,23 +216,23 @@
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcListRoomEdit)).BeginInit();
             this.gcListRoomEdit.SuspendLayout();
-            this.tabNoteRoom.SuspendLayout();
+            this.tabRoomLease.SuspendLayout();
             this.tlpNoteRoom.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcNoteRoom)).BeginInit();
-            this.gcNoteRoom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deNoteRoomDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNoteRoomDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcNoteCustomer)).BeginInit();
-            this.gcNoteCustomer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNoteCustomer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcNoteCustomerData)).BeginInit();
-            this.gcNoteCustomerData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcRoomLease)).BeginInit();
+            this.gcRoomLease.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deLeaseRoomDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deLeaseRoomDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcLeaseCustomerData)).BeginInit();
+            this.gcLeaseCustomerData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeaseCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcCustomerLease)).BeginInit();
+            this.gcCustomerLease.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcEditNoteCustomer)).BeginInit();
-            this.gcEditNoteCustomer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcEditCustomer)).BeginInit();
+            this.gcEditCustomer.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.tabFindRoom.SuspendLayout();
+            this.tabRoomFind.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcFindRoomData)).BeginInit();
             this.gcFindRoomData.SuspendLayout();
@@ -241,7 +241,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcRoomList)).BeginInit();
             this.gcRoomList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFindRoom)).BeginInit();
-            this.tabBillRoom.SuspendLayout();
+            this.tabRoomBill.SuspendLayout();
             this.gcBillCreate_4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcBill)).BeginInit();
             this.gcBill.SuspendLayout();
@@ -258,7 +258,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcAddBillRoom)).BeginInit();
             this.gcAddBillRoom.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.tabRevenueRoom.SuspendLayout();
+            this.tabMonthRevenue.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcRevenueSelect)).BeginInit();
             this.gcRevenueSelect.SuspendLayout();
@@ -266,7 +266,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcRevenueList)).BeginInit();
             this.gcRevenueList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenueList)).BeginInit();
-            this.tabRules.SuspendLayout();
+            this.tabRoomRules.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcEditRule)).BeginInit();
             this.gcEditRule.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -292,11 +292,11 @@
             this.tcHotelManagement.TabIndex = 1;
             this.tcHotelManagement.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabListRoom,
-            this.tabNoteRoom,
-            this.tabFindRoom,
-            this.tabBillRoom,
-            this.tabRevenueRoom,
-            this.tabRules});
+            this.tabRoomLease,
+            this.tabRoomFind,
+            this.tabRoomBill,
+            this.tabMonthRevenue,
+            this.tabRoomRules});
             this.tcHotelManagement.SelectedPageChanging += new DevExpress.XtraTab.TabPageChangingEventHandler(this.TcHotelManagement_SelectedPageChanging);
             this.tcHotelManagement.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
@@ -614,14 +614,14 @@
             this.btnDelRoom.Text = "XÓA";
             this.btnDelRoom.Click += new System.EventHandler(this.BtnDelRoom_Click);
             // 
-            // tabNoteRoom
+            // tabRoomLease
             // 
-            this.tabNoteRoom.Controls.Add(this.tlpNoteRoom);
-            this.tabNoteRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabNoteRoom.ImageOptions.Image")));
-            this.tabNoteRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabNoteRoom.Name = "tabNoteRoom";
-            this.tabNoteRoom.Size = new System.Drawing.Size(955, 646);
-            this.tabNoteRoom.Text = "LẬP PHIẾU THUÊ PHÒNG";
+            this.tabRoomLease.Controls.Add(this.tlpNoteRoom);
+            this.tabRoomLease.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabNoteRoom.ImageOptions.Image")));
+            this.tabRoomLease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabRoomLease.Name = "tabRoomLease";
+            this.tabRoomLease.Size = new System.Drawing.Size(955, 646);
+            this.tabRoomLease.Text = "LẬP PHIẾU THUÊ PHÒNG";
             // 
             // tlpNoteRoom
             // 
@@ -631,9 +631,9 @@
             this.tlpNoteRoom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 292F));
             this.tlpNoteRoom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
             this.tlpNoteRoom.Controls.Add(this.panel4, 0, 2);
-            this.tlpNoteRoom.Controls.Add(this.gcNoteRoom, 0, 0);
-            this.tlpNoteRoom.Controls.Add(this.gcNoteCustomer, 0, 1);
-            this.tlpNoteRoom.Controls.Add(this.gcNoteCustomerData, 1, 0);
+            this.tlpNoteRoom.Controls.Add(this.gcRoomLease, 0, 0);
+            this.tlpNoteRoom.Controls.Add(this.gcLeaseCustomerData, 0, 1);
+            this.tlpNoteRoom.Controls.Add(this.gcCustomerLease, 1, 0);
             this.tlpNoteRoom.Controls.Add(this.panel9, 3, 0);
             this.tlpNoteRoom.Controls.Add(this.panel5, 2, 2);
             this.tlpNoteRoom.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -671,46 +671,46 @@
             this.btnCancelNote.Text = "HUỶ PHIẾU THUÊ";
             this.btnCancelNote.Click += new System.EventHandler(this.BtnCancelNote_Click);
             // 
-            // gcNoteRoom
+            // gcRoomLease
             // 
-            this.gcNoteRoom.Controls.Add(this.tbNoteRoomPrice);
-            this.gcNoteRoom.Controls.Add(this.cbNoteRoomID);
-            this.gcNoteRoom.Controls.Add(this.lbNoteRoomID);
-            this.gcNoteRoom.Controls.Add(this.deNoteRoomDate);
-            this.gcNoteRoom.Controls.Add(this.lbNoteRoomPrice);
-            this.gcNoteRoom.Controls.Add(this.lbNoteRoomDate);
-            this.gcNoteRoom.Controls.Add(this.btnLockNoteRoom);
-            this.gcNoteRoom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcNoteRoom.Location = new System.Drawing.Point(3, 2);
-            this.gcNoteRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gcNoteRoom.Name = "gcNoteRoom";
-            this.gcNoteRoom.Size = new System.Drawing.Size(325, 216);
-            this.gcNoteRoom.TabIndex = 0;
-            this.gcNoteRoom.Text = "CHỌN PHÒNG THUÊ";
+            this.gcRoomLease.Controls.Add(this.tbLeaseRoomPrice);
+            this.gcRoomLease.Controls.Add(this.cbLeaseRoomID);
+            this.gcRoomLease.Controls.Add(this.lbNoteRoomID);
+            this.gcRoomLease.Controls.Add(this.deLeaseRoomDate);
+            this.gcRoomLease.Controls.Add(this.lbNoteRoomPrice);
+            this.gcRoomLease.Controls.Add(this.lbNoteRoomDate);
+            this.gcRoomLease.Controls.Add(this.btnLockRoom);
+            this.gcRoomLease.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcRoomLease.Location = new System.Drawing.Point(3, 2);
+            this.gcRoomLease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gcRoomLease.Name = "gcRoomLease";
+            this.gcRoomLease.Size = new System.Drawing.Size(325, 216);
+            this.gcRoomLease.TabIndex = 0;
+            this.gcRoomLease.Text = "CHỌN PHÒNG THUÊ";
             // 
-            // tbNoteRoomPrice
+            // tbLeaseRoomPrice
             // 
-            this.tbNoteRoomPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNoteRoomPrice.Location = new System.Drawing.Point(93, 142);
-            this.tbNoteRoomPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbNoteRoomPrice.Name = "tbNoteRoomPrice";
-            this.tbNoteRoomPrice.ReadOnly = true;
-            this.tbNoteRoomPrice.Size = new System.Drawing.Size(94, 21);
-            this.tbNoteRoomPrice.TabIndex = 17;
-            this.tbNoteRoomPrice.TabStop = false;
+            this.tbLeaseRoomPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbLeaseRoomPrice.Location = new System.Drawing.Point(93, 142);
+            this.tbLeaseRoomPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbLeaseRoomPrice.Name = "tbLeaseRoomPrice";
+            this.tbLeaseRoomPrice.ReadOnly = true;
+            this.tbLeaseRoomPrice.Size = new System.Drawing.Size(94, 21);
+            this.tbLeaseRoomPrice.TabIndex = 17;
+            this.tbLeaseRoomPrice.TabStop = false;
             // 
-            // cbNoteRoomID
+            // cbLeaseRoomID
             // 
-            this.cbNoteRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbNoteRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbNoteRoomID.FormattingEnabled = true;
-            this.cbNoteRoomID.Location = new System.Drawing.Point(92, 55);
-            this.cbNoteRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbNoteRoomID.Name = "cbNoteRoomID";
-            this.cbNoteRoomID.Size = new System.Drawing.Size(94, 21);
-            this.cbNoteRoomID.Sorted = true;
-            this.cbNoteRoomID.TabIndex = 9;
-            this.cbNoteRoomID.SelectedIndexChanged += new System.EventHandler(this.CbNoteRoomID_SelectedIndexChanged);
+            this.cbLeaseRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbLeaseRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLeaseRoomID.FormattingEnabled = true;
+            this.cbLeaseRoomID.Location = new System.Drawing.Point(92, 55);
+            this.cbLeaseRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbLeaseRoomID.Name = "cbLeaseRoomID";
+            this.cbLeaseRoomID.Size = new System.Drawing.Size(94, 21);
+            this.cbLeaseRoomID.Sorted = true;
+            this.cbLeaseRoomID.TabIndex = 9;
+            this.cbLeaseRoomID.SelectedIndexChanged += new System.EventHandler(this.CbNoteRoomID_SelectedIndexChanged);
             // 
             // lbNoteRoomID
             // 
@@ -725,22 +725,22 @@
             this.lbNoteRoomID.TabIndex = 8;
             this.lbNoteRoomID.Text = "PHÒNG:";
             // 
-            // deNoteRoomDate
+            // deLeaseRoomDate
             // 
-            this.deNoteRoomDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.deNoteRoomDate.EditValue = null;
-            this.deNoteRoomDate.Location = new System.Drawing.Point(93, 97);
-            this.deNoteRoomDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.deNoteRoomDate.Name = "deNoteRoomDate";
-            this.deNoteRoomDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deLeaseRoomDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.deLeaseRoomDate.EditValue = null;
+            this.deLeaseRoomDate.Location = new System.Drawing.Point(93, 97);
+            this.deLeaseRoomDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.deLeaseRoomDate.Name = "deLeaseRoomDate";
+            this.deLeaseRoomDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deNoteRoomDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deLeaseRoomDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deNoteRoomDate.Properties.Mask.EditMask = "d/M/yyyy";
-            this.deNoteRoomDate.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.deNoteRoomDate.Size = new System.Drawing.Size(93, 20);
-            this.deNoteRoomDate.TabIndex = 7;
-            this.deNoteRoomDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
+            this.deLeaseRoomDate.Properties.Mask.EditMask = "d/M/yyyy";
+            this.deLeaseRoomDate.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.deLeaseRoomDate.Size = new System.Drawing.Size(93, 20);
+            this.deLeaseRoomDate.TabIndex = 7;
+            this.deLeaseRoomDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Combobox_KeyPress);
             // 
             // lbNoteRoomPrice
             // 
@@ -768,61 +768,61 @@
             this.lbNoteRoomDate.TabIndex = 6;
             this.lbNoteRoomDate.Text = "NGÀY THUÊ:";
             // 
-            // btnLockNoteRoom
+            // btnLockRoom
             // 
-            this.btnLockNoteRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLockNoteRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLockNoteRoom.ImageOptions.Image")));
-            this.btnLockNoteRoom.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnLockNoteRoom.Location = new System.Drawing.Point(203, 53);
-            this.btnLockNoteRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLockNoteRoom.Name = "btnLockNoteRoom";
-            this.btnLockNoteRoom.Size = new System.Drawing.Size(94, 110);
-            this.btnLockNoteRoom.TabIndex = 14;
-            this.btnLockNoteRoom.Text = "\r\nCHỌN PHÒNG";
-            this.btnLockNoteRoom.EnabledChanged += new System.EventHandler(this.BtnLockNoteRoom_EnabledChanged);
-            this.btnLockNoteRoom.Click += new System.EventHandler(this.BtnLockNoteRoom_Click);
+            this.btnLockRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLockRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLockNoteRoom.ImageOptions.Image")));
+            this.btnLockRoom.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnLockRoom.Location = new System.Drawing.Point(203, 53);
+            this.btnLockRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLockRoom.Name = "btnLockRoom";
+            this.btnLockRoom.Size = new System.Drawing.Size(94, 110);
+            this.btnLockRoom.TabIndex = 14;
+            this.btnLockRoom.Text = "\r\nCHỌN PHÒNG";
+            this.btnLockRoom.EnabledChanged += new System.EventHandler(this.BtnLockNoteRoom_EnabledChanged);
+            this.btnLockRoom.Click += new System.EventHandler(this.BtnLockNoteRoom_Click);
             // 
-            // gcNoteCustomer
+            // gcLeaseCustomerData
             // 
-            this.tlpNoteRoom.SetColumnSpan(this.gcNoteCustomer, 4);
-            this.gcNoteCustomer.Controls.Add(this.dgvNoteCustomer);
-            this.gcNoteCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcNoteCustomer.Location = new System.Drawing.Point(3, 222);
-            this.gcNoteCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gcNoteCustomer.Name = "gcNoteCustomer";
-            this.gcNoteCustomer.Size = new System.Drawing.Size(949, 372);
-            this.gcNoteCustomer.TabIndex = 1;
-            this.gcNoteCustomer.Text = "DANH SÁCH KHÁCH";
+            this.tlpNoteRoom.SetColumnSpan(this.gcLeaseCustomerData, 4);
+            this.gcLeaseCustomerData.Controls.Add(this.dgvLeaseCustomer);
+            this.gcLeaseCustomerData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcLeaseCustomerData.Location = new System.Drawing.Point(3, 222);
+            this.gcLeaseCustomerData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gcLeaseCustomerData.Name = "gcLeaseCustomerData";
+            this.gcLeaseCustomerData.Size = new System.Drawing.Size(949, 372);
+            this.gcLeaseCustomerData.TabIndex = 1;
+            this.gcLeaseCustomerData.Text = "DANH SÁCH KHÁCH";
             // 
-            // dgvNoteCustomer
+            // dgvLeaseCustomer
             // 
-            this.dgvNoteCustomer.AllowUserToAddRows = false;
-            this.dgvNoteCustomer.AllowUserToDeleteRows = false;
-            this.dgvNoteCustomer.BackgroundColor = System.Drawing.Color.White;
-            this.dgvNoteCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNoteCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvLeaseCustomer.AllowUserToAddRows = false;
+            this.dgvLeaseCustomer.AllowUserToDeleteRows = false;
+            this.dgvLeaseCustomer.BackgroundColor = System.Drawing.Color.White;
+            this.dgvLeaseCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLeaseCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CustomerName,
             this.CustomerTypeID,
             this.CustomerType,
             this.CustomerPassportID,
             this.CustomerAddress});
-            this.dgvNoteCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvNoteCustomer.Location = new System.Drawing.Point(2, 20);
-            this.dgvNoteCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvNoteCustomer.MultiSelect = false;
-            this.dgvNoteCustomer.Name = "dgvNoteCustomer";
-            this.dgvNoteCustomer.ReadOnly = true;
-            this.dgvNoteCustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dgvNoteCustomer.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNoteCustomer.RowTemplate.Height = 24;
-            this.dgvNoteCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNoteCustomer.Size = new System.Drawing.Size(945, 350);
-            this.dgvNoteCustomer.TabIndex = 3;
-            this.dgvNoteCustomer.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvNoteCustomer_CellEnter);
-            this.dgvNoteCustomer.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvNoteCustomer_CellValueChanged);
-            this.dgvNoteCustomer.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
-            this.dgvNoteCustomer.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.DgvNoteCustomer_RowsAdded);
-            this.dgvNoteCustomer.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvNoteCustomer_RowsRemoved);
+            this.dgvLeaseCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLeaseCustomer.Location = new System.Drawing.Point(2, 20);
+            this.dgvLeaseCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvLeaseCustomer.MultiSelect = false;
+            this.dgvLeaseCustomer.Name = "dgvLeaseCustomer";
+            this.dgvLeaseCustomer.ReadOnly = true;
+            this.dgvLeaseCustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dgvLeaseCustomer.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLeaseCustomer.RowTemplate.Height = 24;
+            this.dgvLeaseCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLeaseCustomer.Size = new System.Drawing.Size(945, 350);
+            this.dgvLeaseCustomer.TabIndex = 3;
+            this.dgvLeaseCustomer.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvNoteCustomer_CellEnter);
+            this.dgvLeaseCustomer.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvNoteCustomer_CellValueChanged);
+            this.dgvLeaseCustomer.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
+            this.dgvLeaseCustomer.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.DgvNoteCustomer_RowsAdded);
+            this.dgvLeaseCustomer.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvNoteCustomer_RowsRemoved);
             // 
             // CustomerName
             // 
@@ -859,187 +859,187 @@
             this.CustomerAddress.Name = "CustomerAddress";
             this.CustomerAddress.ReadOnly = true;
             // 
-            // gcNoteCustomerData
+            // gcCustomerLease
             // 
-            this.tlpNoteRoom.SetColumnSpan(this.gcNoteCustomerData, 2);
-            this.gcNoteCustomerData.Controls.Add(this.tbNoteCustomerType);
-            this.gcNoteCustomerData.Controls.Add(this.tbNoteCustomerPassport);
-            this.gcNoteCustomerData.Controls.Add(this.lbNoteCustomerAddress);
-            this.gcNoteCustomerData.Controls.Add(this.tbNoteCustomerName);
-            this.gcNoteCustomerData.Controls.Add(this.rtbNoteCustomerAddress);
-            this.gcNoteCustomerData.Controls.Add(this.lbNoteCustomerPassport);
-            this.gcNoteCustomerData.Controls.Add(this.lbNoteCustomerName);
-            this.gcNoteCustomerData.Controls.Add(this.lbNoteCustomerType);
-            this.gcNoteCustomerData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcNoteCustomerData.Location = new System.Drawing.Point(334, 2);
-            this.gcNoteCustomerData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gcNoteCustomerData.Name = "gcNoteCustomerData";
-            this.gcNoteCustomerData.Size = new System.Drawing.Size(438, 216);
-            this.gcNoteCustomerData.TabIndex = 2;
-            this.gcNoteCustomerData.Text = "THÔNG TIN KHÁCH";
+            this.tlpNoteRoom.SetColumnSpan(this.gcCustomerLease, 2);
+            this.gcCustomerLease.Controls.Add(this.tbCustomerType);
+            this.gcCustomerLease.Controls.Add(this.tbCustomerPassport);
+            this.gcCustomerLease.Controls.Add(this.lbCustomerAddress);
+            this.gcCustomerLease.Controls.Add(this.tbCustomerName);
+            this.gcCustomerLease.Controls.Add(this.rtbCustomerAddress);
+            this.gcCustomerLease.Controls.Add(this.lbCustomerPassport);
+            this.gcCustomerLease.Controls.Add(this.lbCustomerName);
+            this.gcCustomerLease.Controls.Add(this.lbCustomerType);
+            this.gcCustomerLease.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcCustomerLease.Location = new System.Drawing.Point(334, 2);
+            this.gcCustomerLease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gcCustomerLease.Name = "gcCustomerLease";
+            this.gcCustomerLease.Size = new System.Drawing.Size(438, 216);
+            this.gcCustomerLease.TabIndex = 2;
+            this.gcCustomerLease.Text = "THÔNG TIN KHÁCH";
             // 
-            // tbNoteCustomerType
+            // tbCustomerType
             // 
-            this.tbNoteCustomerType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNoteCustomerType.Location = new System.Drawing.Point(94, 79);
-            this.tbNoteCustomerType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbNoteCustomerType.Name = "tbNoteCustomerType";
-            this.tbNoteCustomerType.ReadOnly = true;
-            this.tbNoteCustomerType.Size = new System.Drawing.Size(106, 21);
-            this.tbNoteCustomerType.TabIndex = 30;
-            this.tbNoteCustomerType.TabStop = false;
+            this.tbCustomerType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbCustomerType.Location = new System.Drawing.Point(94, 79);
+            this.tbCustomerType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCustomerType.Name = "tbCustomerType";
+            this.tbCustomerType.ReadOnly = true;
+            this.tbCustomerType.Size = new System.Drawing.Size(106, 21);
+            this.tbCustomerType.TabIndex = 30;
+            this.tbCustomerType.TabStop = false;
             // 
-            // tbNoteCustomerPassport
+            // tbCustomerPassport
             // 
-            this.tbNoteCustomerPassport.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNoteCustomerPassport.Location = new System.Drawing.Point(279, 79);
-            this.tbNoteCustomerPassport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbNoteCustomerPassport.Name = "tbNoteCustomerPassport";
-            this.tbNoteCustomerPassport.ReadOnly = true;
-            this.tbNoteCustomerPassport.Size = new System.Drawing.Size(136, 21);
-            this.tbNoteCustomerPassport.TabIndex = 22;
-            this.tbNoteCustomerPassport.TabStop = false;
+            this.tbCustomerPassport.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbCustomerPassport.Location = new System.Drawing.Point(279, 79);
+            this.tbCustomerPassport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCustomerPassport.Name = "tbCustomerPassport";
+            this.tbCustomerPassport.ReadOnly = true;
+            this.tbCustomerPassport.Size = new System.Drawing.Size(136, 21);
+            this.tbCustomerPassport.TabIndex = 22;
+            this.tbCustomerPassport.TabStop = false;
             // 
-            // lbNoteCustomerAddress
+            // lbCustomerAddress
             // 
-            this.lbNoteCustomerAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbNoteCustomerAddress.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbNoteCustomerAddress.Appearance.Options.UseFont = true;
-            this.lbNoteCustomerAddress.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbNoteCustomerAddress.Location = new System.Drawing.Point(44, 115);
-            this.lbNoteCustomerAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbNoteCustomerAddress.Name = "lbNoteCustomerAddress";
-            this.lbNoteCustomerAddress.Size = new System.Drawing.Size(44, 13);
-            this.lbNoteCustomerAddress.TabIndex = 23;
-            this.lbNoteCustomerAddress.Text = "ĐỊA CHỈ:";
+            this.lbCustomerAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbCustomerAddress.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbCustomerAddress.Appearance.Options.UseFont = true;
+            this.lbCustomerAddress.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbCustomerAddress.Location = new System.Drawing.Point(44, 115);
+            this.lbCustomerAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbCustomerAddress.Name = "lbCustomerAddress";
+            this.lbCustomerAddress.Size = new System.Drawing.Size(44, 13);
+            this.lbCustomerAddress.TabIndex = 23;
+            this.lbCustomerAddress.Text = "ĐỊA CHỈ:";
             // 
-            // tbNoteCustomerName
+            // tbCustomerName
             // 
-            this.tbNoteCustomerName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNoteCustomerName.Location = new System.Drawing.Point(94, 46);
-            this.tbNoteCustomerName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbNoteCustomerName.Name = "tbNoteCustomerName";
-            this.tbNoteCustomerName.ReadOnly = true;
-            this.tbNoteCustomerName.Size = new System.Drawing.Size(321, 21);
-            this.tbNoteCustomerName.TabIndex = 18;
-            this.tbNoteCustomerName.TabStop = false;
+            this.tbCustomerName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbCustomerName.Location = new System.Drawing.Point(94, 46);
+            this.tbCustomerName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCustomerName.Name = "tbCustomerName";
+            this.tbCustomerName.ReadOnly = true;
+            this.tbCustomerName.Size = new System.Drawing.Size(321, 21);
+            this.tbCustomerName.TabIndex = 18;
+            this.tbCustomerName.TabStop = false;
             // 
-            // rtbNoteCustomerAddress
+            // rtbCustomerAddress
             // 
-            this.rtbNoteCustomerAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rtbNoteCustomerAddress.BackColor = System.Drawing.SystemColors.Control;
-            this.rtbNoteCustomerAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtbNoteCustomerAddress.Location = new System.Drawing.Point(94, 113);
-            this.rtbNoteCustomerAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rtbNoteCustomerAddress.Name = "rtbNoteCustomerAddress";
-            this.rtbNoteCustomerAddress.ReadOnly = true;
-            this.rtbNoteCustomerAddress.Size = new System.Drawing.Size(321, 82);
-            this.rtbNoteCustomerAddress.TabIndex = 24;
-            this.rtbNoteCustomerAddress.TabStop = false;
-            this.rtbNoteCustomerAddress.Text = "";
+            this.rtbCustomerAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rtbCustomerAddress.BackColor = System.Drawing.SystemColors.Control;
+            this.rtbCustomerAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtbCustomerAddress.Location = new System.Drawing.Point(94, 113);
+            this.rtbCustomerAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rtbCustomerAddress.Name = "rtbCustomerAddress";
+            this.rtbCustomerAddress.ReadOnly = true;
+            this.rtbCustomerAddress.Size = new System.Drawing.Size(321, 82);
+            this.rtbCustomerAddress.TabIndex = 24;
+            this.rtbCustomerAddress.TabStop = false;
+            this.rtbCustomerAddress.Text = "";
             // 
-            // lbNoteCustomerPassport
+            // lbCustomerPassport
             // 
-            this.lbNoteCustomerPassport.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbNoteCustomerPassport.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbNoteCustomerPassport.Appearance.Options.UseFont = true;
-            this.lbNoteCustomerPassport.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbNoteCustomerPassport.Location = new System.Drawing.Point(223, 82);
-            this.lbNoteCustomerPassport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbNoteCustomerPassport.Name = "lbNoteCustomerPassport";
-            this.lbNoteCustomerPassport.Size = new System.Drawing.Size(50, 13);
-            this.lbNoteCustomerPassport.TabIndex = 21;
-            this.lbNoteCustomerPassport.Text = "SỐ CMND:";
+            this.lbCustomerPassport.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbCustomerPassport.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbCustomerPassport.Appearance.Options.UseFont = true;
+            this.lbCustomerPassport.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbCustomerPassport.Location = new System.Drawing.Point(223, 82);
+            this.lbCustomerPassport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbCustomerPassport.Name = "lbCustomerPassport";
+            this.lbCustomerPassport.Size = new System.Drawing.Size(50, 13);
+            this.lbCustomerPassport.TabIndex = 21;
+            this.lbCustomerPassport.Text = "SỐ CMND:";
             // 
-            // lbNoteCustomerName
+            // lbCustomerName
             // 
-            this.lbNoteCustomerName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbNoteCustomerName.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbNoteCustomerName.Appearance.Options.UseFont = true;
-            this.lbNoteCustomerName.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbNoteCustomerName.Location = new System.Drawing.Point(28, 49);
-            this.lbNoteCustomerName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbNoteCustomerName.Name = "lbNoteCustomerName";
-            this.lbNoteCustomerName.Size = new System.Drawing.Size(60, 13);
-            this.lbNoteCustomerName.TabIndex = 17;
-            this.lbNoteCustomerName.Text = "TÊN KHÁCH:";
+            this.lbCustomerName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbCustomerName.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbCustomerName.Appearance.Options.UseFont = true;
+            this.lbCustomerName.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbCustomerName.Location = new System.Drawing.Point(28, 49);
+            this.lbCustomerName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbCustomerName.Name = "lbCustomerName";
+            this.lbCustomerName.Size = new System.Drawing.Size(60, 13);
+            this.lbCustomerName.TabIndex = 17;
+            this.lbCustomerName.Text = "TÊN KHÁCH:";
             // 
-            // lbNoteCustomerType
+            // lbCustomerType
             // 
-            this.lbNoteCustomerType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbNoteCustomerType.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbNoteCustomerType.Appearance.Options.UseFont = true;
-            this.lbNoteCustomerType.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbNoteCustomerType.Location = new System.Drawing.Point(23, 82);
-            this.lbNoteCustomerType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbNoteCustomerType.Name = "lbNoteCustomerType";
-            this.lbNoteCustomerType.Size = new System.Drawing.Size(65, 13);
-            this.lbNoteCustomerType.TabIndex = 19;
-            this.lbNoteCustomerType.Text = "LOẠI KHÁCH:";
+            this.lbCustomerType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbCustomerType.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbCustomerType.Appearance.Options.UseFont = true;
+            this.lbCustomerType.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbCustomerType.Location = new System.Drawing.Point(23, 82);
+            this.lbCustomerType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbCustomerType.Name = "lbCustomerType";
+            this.lbCustomerType.Size = new System.Drawing.Size(65, 13);
+            this.lbCustomerType.TabIndex = 19;
+            this.lbCustomerType.Text = "LOẠI KHÁCH:";
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.gcEditNoteCustomer);
+            this.panel9.Controls.Add(this.gcEditCustomer);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(778, 3);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(174, 214);
             this.panel9.TabIndex = 5;
             // 
-            // gcEditNoteCustomer
+            // gcEditCustomer
             // 
-            this.gcEditNoteCustomer.Controls.Add(this.btnEditNoteCustomer);
-            this.gcEditNoteCustomer.Controls.Add(this.btnDelNoteCustomer);
-            this.gcEditNoteCustomer.Controls.Add(this.btnAddNoteCustomer);
-            this.gcEditNoteCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcEditNoteCustomer.Location = new System.Drawing.Point(0, 0);
-            this.gcEditNoteCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gcEditNoteCustomer.Name = "gcEditNoteCustomer";
-            this.gcEditNoteCustomer.Size = new System.Drawing.Size(174, 214);
-            this.gcEditNoteCustomer.TabIndex = 2;
-            this.gcEditNoteCustomer.Text = "HIỆU CHỈNH KHÁCH";
+            this.gcEditCustomer.Controls.Add(this.btnEditCustomer);
+            this.gcEditCustomer.Controls.Add(this.btnDelCustomer);
+            this.gcEditCustomer.Controls.Add(this.btnAddCustomer);
+            this.gcEditCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcEditCustomer.Location = new System.Drawing.Point(0, 0);
+            this.gcEditCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gcEditCustomer.Name = "gcEditCustomer";
+            this.gcEditCustomer.Size = new System.Drawing.Size(174, 214);
+            this.gcEditCustomer.TabIndex = 2;
+            this.gcEditCustomer.Text = "HIỆU CHỈNH KHÁCH";
             // 
-            // btnEditNoteCustomer
+            // btnEditCustomer
             // 
-            this.btnEditNoteCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEditNoteCustomer.Enabled = false;
-            this.btnEditNoteCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditNoteCustomer.ImageOptions.Image")));
-            this.btnEditNoteCustomer.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnEditNoteCustomer.Location = new System.Drawing.Point(27, 152);
-            this.btnEditNoteCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEditNoteCustomer.Name = "btnEditNoteCustomer";
-            this.btnEditNoteCustomer.Size = new System.Drawing.Size(120, 41);
-            this.btnEditNoteCustomer.TabIndex = 15;
-            this.btnEditNoteCustomer.Text = "SỬA";
-            this.btnEditNoteCustomer.Click += new System.EventHandler(this.BtnEditNoteCustomer_Click);
+            this.btnEditCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEditCustomer.Enabled = false;
+            this.btnEditCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditNoteCustomer.ImageOptions.Image")));
+            this.btnEditCustomer.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnEditCustomer.Location = new System.Drawing.Point(27, 152);
+            this.btnEditCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditCustomer.Name = "btnEditCustomer";
+            this.btnEditCustomer.Size = new System.Drawing.Size(120, 41);
+            this.btnEditCustomer.TabIndex = 15;
+            this.btnEditCustomer.Text = "SỬA";
+            this.btnEditCustomer.Click += new System.EventHandler(this.BtnEditNoteCustomer_Click);
             // 
-            // btnDelNoteCustomer
+            // btnDelCustomer
             // 
-            this.btnDelNoteCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDelNoteCustomer.Enabled = false;
-            this.btnDelNoteCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelNoteCustomer.ImageOptions.Image")));
-            this.btnDelNoteCustomer.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnDelNoteCustomer.Location = new System.Drawing.Point(27, 97);
-            this.btnDelNoteCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDelNoteCustomer.Name = "btnDelNoteCustomer";
-            this.btnDelNoteCustomer.Size = new System.Drawing.Size(120, 41);
-            this.btnDelNoteCustomer.TabIndex = 14;
-            this.btnDelNoteCustomer.Text = "XÓA";
-            this.btnDelNoteCustomer.Click += new System.EventHandler(this.BtnDelNoteCustomer_Click);
+            this.btnDelCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDelCustomer.Enabled = false;
+            this.btnDelCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelNoteCustomer.ImageOptions.Image")));
+            this.btnDelCustomer.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnDelCustomer.Location = new System.Drawing.Point(27, 97);
+            this.btnDelCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelCustomer.Name = "btnDelCustomer";
+            this.btnDelCustomer.Size = new System.Drawing.Size(120, 41);
+            this.btnDelCustomer.TabIndex = 14;
+            this.btnDelCustomer.Text = "XÓA";
+            this.btnDelCustomer.Click += new System.EventHandler(this.BtnDelNoteCustomer_Click);
             // 
-            // btnAddNoteCustomer
+            // btnAddCustomer
             // 
-            this.btnAddNoteCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAddNoteCustomer.Enabled = false;
-            this.btnAddNoteCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNoteCustomer.ImageOptions.Image")));
-            this.btnAddNoteCustomer.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnAddNoteCustomer.Location = new System.Drawing.Point(27, 42);
-            this.btnAddNoteCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddNoteCustomer.Name = "btnAddNoteCustomer";
-            this.btnAddNoteCustomer.Size = new System.Drawing.Size(120, 41);
-            this.btnAddNoteCustomer.TabIndex = 13;
-            this.btnAddNoteCustomer.Text = "THÊM";
-            this.btnAddNoteCustomer.Click += new System.EventHandler(this.BtnAddNoteCustomer_Click);
+            this.btnAddCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddCustomer.Enabled = false;
+            this.btnAddCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNoteCustomer.ImageOptions.Image")));
+            this.btnAddCustomer.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnAddCustomer.Location = new System.Drawing.Point(27, 42);
+            this.btnAddCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddCustomer.Name = "btnAddCustomer";
+            this.btnAddCustomer.Size = new System.Drawing.Size(120, 41);
+            this.btnAddCustomer.TabIndex = 13;
+            this.btnAddCustomer.Text = "THÊM";
+            this.btnAddCustomer.Click += new System.EventHandler(this.BtnAddNoteCustomer_Click);
             // 
             // panel5
             // 
@@ -1065,14 +1065,14 @@
             this.btnCreateNote.Text = "LẬP PHIẾU THUÊ";
             this.btnCreateNote.Click += new System.EventHandler(this.BtnCreateNote_Click);
             // 
-            // tabFindRoom
+            // tabRoomFind
             // 
-            this.tabFindRoom.Controls.Add(this.tableLayoutPanel3);
-            this.tabFindRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabFindRoom.ImageOptions.Image")));
-            this.tabFindRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabFindRoom.Name = "tabFindRoom";
-            this.tabFindRoom.Size = new System.Drawing.Size(955, 646);
-            this.tabFindRoom.Text = "TRA CỨU PHÒNG";
+            this.tabRoomFind.Controls.Add(this.tableLayoutPanel3);
+            this.tabRoomFind.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabFindRoom.ImageOptions.Image")));
+            this.tabRoomFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabRoomFind.Name = "tabRoomFind";
+            this.tabRoomFind.Size = new System.Drawing.Size(955, 646);
+            this.tabRoomFind.Text = "TRA CỨU PHÒNG";
             // 
             // tableLayoutPanel3
             // 
@@ -1442,14 +1442,14 @@
             this.FindRoomNote.Name = "FindRoomNote";
             this.FindRoomNote.ReadOnly = true;
             // 
-            // tabBillRoom
+            // tabRoomBill
             // 
-            this.tabBillRoom.Controls.Add(this.gcBillCreate_4);
-            this.tabBillRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabBillRoom.ImageOptions.Image")));
-            this.tabBillRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabBillRoom.Name = "tabBillRoom";
-            this.tabBillRoom.Size = new System.Drawing.Size(955, 646);
-            this.tabBillRoom.Text = "THANH TOÁN HOÁ ĐƠN";
+            this.tabRoomBill.Controls.Add(this.gcBillCreate_4);
+            this.tabRoomBill.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabBillRoom.ImageOptions.Image")));
+            this.tabRoomBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabRoomBill.Name = "tabRoomBill";
+            this.tabRoomBill.Size = new System.Drawing.Size(955, 646);
+            this.tabRoomBill.Text = "THANH TOÁN HOÁ ĐƠN";
             // 
             // gcBillCreate_4
             // 
@@ -1974,14 +1974,14 @@
             this.btnCreateBillRoom.Text = "LẬP HOÁ ĐƠN";
             this.btnCreateBillRoom.Click += new System.EventHandler(this.BtnCreateBillRoom_Click);
             // 
-            // tabRevenueRoom
+            // tabMonthRevenue
             // 
-            this.tabRevenueRoom.Controls.Add(this.tableLayoutPanel5);
-            this.tabRevenueRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabRevenueRoom.ImageOptions.Image")));
-            this.tabRevenueRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabRevenueRoom.Name = "tabRevenueRoom";
-            this.tabRevenueRoom.Size = new System.Drawing.Size(955, 646);
-            this.tabRevenueRoom.Text = "BÁO CÁO DOANH THU";
+            this.tabMonthRevenue.Controls.Add(this.tableLayoutPanel5);
+            this.tabMonthRevenue.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabRevenueRoom.ImageOptions.Image")));
+            this.tabMonthRevenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabMonthRevenue.Name = "tabMonthRevenue";
+            this.tabMonthRevenue.Size = new System.Drawing.Size(955, 646);
+            this.tabMonthRevenue.Text = "BÁO CÁO DOANH THU";
             // 
             // tableLayoutPanel5
             // 
@@ -2117,14 +2117,14 @@
             this.ReportedRoomPercentage.Name = "ReportedRoomPercentage";
             this.ReportedRoomPercentage.ReadOnly = true;
             // 
-            // tabRules
+            // tabRoomRules
             // 
-            this.tabRules.Controls.Add(this.gcEditRule);
-            this.tabRules.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabRules.ImageOptions.Image")));
-            this.tabRules.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabRules.Name = "tabRules";
-            this.tabRules.Size = new System.Drawing.Size(955, 646);
-            this.tabRules.Text = "TÙY CHỈNH";
+            this.tabRoomRules.Controls.Add(this.gcEditRule);
+            this.tabRoomRules.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabRules.ImageOptions.Image")));
+            this.tabRoomRules.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabRoomRules.Name = "tabRoomRules";
+            this.tabRoomRules.Size = new System.Drawing.Size(955, 646);
+            this.tabRoomRules.Text = "TÙY CHỈNH";
             // 
             // gcEditRule
             // 
@@ -2253,6 +2253,22 @@
             this.dgvCustomerType.TabIndex = 0;
             this.dgvCustomerType.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
             // 
+            // EditCustomerTypeID
+            // 
+            this.EditCustomerTypeID.DataPropertyName = "MaLoaiKhach";
+            this.EditCustomerTypeID.HeaderText = "MÃ LOẠI KHÁCH";
+            this.EditCustomerTypeID.Name = "EditCustomerTypeID";
+            this.EditCustomerTypeID.ReadOnly = true;
+            this.EditCustomerTypeID.Visible = false;
+            // 
+            // EditCustomerTypeName
+            // 
+            this.EditCustomerTypeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.EditCustomerTypeName.DataPropertyName = "TenLoaiKhach";
+            this.EditCustomerTypeName.HeaderText = "LOẠI KHÁCH";
+            this.EditCustomerTypeName.Name = "EditCustomerTypeName";
+            this.EditCustomerTypeName.ReadOnly = true;
+            // 
             // gcRoomTypeList
             // 
             this.gcRoomTypeList.Controls.Add(this.dgvRoomType);
@@ -2305,13 +2321,13 @@
             this.tableLayoutPanel6.SetColumnSpan(this.panelEditRules, 2);
             this.panelEditRules.Controls.Add(this.lbMaxCustomerRule);
             this.panelEditRules.Controls.Add(this.lbMaxCustomerValue);
-            this.panelEditRules.Controls.Add(this.lbForeignCustomerTaxValue);
-            this.panelEditRules.Controls.Add(this.lbOverCustomerTaxValue);
+            this.panelEditRules.Controls.Add(this.lbForeignCustomerSurchargeValue);
+            this.panelEditRules.Controls.Add(this.lbAdditionalCustomerSurchargeValue);
             this.panelEditRules.Controls.Add(this.btnEditMaxCustomerRule);
-            this.panelEditRules.Controls.Add(this.btnEditForeignCustomerTax);
-            this.panelEditRules.Controls.Add(this.lbForeignCustomerTax);
-            this.panelEditRules.Controls.Add(this.btnEditThirdCustomerTax);
-            this.panelEditRules.Controls.Add(this.lbOverCustumerRuleTax);
+            this.panelEditRules.Controls.Add(this.btnEditForeignCustomerSurcharge);
+            this.panelEditRules.Controls.Add(this.lbForeignCustomerSurcharge);
+            this.panelEditRules.Controls.Add(this.btnAdditionalCustomerSurcharge);
+            this.panelEditRules.Controls.Add(this.lbAdditionalCustomerSurcharge);
             this.panelEditRules.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEditRules.Location = new System.Drawing.Point(3, 2);
             this.panelEditRules.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -2345,31 +2361,31 @@
             this.lbMaxCustomerValue.TabIndex = 30;
             this.lbMaxCustomerValue.Text = "?";
             // 
-            // lbForeignCustomerTaxValue
+            // lbForeignCustomerSurchargeValue
             // 
-            this.lbForeignCustomerTaxValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbForeignCustomerTaxValue.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbForeignCustomerTaxValue.Appearance.Options.UseFont = true;
-            this.lbForeignCustomerTaxValue.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbForeignCustomerTaxValue.Location = new System.Drawing.Point(481, 81);
-            this.lbForeignCustomerTaxValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbForeignCustomerTaxValue.Name = "lbForeignCustomerTaxValue";
-            this.lbForeignCustomerTaxValue.Size = new System.Drawing.Size(5, 13);
-            this.lbForeignCustomerTaxValue.TabIndex = 32;
-            this.lbForeignCustomerTaxValue.Text = "?";
+            this.lbForeignCustomerSurchargeValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbForeignCustomerSurchargeValue.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbForeignCustomerSurchargeValue.Appearance.Options.UseFont = true;
+            this.lbForeignCustomerSurchargeValue.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbForeignCustomerSurchargeValue.Location = new System.Drawing.Point(481, 81);
+            this.lbForeignCustomerSurchargeValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbForeignCustomerSurchargeValue.Name = "lbForeignCustomerSurchargeValue";
+            this.lbForeignCustomerSurchargeValue.Size = new System.Drawing.Size(5, 13);
+            this.lbForeignCustomerSurchargeValue.TabIndex = 32;
+            this.lbForeignCustomerSurchargeValue.Text = "?";
             // 
-            // lbOverCustomerTaxValue
+            // lbAdditionalCustomerSurchargeValue
             // 
-            this.lbOverCustomerTaxValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbOverCustomerTaxValue.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbOverCustomerTaxValue.Appearance.Options.UseFont = true;
-            this.lbOverCustomerTaxValue.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbOverCustomerTaxValue.Location = new System.Drawing.Point(448, 51);
-            this.lbOverCustomerTaxValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbOverCustomerTaxValue.Name = "lbOverCustomerTaxValue";
-            this.lbOverCustomerTaxValue.Size = new System.Drawing.Size(5, 13);
-            this.lbOverCustomerTaxValue.TabIndex = 32;
-            this.lbOverCustomerTaxValue.Text = "?";
+            this.lbAdditionalCustomerSurchargeValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbAdditionalCustomerSurchargeValue.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbAdditionalCustomerSurchargeValue.Appearance.Options.UseFont = true;
+            this.lbAdditionalCustomerSurchargeValue.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbAdditionalCustomerSurchargeValue.Location = new System.Drawing.Point(448, 51);
+            this.lbAdditionalCustomerSurchargeValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbAdditionalCustomerSurchargeValue.Name = "lbAdditionalCustomerSurchargeValue";
+            this.lbAdditionalCustomerSurchargeValue.Size = new System.Drawing.Size(5, 13);
+            this.lbAdditionalCustomerSurchargeValue.TabIndex = 32;
+            this.lbAdditionalCustomerSurchargeValue.Text = "?";
             // 
             // btnEditMaxCustomerRule
             // 
@@ -2386,61 +2402,61 @@
             this.btnEditMaxCustomerRule.Text = "THAY ĐỔI";
             this.btnEditMaxCustomerRule.Click += new System.EventHandler(this.BtnEditMaxCustomerRule_Click);
             // 
-            // btnEditForeignCustomerTax
+            // btnEditForeignCustomerSurcharge
             // 
-            this.btnEditForeignCustomerTax.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEditForeignCustomerTax.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("btnEditForeignCustomerTax.Appearance.Image")));
-            this.btnEditForeignCustomerTax.Appearance.Options.UseImage = true;
-            this.btnEditForeignCustomerTax.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditForeignCustomerTax.ImageOptions.Image")));
-            this.btnEditForeignCustomerTax.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnEditForeignCustomerTax.Location = new System.Drawing.Point(526, 74);
-            this.btnEditForeignCustomerTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEditForeignCustomerTax.Name = "btnEditForeignCustomerTax";
-            this.btnEditForeignCustomerTax.Size = new System.Drawing.Size(96, 24);
-            this.btnEditForeignCustomerTax.TabIndex = 2;
-            this.btnEditForeignCustomerTax.Text = "THAY ĐỔI";
-            this.btnEditForeignCustomerTax.Click += new System.EventHandler(this.BtnEditForeignCustomerTax_Click);
+            this.btnEditForeignCustomerSurcharge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEditForeignCustomerSurcharge.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("btnEditForeignCustomerTax.Appearance.Image")));
+            this.btnEditForeignCustomerSurcharge.Appearance.Options.UseImage = true;
+            this.btnEditForeignCustomerSurcharge.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditForeignCustomerTax.ImageOptions.Image")));
+            this.btnEditForeignCustomerSurcharge.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnEditForeignCustomerSurcharge.Location = new System.Drawing.Point(526, 74);
+            this.btnEditForeignCustomerSurcharge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditForeignCustomerSurcharge.Name = "btnEditForeignCustomerSurcharge";
+            this.btnEditForeignCustomerSurcharge.Size = new System.Drawing.Size(96, 24);
+            this.btnEditForeignCustomerSurcharge.TabIndex = 2;
+            this.btnEditForeignCustomerSurcharge.Text = "THAY ĐỔI";
+            this.btnEditForeignCustomerSurcharge.Click += new System.EventHandler(this.BtnEditForeignCustomerTax_Click);
             // 
-            // lbForeignCustomerTax
+            // lbForeignCustomerSurcharge
             // 
-            this.lbForeignCustomerTax.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbForeignCustomerTax.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbForeignCustomerTax.Appearance.Options.UseFont = true;
-            this.lbForeignCustomerTax.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbForeignCustomerTax.Location = new System.Drawing.Point(322, 81);
-            this.lbForeignCustomerTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbForeignCustomerTax.Name = "lbForeignCustomerTax";
-            this.lbForeignCustomerTax.Size = new System.Drawing.Size(153, 13);
-            this.lbForeignCustomerTax.TabIndex = 31;
-            this.lbForeignCustomerTax.Text = "PHỤ THU KHÁCH NƯỚC NGOÀI:";
+            this.lbForeignCustomerSurcharge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbForeignCustomerSurcharge.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbForeignCustomerSurcharge.Appearance.Options.UseFont = true;
+            this.lbForeignCustomerSurcharge.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbForeignCustomerSurcharge.Location = new System.Drawing.Point(322, 81);
+            this.lbForeignCustomerSurcharge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbForeignCustomerSurcharge.Name = "lbForeignCustomerSurcharge";
+            this.lbForeignCustomerSurcharge.Size = new System.Drawing.Size(153, 13);
+            this.lbForeignCustomerSurcharge.TabIndex = 31;
+            this.lbForeignCustomerSurcharge.Text = "PHỤ THU KHÁCH NƯỚC NGOÀI:";
             // 
-            // btnEditThirdCustomerTax
+            // btnAdditionalCustomerSurcharge
             // 
-            this.btnEditThirdCustomerTax.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEditThirdCustomerTax.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("btnEditThirdCustomerTax.Appearance.Image")));
-            this.btnEditThirdCustomerTax.Appearance.Options.UseImage = true;
-            this.btnEditThirdCustomerTax.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditThirdCustomerTax.ImageOptions.Image")));
-            this.btnEditThirdCustomerTax.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnEditThirdCustomerTax.Location = new System.Drawing.Point(526, 44);
-            this.btnEditThirdCustomerTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEditThirdCustomerTax.Name = "btnEditThirdCustomerTax";
-            this.btnEditThirdCustomerTax.Size = new System.Drawing.Size(96, 24);
-            this.btnEditThirdCustomerTax.TabIndex = 2;
-            this.btnEditThirdCustomerTax.Text = "THAY ĐỔI";
-            this.btnEditThirdCustomerTax.Click += new System.EventHandler(this.BtnEditThirdCustomerTax_Click);
+            this.btnAdditionalCustomerSurcharge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAdditionalCustomerSurcharge.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("btnEditThirdCustomerTax.Appearance.Image")));
+            this.btnAdditionalCustomerSurcharge.Appearance.Options.UseImage = true;
+            this.btnAdditionalCustomerSurcharge.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditThirdCustomerTax.ImageOptions.Image")));
+            this.btnAdditionalCustomerSurcharge.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnAdditionalCustomerSurcharge.Location = new System.Drawing.Point(526, 44);
+            this.btnAdditionalCustomerSurcharge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdditionalCustomerSurcharge.Name = "btnAdditionalCustomerSurcharge";
+            this.btnAdditionalCustomerSurcharge.Size = new System.Drawing.Size(96, 24);
+            this.btnAdditionalCustomerSurcharge.TabIndex = 2;
+            this.btnAdditionalCustomerSurcharge.Text = "THAY ĐỔI";
+            this.btnAdditionalCustomerSurcharge.Click += new System.EventHandler(this.BtnEditThirdCustomerTax_Click);
             // 
-            // lbOverCustumerRuleTax
+            // lbAdditionalCustomerSurcharge
             // 
-            this.lbOverCustumerRuleTax.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbOverCustumerRuleTax.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lbOverCustumerRuleTax.Appearance.Options.UseFont = true;
-            this.lbOverCustumerRuleTax.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbOverCustumerRuleTax.Location = new System.Drawing.Point(322, 51);
-            this.lbOverCustumerRuleTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbOverCustumerRuleTax.Name = "lbOverCustumerRuleTax";
-            this.lbOverCustumerRuleTax.Size = new System.Drawing.Size(120, 13);
-            this.lbOverCustumerRuleTax.TabIndex = 31;
-            this.lbOverCustumerRuleTax.Text = "PHỤ THU KHÁCH THỨ 3: ";
+            this.lbAdditionalCustomerSurcharge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbAdditionalCustomerSurcharge.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbAdditionalCustomerSurcharge.Appearance.Options.UseFont = true;
+            this.lbAdditionalCustomerSurcharge.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbAdditionalCustomerSurcharge.Location = new System.Drawing.Point(322, 51);
+            this.lbAdditionalCustomerSurcharge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbAdditionalCustomerSurcharge.Name = "lbAdditionalCustomerSurcharge";
+            this.lbAdditionalCustomerSurcharge.Size = new System.Drawing.Size(120, 13);
+            this.lbAdditionalCustomerSurcharge.TabIndex = 31;
+            this.lbAdditionalCustomerSurcharge.Text = "PHỤ THU KHÁCH THỨ 3: ";
             // 
             // tableLayoutPanel1
             // 
@@ -2529,20 +2545,6 @@
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
             // 
-            // EditCustomerTypeID
-            // 
-            this.EditCustomerTypeID.DataPropertyName = "MaLoaiKhach";
-            this.EditCustomerTypeID.HeaderText = "MÃ LOẠI KHÁCH";
-            this.EditCustomerTypeID.Name = "EditCustomerTypeID";
-            this.EditCustomerTypeID.Visible = false;
-            // 
-            // EditCustomerTypeName
-            // 
-            this.EditCustomerTypeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.EditCustomerTypeName.DataPropertyName = "TenLoaiKhach";
-            this.EditCustomerTypeName.HeaderText = "LOẠI KHÁCH";
-            this.EditCustomerTypeName.Name = "EditCustomerTypeName";
-            // 
             // MainForm
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -2558,6 +2560,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÍ KHÁCH SẠN";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).EndInit();
             this.tcHotelManagement.ResumeLayout(false);
@@ -2572,25 +2575,25 @@
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcListRoomEdit)).EndInit();
             this.gcListRoomEdit.ResumeLayout(false);
-            this.tabNoteRoom.ResumeLayout(false);
+            this.tabRoomLease.ResumeLayout(false);
             this.tlpNoteRoom.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcNoteRoom)).EndInit();
-            this.gcNoteRoom.ResumeLayout(false);
-            this.gcNoteRoom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deNoteRoomDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNoteRoomDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcNoteCustomer)).EndInit();
-            this.gcNoteCustomer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNoteCustomer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcNoteCustomerData)).EndInit();
-            this.gcNoteCustomerData.ResumeLayout(false);
-            this.gcNoteCustomerData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcRoomLease)).EndInit();
+            this.gcRoomLease.ResumeLayout(false);
+            this.gcRoomLease.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deLeaseRoomDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deLeaseRoomDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcLeaseCustomerData)).EndInit();
+            this.gcLeaseCustomerData.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeaseCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcCustomerLease)).EndInit();
+            this.gcCustomerLease.ResumeLayout(false);
+            this.gcCustomerLease.PerformLayout();
             this.panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcEditNoteCustomer)).EndInit();
-            this.gcEditNoteCustomer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcEditCustomer)).EndInit();
+            this.gcEditCustomer.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.tabFindRoom.ResumeLayout(false);
+            this.tabRoomFind.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcFindRoomData)).EndInit();
             this.gcFindRoomData.ResumeLayout(false);
@@ -2601,7 +2604,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcRoomList)).EndInit();
             this.gcRoomList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFindRoom)).EndInit();
-            this.tabBillRoom.ResumeLayout(false);
+            this.tabRoomBill.ResumeLayout(false);
             this.gcBillCreate_4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcBill)).EndInit();
             this.gcBill.ResumeLayout(false);
@@ -2621,7 +2624,7 @@
             this.gcAddBillRoom.ResumeLayout(false);
             this.gcAddBillRoom.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.tabRevenueRoom.ResumeLayout(false);
+            this.tabMonthRevenue.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcRevenueSelect)).EndInit();
             this.gcRevenueSelect.ResumeLayout(false);
@@ -2630,7 +2633,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcRevenueList)).EndInit();
             this.gcRevenueList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenueList)).EndInit();
-            this.tabRules.ResumeLayout(false);
+            this.tabRoomRules.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcEditRule)).EndInit();
             this.gcEditRule.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -2652,9 +2655,9 @@
 
         private DevExpress.XtraTab.XtraTabControl tcHotelManagement;
         private DevExpress.XtraTab.XtraTabPage tabListRoom;
-        private DevExpress.XtraTab.XtraTabPage tabFindRoom;
-        private DevExpress.XtraTab.XtraTabPage tabBillRoom;
-        private DevExpress.XtraTab.XtraTabPage tabRevenueRoom;
+        private DevExpress.XtraTab.XtraTabPage tabRoomFind;
+        private DevExpress.XtraTab.XtraTabPage tabRoomBill;
+        private DevExpress.XtraTab.XtraTabPage tabMonthRevenue;
         private System.Windows.Forms.TableLayoutPanel tlpListRoom;
         private DevExpress.XtraEditors.GroupControl gcRoomData;
         private DevExpress.XtraEditors.GroupControl gcListRoom;
@@ -2684,7 +2687,7 @@
         private DevExpress.XtraEditors.GroupControl gcRevenueList;
         private System.Windows.Forms.DataGridView dgvRevenueList;
         private System.Windows.Forms.NumericUpDown nudRevenue;
-        private DevExpress.XtraTab.XtraTabPage tabRules;
+        private DevExpress.XtraTab.XtraTabPage tabRoomRules;
         private DevExpress.XtraEditors.GroupControl gcEditRule;
         private DevExpress.XtraEditors.SimpleButton simpleButton19;
         private DevExpress.XtraEditors.SimpleButton simpleButton18;
@@ -2744,46 +2747,46 @@
         private DevExpress.XtraEditors.GroupControl gcListRoomEdit;
         private DevExpress.XtraEditors.SimpleButton btnEditRoom;
         private DevExpress.XtraEditors.SimpleButton btnDelRoom;
-        private DevExpress.XtraTab.XtraTabPage tabNoteRoom;
+        private DevExpress.XtraTab.XtraTabPage tabRoomLease;
         private System.Windows.Forms.TableLayoutPanel tlpNoteRoom;
         private System.Windows.Forms.Panel panel4;
         private DevExpress.XtraEditors.SimpleButton btnCancelNote;
-        private DevExpress.XtraEditors.GroupControl gcNoteRoom;
-        private System.Windows.Forms.TextBox tbNoteRoomPrice;
-        private System.Windows.Forms.ComboBox cbNoteRoomID;
+        private DevExpress.XtraEditors.GroupControl gcRoomLease;
+        private System.Windows.Forms.TextBox tbLeaseRoomPrice;
+        private System.Windows.Forms.ComboBox cbLeaseRoomID;
         private DevExpress.XtraEditors.LabelControl lbNoteRoomID;
-        private DevExpress.XtraEditors.DateEdit deNoteRoomDate;
+        private DevExpress.XtraEditors.DateEdit deLeaseRoomDate;
         private DevExpress.XtraEditors.LabelControl lbNoteRoomPrice;
         private DevExpress.XtraEditors.LabelControl lbNoteRoomDate;
-        private DevExpress.XtraEditors.SimpleButton btnLockNoteRoom;
-        private DevExpress.XtraEditors.GroupControl gcNoteCustomer;
-        private System.Windows.Forms.DataGridView dgvNoteCustomer;
-        private DevExpress.XtraEditors.GroupControl gcNoteCustomerData;
-        private System.Windows.Forms.TextBox tbNoteCustomerType;
-        private System.Windows.Forms.TextBox tbNoteCustomerPassport;
-        private DevExpress.XtraEditors.LabelControl lbNoteCustomerAddress;
-        private System.Windows.Forms.TextBox tbNoteCustomerName;
-        private System.Windows.Forms.RichTextBox rtbNoteCustomerAddress;
-        private DevExpress.XtraEditors.LabelControl lbNoteCustomerPassport;
-        private DevExpress.XtraEditors.LabelControl lbNoteCustomerName;
-        private DevExpress.XtraEditors.LabelControl lbNoteCustomerType;
+        private DevExpress.XtraEditors.SimpleButton btnLockRoom;
+        private DevExpress.XtraEditors.GroupControl gcLeaseCustomerData;
+        private System.Windows.Forms.DataGridView dgvLeaseCustomer;
+        private DevExpress.XtraEditors.GroupControl gcCustomerLease;
+        private System.Windows.Forms.TextBox tbCustomerType;
+        private System.Windows.Forms.TextBox tbCustomerPassport;
+        private DevExpress.XtraEditors.LabelControl lbCustomerAddress;
+        private System.Windows.Forms.TextBox tbCustomerName;
+        private System.Windows.Forms.RichTextBox rtbCustomerAddress;
+        private DevExpress.XtraEditors.LabelControl lbCustomerPassport;
+        private DevExpress.XtraEditors.LabelControl lbCustomerName;
+        private DevExpress.XtraEditors.LabelControl lbCustomerType;
         private System.Windows.Forms.Panel panel9;
-        private DevExpress.XtraEditors.GroupControl gcEditNoteCustomer;
-        private DevExpress.XtraEditors.SimpleButton btnEditNoteCustomer;
-        private DevExpress.XtraEditors.SimpleButton btnDelNoteCustomer;
-        private DevExpress.XtraEditors.SimpleButton btnAddNoteCustomer;
+        private DevExpress.XtraEditors.GroupControl gcEditCustomer;
+        private DevExpress.XtraEditors.SimpleButton btnEditCustomer;
+        private DevExpress.XtraEditors.SimpleButton btnDelCustomer;
+        private DevExpress.XtraEditors.SimpleButton btnAddCustomer;
         private System.Windows.Forms.Panel panel5;
         private DevExpress.XtraEditors.SimpleButton btnCreateNote;
         private System.Windows.Forms.Panel panelEditRules;
         private DevExpress.XtraEditors.LabelControl lbMaxCustomerRule;
         private DevExpress.XtraEditors.LabelControl lbMaxCustomerValue;
-        private DevExpress.XtraEditors.LabelControl lbForeignCustomerTaxValue;
-        private DevExpress.XtraEditors.LabelControl lbOverCustomerTaxValue;
+        private DevExpress.XtraEditors.LabelControl lbForeignCustomerSurchargeValue;
+        private DevExpress.XtraEditors.LabelControl lbAdditionalCustomerSurchargeValue;
         private DevExpress.XtraEditors.SimpleButton btnEditMaxCustomerRule;
-        private DevExpress.XtraEditors.SimpleButton btnEditForeignCustomerTax;
-        private DevExpress.XtraEditors.LabelControl lbForeignCustomerTax;
-        private DevExpress.XtraEditors.SimpleButton btnEditThirdCustomerTax;
-        private DevExpress.XtraEditors.LabelControl lbOverCustumerRuleTax;
+        private DevExpress.XtraEditors.SimpleButton btnEditForeignCustomerSurcharge;
+        private DevExpress.XtraEditors.LabelControl lbForeignCustomerSurcharge;
+        private DevExpress.XtraEditors.SimpleButton btnAdditionalCustomerSurcharge;
+        private DevExpress.XtraEditors.LabelControl lbAdditionalCustomerSurcharge;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private DevExpress.XtraEditors.SimpleButton btnEditCustomerType;
         private DevExpress.XtraEditors.SimpleButton btnDelCustomerType;

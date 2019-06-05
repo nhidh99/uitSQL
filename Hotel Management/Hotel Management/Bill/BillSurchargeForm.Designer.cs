@@ -1,6 +1,6 @@
 ﻿namespace GUI.Bill
 {
-    partial class BillTaxForm
+    partial class BillSurchargeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillTaxForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillSurchargeForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.imgAddRoomType = new DevExpress.XtraEditors.LabelControl();
-            this.lbEditRoomType = new DevExpress.XtraEditors.LabelControl();
-            this.dgvTaxDetail = new System.Windows.Forms.DataGridView();
+            this.lbEditSurchargeDetail = new DevExpress.XtraEditors.LabelControl();
+            this.dgvSurchargeDetail = new System.Windows.Forms.DataGridView();
             this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OverCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ForeignCustomerTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalCustomerSurcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ForeignCustomerSurcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalSurcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTaxDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSurchargeDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dgvTaxDetail, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dgvSurchargeDetail, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -77,7 +77,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.imgAddRoomType);
-            this.panel1.Controls.Add(this.lbEditRoomType);
+            this.panel1.Controls.Add(this.lbEditSurchargeDetail);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -99,36 +99,36 @@
             this.imgAddRoomType.Size = new System.Drawing.Size(32, 32);
             this.imgAddRoomType.TabIndex = 71;
             // 
-            // lbEditRoomType
+            // lbEditSurchargeDetail
             // 
-            this.lbEditRoomType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbEditRoomType.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
-            this.lbEditRoomType.Appearance.Options.UseFont = true;
-            this.lbEditRoomType.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbEditRoomType.Location = new System.Drawing.Point(269, 22);
-            this.lbEditRoomType.Margin = new System.Windows.Forms.Padding(2);
-            this.lbEditRoomType.Name = "lbEditRoomType";
-            this.lbEditRoomType.Size = new System.Drawing.Size(187, 24);
-            this.lbEditRoomType.TabIndex = 70;
-            this.lbEditRoomType.Text = "CHI TIẾT PHỤ THU";
+            this.lbEditSurchargeDetail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbEditSurchargeDetail.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
+            this.lbEditSurchargeDetail.Appearance.Options.UseFont = true;
+            this.lbEditSurchargeDetail.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.lbEditSurchargeDetail.Location = new System.Drawing.Point(269, 22);
+            this.lbEditSurchargeDetail.Margin = new System.Windows.Forms.Padding(2);
+            this.lbEditSurchargeDetail.Name = "lbEditSurchargeDetail";
+            this.lbEditSurchargeDetail.Size = new System.Drawing.Size(187, 24);
+            this.lbEditSurchargeDetail.TabIndex = 70;
+            this.lbEditSurchargeDetail.Text = "CHI TIẾT PHỤ THU";
             // 
-            // dgvTaxDetail
+            // dgvSurchargeDetail
             // 
-            this.dgvTaxDetail.AllowUserToAddRows = false;
-            this.dgvTaxDetail.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvTaxDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTaxDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvSurchargeDetail.AllowUserToAddRows = false;
+            this.dgvSurchargeDetail.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvSurchargeDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSurchargeDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomID,
-            this.OverCustomerTax,
-            this.ForeignCustomerTax,
-            this.TotalTax});
-            this.dgvTaxDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTaxDetail.Location = new System.Drawing.Point(3, 69);
-            this.dgvTaxDetail.Name = "dgvTaxDetail";
-            this.dgvTaxDetail.Size = new System.Drawing.Size(678, 188);
-            this.dgvTaxDetail.TabIndex = 1;
-            this.dgvTaxDetail.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DgvTaxDetail_RowPostPaint);
-            this.dgvTaxDetail.SelectionChanged += new System.EventHandler(this.DgvTaxDetail_SelectionChanged);
+            this.AdditionalCustomerSurcharge,
+            this.ForeignCustomerSurcharge,
+            this.TotalSurcharge});
+            this.dgvSurchargeDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSurchargeDetail.Location = new System.Drawing.Point(3, 69);
+            this.dgvSurchargeDetail.Name = "dgvSurchargeDetail";
+            this.dgvSurchargeDetail.Size = new System.Drawing.Size(678, 188);
+            this.dgvSurchargeDetail.TabIndex = 1;
+            this.dgvSurchargeDetail.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DgvSurchargeDetail_RowPostPaint);
+            this.dgvSurchargeDetail.SelectionChanged += new System.EventHandler(this.DgvSurchargeDetail_SelectionChanged);
             // 
             // RoomID
             // 
@@ -138,28 +138,28 @@
             this.RoomID.Name = "RoomID";
             this.RoomID.Width = 71;
             // 
-            // OverCustomerTax
+            // AdditionalCustomerSurcharge
             // 
-            this.OverCustomerTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.OverCustomerTax.DataPropertyName = "PhuThuKhachThem";
-            this.OverCustomerTax.HeaderText = "KHÁCH THÊM (VND)";
-            this.OverCustomerTax.Name = "OverCustomerTax";
+            this.AdditionalCustomerSurcharge.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AdditionalCustomerSurcharge.DataPropertyName = "PhuThuKhachThem";
+            this.AdditionalCustomerSurcharge.HeaderText = "KHÁCH THÊM (VND)";
+            this.AdditionalCustomerSurcharge.Name = "AdditionalCustomerSurcharge";
             // 
-            // ForeignCustomerTax
+            // ForeignCustomerSurcharge
             // 
-            this.ForeignCustomerTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ForeignCustomerTax.DataPropertyName = "PhuThuKhachNuocNgoai";
-            this.ForeignCustomerTax.HeaderText = "KHÁCH NƯỚC NGOÀI (VND)";
-            this.ForeignCustomerTax.Name = "ForeignCustomerTax";
+            this.ForeignCustomerSurcharge.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ForeignCustomerSurcharge.DataPropertyName = "PhuThuKhachNuocNgoai";
+            this.ForeignCustomerSurcharge.HeaderText = "KHÁCH NƯỚC NGOÀI (VND)";
+            this.ForeignCustomerSurcharge.Name = "ForeignCustomerSurcharge";
             // 
-            // TotalTax
+            // TotalSurcharge
             // 
-            this.TotalTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TotalTax.DataPropertyName = "TongPhuThu";
-            this.TotalTax.HeaderText = "TỔNG PHỤ THU (VND)";
-            this.TotalTax.Name = "TotalTax";
+            this.TotalSurcharge.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TotalSurcharge.DataPropertyName = "TongPhuThu";
+            this.TotalSurcharge.HeaderText = "TỔNG PHỤ THU (VND)";
+            this.TotalSurcharge.Name = "TotalSurcharge";
             // 
-            // BillTaxForm
+            // BillSurchargeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -168,14 +168,14 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(700, 350);
             this.MinimumSize = new System.Drawing.Size(700, 350);
-            this.Name = "BillTaxForm";
+            this.Name = "BillSurchargeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CHI TIẾT PHỤ THU";
-            this.Load += new System.EventHandler(this.BillTaxForm_Load);
+            this.Load += new System.EventHandler(this.BillSurchargeForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTaxDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSurchargeDetail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -185,12 +185,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.LabelControl imgAddRoomType;
-        private DevExpress.XtraEditors.LabelControl lbEditRoomType;
-        private System.Windows.Forms.DataGridView dgvTaxDetail;
+        private DevExpress.XtraEditors.LabelControl lbEditSurchargeDetail;
+        private System.Windows.Forms.DataGridView dgvSurchargeDetail;
         private DevExpress.XtraEditors.SimpleButton btnClose;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OverCustomerTax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ForeignCustomerTax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AdditionalCustomerSurcharge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ForeignCustomerSurcharge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalSurcharge;
     }
 }

@@ -395,3 +395,15 @@ BEGIN
 	END
 END
 GO
+
+-- ĐĂNG NHẬP
+CREATE PROCEDURE DangNhapCSDL
+	@TenDangNhap varchar(30),
+	@MatKhau varchar(30)
+AS
+BEGIN	
+SELECT PhanQuyen FROM PhanQuyen
+	WHERE TenDangNhap = @TenDangNhap
+	AND MatKhau = @MatKhau
+END
+GO

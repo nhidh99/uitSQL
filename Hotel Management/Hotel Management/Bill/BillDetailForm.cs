@@ -1,7 +1,6 @@
 ﻿using BUS;
 using DTO;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
@@ -10,7 +9,7 @@ namespace GUI.Bill
 {
     public partial class BillDetailForm : Form
     {
-        Int64 TotalTax = 0;
+        Int64 TotalSurcharge = 0;
         Int64 TotalPrice = 0;
 
         public BillDetailForm()
@@ -25,10 +24,10 @@ namespace GUI.Bill
             this.Close();
         }
 
-        private void BtnTaxDetail_Click(object sender, EventArgs e)
+        private void BtnSurchargeDetail_Click(object sender, EventArgs e)
         {
-            var TaxForm = new BillTaxForm();
-            TaxForm.ShowDialog(this);
+            var SurchargeForm = new BillSurchargeForm();
+            SurchargeForm.ShowDialog(this);
         }
 
         private void BillDetailForm_Load(object sender, EventArgs e)
@@ -56,7 +55,7 @@ namespace GUI.Bill
                         case 3:
                         case 4:
                             {
-                                TotalTax += Int64.Parse(rowData[i].ToString().Replace(",", ""));
+                                TotalSurcharge += Int64.Parse(rowData[i].ToString().Replace(",", ""));
                                 break;
                             }
 
@@ -72,7 +71,7 @@ namespace GUI.Bill
             }
 
             // Tính toán thông tin thanh toán
-            this.tbBillTax.Text = TotalTax.ToString("N0");
+            this.tbBillSurcharge.Text = TotalSurcharge.ToString("N0");
             this.tbBillPrice.Text = TotalPrice.ToString("N0");
             this.tbChange.Text = "-" + this.tbBillPrice.Text;
         }

@@ -30,6 +30,18 @@ namespace GUI
             this.ReLoadBillRoom();
             this.ReLoadRuleRoom();
         }
+        
+        // Hide Room Rule Edit when access is not admin
+        public void HideRoomRuleEdit()
+        {
+            this.tcHotelManagement.TabPages.Remove(tabRoomRules);
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var loginForm = (LoginForm)Owner;
+            loginForm.Dispose();
+        }
 
         // Auto numbering first columns in DataGrid
         private void dataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -137,23 +149,23 @@ namespace GUI
         // Tab 02: Room Note
         public void ReLoadAvailableRoom()
         {
-            this.cbNoteRoomID.Items.Clear();
-            this.deNoteRoomDate.Text = DateTime.Now.ToString();
+            this.cbLeaseRoomID.Items.Clear();
+            this.deLeaseRoomDate.Text = DateTime.Now.ToString();
 
             var dt = RoomBUS.GetAvailableRoomList();
             if (dt.Rows.Count != 0)
             {
                 foreach (DataRow dr in dt.Rows)
                 {
-                    this.cbNoteRoomID.Items.Add(dr["MaPhong"]);
+                    this.cbLeaseRoomID.Items.Add(dr["MaPhong"]);
                 }
-                this.cbNoteRoomID.SelectedIndex = 0;
+                this.cbLeaseRoomID.SelectedIndex = 0;
             }
         }
 
         public void AddCustomer(RoomLeaseDetailDTO customer)
         {
-            this.dgvNoteCustomer.Rows.Add(
+            this.dgvLeaseCustomer.Rows.Add(
                 customer.CustomerName,
                 customer.CustomerTypeID,
                 CustomerTypeBUS.GetCustomerTypeByID(customer.CustomerTypeID),
@@ -163,41 +175,41 @@ namespace GUI
 
         public void EditCustomer(RoomLeaseDetailDTO customer)
         {
-            this.dgvNoteCustomer.CurrentRow.SetValues(
+            this.dgvLeaseCustomer.CurrentRow.SetValues(
                 customer.CustomerName,
                 customer.CustomerTypeID,
                 CustomerTypeBUS.GetCustomerTypeByID(customer.CustomerTypeID),
                 customer.CustomerPassportID,
                 customer.CustomerAddress);
 
-            var row = this.dgvNoteCustomer.CurrentRow;
-            this.tbNoteCustomerName.Text = row.Cells["CustomerName"].Value.ToString();
-            this.tbNoteCustomerPassport.Text = row.Cells["CustomerPassportID"].Value.ToString();
-            this.tbNoteCustomerType.Text = row.Cells["CustomerType"].Value.ToString();
-            this.rtbNoteCustomerAddress.Text = row.Cells["CustomerAddress"].Value.ToString();
+            var row = this.dgvLeaseCustomer.CurrentRow;
+            this.tbCustomerName.Text = row.Cells["CustomerName"].Value.ToString();
+            this.tbCustomerPassport.Text = row.Cells["CustomerPassportID"].Value.ToString();
+            this.tbCustomerType.Text = row.Cells["CustomerType"].Value.ToString();
+            this.rtbCustomerAddress.Text = row.Cells["CustomerAddress"].Value.ToString();
         }
 
         public RoomLeaseDetailDTO GetSelectedCustomer()
         {
             var detail = new RoomLeaseDetailDTO();
-            detail.CustomerName = tbNoteCustomerName.Text;
-            detail.CustomerPassportID = tbNoteCustomerPassport.Text;
-            detail.CustomerAddress = rtbNoteCustomerAddress.Text;
-            detail.CustomerTypeID = Convert.ToInt32(dgvNoteCustomer.CurrentRow.Cells["CustomerTypeID"].Value);
+            detail.CustomerName = tbCustomerName.Text;
+            detail.CustomerPassportID = tbCustomerPassport.Text;
+            detail.CustomerAddress = rtbCustomerAddress.Text;
+            detail.CustomerTypeID = Convert.ToInt32(dgvLeaseCustomer.CurrentRow.Cells["CustomerTypeID"].Value);
             return detail;
         }
 
         public RoomLeaseDTO GetRoomLease()
         {
             var lease = new RoomLeaseDTO();
-            lease.RoomID = cbNoteRoomID.Text;
+            lease.RoomID = cbLeaseRoomID.Text;
             lease.RoomTypeID = RoomTypeBUS.GetRoomTypeByID(lease.RoomID);
-            lease.LeaseDate = DateTime.ParseExact(deNoteRoomDate.Text, "d/M/yyyy", CultureInfo.InvariantCulture).ToString("d");
-            lease.RoomPrice = Convert.ToInt64(tbNoteRoomPrice.Text.Split()[0].Replace(",", ""));
+            lease.LeaseDate = DateTime.ParseExact(deLeaseRoomDate.Text, "d/M/yyyy", CultureInfo.InvariantCulture).ToString("d");
+            lease.RoomPrice = Convert.ToInt64(tbLeaseRoomPrice.Text.Split()[0].Replace(",", ""));
             return lease;
         }
 
-        public DataGridViewRowCollection GetAllRowsCustomerInNote() => this.dgvNoteCustomer.Rows;
+        public DataGridViewRowCollection GetAllRowsCustomerInNote() => this.dgvLeaseCustomer.Rows;
 
         private void LoadSelectedCustomer(DataGridViewRow row)
         {
@@ -205,17 +217,17 @@ namespace GUI
 
         private void CbNoteRoomID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var price = RoomTypeBUS.GetRoomPriceByID(cbNoteRoomID.Text);
-            this.tbNoteRoomPrice.Text = price.ToString("N0") + " VND";
+            var price = RoomTypeBUS.GetRoomPriceByID(cbLeaseRoomID.Text);
+            this.tbLeaseRoomPrice.Text = price.ToString("N0") + " VND";
         }
 
         private void BtnLockNoteRoom_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(this.cbNoteRoomID.Text))
+            if (!string.IsNullOrEmpty(this.cbLeaseRoomID.Text))
             {
-                this.btnLockNoteRoom.Enabled = false;
+                this.btnLockRoom.Enabled = false;
             }
-            else if (this.cbNoteRoomID.Items.Count == 0)
+            else if (this.cbLeaseRoomID.Items.Count == 0)
             {
                 MessageBox.Show(
                     "Không còn phòng trống",
@@ -227,31 +239,31 @@ namespace GUI
 
         private void BtnLockNoteRoom_EnabledChanged(object sender, EventArgs e)
         {
-            if (this.btnLockNoteRoom.Enabled == true)
+            if (this.btnLockRoom.Enabled == true)
             {
                 this.btnCancelNote.Enabled = false;
-                this.btnAddNoteCustomer.Enabled = false;
-                this.btnDelNoteCustomer.Enabled = false;
-                this.btnEditNoteCustomer.Enabled = false;
-                this.cbNoteRoomID.Enabled = true;
-                this.deNoteRoomDate.Enabled = true;
-                this.gcNoteCustomer.Text = "DANH SÁCH KHÁCH";
-                this.deNoteRoomDate.Text = DateTime.Now.ToString();
-                this.dgvNoteCustomer.Rows.Clear();
+                this.btnAddCustomer.Enabled = false;
+                this.btnDelCustomer.Enabled = false;
+                this.btnEditCustomer.Enabled = false;
+                this.cbLeaseRoomID.Enabled = true;
+                this.deLeaseRoomDate.Enabled = true;
+                this.gcLeaseCustomerData.Text = "DANH SÁCH KHÁCH";
+                this.deLeaseRoomDate.Text = DateTime.Now.ToString();
+                this.dgvLeaseCustomer.Rows.Clear();
             }
             else
             {
-                this.btnAddNoteCustomer.Enabled = true;
-                this.cbNoteRoomID.Enabled = false;
-                this.deNoteRoomDate.Enabled = false;
+                this.btnAddCustomer.Enabled = true;
+                this.cbLeaseRoomID.Enabled = false;
+                this.deLeaseRoomDate.Enabled = false;
                 this.btnCancelNote.Enabled = true;
-                this.gcNoteCustomer.Text += " [PHÒNG: " + cbNoteRoomID.Text + " - NGÀY THUÊ: " + deNoteRoomDate.Text + "]";
+                this.gcLeaseCustomerData.Text += " [PHÒNG: " + cbLeaseRoomID.Text + " - NGÀY THUÊ: " + deLeaseRoomDate.Text + "]";
             }
         }
 
         private void BtnAddNoteCustomer_Click(object sender, EventArgs e)
         {
-            if (this.dgvNoteCustomer.Rows.Count == RoomBUS.GetMaxCustomerInRoom())
+            if (this.dgvLeaseCustomer.Rows.Count == RoomBUS.GetMaxCustomerInRoom())
             {
                 MessageBox.Show(
                     "Số khách trong phòng đã đạt mức tối đa!",
@@ -269,7 +281,7 @@ namespace GUI
 
         private void BtnDelNoteCustomer_Click(object sender, EventArgs e)
         {
-            var customerName = dgvNoteCustomer.CurrentRow.Cells["CustomerName"].Value.ToString();
+            var customerName = dgvLeaseCustomer.CurrentRow.Cells["CustomerName"].Value.ToString();
             var dialogResult = MessageBox.Show(
                 "Bạn có muốn xoá khách \"" + customerName + "\"?",
                 "XÁC NHẬN XOÁ KHÁCH",
@@ -284,7 +296,7 @@ namespace GUI
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                this.dgvNoteCustomer.Rows.Remove(this.dgvNoteCustomer.CurrentRow);
+                this.dgvLeaseCustomer.Rows.Remove(this.dgvLeaseCustomer.CurrentRow);
             }
         }
 
@@ -306,7 +318,7 @@ namespace GUI
         private void BtnCancelNote_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show(
-                "Bạn có muốn huỷ lập phiếu thuê phòng " + cbNoteRoomID.Text + "?",
+                "Bạn có muốn huỷ lập phiếu thuê phòng " + cbLeaseRoomID.Text + "?",
                 "XÁC NHẬN HUỶ LẬP PHIẾU",
                  MessageBoxButtons.YesNo,
                  MessageBoxIcon.Question);
@@ -314,39 +326,39 @@ namespace GUI
             if (dialogResult == DialogResult.Yes)
             {
                 MessageBox.Show(
-                    "Huỷ lập phiếu thuê phòng " + cbNoteRoomID.Text + " thành công",
+                    "Huỷ lập phiếu thuê phòng " + cbLeaseRoomID.Text + " thành công",
                     "HUỶ PHIẾU THUÊ THÀNH CÔNG",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                this.btnLockNoteRoom.Enabled = true;
+                this.btnLockRoom.Enabled = true;
             }
         }
 
         public void ReCreateNote()
         {
-            this.btnLockNoteRoom.Enabled = true;
+            this.btnLockRoom.Enabled = true;
         }
 
         private void DgvNoteCustomer_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            this.btnDelNoteCustomer.Enabled = true;
-            this.btnEditNoteCustomer.Enabled = true;
+            this.btnDelCustomer.Enabled = true;
+            this.btnEditCustomer.Enabled = true;
             this.btnCreateNote.Enabled = true;
             this.btnCancelNote.Enabled = true;
         }
 
         private void DgvNoteCustomer_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-            if (this.dgvNoteCustomer.Rows.Count == 0)
+            if (this.dgvLeaseCustomer.Rows.Count == 0)
             {
-                this.btnDelNoteCustomer.Enabled = false;
-                this.btnEditNoteCustomer.Enabled = false;
+                this.btnDelCustomer.Enabled = false;
+                this.btnEditCustomer.Enabled = false;
                 this.btnCreateNote.Enabled = false;
-                this.tbNoteCustomerName.Text = null;
-                this.tbNoteCustomerPassport.Text = null;
-                this.tbNoteCustomerType.Text = null;
-                this.rtbNoteCustomerAddress.Text = null;
+                this.tbCustomerName.Text = null;
+                this.tbCustomerPassport.Text = null;
+                this.tbCustomerType.Text = null;
+                this.rtbCustomerAddress.Text = null;
             }
         }
 
@@ -354,11 +366,11 @@ namespace GUI
         {
             if (e.RowIndex >= 0)
             {
-                var row = this.dgvNoteCustomer.CurrentRow;
-                this.tbNoteCustomerName.Text = row.Cells["CustomerName"].Value.ToString();
-                this.tbNoteCustomerPassport.Text = row.Cells["CustomerPassportID"].Value.ToString();
-                this.tbNoteCustomerType.Text = row.Cells["CustomerType"].Value.ToString();
-                this.rtbNoteCustomerAddress.Text = row.Cells["CustomerAddress"].Value.ToString();
+                var row = this.dgvLeaseCustomer.CurrentRow;
+                this.tbCustomerName.Text = row.Cells["CustomerName"].Value.ToString();
+                this.tbCustomerPassport.Text = row.Cells["CustomerPassportID"].Value.ToString();
+                this.tbCustomerType.Text = row.Cells["CustomerType"].Value.ToString();
+                this.rtbCustomerAddress.Text = row.Cells["CustomerAddress"].Value.ToString();
             }
         }
 
@@ -366,7 +378,7 @@ namespace GUI
         {
             if (e.RowIndex >= 0)
             {
-                this.LoadSelectedCustomer(dgvNoteCustomer.CurrentRow);
+                this.LoadSelectedCustomer(dgvLeaseCustomer.CurrentRow);
             }
         }
 
@@ -734,8 +746,8 @@ namespace GUI
         private void ReLoadRuleRoom()
         {
             this.lbMaxCustomerValue.Text = RoomBUS.GetMaxCustomerInRoom().ToString();
-            this.lbOverCustomerTaxValue.Text = RoomLeaseBUS.GetOverCustomerTaxPercent().ToString() + "%";
-            this.lbForeignCustomerTaxValue.Text = RoomLeaseBUS.GetForeignCustomerTaxPercent().ToString() + "%";
+            this.lbAdditionalCustomerSurchargeValue.Text = RoomLeaseBUS.GetOverCustomerTaxPercent().ToString() + "%";
+            this.lbForeignCustomerSurchargeValue.Text = RoomLeaseBUS.GetForeignCustomerTaxPercent().ToString() + "%";
             this.dgvCustomerType.DataSource = CustomerTypeBUS.GetCustomerTypeList();
 
             var dt = RoomTypeBUS.GetRoomTypeList();
@@ -754,7 +766,7 @@ namespace GUI
 
         public void ReLoadOverCustomerTax()
         {
-            this.lbOverCustomerTaxValue.Text = RoomLeaseBUS.GetOverCustomerTaxPercent().ToString() + "%";
+            this.lbAdditionalCustomerSurchargeValue.Text = RoomLeaseBUS.GetOverCustomerTaxPercent().ToString() + "%";
         }
 
         public void ReLoadRoomTypeList()
@@ -917,7 +929,7 @@ namespace GUI
                 // Khi đang lập phiếu thuê phòng
                 case "tabNoteRoom":
                     {
-                        if (this.btnLockNoteRoom.Enabled == false)
+                        if (this.btnLockRoom.Enabled == false)
                         {
                             var dialogResult = MessageBox.Show(
                                 "Bạn có muốn dừng lập phiếu thuê phòng?\n" +
@@ -928,7 +940,7 @@ namespace GUI
 
                             if (dialogResult == DialogResult.Yes)
                             {
-                                this.btnLockNoteRoom.Enabled = true;
+                                this.btnLockRoom.Enabled = true;
                             }
                             else
                             {

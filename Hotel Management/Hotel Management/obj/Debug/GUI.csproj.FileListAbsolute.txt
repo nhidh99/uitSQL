@@ -223,7 +223,6 @@ C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.csproj.CopyComplete
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel Management.exe
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel Management.pdb
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Bill.BillDetailForm.resources
-C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Bill.BillTaxForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.CustomerType.CustomerTypeAddForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.CustomerType.CustomerTypeEditForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.RoomType.RoomTypeForm.resources
@@ -235,3 +234,5 @@ C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.MainForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Properties.Resources.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Room.RoomLeaseForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.OverCustomerTaxEditForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Bill.BillSurchargeForm.resources
+C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.LoginForm.resources
