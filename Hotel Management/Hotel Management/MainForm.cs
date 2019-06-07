@@ -927,7 +927,7 @@ namespace GUI
             switch (this.tcHotelManagement.SelectedTabPage.Name)
             {
                 // Khi đang lập phiếu thuê phòng
-                case "tabNoteRoom":
+                case "tabRoomLease":
                     {
                         if (this.btnLockRoom.Enabled == false)
                         {
@@ -951,7 +951,7 @@ namespace GUI
                     }
 
                 // Khi đang tìm kiếm phòng
-                case "tabFindRoom":
+                case "tabRoomFind":
                     {
                         if (this.dgvFindRoom.Rows.Count > 0)
                         {
@@ -967,17 +967,23 @@ namespace GUI
                                 var dt = this.dgvFindRoom.DataSource as DataTable;
                                 dt.Rows.Clear();
                                 this.dgvFindRoom.DataSource = dt;
+
                                 this.cbFindRoomID.SelectedIndex
                                     = this.cbFindRoomPrice.SelectedIndex
                                     = this.cbFindRoomStatus.SelectedIndex
                                     = this.cbFindRoomType.SelectedIndex = 0;
+
+                                this.tbFindRoomID.Text
+                                    = this.tbFindRoomPrice.Text
+                                    = this.tbFindRoomStatus.Text
+                                    = this.tbFindRoomType.Text = null;
                             }
                         }
                         break;
                     }
 
                 // Khi đang tìm lập hoá đơn thanh toán
-                case "tabBillRoom":
+                case "tabRoomBill":
                     {
                         if (this.btnLockBill.Enabled == false)
                         {
