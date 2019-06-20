@@ -9,3 +9,14 @@ C:\uitSQL\Hotel Management\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
 C:\uitSQL\Hotel Management\BUS\obj\Debug\BUS.csproj.CopyComplete
 C:\uitSQL\Hotel Management\BUS\obj\Debug\BUS.dll
 C:\uitSQL\Hotel Management\BUS\obj\Debug\BUS.pdb
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\bin\Debug\BUS.dll
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\bin\Debug\BUS.pdb
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\bin\Debug\DAO.dll
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\bin\Debug\DTO.dll
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\bin\Debug\DAO.pdb
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\bin\Debug\DTO.pdb
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\obj\Debug\BUS.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\obj\Debug\BUS.csproj.CopyComplete
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\obj\Debug\BUS.dll
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\obj\Debug\BUS.pdb

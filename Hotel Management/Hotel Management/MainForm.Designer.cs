@@ -617,7 +617,7 @@
             // tabRoomLease
             // 
             this.tabRoomLease.Controls.Add(this.tlpNoteRoom);
-            this.tabRoomLease.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabNoteRoom.ImageOptions.Image")));
+            this.tabRoomLease.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabRoomLease.ImageOptions.Image")));
             this.tabRoomLease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabRoomLease.Name = "tabRoomLease";
             this.tabRoomLease.Size = new System.Drawing.Size(955, 646);
@@ -771,7 +771,7 @@
             // btnLockRoom
             // 
             this.btnLockRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLockRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLockNoteRoom.ImageOptions.Image")));
+            this.btnLockRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLockRoom.ImageOptions.Image")));
             this.btnLockRoom.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.btnLockRoom.Location = new System.Drawing.Point(203, 53);
             this.btnLockRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1003,7 +1003,7 @@
             // 
             this.btnEditCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEditCustomer.Enabled = false;
-            this.btnEditCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditNoteCustomer.ImageOptions.Image")));
+            this.btnEditCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditCustomer.ImageOptions.Image")));
             this.btnEditCustomer.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnEditCustomer.Location = new System.Drawing.Point(27, 152);
             this.btnEditCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1017,7 +1017,7 @@
             // 
             this.btnDelCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDelCustomer.Enabled = false;
-            this.btnDelCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelNoteCustomer.ImageOptions.Image")));
+            this.btnDelCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelCustomer.ImageOptions.Image")));
             this.btnDelCustomer.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnDelCustomer.Location = new System.Drawing.Point(27, 97);
             this.btnDelCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1031,7 +1031,7 @@
             // 
             this.btnAddCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddCustomer.Enabled = false;
-            this.btnAddCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNoteCustomer.ImageOptions.Image")));
+            this.btnAddCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCustomer.ImageOptions.Image")));
             this.btnAddCustomer.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAddCustomer.Location = new System.Drawing.Point(27, 42);
             this.btnAddCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1068,7 +1068,7 @@
             // tabRoomFind
             // 
             this.tabRoomFind.Controls.Add(this.tableLayoutPanel3);
-            this.tabRoomFind.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabFindRoom.ImageOptions.Image")));
+            this.tabRoomFind.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabRoomFind.ImageOptions.Image")));
             this.tabRoomFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabRoomFind.Name = "tabRoomFind";
             this.tabRoomFind.Size = new System.Drawing.Size(955, 646);
@@ -1445,7 +1445,7 @@
             // tabRoomBill
             // 
             this.tabRoomBill.Controls.Add(this.gcBillCreate_4);
-            this.tabRoomBill.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabBillRoom.ImageOptions.Image")));
+            this.tabRoomBill.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabRoomBill.ImageOptions.Image")));
             this.tabRoomBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabRoomBill.Name = "tabRoomBill";
             this.tabRoomBill.Size = new System.Drawing.Size(955, 646);
@@ -1977,7 +1977,7 @@
             // tabMonthRevenue
             // 
             this.tabMonthRevenue.Controls.Add(this.tableLayoutPanel5);
-            this.tabMonthRevenue.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabRevenueRoom.ImageOptions.Image")));
+            this.tabMonthRevenue.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabMonthRevenue.ImageOptions.Image")));
             this.tabMonthRevenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabMonthRevenue.Name = "tabMonthRevenue";
             this.tabMonthRevenue.Size = new System.Drawing.Size(955, 646);
@@ -2120,7 +2120,7 @@
             // tabRoomRules
             // 
             this.tabRoomRules.Controls.Add(this.gcEditRule);
-            this.tabRoomRules.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabRules.ImageOptions.Image")));
+            this.tabRoomRules.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabRoomRules.ImageOptions.Image")));
             this.tabRoomRules.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabRoomRules.Name = "tabRoomRules";
             this.tabRoomRules.Size = new System.Drawing.Size(955, 646);
@@ -2405,9 +2405,9 @@
             // btnEditForeignCustomerSurcharge
             // 
             this.btnEditForeignCustomerSurcharge.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEditForeignCustomerSurcharge.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("btnEditForeignCustomerTax.Appearance.Image")));
+            this.btnEditForeignCustomerSurcharge.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("btnEditForeignCustomerSurcharge.Appearance.Image")));
             this.btnEditForeignCustomerSurcharge.Appearance.Options.UseImage = true;
-            this.btnEditForeignCustomerSurcharge.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditForeignCustomerTax.ImageOptions.Image")));
+            this.btnEditForeignCustomerSurcharge.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditForeignCustomerSurcharge.ImageOptions.Image")));
             this.btnEditForeignCustomerSurcharge.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnEditForeignCustomerSurcharge.Location = new System.Drawing.Point(526, 74);
             this.btnEditForeignCustomerSurcharge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -2433,9 +2433,9 @@
             // btnAdditionalCustomerSurcharge
             // 
             this.btnAdditionalCustomerSurcharge.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAdditionalCustomerSurcharge.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("btnEditThirdCustomerTax.Appearance.Image")));
+            this.btnAdditionalCustomerSurcharge.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("btnAdditionalCustomerSurcharge.Appearance.Image")));
             this.btnAdditionalCustomerSurcharge.Appearance.Options.UseImage = true;
-            this.btnAdditionalCustomerSurcharge.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditThirdCustomerTax.ImageOptions.Image")));
+            this.btnAdditionalCustomerSurcharge.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdditionalCustomerSurcharge.ImageOptions.Image")));
             this.btnAdditionalCustomerSurcharge.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAdditionalCustomerSurcharge.Location = new System.Drawing.Point(526, 44);
             this.btnAdditionalCustomerSurcharge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -2555,6 +2555,7 @@
             this.ClientSize = new System.Drawing.Size(961, 693);
             this.Controls.Add(this.tcHotelManagement);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "MainForm";

@@ -1,0 +1,11 @@
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\bin\Release\BUS.dll
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\bin\Release\BUS.pdb
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\bin\Release\DAO.dll
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\bin\Release\DTO.dll
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\bin\Release\DAO.pdb
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\bin\Release\DTO.pdb
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\obj\Release\BUS.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\obj\Release\BUS.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\obj\Release\BUS.csproj.CopyComplete
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\obj\Release\BUS.dll
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\BUS\obj\Release\BUS.pdb
