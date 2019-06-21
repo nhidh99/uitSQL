@@ -3,3 +3,6 @@
 ################################################################################
 
 /Hotel Management/.vs/HotelManagement/v16
+*.msi
+Hotel Management/setup/Debug/setup.exe
+*.exe

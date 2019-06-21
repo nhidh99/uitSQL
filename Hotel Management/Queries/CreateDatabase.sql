@@ -96,6 +96,18 @@ create table TINHTRANG
    constraint PK_TINHTRANG primary key (MATINHTRANG)
 );
 
+
+/*==============================================================*/
+/* Table: PHANQUYEN                                             */
+/*==============================================================*/
+create table PHANQUYEN
+(
+	TENDANGNHAP varchar(30) not null,
+	MATKHAU varchar(30) not null,
+	PHANQUYEN varchar(10) not null,
+	constraint PK_PHANQUYEN primary key (TENDANGNHAP)
+)
+
 alter table CTPT
    add constraint FK_CTPT_PHIEUTHUE foreign key (MAPHIEU)
       references PHIEUTHUE (MAPHIEU)

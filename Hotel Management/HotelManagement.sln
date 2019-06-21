@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS", "BUS\BUS.csproj", "{1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{AB2857F9-E596-46B1-A046-2AB3AACE989D}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "setup", "setup\setup.vdproj", "{6053C62E-659B-44E6-AE6F-BADF54C1C37D}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "setup", "setup\setup.vdproj", "{6432A68F-543D-454F-BF15-A17676F962FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,8 +35,8 @@ Global
 		{AB2857F9-E596-46B1-A046-2AB3AACE989D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB2857F9-E596-46B1-A046-2AB3AACE989D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB2857F9-E596-46B1-A046-2AB3AACE989D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6053C62E-659B-44E6-AE6F-BADF54C1C37D}.Debug|Any CPU.ActiveCfg = Debug
-		{6053C62E-659B-44E6-AE6F-BADF54C1C37D}.Release|Any CPU.ActiveCfg = Release
+		{6432A68F-543D-454F-BF15-A17676F962FE}.Debug|Any CPU.ActiveCfg = Debug
+		{6432A68F-543D-454F-BF15-A17676F962FE}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
