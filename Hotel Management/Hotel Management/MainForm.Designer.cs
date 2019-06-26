@@ -58,7 +58,7 @@
             this.tabRoomLease = new DevExpress.XtraTab.XtraTabPage();
             this.tlpNoteRoom = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnCancelNote = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancelLease = new DevExpress.XtraEditors.SimpleButton();
             this.gcRoomLease = new DevExpress.XtraEditors.GroupControl();
             this.tbLeaseRoomPrice = new System.Windows.Forms.TextBox();
             this.cbLeaseRoomID = new System.Windows.Forms.ComboBox();
@@ -89,7 +89,7 @@
             this.btnDelCustomer = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddCustomer = new DevExpress.XtraEditors.SimpleButton();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnCreateNote = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCreateLease = new DevExpress.XtraEditors.SimpleButton();
             this.tabRoomFind = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.gcFindRoomData = new DevExpress.XtraEditors.GroupControl();
@@ -650,7 +650,7 @@
             // panel4
             // 
             this.tlpNoteRoom.SetColumnSpan(this.panel4, 2);
-            this.panel4.Controls.Add(this.btnCancelNote);
+            this.panel4.Controls.Add(this.btnCancelLease);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 599);
             this.panel4.Name = "panel4";
@@ -659,17 +659,17 @@
             // 
             // btnCancelNote
             // 
-            this.btnCancelNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancelNote.Enabled = false;
-            this.btnCancelNote.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelNote.ImageOptions.Image")));
-            this.btnCancelNote.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnCancelNote.Location = new System.Drawing.Point(0, 0);
-            this.btnCancelNote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCancelNote.Name = "btnCancelNote";
-            this.btnCancelNote.Size = new System.Drawing.Size(477, 44);
-            this.btnCancelNote.TabIndex = 16;
-            this.btnCancelNote.Text = "HUỶ PHIẾU THUÊ";
-            this.btnCancelNote.Click += new System.EventHandler(this.BtnCancelNote_Click);
+            this.btnCancelLease.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancelLease.Enabled = false;
+            this.btnCancelLease.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelNote.ImageOptions.Image")));
+            this.btnCancelLease.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnCancelLease.Location = new System.Drawing.Point(0, 0);
+            this.btnCancelLease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelLease.Name = "btnCancelNote";
+            this.btnCancelLease.Size = new System.Drawing.Size(477, 44);
+            this.btnCancelLease.TabIndex = 16;
+            this.btnCancelLease.Text = "HUỶ PHIẾU THUÊ";
+            this.btnCancelLease.Click += new System.EventHandler(this.BtnCancelLease_Click);
             // 
             // gcRoomLease
             // 
@@ -818,11 +818,11 @@
             this.dgvLeaseCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLeaseCustomer.Size = new System.Drawing.Size(945, 350);
             this.dgvLeaseCustomer.TabIndex = 3;
-            this.dgvLeaseCustomer.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvNoteCustomer_CellEnter);
-            this.dgvLeaseCustomer.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvNoteCustomer_CellValueChanged);
+            this.dgvLeaseCustomer.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLeaseCustomer_CellEnter);
+            this.dgvLeaseCustomer.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLeaseCustomer_CellValueChanged);
             this.dgvLeaseCustomer.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView_RowPostPaint);
-            this.dgvLeaseCustomer.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.DgvNoteCustomer_RowsAdded);
-            this.dgvLeaseCustomer.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvNoteCustomer_RowsRemoved);
+            this.dgvLeaseCustomer.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.DgvLeaseCustomer_RowsAdded);
+            this.dgvLeaseCustomer.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvLeaseCustomer_RowsRemoved);
             // 
             // CustomerName
             // 
@@ -1011,7 +1011,7 @@
             this.btnEditCustomer.Size = new System.Drawing.Size(120, 41);
             this.btnEditCustomer.TabIndex = 15;
             this.btnEditCustomer.Text = "SỬA";
-            this.btnEditCustomer.Click += new System.EventHandler(this.BtnEditNoteCustomer_Click);
+            this.btnEditCustomer.Click += new System.EventHandler(this.BtnEditLeaseCustomer_Click);
             // 
             // btnDelCustomer
             // 
@@ -1025,7 +1025,7 @@
             this.btnDelCustomer.Size = new System.Drawing.Size(120, 41);
             this.btnDelCustomer.TabIndex = 14;
             this.btnDelCustomer.Text = "XÓA";
-            this.btnDelCustomer.Click += new System.EventHandler(this.BtnDelNoteCustomer_Click);
+            this.btnDelCustomer.Click += new System.EventHandler(this.BtnDelLeaseCustomer_Click);
             // 
             // btnAddCustomer
             // 
@@ -1039,12 +1039,12 @@
             this.btnAddCustomer.Size = new System.Drawing.Size(120, 41);
             this.btnAddCustomer.TabIndex = 13;
             this.btnAddCustomer.Text = "THÊM";
-            this.btnAddCustomer.Click += new System.EventHandler(this.BtnAddNoteCustomer_Click);
+            this.btnAddCustomer.Click += new System.EventHandler(this.BtnAddLeaseCustomer_Click);
             // 
             // panel5
             // 
             this.tlpNoteRoom.SetColumnSpan(this.panel5, 2);
-            this.panel5.Controls.Add(this.btnCreateNote);
+            this.panel5.Controls.Add(this.btnCreateLease);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(486, 599);
             this.panel5.Name = "panel5";
@@ -1053,17 +1053,17 @@
             // 
             // btnCreateNote
             // 
-            this.btnCreateNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCreateNote.Enabled = false;
-            this.btnCreateNote.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateNote.ImageOptions.Image")));
-            this.btnCreateNote.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnCreateNote.Location = new System.Drawing.Point(0, 0);
-            this.btnCreateNote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCreateNote.Name = "btnCreateNote";
-            this.btnCreateNote.Size = new System.Drawing.Size(466, 44);
-            this.btnCreateNote.TabIndex = 28;
-            this.btnCreateNote.Text = "LẬP PHIẾU THUÊ";
-            this.btnCreateNote.Click += new System.EventHandler(this.BtnCreateNote_Click);
+            this.btnCreateLease.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCreateLease.Enabled = false;
+            this.btnCreateLease.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateNote.ImageOptions.Image")));
+            this.btnCreateLease.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnCreateLease.Location = new System.Drawing.Point(0, 0);
+            this.btnCreateLease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCreateLease.Name = "btnCreateNote";
+            this.btnCreateLease.Size = new System.Drawing.Size(466, 44);
+            this.btnCreateLease.TabIndex = 28;
+            this.btnCreateLease.Text = "LẬP PHIẾU THUÊ";
+            this.btnCreateLease.Click += new System.EventHandler(this.BtnCreateLease_Click);
             // 
             // tabRoomFind
             // 
@@ -2751,7 +2751,7 @@
         private DevExpress.XtraTab.XtraTabPage tabRoomLease;
         private System.Windows.Forms.TableLayoutPanel tlpNoteRoom;
         private System.Windows.Forms.Panel panel4;
-        private DevExpress.XtraEditors.SimpleButton btnCancelNote;
+        private DevExpress.XtraEditors.SimpleButton btnCancelLease;
         private DevExpress.XtraEditors.GroupControl gcRoomLease;
         private System.Windows.Forms.TextBox tbLeaseRoomPrice;
         private System.Windows.Forms.ComboBox cbLeaseRoomID;
@@ -2777,7 +2777,7 @@
         private DevExpress.XtraEditors.SimpleButton btnDelCustomer;
         private DevExpress.XtraEditors.SimpleButton btnAddCustomer;
         private System.Windows.Forms.Panel panel5;
-        private DevExpress.XtraEditors.SimpleButton btnCreateNote;
+        private DevExpress.XtraEditors.SimpleButton btnCreateLease;
         private System.Windows.Forms.Panel panelEditRules;
         private DevExpress.XtraEditors.LabelControl lbMaxCustomerRule;
         private DevExpress.XtraEditors.LabelControl lbMaxCustomerValue;

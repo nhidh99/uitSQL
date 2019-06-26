@@ -23,7 +23,8 @@ namespace DAO
                 var result = command.ExecuteScalar().ToString();
                 connection.Close();
                 if (result == "admin") return 1;
-                else return 0;
+                else if (result == "user") return 0;
+                else return -1;
             }
             catch
             {

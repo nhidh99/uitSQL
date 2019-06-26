@@ -35,10 +35,10 @@ namespace GUI
 
                 case -1:
                     {
-                        MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác!",
-                            "ĐĂNG NHẬP THẤT BẠI!",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
+                        MessageBox.Show("Không thể kết nối CSDL hoặc lỗi đăng nhập!",
+                               "ĐĂNG NHẬP THẤT BẠI!",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
                         break;
                     }
             }

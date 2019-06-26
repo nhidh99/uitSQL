@@ -22,6 +22,7 @@ namespace GUI
         {
             InitializeComponent();
         }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.ReLoadRoomData();
@@ -30,7 +31,7 @@ namespace GUI
             this.ReLoadBillRoom();
             this.ReLoadRuleRoom();
         }
-        
+
         // Hide Room Rule Edit when access is not admin
         public void HideRoomRuleEdit()
         {
@@ -84,13 +85,37 @@ namespace GUI
         public void ReLoadRoomData()
         {
             this.dgvListRoom.DataSource = RoomBUS.GetRoomList();
+
+            if (dgvListRoom.Rows.Count > 0)
+            {
+                this.btnDelRoom.Enabled = this.btnEditRoom.Enabled = true;
+            }
+            else
+            {
+                this.btnDelRoom.Enabled = this.btnEditRoom.Enabled = false;
+                this.tbListRoomID.Text
+                    = this.tbListRoomPrice.Text
+                    = this.tbListRoomStatus.Text
+                    = this.tbListRoomType.Text
+                    = this.rtbListRoomNote.Text = null;
+            }
         }
 
         private void BtnAddRoom_Click(object sender, EventArgs e)
         {
-            var RoomForm = new RoomForm();
-            RoomForm.Tag = "AddForm";
-            RoomForm.ShowDialog(this);
+            if (RoomTypeBUS.GetRoomTypeList().Rows.Count > 0)
+            {
+                var RoomForm = new RoomForm();
+                RoomForm.Tag = "AddForm";
+                RoomForm.ShowDialog(this);
+            }
+            else
+            {
+                MessageBox.Show("Chưa có loại phòng!",
+                    "THÊM PHÒNG THẤT BẠI",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
 
         private void BtnDelRoom_Click(object sender, EventArgs e)
@@ -115,6 +140,7 @@ namespace GUI
 
                     this.ReLoadRoomData();
                     this.ReLoadAvailableRoom();
+                    this.ReLoadFindRoom();
                 }
                 else
                 {
@@ -146,7 +172,7 @@ namespace GUI
             }
         }
 
-        // Tab 02: Room Note
+        // Tab 02: Room Lease
         public void ReLoadAvailableRoom()
         {
             this.cbLeaseRoomID.Items.Clear();
@@ -241,7 +267,7 @@ namespace GUI
         {
             if (this.btnLockRoom.Enabled == true)
             {
-                this.btnCancelNote.Enabled = false;
+                this.btnCancelLease.Enabled = false;
                 this.btnAddCustomer.Enabled = false;
                 this.btnDelCustomer.Enabled = false;
                 this.btnEditCustomer.Enabled = false;
@@ -256,30 +282,41 @@ namespace GUI
                 this.btnAddCustomer.Enabled = true;
                 this.cbLeaseRoomID.Enabled = false;
                 this.deLeaseRoomDate.Enabled = false;
-                this.btnCancelNote.Enabled = true;
+                this.btnCancelLease.Enabled = true;
                 this.gcLeaseCustomerData.Text += " [PHÒNG: " + cbLeaseRoomID.Text + " - NGÀY THUÊ: " + deLeaseRoomDate.Text + "]";
             }
         }
 
-        private void BtnAddNoteCustomer_Click(object sender, EventArgs e)
+        private void BtnAddLeaseCustomer_Click(object sender, EventArgs e)
         {
-            if (this.dgvLeaseCustomer.Rows.Count == RoomBUS.GetMaxCustomerInRoom())
+            if (CustomerTypeBUS.GetCustomerTypeList().Rows.Count > 0)
+            {
+                if (this.dgvLeaseCustomer.Rows.Count == RoomBUS.GetMaxCustomerInRoom())
+                {
+                    MessageBox.Show(
+                        "Số khách trong phòng đã đạt mức tối đa!",
+                        "THÊM KHÁCH THẤT BẠI",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    var CustomerForm = new CustomerForm();
+                    CustomerForm.Tag = "AddForm";
+                    CustomerForm.ShowDialog(this);
+                }
+            }
+            else
             {
                 MessageBox.Show(
-                    "Số khách trong phòng đã đạt mức tối đa!",
+                    "Chưa có loại khách!",
                     "THÊM KHÁCH THẤT BẠI",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
-            else
-            {
-                var CustomerForm = new CustomerForm();
-                CustomerForm.Tag = "AddForm";
-                CustomerForm.ShowDialog(this);
-            }
         }
 
-        private void BtnDelNoteCustomer_Click(object sender, EventArgs e)
+        private void BtnDelLeaseCustomer_Click(object sender, EventArgs e)
         {
             var customerName = dgvLeaseCustomer.CurrentRow.Cells["CustomerName"].Value.ToString();
             var dialogResult = MessageBox.Show(
@@ -301,7 +338,7 @@ namespace GUI
         }
 
 
-        private void BtnEditNoteCustomer_Click(object sender, EventArgs e)
+        private void BtnEditLeaseCustomer_Click(object sender, EventArgs e)
         {
             var CustomerForm = new CustomerForm();
             CustomerForm.Tag = "EditForm";
@@ -309,13 +346,13 @@ namespace GUI
         }
 
 
-        private void BtnCreateNote_Click(object sender, EventArgs e)
+        private void BtnCreateLease_Click(object sender, EventArgs e)
         {
             var RoomDetailForm = new RoomLeaseForm();
             RoomDetailForm.ShowDialog(this);
         }
 
-        private void BtnCancelNote_Click(object sender, EventArgs e)
+        private void BtnCancelLease_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show(
                 "Bạn có muốn huỷ lập phiếu thuê phòng " + cbLeaseRoomID.Text + "?",
@@ -335,26 +372,26 @@ namespace GUI
             }
         }
 
-        public void ReCreateNote()
+        public void ReCreateLease()
         {
             this.btnLockRoom.Enabled = true;
         }
 
-        private void DgvNoteCustomer_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void DgvLeaseCustomer_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             this.btnDelCustomer.Enabled = true;
             this.btnEditCustomer.Enabled = true;
-            this.btnCreateNote.Enabled = true;
-            this.btnCancelNote.Enabled = true;
+            this.btnCreateLease.Enabled = true;
+            this.btnCancelLease.Enabled = true;
         }
 
-        private void DgvNoteCustomer_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        private void DgvLeaseCustomer_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             if (this.dgvLeaseCustomer.Rows.Count == 0)
             {
                 this.btnDelCustomer.Enabled = false;
                 this.btnEditCustomer.Enabled = false;
-                this.btnCreateNote.Enabled = false;
+                this.btnCreateLease.Enabled = false;
                 this.tbCustomerName.Text = null;
                 this.tbCustomerPassport.Text = null;
                 this.tbCustomerType.Text = null;
@@ -362,7 +399,7 @@ namespace GUI
             }
         }
 
-        private void DgvNoteCustomer_CellEnter(object sender, DataGridViewCellEventArgs e)
+        private void DgvLeaseCustomer_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -374,7 +411,7 @@ namespace GUI
             }
         }
 
-        private void DgvNoteCustomer_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void DgvLeaseCustomer_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -779,11 +816,29 @@ namespace GUI
                     (dr["MaLoaiPhong"].ToString(),
                     Convert.ToInt64(dr["DonGia"]).ToString("N0"));
             }
+
+            if (dt.Rows.Count > 0)
+            {
+                this.btnDelRoomType.Enabled = this.btnEditRoomType.Enabled = true;
+            }
+            else
+            {
+                this.btnDelRoomType.Enabled = this.btnEditRoomType.Enabled = false;
+            }
         }
 
         public void ReLoadCustomerTypeList()
         {
             this.dgvCustomerType.DataSource = CustomerTypeBUS.GetCustomerTypeList();
+
+            if (dgvCustomerType.Rows.Count > 0)
+            {
+                this.btnDelCustomerType.Enabled = this.btnEditCustomerType.Enabled = true;
+            }
+            else
+            {
+                this.btnDelCustomerType.Enabled = this.btnEditCustomerType.Enabled = false;
+            }
         }
 
         private void BtnEditMaxCustomerRule_Click(object sender, EventArgs e)
@@ -830,7 +885,7 @@ namespace GUI
             var RoomTypeID = this.dgvRoomType.CurrentRow.Cells["EditRoomTypeID"].Value.ToString();
 
             var dialogResult = MessageBox.Show(
-                  "Bạn có muốn xoá phòng loại phòng " + RoomTypeID + "?",
+                  "Bạn có muốn xoá loại phòng " + RoomTypeID + "?",
                   "XÁC NHẬN XOÁ LOẠI PHÒNG",
                   MessageBoxButtons.YesNo,
                   MessageBoxIcon.Question);
