@@ -39,7 +39,8 @@ CREATE PROCEDURE SuaPhong
 	@MaPhong varchar(10),
 	@MaLoaiPhong varchar(10),
 	@TenTinhTrang varchar(10),
-	@GhiChu nvarchar(50) = null
+	@GhiChu nvarchar(50) = null,
+	@MaTinhTrang varchar(10)
 AS
 BEGIN
 	UPDATE Phong
