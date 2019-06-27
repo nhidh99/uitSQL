@@ -83,7 +83,7 @@ CREATE PROCEDURE TraCuuPhong
 	@MaPhong       varchar(10) = null,
 	@MaLoaiPhong   varchar(10) = null,
 	@DonGia        money = null,
-	@TenTinhTrang  nvarchar(30) = null 
+	@MaTinhTrang  varchar(10) = null 
 AS 
 BEGIN
 
@@ -175,7 +175,7 @@ END
 GO
 
 -- TẠO HOÁ ĐƠN THANH TOÁN PHÒNG (*)
-CREATE PROCEDURE ThemHoaDonThanhToan
+CREATE PROCEDURE ThemHoaDon
 	@TenKhach nvarchar(30),
 	@DiaChi nvarchar(30),
 	@NgayHoaDon date,
@@ -267,7 +267,7 @@ END
 GO
 
 -- ĐĂNG NHẬP (*)
-CREATE PROCEDURE DangNhapCSDL
+CREATE PROCEDURE DangNhap
 	@TenDangNhap varchar(30),
 	@MatKhau varchar(30)
 AS
@@ -277,3 +277,4 @@ BEGIN
 	AND MatKhau = (@MatKhau COLLATE Latin1_General_CS_AS)
 END
 GO
+

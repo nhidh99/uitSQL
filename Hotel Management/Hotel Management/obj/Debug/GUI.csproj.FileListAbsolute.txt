@@ -236,8 +236,6 @@ C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Room.RoomLeaseForm.res
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.OverCustomerTaxEditForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.Bill.BillSurchargeForm.resources
 C:\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.LoginForm.resources
-C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\Hotel Management\bin\Debug\DB\QuanLiKhachSan_log.ldf
-C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\Hotel Management\bin\Debug\DB\QuanLiKhachSan.mdf
 C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\Hotel Management\bin\Debug\Hotel Management.exe.config
 C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\Hotel Management\bin\Debug\Hotel Management.exe
 C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\Hotel Management\bin\Debug\Hotel Management.pdb
