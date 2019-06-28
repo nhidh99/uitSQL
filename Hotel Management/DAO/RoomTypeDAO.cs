@@ -23,15 +23,16 @@ namespace DAO
                 var dt = new DataTable();
                 var adapter = new SqlDataAdapter(command);
                 adapter.Fill(dt);
-
-                connection.Close();
                 return dt;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -51,15 +52,16 @@ namespace DAO
                 var dt = new DataTable();
                 var adapter = new SqlDataAdapter(command);
                 adapter.Fill(dt);
-
-                connection.Close();
                 return dt;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -74,13 +76,15 @@ namespace DAO
                 var query = $"SELECT MaLoaiPhong FROM Phong WHERE MaPhong = '{roomID}'";
                 var command = new SqlCommand(query, connection);
                 var result = command.ExecuteScalar().ToString();
-                connection.Close();
                 return result;
             }
             catch
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -96,15 +100,16 @@ namespace DAO
                 var command = new SqlCommand("TimGiaTheoMaPhong", connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@MaPhong", roomID));
-
                 var price = Convert.ToInt64(command.ExecuteScalar());
-                connection.Close();
                 return price;
             }
             catch
             {
-                connection.Close();
                 return -1;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -119,13 +124,15 @@ namespace DAO
                 var query = $"SELECT DonGia FROM LoaiPhong WHERE MaLoaiPhong = '{roomType}'";
                 var command = new SqlCommand(query, connection);
                 var result = Convert.ToInt64(command.ExecuteScalar());
-                connection.Close();
                 return result;
             }
             catch
             {
-                connection.Close();
                 return -1;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -148,15 +155,17 @@ namespace DAO
 
                 if (dt.Rows.Count > 0)
                 {
-                    connection.Close();
                     return true;
                 }
                 else return false;
             }
             catch (Exception)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -174,14 +183,16 @@ namespace DAO
 
                 var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -197,14 +208,16 @@ namespace DAO
                 var query = $"SELECT COUNT(*) FROM Phong WHERE MaLoaiPhong = '{roomTypeID}'";
                 var command = new SqlCommand(query, connection);
                 var result = Convert.ToInt32(command.ExecuteScalar());
-                connection.Close();
                 return result;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return -1;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
         public static bool DeleteRoomType(string roomTypeID)
@@ -219,14 +232,16 @@ namespace DAO
                 var query = $"DELETE LoaiPhong WHERE MaLoaiPhong = '{roomTypeID}'";
                 var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -245,14 +260,16 @@ namespace DAO
 
                 var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

@@ -1,5 +1,4 @@
 ﻿using DTO;
-using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -23,14 +22,17 @@ namespace DAO
                 command.Parameters.Add(new SqlParameter("@NgayHoaDon", bill.BillDate));
                 command.Parameters.Add(new SqlParameter("@TriGia", bill.BillCost));
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
             catch
             {
-                connection.Close();
                 return false;
             }
+            finally
+            {
+                connection.Close();
+            }
+
         }
 
         public static DataTable GetMonthRevenueReport(int month)
@@ -50,13 +52,15 @@ namespace DAO
                 var adapter = new SqlDataAdapter(command);
                 var dt = new DataTable();
                 adapter.Fill(dt);
-                connection.Close();
                 return dt;
             }
             catch (SqlException)
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -78,13 +82,15 @@ namespace DAO
                 var adapter = new SqlDataAdapter(command);
                 var dt = new DataTable();
                 adapter.Fill(dt);
-                connection.Close();
                 return dt;
             }
             catch (SqlException)
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 

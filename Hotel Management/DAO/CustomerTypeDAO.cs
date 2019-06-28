@@ -19,7 +19,6 @@ namespace DAO
                 var query = "SELECT MaLoaiKhach, TenLoaiKhach FROM LoaiKhach WHERE KhaDung = 1";
                 var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
-                connection.Close();
 
                 var adapter = new SqlDataAdapter(command);
                 var dt = new DataTable();
@@ -28,8 +27,11 @@ namespace DAO
             }
             catch
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -46,14 +48,16 @@ namespace DAO
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@TenLoaiKhach", customerType));
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -72,13 +76,15 @@ namespace DAO
 
                 var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
             catch (Exception)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -95,14 +101,16 @@ namespace DAO
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@TenLoaiKhach", customerType));
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -126,15 +134,17 @@ namespace DAO
 
                 if (dt.Rows.Count > 0)
                 {
-                    connection.Close();
                     return true;
                 }
                 else return false;
             }
             catch (Exception)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -150,13 +160,15 @@ namespace DAO
                 var query = $"SELECT TenLoaiKhach FROM LoaiKhach WHERE MaLoaiKhach = {typeID}";
                 var command = new SqlCommand(query, connection);
                 var result = command.ExecuteScalar().ToString();
-                connection.Close();
                 return result;
             }
             catch (Exception)
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

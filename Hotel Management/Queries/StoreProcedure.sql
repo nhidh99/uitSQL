@@ -38,7 +38,7 @@ GO
 CREATE PROCEDURE SuaPhong
 	@MaPhong varchar(10),
 	@MaLoaiPhong varchar(10),
-	@TenTinhTrang varchar(10),
+	@MaTinhTrang varchar(10),
 	@GhiChu nvarchar(50) = null
 AS
 BEGIN
@@ -277,4 +277,3 @@ BEGIN
 	AND MatKhau = (@MatKhau COLLATE Latin1_General_CS_AS)
 END
 GO
-

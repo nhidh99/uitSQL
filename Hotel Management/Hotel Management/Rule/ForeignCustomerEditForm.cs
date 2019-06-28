@@ -28,7 +28,7 @@ namespace GUI.Rule
                     MessageBoxIcon.Information);
 
                 var mainForm = (MainForm)Owner;
-                mainForm.ReLoadRoomTypeList();
+                mainForm.ReLoadForeignCustomerTax();
                 this.Close();
             }
             else MessageBox.Show(

@@ -45,7 +45,7 @@
             this.tbRoomTypePrice.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbRoomTypePrice.Location = new System.Drawing.Point(190, 106);
             this.tbRoomTypePrice.Margin = new System.Windows.Forms.Padding(2);
-            this.tbRoomTypePrice.MaxLength = 18;
+            this.tbRoomTypePrice.MaxLength = 10;
             this.tbRoomTypePrice.Name = "tbRoomTypePrice";
             this.tbRoomTypePrice.Size = new System.Drawing.Size(134, 20);
             this.tbRoomTypePrice.TabIndex = 42;

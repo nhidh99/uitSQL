@@ -23,15 +23,16 @@ namespace DAO
                 var dt = new DataTable();
                 var adapter = new SqlDataAdapter(command);
                 adapter.Fill(dt);
-
-                connection.Close();
                 return dt;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -54,14 +55,16 @@ namespace DAO
                 var dt = new DataTable();
                 var adapter = new SqlDataAdapter(command);
                 adapter.Fill(dt);
-                connection.Close();
                 return dt;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -80,14 +83,16 @@ namespace DAO
 
                 var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -102,13 +107,15 @@ namespace DAO
                 var query = "SELECT GiaTri FROM ThamSo WHERE MaThamSo = 'KHTD'";
                 var command = new SqlCommand(query, connection);
                 var result = Convert.ToInt32(command.ExecuteScalar());
-                connection.Close();
                 return result;
             }
             catch
             {
-                connection.Close();
                 return -1;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -125,13 +132,15 @@ namespace DAO
                 command.Parameters.Add(new SqlParameter("@MaPhong", roomID));
 
                 var status = command.ExecuteScalar().ToString();
-                connection.Close();
                 return status;
             }
             catch
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -161,14 +170,15 @@ namespace DAO
                 var adapter = new SqlDataAdapter(command);
                 var dt = new DataTable();
                 adapter.Fill(dt);
-
-                connection.Close();
                 return dt;
             }
             catch
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -193,13 +203,15 @@ namespace DAO
                 }
 
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
             catch
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -215,13 +227,15 @@ namespace DAO
                 var query = $"DELETE Phong WHERE MaPhong = '{RoomID}'";
                 var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
             catch
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -246,20 +260,20 @@ namespace DAO
                 }
 
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
             catch
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
         public static bool CheckRoomByID(string RoomID)
         {
-            bool result = false;
-
             try
             {
                 if (connection.State != ConnectionState.Open)
@@ -277,22 +291,23 @@ namespace DAO
 
                 if (dt.Rows.Count == 1)
                 {
-                    result = true;
+                    return true;
                 }
-                connection.Close();
+                else return false;
             }
 
             catch
             {
+                return false;
+            }
+            finally
+            {
                 connection.Close();
             }
-            return result;
         }
 
         public static bool CheckRentedRoomByID(string RoomID)
         {
-            bool result = false;
-
             try
             {
                 if (connection.State != ConnectionState.Open)
@@ -313,16 +328,19 @@ namespace DAO
 
                 if (dt.Rows.Count == 1)
                 {
-                    result = true;
+                    return true;
                 }
-                connection.Close();
+                else return false;
             }
 
             catch
             {
+                return false;
+            }
+            finally
+            {
                 connection.Close();
             }
-            return result;
         }
     }
 }

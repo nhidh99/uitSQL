@@ -23,13 +23,15 @@ namespace DAO
                 command.Parameters.Add(new SqlParameter("@LoaiPhong", lease.RoomTypeID));
                 command.Parameters.Add(new SqlParameter("@DonGia", lease.RoomPrice));
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
             catch (SqlException)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -48,14 +50,16 @@ namespace DAO
 
                 var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -74,14 +78,16 @@ namespace DAO
 
                 var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
 
             catch (Exception)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -99,13 +105,15 @@ namespace DAO
                 command.Parameters.Add(new SqlParameter("@MaPhong", roomID));
                 command.Parameters.Add(new SqlParameter("@ThanhTien", price));
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
             catch (SqlException)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -126,13 +134,15 @@ namespace DAO
                 var adapter = new SqlDataAdapter(command);
                 var dt = new DataTable();
                 adapter.Fill(dt);
-                connection.Close();
                 return dt;
             }
             catch (SqlException)
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -151,13 +161,15 @@ namespace DAO
 
                 var command = new SqlCommand(query, connection);
                 var result = Convert.ToInt32(command.ExecuteScalar());
-                connection.Close();
                 return result;
             }
             catch
             {
-                connection.Close();
                 return -1;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -172,13 +184,15 @@ namespace DAO
                 var query = "SELECT GiaTri * 100 FROM ThamSo WHERE MaThamSo = 'PTK3'";
                 var command = new SqlCommand(query, connection);
                 var result = Convert.ToInt32(command.ExecuteScalar());
-                connection.Close();
                 return result;
             }
             catch
             {
-                connection.Close();
                 return -1;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -193,13 +207,15 @@ namespace DAO
                 var query = "SELECT GiaTri * 100 FROM ThamSo WHERE MaThamSo = 'PTNN'";
                 var command = new SqlCommand(query, connection);
                 var result = Convert.ToInt32(command.ExecuteScalar());
-                connection.Close();
                 return result;
             }
             catch
             {
-                connection.Close();
                 return -1;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

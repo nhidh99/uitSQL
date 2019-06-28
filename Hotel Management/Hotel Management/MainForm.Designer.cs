@@ -165,7 +165,6 @@
             this.tabMonthRevenue = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.gcRevenueSelect = new DevExpress.XtraEditors.GroupControl();
-            this.nudRevenue = new System.Windows.Forms.NumericUpDown();
             this.btnCreateMonthRevenue = new DevExpress.XtraEditors.SimpleButton();
             this.lbMonthRevenue = new DevExpress.XtraEditors.LabelControl();
             this.gcRevenueList = new DevExpress.XtraEditors.GroupControl();
@@ -204,6 +203,7 @@
             this.btnAddRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
+            this.cbRevenueMonth = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).BeginInit();
             this.tcHotelManagement.SuspendLayout();
             this.tabListRoom.SuspendLayout();
@@ -262,7 +262,6 @@
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcRevenueSelect)).BeginInit();
             this.gcRevenueSelect.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRevenue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcRevenueList)).BeginInit();
             this.gcRevenueList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenueList)).BeginInit();
@@ -657,15 +656,15 @@
             this.panel4.Size = new System.Drawing.Size(477, 44);
             this.panel4.TabIndex = 6;
             // 
-            // btnCancelNote
+            // btnCancelLease
             // 
             this.btnCancelLease.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancelLease.Enabled = false;
-            this.btnCancelLease.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelNote.ImageOptions.Image")));
+            this.btnCancelLease.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelLease.ImageOptions.Image")));
             this.btnCancelLease.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnCancelLease.Location = new System.Drawing.Point(0, 0);
             this.btnCancelLease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCancelLease.Name = "btnCancelNote";
+            this.btnCancelLease.Name = "btnCancelLease";
             this.btnCancelLease.Size = new System.Drawing.Size(477, 44);
             this.btnCancelLease.TabIndex = 16;
             this.btnCancelLease.Text = "HUỶ PHIẾU THUÊ";
@@ -1051,15 +1050,15 @@
             this.panel5.Size = new System.Drawing.Size(466, 44);
             this.panel5.TabIndex = 7;
             // 
-            // btnCreateNote
+            // btnCreateLease
             // 
             this.btnCreateLease.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCreateLease.Enabled = false;
-            this.btnCreateLease.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateNote.ImageOptions.Image")));
+            this.btnCreateLease.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateLease.ImageOptions.Image")));
             this.btnCreateLease.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnCreateLease.Location = new System.Drawing.Point(0, 0);
             this.btnCreateLease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCreateLease.Name = "btnCreateNote";
+            this.btnCreateLease.Name = "btnCreateLease";
             this.btnCreateLease.Size = new System.Drawing.Size(466, 44);
             this.btnCreateLease.TabIndex = 28;
             this.btnCreateLease.Text = "LẬP PHIẾU THUÊ";
@@ -2001,7 +2000,7 @@
             // 
             // gcRevenueSelect
             // 
-            this.gcRevenueSelect.Controls.Add(this.nudRevenue);
+            this.gcRevenueSelect.Controls.Add(this.cbRevenueMonth);
             this.gcRevenueSelect.Controls.Add(this.btnCreateMonthRevenue);
             this.gcRevenueSelect.Controls.Add(this.lbMonthRevenue);
             this.gcRevenueSelect.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2012,36 +2011,12 @@
             this.gcRevenueSelect.TabIndex = 0;
             this.gcRevenueSelect.Text = "TRA CỨU DOANH THU";
             // 
-            // nudRevenue
-            // 
-            this.nudRevenue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nudRevenue.Location = new System.Drawing.Point(364, 100);
-            this.nudRevenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.nudRevenue.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.nudRevenue.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudRevenue.Name = "nudRevenue";
-            this.nudRevenue.Size = new System.Drawing.Size(184, 21);
-            this.nudRevenue.TabIndex = 1;
-            this.nudRevenue.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // btnCreateMonthRevenue
             // 
             this.btnCreateMonthRevenue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCreateMonthRevenue.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateMonthRevenue.ImageOptions.Image")));
             this.btnCreateMonthRevenue.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnCreateMonthRevenue.Location = new System.Drawing.Point(570, 87);
+            this.btnCreateMonthRevenue.Location = new System.Drawing.Point(542, 87);
             this.btnCreateMonthRevenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreateMonthRevenue.Name = "btnCreateMonthRevenue";
             this.btnCreateMonthRevenue.Size = new System.Drawing.Size(120, 41);
@@ -2055,7 +2030,7 @@
             this.lbMonthRevenue.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
             this.lbMonthRevenue.Appearance.Options.UseFont = true;
             this.lbMonthRevenue.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.lbMonthRevenue.Location = new System.Drawing.Point(258, 101);
+            this.lbMonthRevenue.Location = new System.Drawing.Point(286, 102);
             this.lbMonthRevenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbMonthRevenue.Name = "lbMonthRevenue";
             this.lbMonthRevenue.Size = new System.Drawing.Size(100, 13);
@@ -2545,6 +2520,28 @@
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
             // 
+            // cbRevenueMonth
+            // 
+            this.cbRevenueMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRevenueMonth.FormattingEnabled = true;
+            this.cbRevenueMonth.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.cbRevenueMonth.Location = new System.Drawing.Point(392, 99);
+            this.cbRevenueMonth.Name = "cbRevenueMonth";
+            this.cbRevenueMonth.Size = new System.Drawing.Size(121, 21);
+            this.cbRevenueMonth.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -2630,7 +2627,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcRevenueSelect)).EndInit();
             this.gcRevenueSelect.ResumeLayout(false);
             this.gcRevenueSelect.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRevenue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcRevenueList)).EndInit();
             this.gcRevenueList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenueList)).EndInit();
@@ -2687,7 +2683,6 @@
         private DevExpress.XtraEditors.LabelControl lbMonthRevenue;
         private DevExpress.XtraEditors.GroupControl gcRevenueList;
         private System.Windows.Forms.DataGridView dgvRevenueList;
-        private System.Windows.Forms.NumericUpDown nudRevenue;
         private DevExpress.XtraTab.XtraTabPage tabRoomRules;
         private DevExpress.XtraEditors.GroupControl gcEditRule;
         private DevExpress.XtraEditors.SimpleButton simpleButton19;
@@ -2829,6 +2824,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EditRoomTypePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn EditCustomerTypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn EditCustomerTypeName;
+        private System.Windows.Forms.ComboBox cbRevenueMonth;
     }
 }
 

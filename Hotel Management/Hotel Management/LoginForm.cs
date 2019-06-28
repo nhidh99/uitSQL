@@ -15,6 +15,7 @@ namespace GUI
 
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
+            this.btnConfirm.Enabled = false;
             var result = LoginBUS.Login(tbUsername.Text, tbPassword.Text);
             switch (result)
             {
@@ -39,6 +40,7 @@ namespace GUI
                                "ĐĂNG NHẬP THẤT BẠI!",
                                MessageBoxButtons.OK,
                                MessageBoxIcon.Warning);
+                        this.btnConfirm.Enabled = true;
                         break;
                     }
             }
@@ -51,10 +53,9 @@ namespace GUI
 
         private void tbLogin_KeyDown(object sender, KeyEventArgs e)
         {
-
             if (e.KeyCode == Keys.Enter)
             {
-                btnConfirm.PerformClick();
+                BtnConfirm_Click(null, null);
             }
         }
     }

@@ -6,7 +6,6 @@ C:\uitSQL\Hotel Management\DTO\obj\Debug\DTO.pdb
 C:\uitSQL\Hotel Management\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
 C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\DTO\bin\Debug\DTO.dll
 C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\DTO\bin\Debug\DTO.pdb
-C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
 C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\DTO\obj\Debug\DTO.dll
 C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\DTO\obj\Debug\DTO.pdb

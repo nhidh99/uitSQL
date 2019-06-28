@@ -21,13 +21,15 @@ namespace DAO
                 var adapter = new SqlDataAdapter(command);
                 var dt = new DataTable();
                 adapter.Fill(dt);
-                connection.Close();
                 return dt;
             }
             catch
             {
-                connection.Close();
                 return null;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

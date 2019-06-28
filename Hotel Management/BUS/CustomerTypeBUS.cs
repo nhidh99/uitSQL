@@ -19,7 +19,7 @@ namespace BUS
 
         public static bool InsertCustomerType(string customerType)
         {
-            if(CustomerTypeDAO.CheckCustomerType(customerType))
+            if (CustomerTypeDAO.CheckCustomerType(customerType))
             {
                 return false;
             }

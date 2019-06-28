@@ -24,13 +24,15 @@ namespace DAO
                 command.Parameters.Add(new SqlParameter("@MaLoaiKhach", detail.CustomerTypeID));
                 command.Parameters.Add(new SqlParameter("@DiaChi", detail.CustomerAddress));
                 command.ExecuteNonQuery();
-                connection.Close();
                 return true;
             }
             catch (SqlException)
             {
-                connection.Close();
                 return false;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

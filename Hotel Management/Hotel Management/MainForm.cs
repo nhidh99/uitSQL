@@ -30,6 +30,7 @@ namespace GUI
             this.ReLoadFindRoom();
             this.ReLoadBillRoom();
             this.ReLoadRuleRoom();
+            this.cbRevenueMonth.SelectedIndex = 0;
         }
 
         // Hide Room Rule Edit when access is not admin
@@ -758,7 +759,7 @@ namespace GUI
         private void BtnCreateMonthRevenue_Click(object sender, EventArgs e)
         {
             this.dgvRevenueList.Rows.Clear();
-            var dt = RoomBillBUS.GetMonthRevenueReport(Convert.ToInt16(this.nudRevenue.Value));
+            var dt = RoomBillBUS.GetMonthRevenueReport(Convert.ToInt16(this.cbRevenueMonth.SelectedItem.ToString()));
 
             if (dt.Rows.Count > 0)
             {
@@ -772,7 +773,7 @@ namespace GUI
             }
             else
             {
-                MessageBox.Show("Không có doanh thu trong tháng " + this.nudRevenue.Value.ToString(),
+                MessageBox.Show("Không có doanh thu trong tháng " + this.cbRevenueMonth.SelectedItem.ToString(),
                     "KHÔNG CÓ DOANH THU",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -804,6 +805,11 @@ namespace GUI
         public void ReLoadOverCustomerTax()
         {
             this.lbAdditionalCustomerSurchargeValue.Text = RoomLeaseBUS.GetOverCustomerTaxPercent().ToString() + "%";
+        }
+
+        public void ReLoadForeignCustomerTax()
+        {
+            this.lbForeignCustomerSurchargeValue.Text = RoomLeaseBUS.GetForeignCustomerTaxPercent().ToString() + "%";
         }
 
         public void ReLoadRoomTypeList()
@@ -941,6 +947,16 @@ namespace GUI
             var row = this.dgvCustomerType.CurrentRow;
             var customerType = row.Cells["EditCustomerTypeName"].Value.ToString();
 
+            if (customerType == "Nước ngoài")
+            {
+                MessageBox.Show(
+                        "Không thể xoá loại khách 'Nước ngoài'!",
+                        "XOÁ LOẠI KHÁCH THẤT BẠI",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                return;
+            }
+
             var dialogResult = MessageBox.Show(
                   "Bạn có muốn xoá loại khách '" + customerType + "'?",
                   "XÁC NHẬN XOÁ LOẠI KHÁCH KHÁCH",
@@ -972,6 +988,18 @@ namespace GUI
 
         private void BtnEditCustomerType_Click(object sender, EventArgs e)
         {
+            var row = this.dgvCustomerType.CurrentRow;
+            var customerType = row.Cells["EditCustomerTypeName"].Value.ToString();
+            if (customerType == "Nước ngoài")
+            {
+                MessageBox.Show(
+                        "Không thể sửa loại khách 'Nước ngoài'!",
+                        "SỬA LOẠI KHÁCH THẤT BẠI",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                return;
+            }
+
             var EditForm = new CustomerTypeEditForm();
             EditForm.ShowDialog(this);
         }
