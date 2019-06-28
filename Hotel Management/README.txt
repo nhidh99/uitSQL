@@ -1,4 +1,4 @@
-0.Yêu cầu: Cài đặt Visual Studio và SQL Server Management từ bản 2012 về sau.
+0. Yêu cầu: Cài đặt Visual Studio và SQL Server Management từ bản 2012 về sau.
 
 1. Vào folder Queries/CreateDatabase.sql và execute file để thực hiện tạo database.
 
