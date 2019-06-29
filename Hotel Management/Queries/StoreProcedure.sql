@@ -126,7 +126,7 @@ BEGIN
 	SELECT MaPhong
 	FROM PhieuThue
 	WHERE MaHoaDon IS NULL
-	AND NgayThue <= @NgayThanhToan
+	AND NgayThue < @NgayThanhToan
 	ORDER BY MaPhong ASC
 END
 GO

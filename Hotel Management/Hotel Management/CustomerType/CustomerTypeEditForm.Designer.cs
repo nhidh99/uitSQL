@@ -69,6 +69,7 @@
             this.tbNewCustomerType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbNewCustomerType.Location = new System.Drawing.Point(201, 110);
             this.tbNewCustomerType.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNewCustomerType.MaxLength = 30;
             this.tbNewCustomerType.Name = "tbNewCustomerType";
             this.tbNewCustomerType.Size = new System.Drawing.Size(134, 20);
             this.tbNewCustomerType.TabIndex = 63;

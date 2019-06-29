@@ -33,6 +33,10 @@ namespace BUS
 
         public static bool UpdateCustomerType(string oldType, string newType)
         {
+            if (CustomerTypeDAO.CheckCustomerType(newType))
+            {
+                return false;
+            }
             return CustomerTypeDAO.UpdateCustomerType(oldType, newType);
         }
     }

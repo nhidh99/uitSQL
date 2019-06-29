@@ -44,6 +44,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.gcBillData = new DevExpress.XtraEditors.GroupControl();
             this.dgvBillData = new System.Windows.Forms.DataGridView();
+            this.PaidRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomRentDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalCustomerSurcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ForeignCustomerSurcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidRoomTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -63,12 +69,6 @@
             this.lbBillCost = new DevExpress.XtraEditors.LabelControl();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnCreate = new DevExpress.XtraEditors.SimpleButton();
-            this.PaidRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidRoomRentDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AdditionalCustomerSurcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ForeignCustomerSurcharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidRoomTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -270,6 +270,49 @@
             this.dgvBillData.Size = new System.Drawing.Size(512, 188);
             this.dgvBillData.TabIndex = 2;
             this.dgvBillData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DgvBillData_RowPostPaint);
+            // 
+            // PaidRoomID
+            // 
+            this.PaidRoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.PaidRoomID.HeaderText = "PHÒNG";
+            this.PaidRoomID.Name = "PaidRoomID";
+            this.PaidRoomID.ReadOnly = true;
+            this.PaidRoomID.Width = 67;
+            // 
+            // PaidRoomRentDays
+            // 
+            this.PaidRoomRentDays.HeaderText = "SỐ NGÀY THUÊ";
+            this.PaidRoomRentDays.Name = "PaidRoomRentDays";
+            this.PaidRoomRentDays.ReadOnly = true;
+            this.PaidRoomRentDays.Width = 110;
+            // 
+            // PaidRoomPrice
+            // 
+            this.PaidRoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
+            this.PaidRoomPrice.Name = "PaidRoomPrice";
+            this.PaidRoomPrice.ReadOnly = true;
+            // 
+            // AdditionalCustomerSurcharge
+            // 
+            this.AdditionalCustomerSurcharge.HeaderText = "PHỤ THU KHÁCH THÊM (VND)";
+            this.AdditionalCustomerSurcharge.Name = "AdditionalCustomerSurcharge";
+            this.AdditionalCustomerSurcharge.ReadOnly = true;
+            this.AdditionalCustomerSurcharge.Visible = false;
+            // 
+            // ForeignCustomerSurcharge
+            // 
+            this.ForeignCustomerSurcharge.HeaderText = "PHỤ THU KHÁCH NƯỚC NGOÀI (VND)";
+            this.ForeignCustomerSurcharge.Name = "ForeignCustomerSurcharge";
+            this.ForeignCustomerSurcharge.ReadOnly = true;
+            this.ForeignCustomerSurcharge.Visible = false;
+            // 
+            // PaidRoomTotalPrice
+            // 
+            this.PaidRoomTotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PaidRoomTotalPrice.HeaderText = "THÀNH TIỀN (VND)";
+            this.PaidRoomTotalPrice.Name = "PaidRoomTotalPrice";
+            this.PaidRoomTotalPrice.ReadOnly = true;
             // 
             // btnCancel
             // 
@@ -511,55 +554,13 @@
             this.btnCreate.Text = "THANH TOÁN HOÁ ĐƠN";
             this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
-            // PaidRoomID
-            // 
-            this.PaidRoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.PaidRoomID.HeaderText = "PHÒNG";
-            this.PaidRoomID.Name = "PaidRoomID";
-            this.PaidRoomID.ReadOnly = true;
-            this.PaidRoomID.Width = 67;
-            // 
-            // PaidRoomRentDays
-            // 
-            this.PaidRoomRentDays.HeaderText = "SỐ NGÀY THUÊ";
-            this.PaidRoomRentDays.Name = "PaidRoomRentDays";
-            this.PaidRoomRentDays.ReadOnly = true;
-            this.PaidRoomRentDays.Width = 110;
-            // 
-            // PaidRoomPrice
-            // 
-            this.PaidRoomPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomPrice.HeaderText = "ĐƠN GIÁ (VND)";
-            this.PaidRoomPrice.Name = "PaidRoomPrice";
-            this.PaidRoomPrice.ReadOnly = true;
-            // 
-            // AdditionalCustomerSurcharge
-            // 
-            this.AdditionalCustomerSurcharge.HeaderText = "PHỤ THU KHÁCH THÊM (VND)";
-            this.AdditionalCustomerSurcharge.Name = "AdditionalCustomerSurcharge";
-            this.AdditionalCustomerSurcharge.ReadOnly = true;
-            this.AdditionalCustomerSurcharge.Visible = false;
-            // 
-            // ForeignCustomerSurcharge
-            // 
-            this.ForeignCustomerSurcharge.HeaderText = "PHỤ THU KHÁCH NƯỚC NGOÀI (VND)";
-            this.ForeignCustomerSurcharge.Name = "ForeignCustomerSurcharge";
-            this.ForeignCustomerSurcharge.ReadOnly = true;
-            this.ForeignCustomerSurcharge.Visible = false;
-            // 
-            // PaidRoomTotalPrice
-            // 
-            this.PaidRoomTotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PaidRoomTotalPrice.HeaderText = "THÀNH TIỀN (VND)";
-            this.PaidRoomTotalPrice.Name = "PaidRoomTotalPrice";
-            this.PaidRoomTotalPrice.ReadOnly = true;
-            // 
             // BillDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 441);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(800, 480);
             this.MinimumSize = new System.Drawing.Size(800, 480);

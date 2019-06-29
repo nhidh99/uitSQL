@@ -74,6 +74,8 @@ namespace GUI.Bill
             this.tbBillSurcharge.Text = TotalSurcharge.ToString("N0");
             this.tbBillPrice.Text = TotalPrice.ToString("N0");
             this.tbChange.Text = "-" + this.tbBillPrice.Text;
+            if (tbChange.Text == "-0")
+                tbChange.Text = "0";
         }
 
         private void DgvBillData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

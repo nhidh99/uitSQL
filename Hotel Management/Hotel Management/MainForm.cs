@@ -248,7 +248,7 @@ namespace GUI
             this.tbLeaseRoomPrice.Text = price.ToString("N0") + " VND";
         }
 
-        private void BtnLockNoteRoom_Click(object sender, EventArgs e)
+        private void BtnLockLeaseRoom_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(this.cbLeaseRoomID.Text))
             {
@@ -264,7 +264,7 @@ namespace GUI
             }
         }
 
-        private void BtnLockNoteRoom_EnabledChanged(object sender, EventArgs e)
+        private void BtnLockLeaseRoom_EnabledChanged(object sender, EventArgs e)
         {
             if (this.btnLockRoom.Enabled == true)
             {

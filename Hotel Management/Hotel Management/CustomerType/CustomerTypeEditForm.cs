@@ -44,8 +44,8 @@ namespace GUI.CustomerType
                 else
                 {
                     MessageBox.Show(
-                    "Sửa loại khách thất bại!",
-                    "THÊM LOẠI KHÁCH THẤT BẠI!",
+                    $"Loại khách {newType} đã tồn tại!",
+                    "SỬA LOẠI KHÁCH THẤT BẠI!",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 }

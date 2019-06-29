@@ -236,4 +236,4 @@ C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\Hotel Management\obj\D
 C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\Hotel Management\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel Management.exe
 C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\Hotel Management\obj\Debug\Hotel Management.pdb
-C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\Hotel Management\bin\Debug\Database\QuanLiKhachSan2.mdf
+C:\Users\Admin\Desktop\uitBundles\uitSQL\Hotel Management\Hotel Management\bin\Debug\Database\QuanLiKhachSan.mdf

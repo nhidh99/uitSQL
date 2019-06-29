@@ -165,6 +165,7 @@
             this.tabMonthRevenue = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.gcRevenueSelect = new DevExpress.XtraEditors.GroupControl();
+            this.cbRevenueMonth = new System.Windows.Forms.ComboBox();
             this.btnCreateMonthRevenue = new DevExpress.XtraEditors.SimpleButton();
             this.lbMonthRevenue = new DevExpress.XtraEditors.LabelControl();
             this.gcRevenueList = new DevExpress.XtraEditors.GroupControl();
@@ -203,7 +204,6 @@
             this.btnAddRoomType = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
-            this.cbRevenueMonth = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.tcHotelManagement)).BeginInit();
             this.tcHotelManagement.SuspendLayout();
             this.tabListRoom.SuspendLayout();
@@ -778,8 +778,8 @@
             this.btnLockRoom.Size = new System.Drawing.Size(94, 110);
             this.btnLockRoom.TabIndex = 14;
             this.btnLockRoom.Text = "\r\nCHỌN PHÒNG";
-            this.btnLockRoom.EnabledChanged += new System.EventHandler(this.BtnLockNoteRoom_EnabledChanged);
-            this.btnLockRoom.Click += new System.EventHandler(this.BtnLockNoteRoom_Click);
+            this.btnLockRoom.EnabledChanged += new System.EventHandler(this.BtnLockLeaseRoom_EnabledChanged);
+            this.btnLockRoom.Click += new System.EventHandler(this.BtnLockLeaseRoom_Click);
             // 
             // gcLeaseCustomerData
             // 
@@ -1554,6 +1554,7 @@
             this.tbBillCustomerName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbBillCustomerName.Location = new System.Drawing.Point(80, 45);
             this.tbBillCustomerName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbBillCustomerName.MaxLength = 30;
             this.tbBillCustomerName.Name = "tbBillCustomerName";
             this.tbBillCustomerName.Size = new System.Drawing.Size(157, 21);
             this.tbBillCustomerName.TabIndex = 1;
@@ -2010,6 +2011,28 @@
             this.gcRevenueSelect.Size = new System.Drawing.Size(949, 216);
             this.gcRevenueSelect.TabIndex = 0;
             this.gcRevenueSelect.Text = "TRA CỨU DOANH THU";
+            // 
+            // cbRevenueMonth
+            // 
+            this.cbRevenueMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRevenueMonth.FormattingEnabled = true;
+            this.cbRevenueMonth.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.cbRevenueMonth.Location = new System.Drawing.Point(392, 99);
+            this.cbRevenueMonth.Name = "cbRevenueMonth";
+            this.cbRevenueMonth.Size = new System.Drawing.Size(121, 21);
+            this.cbRevenueMonth.TabIndex = 3;
             // 
             // btnCreateMonthRevenue
             // 
@@ -2519,28 +2542,6 @@
             this.simpleButton18.Size = new System.Drawing.Size(502, 28);
             this.simpleButton18.TabIndex = 24;
             this.simpleButton18.Text = "TÙY CHỈNH LOẠI PHÒNG";
-            // 
-            // cbRevenueMonth
-            // 
-            this.cbRevenueMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRevenueMonth.FormattingEnabled = true;
-            this.cbRevenueMonth.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.cbRevenueMonth.Location = new System.Drawing.Point(392, 99);
-            this.cbRevenueMonth.Name = "cbRevenueMonth";
-            this.cbRevenueMonth.Size = new System.Drawing.Size(121, 21);
-            this.cbRevenueMonth.TabIndex = 3;
             // 
             // MainForm
             // 

@@ -124,7 +124,7 @@ namespace DAO
                 }
 
                 var query = $"SELECT * FROM LoaiKhach\n" +
-                    $"WHERE TenLoaiKhach = '{customerType} AND KhaDung = 1'";
+                    $"WHERE TenLoaiKhach = N'{customerType}' AND KhaDung = 1";
                 var command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
 
